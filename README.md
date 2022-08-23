@@ -1,5 +1,3 @@
-# YABA
-
 <div id="top"></div>
 <!-- PROJECT LOGO -->
 <br />
