@@ -15,6 +15,7 @@
 ### Known Issue
 
 Problem: Unknown at rule @tailwindcss(unknownAtRules) in VS Code:
+
 1. Open the settings, search for “unknown”, the first result should be the one you’re looking for: CSS > Lint: Unknown At Rules:
 2. Change that to ignore: CSS > Lint: Unknown At Rules: Ignore
 
@@ -26,9 +27,11 @@ Problem: Unknown at rule @tailwindcss(unknownAtRules) in VS Code:
 ### Installation
 
 0. Clone the repo
+
    ```sh
    git clone https://github.com/superbahbi/YABA.git
    ```
+
 Install and run the server:
 
 TODO
@@ -38,7 +41,6 @@ Installing and running the client:
 TODO
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- CONTACT -->
 
