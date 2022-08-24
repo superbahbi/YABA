@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../layouts/Navbar";
-import { SettingsProps } from "../utils/interface";
+import Main from "../layouts/Main";
+import { SettingsProps } from "../types/interface";
 
 const Settings: React.FC<SettingsProps> = ({}) => {
   return (
     <>
-      <Navbar />
+      <Main>Settings</Main>
     </>
   );
 };

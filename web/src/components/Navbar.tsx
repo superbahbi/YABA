@@ -12,12 +12,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         >
           YABA
         </Link>
-
         <ul className="md:flex-col md:min-w-full flex flex-col list-none">
           <li className="items-center">
             <Link className={"text-xs uppercase py-3 font-bold block "} to="/">
               <i className={"fas fa-home mr-2 text-sm "}> </i>
-              Home
+              Overview
             </Link>
           </li>
           <li className="items-center">

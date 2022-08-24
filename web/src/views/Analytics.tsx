@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../layouts/Navbar";
-import { AnalyticsProps } from "../utils/interface";
+import Main from "../layouts/Main";
+import { AnalyticsProps } from "../types/interface";
 
 const Analytics: React.FC<AnalyticsProps> = ({}) => {
   return (
     <>
-      <Navbar />
+      <Main>Analytics</Main>
     </>
   );
 };

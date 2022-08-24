@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../layouts/Navbar";
-import { InvoicesProps } from "../utils/interface";
+import Main from "../layouts/Main";
+import { InvoicesProps } from "../types/interface";
 
 const Invoices: React.FC<InvoicesProps> = ({}) => {
   return (
     <>
-      <Navbar />
+      <Main>Invoices</Main>
     </>
   );
 };

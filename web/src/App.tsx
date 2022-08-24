@@ -1,19 +1,19 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Account from "./views/Account";
 import Analytics from "./views/Analytics";
-import Home from "./views/Home";
+import Overview from "./views/Overview";
 import Invoices from "./views/Invoices";
 import Settings from "./views/Settings";
-import Wallets from "./views/Wallets";
+import Wallet from "./views/Wallet";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Overview />} />
         <Route path="analytics" element={<Analytics />} />
-        <Route path="wallets" element={<Wallets />} />
+        <Route path="wallet" element={<Wallet />} />
         <Route path="invoices" element={<Invoices />} />
         <Route path="account" element={<Account />} />
         <Route path="settings" element={<Settings />} />
