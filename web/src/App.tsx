@@ -6,19 +6,23 @@ import Overview from "./views/Overview";
 import Invoices from "./views/Invoices";
 import Settings from "./views/Settings";
 import Wallet from "./views/Wallet";
+import Transaction from "./views/Transaction";
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Overview />} />
-        <Route path="analytics" element={<Analytics />} />
-        <Route path="wallet" element={<Wallet />} />
-        <Route path="invoices" element={<Invoices />} />
-        <Route path="account" element={<Account />} />
-        <Route path="settings" element={<Settings />} />
-      </Routes>
-    </div>
+    <>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Overview />} />
+          <Route path="transaction" element={<Transaction />} />
+          <Route path="analytics" element={<Analytics />} />
+          <Route path="wallet" element={<Wallet />} />
+          <Route path="invoices" element={<Invoices />} />
+          <Route path="account" element={<Account />} />
+          <Route path="settings" element={<Settings />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 

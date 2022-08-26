@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 interface NavbarProps {}
 
-const Navbar: React.FC<NavbarProps> = ({}) => {
+const Navbar: React.FC<NavbarProps> = () => {
   return (
     <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden border-r-2 border-blueLight bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
       <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center w-full mx-auto">
@@ -17,6 +17,15 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
             <Link className={"text-xs uppercase py-3 font-bold block "} to="/">
               <i className={"fas fa-home mr-2 text-sm "}> </i>
               Overview
+            </Link>
+          </li>
+          <li className="items-center">
+            <Link
+              className={"text-xs uppercase py-3 font-bold block "}
+              to="/transaction"
+            >
+              <i className={"fas fa-chart-pie mr-2 text-sm "}> </i>
+              Transaction
             </Link>
           </li>
           <li className="items-center">
