@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../layouts/Navbar";
-import { AccountProps } from "../utils/interface";
+import Main from "../layouts/Main";
+import { AccountProps } from "../types/interface";
 
 const Account: React.FC<AccountProps> = ({}) => {
   return (
     <>
-      <Navbar />
+      <Main>Account</Main>
     </>
   );
 };
