@@ -5,7 +5,7 @@ import Pagination from "./Pagination";
 const Table: React.FC<TableProps> = ({ title, headers, data, limit }) => {
   return (
     <div className="flex">
-      <div className="flex flex-col border my-4 p-4 bg-white rounded-lg">
+      <div className="flex flex-col p-4 bg-white rounded-lg">
         <h1 className="text-2xl text-sky-500">{title}</h1>
         <div className="overflow-x-auto">
           <div className="inline-block min-w-full">
