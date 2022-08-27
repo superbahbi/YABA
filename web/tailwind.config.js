@@ -6,7 +6,7 @@ module.exports = {
     screens: {
       sm: "480px",
       md: "768px",
-      lg: "976px",
+      lg: "992px",
       xl: "1440px",
     },
     colors: {
