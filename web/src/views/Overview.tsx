@@ -96,7 +96,7 @@ export const doughnutData = {
     },
   ],
 };
-const Overview: React.FC<OverviewProps> = ({}) => {
+const Overview: React.FC<OverviewProps> = ({ }) => {
   return (
     <>
       <Main>

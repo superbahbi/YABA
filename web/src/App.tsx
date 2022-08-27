@@ -17,11 +17,8 @@ function App() {
           <Route path="transaction" element={<Transaction />} />
           <Route path="analytics" element={<Analytics />} />
           <Route path="wallet" element={<Wallet />} />
-<<<<<<< HEAD
           <Route path="invoices" element={<Invoice />} />
-=======
           <Route path="invoice" element={<Invoice />} />
->>>>>>> bb3cd7c07b263502d1c72c04f3a4264f40ec37cc
           <Route path="account" element={<Account />} />
           <Route path="settings" element={<Settings />} />
         </Routes>
