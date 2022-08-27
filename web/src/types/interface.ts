@@ -28,3 +28,5 @@ export interface TableProps {
   limit?: number;
 }
 export interface PaginationProps {}
+export interface HeaderProps {}
+export interface NavbarProps {}
