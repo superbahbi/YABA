@@ -21,3 +21,10 @@ export interface TransactionData {
   amount: number;
   ip_address: string;
 }
+export interface TableProps {
+  title: string;
+  headers: string[];
+  data: TransactionData[];
+  limit?: number;
+}
+export interface PaginationProps {}

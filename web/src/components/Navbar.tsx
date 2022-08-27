@@ -4,12 +4,12 @@ interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = () => {
   return (
-    <nav className="flex-col h-full w-10 border-r-2 border-blueLight lg:px-6 md:px-3 mr-6 lg:w-52 hidden md:flex">
+    <nav className="flex-col h-full w-10  lg:px-6 md:px-3 lg:mr-6 pt-4 lg:w-52 hidden md:flex">
       <Link
         className="text-sm uppercase font-bold p-4 px-0 hidden lg:block"
         to="/"
       >
-        YABA
+        <h1 className="text-2xl text-sky-500">YABA</h1>
       </Link>
       <ul className="flex flex-col list-none">
         <li className="items-center">
