@@ -7,6 +7,8 @@ import { ReactComponent as IconSetting } from "./setting.svg";
 import { ReactComponent as IconWallet } from "./wallet.svg";
 import { ReactComponent as IconCollege } from "./college.svg";
 import { ReactComponent as IconTravel } from "./travel.svg";
+import { ReactComponent as IconChevronLeft } from "./chevron-left.svg";
+import { ReactComponent as IconChevronRight } from "./chevron-right.svg";
 export {
   IconTicket,
   IconAccount,
@@ -17,4 +19,6 @@ export {
   IconWallet,
   IconCollege,
   IconTravel,
+  IconChevronLeft,
+  IconChevronRight,
 };

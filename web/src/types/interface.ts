@@ -49,3 +49,4 @@ export interface DougnutGraphProps {
   title: string;
   data: number[];
 }
+export interface CalendarProps {}

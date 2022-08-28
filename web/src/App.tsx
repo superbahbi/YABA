@@ -7,7 +7,7 @@ import Invoice from "./views/Invoice";
 import Settings from "./views/Settings";
 import Wallet from "./views/Wallet";
 import Transaction from "./views/Transaction";
-
+import "react-calendar/dist/Calendar.css";
 function App() {
   return (
     <>

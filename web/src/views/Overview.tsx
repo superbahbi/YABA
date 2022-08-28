@@ -7,33 +7,9 @@ import { IconTicket, IconCollege, IconTravel } from "../assets/icons";
 import LineGraph from "../components/Graph/LineGraph";
 import DougnutGraph from "../components/Graph/DougnutGraph";
 import { faker } from "@faker-js/faker";
-// export const doughnutData = {
-//   labels: ["Food", "Rent", "Investment", "Transporation", "Loan", "Other"],
-//   datasets: [
-//     {
-//       label: "# of Votes",
-//       data: [12, 19, 3, 5, 3, 2],
-//       backgroundColor: [
-//         "rgba(255, 99, 132, 1)",
-//         "rgba(54, 162, 235, 1)",
-//         "rgba(255, 206, 86, 1)",
-//         "rgba(75, 192, 192, 1)",
-//         "rgba(153, 102, 255, 1)",
-//         "rgba(255, 159, 64, 1)",
-//       ],
-//       borderColor: [
-//         "rgba(255, 99, 132, 1)",
-//         "rgba(54, 162, 235, 1)",
-//         "rgba(255, 206, 86, 1)",
-//         "rgba(75, 192, 192, 1)",
-//         "rgba(153, 102, 255, 1)",
-//         "rgba(255, 159, 64, 1)",
-//       ],
-//       borderWidth: 1,
-//     },
-//   ],
-// };
-const Overview: React.FC<OverviewProps> = ({}) => {
+import Calendar from "../components/Calendar";
+
+const Overview: React.FC<OverviewProps> = () => {
   const income = Array.from(Array(12)).map(() =>
     faker.datatype.number({ min: 500, max: 1000 })
   );
@@ -45,8 +21,8 @@ const Overview: React.FC<OverviewProps> = ({}) => {
     <>
       <Main>
         <div className="flex w-full">
-          <div className="grid grid-cols-4 gap-4 w-full">
-            <div className="col-span-3 h-96 bg-white p-4 rounded">
+          <div className="grid grid-cols-4 gap-4 w-full m-4">
+            <div className="col-span-3 bg-white p-4 rounded">
               <LineGraph
                 title="Income vs Expenses"
                 income={income}
@@ -54,10 +30,7 @@ const Overview: React.FC<OverviewProps> = ({}) => {
               />
             </div>
             <div className="col-span-1 bg-white p-4 rounded">
-              <DougnutGraph
-                title="Budget Breakdown"
-                data={bugetBreakdownData}
-              />
+              <Calendar />
             </div>
             <div className="row-span-3 bg-white p-4 rounded">
               <div className="text-midnight text-lg font-semibold">
@@ -89,7 +62,13 @@ const Overview: React.FC<OverviewProps> = ({}) => {
             </div>
             <div className="col-span-1 bg-white p-4 rounded">4</div>
             <div className="col-span-1 bg-white p-4 rounded">5</div>
-            <div className="row-span-2 bg-white p-4 rounded">6</div>
+            <div className="row-span-2 bg-white p-4 rounded">
+              {" "}
+              <DougnutGraph
+                title="Budget Breakdown"
+                data={bugetBreakdownData}
+              />
+            </div>
             <div className="col-span-2 bg-white p-4 rounded">7</div>
             <div className="col-span-1 bg-white p-4 rounded">8</div>
             <div className="col-span-2 bg-white p-4 rounded">9</div>
