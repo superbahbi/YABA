@@ -1,114 +1,92 @@
 import React from "react";
 import Main from "../layouts/Main";
+
+import Progress from "../components/Progress";
 import { OverviewProps } from "../types/interface";
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-} from "chart.js";
-import { Doughnut, Line } from "react-chartjs-2";
+import { IconTicket, IconCollege, IconTravel } from "../assets/icons";
+import LineGraph from "../components/Graph/LineGraph";
+import DougnutGraph from "../components/Graph/DougnutGraph";
 import { faker } from "@faker-js/faker";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend
-);
-export const options = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: "Income vs Expenses",
-    },
-  },
-};
-export const doughtnutOptions = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: "Budget breakdown",
-    },
-  },
-};
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-
-export const lineData = {
-  labels,
-  datasets: [
-    {
-      label: "Income",
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-    {
-      label: "Expenses",
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      borderColor: "rgb(53, 162, 235)",
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
-    },
-  ],
-};
-
-export const doughnutData = {
-  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-  datasets: [
-    {
-      label: "# of Votes",
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(255, 206, 86, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(153, 102, 255, 0.2)",
-        "rgba(255, 159, 64, 0.2)",
-      ],
-      borderColor: [
-        "rgba(255, 99, 132, 1)",
-        "rgba(54, 162, 235, 1)",
-        "rgba(255, 206, 86, 1)",
-        "rgba(75, 192, 192, 1)",
-        "rgba(153, 102, 255, 1)",
-        "rgba(255, 159, 64, 1)",
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
-const Overview: React.FC<OverviewProps> = ({ }) => {
+// export const doughnutData = {
+//   labels: ["Food", "Rent", "Investment", "Transporation", "Loan", "Other"],
+//   datasets: [
+//     {
+//       label: "# of Votes",
+//       data: [12, 19, 3, 5, 3, 2],
+//       backgroundColor: [
+//         "rgba(255, 99, 132, 1)",
+//         "rgba(54, 162, 235, 1)",
+//         "rgba(255, 206, 86, 1)",
+//         "rgba(75, 192, 192, 1)",
+//         "rgba(153, 102, 255, 1)",
+//         "rgba(255, 159, 64, 1)",
+//       ],
+//       borderColor: [
+//         "rgba(255, 99, 132, 1)",
+//         "rgba(54, 162, 235, 1)",
+//         "rgba(255, 206, 86, 1)",
+//         "rgba(75, 192, 192, 1)",
+//         "rgba(153, 102, 255, 1)",
+//         "rgba(255, 159, 64, 1)",
+//       ],
+//       borderWidth: 1,
+//     },
+//   ],
+// };
+const Overview: React.FC<OverviewProps> = ({}) => {
+  const income = Array.from(Array(12)).map(() =>
+    faker.datatype.number({ min: 500, max: 1000 })
+  );
+  const expense = Array.from(Array(12)).map(() =>
+    faker.datatype.number({ min: 500, max: 1000 })
+  );
+  const bugetBreakdownData = [25, 30, 15, 15, 7, 8];
   return (
     <>
       <Main>
-        <div className="text-blue  w-full flex">
+        <div className="flex w-full">
           <div className="grid grid-cols-4 gap-4 w-full">
-            <div className="col-span-3 bg-white p-4 rounded">
-              <Line options={options} data={lineData} />
+            <div className="col-span-3 h-96 bg-white p-4 rounded">
+              <LineGraph
+                title="Income vs Expenses"
+                income={income}
+                expense={expense}
+              />
             </div>
             <div className="col-span-1 bg-white p-4 rounded">
-              <Doughnut options={doughtnutOptions} data={doughnutData} />
+              <DougnutGraph
+                title="Budget Breakdown"
+                data={bugetBreakdownData}
+              />
             </div>
-            <div className="row-span-3 bg-white p-4 rounded">3</div>
+            <div className="row-span-3 bg-white p-4 rounded">
+              <div className="text-midnight text-lg font-semibold">
+                <h1 className="">Goal Budget</h1>
+              </div>
+              <div className="flex flex-col w-full">
+                <Progress
+                  title="Travel"
+                  currentProgress={32}
+                  totalProgress={100}
+                  icon={<IconTravel />}
+                  color="bg-sky-200"
+                />
+                <Progress
+                  title="College"
+                  currentProgress={40}
+                  totalProgress={100}
+                  icon={<IconCollege />}
+                  color="bg-rose-200"
+                />
+                <Progress
+                  title="Music"
+                  currentProgress={82}
+                  totalProgress={100}
+                  icon={<IconTicket />}
+                  color="bg-cyan-200"
+                />
+              </div>
+            </div>
             <div className="col-span-1 bg-white p-4 rounded">4</div>
             <div className="col-span-1 bg-white p-4 rounded">5</div>
             <div className="row-span-2 bg-white p-4 rounded">6</div>

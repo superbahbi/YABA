@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export interface MainProps {
   children: React.ReactNode;
 }
@@ -30,3 +32,20 @@ export interface TableProps {
 export interface PaginationProps {}
 export interface HeaderProps {}
 export interface NavbarProps {}
+export interface ProgressProps {
+  title: string;
+  currentProgress: number;
+  totalProgress: number;
+  icon?: ReactElement;
+  color: string;
+}
+
+export interface LineGraphProps {
+  title: string;
+  income: number[];
+  expense: number[];
+}
+export interface DougnutGraphProps {
+  title: string;
+  data: number[];
+}
