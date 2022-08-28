@@ -1,14 +1,16 @@
-import { ReactComponent as IconTicket } from "./ticket.svg";
-import { ReactComponent as IconAccount } from "./account.svg";
-import { ReactComponent as IconChart } from "./chart.svg";
-import { ReactComponent as IconHome } from "./home.svg";
-import { ReactComponent as IconInvoice } from "./invoice.svg";
-import { ReactComponent as IconSetting } from "./setting.svg";
-import { ReactComponent as IconWallet } from "./wallet.svg";
-import { ReactComponent as IconCollege } from "./college.svg";
-import { ReactComponent as IconTravel } from "./travel.svg";
-import { ReactComponent as IconChevronLeft } from "./chevron-left.svg";
-import { ReactComponent as IconChevronRight } from "./chevron-right.svg";
+import { IconAccount } from "./account";
+import { IconChart } from "./chart";
+import { IconChevronLeft } from "./chevron-left";
+import { IconChevronRight } from "./chevron-right";
+import { IconCollege } from "./college";
+import { IconHome } from "./home";
+import { IconInvoice } from "./invoice";
+import { IconMail } from "./mail";
+import { IconNotification } from "./notification";
+import { IconSetting } from "./setting";
+import { IconTicket } from "./ticket";
+import { IconTravel } from "./travel";
+import { IconWallet } from "./wallet";
 export {
   IconTicket,
   IconAccount,
@@ -21,4 +23,6 @@ export {
   IconTravel,
   IconChevronLeft,
   IconChevronRight,
+  IconMail,
+  IconNotification,
 };

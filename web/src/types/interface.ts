@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { FunctionComponent } from "react";
 
 export interface MainProps {
   children: React.ReactNode;
@@ -36,7 +36,7 @@ export interface ProgressProps {
   title: string;
   currentProgress: number;
   totalProgress: number;
-  icon?: ReactElement;
+  icon?: React.ReactElement;
   color: string;
 }
 
@@ -50,3 +50,12 @@ export interface DougnutGraphProps {
   data: number[];
 }
 export interface CalendarProps {}
+export interface SvgIconProps {
+  width?: number;
+  height?: number;
+  strokeWidth?: number;
+  strokeColour?: string;
+  fillColour?: string;
+  rotateCenter?: number;
+}
+export interface SvgIcon extends FunctionComponent<SvgIconProps> {}

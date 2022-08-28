@@ -41,21 +41,21 @@ const Overview: React.FC<OverviewProps> = () => {
                   title="Travel"
                   currentProgress={32}
                   totalProgress={100}
-                  icon={<IconTravel />}
+                  icon={<IconTravel strokeColour="text-sky-600" />}
                   color="bg-sky-200"
                 />
                 <Progress
                   title="College"
                   currentProgress={40}
                   totalProgress={100}
-                  icon={<IconCollege />}
+                  icon={<IconCollege strokeColour="text-rose-600" />}
                   color="bg-rose-200"
                 />
                 <Progress
                   title="Music"
                   currentProgress={82}
                   totalProgress={100}
-                  icon={<IconTicket />}
+                  icon={<IconTicket strokeColour="text-cyan-600" />}
                   color="bg-cyan-200"
                 />
               </div>

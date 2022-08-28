@@ -1,8 +1,6 @@
 import React from "react";
 import { HeaderProps } from "../types/interface";
-import { ReactComponent as IconMail } from "../assets/icons/mail.svg";
-import { ReactComponent as IconNotification } from "../assets/icons/notification.svg";
-
+import { IconMail, IconNotification } from "../assets/icons";
 const Header: React.FC<HeaderProps> = () => {
   return (
     <>

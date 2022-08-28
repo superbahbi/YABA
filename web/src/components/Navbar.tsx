@@ -42,11 +42,11 @@ const Navbar: React.FC<NavbarProps> = () => {
           return (
             <li className="items-center" key={index}>
               <Link
-                className={"flex text-sm py-3 font-light"}
+                className={"flex text-md py-3 font-light"}
                 to={index === 0 ? "/" : "/" + linkNames[index].toLowerCase()}
               >
                 <i className={"flex items-center mr-2"}>
-                  <Icon className="h-4" />
+                  <Icon />
                 </i>
                 <span className="hidden lg:inline-block">
                   {linkNames[index]}
