@@ -1,3 +1,5 @@
+import { IconGraph } from "./graph";
+import { IconTransaction } from "./transaction";
 import { IconAccount } from "./account";
 import { IconChart } from "./chart";
 import { IconChevronLeft } from "./chevron-left";
@@ -11,6 +13,8 @@ import { IconSetting } from "./setting";
 import { IconTicket } from "./ticket";
 import { IconTravel } from "./travel";
 import { IconWallet } from "./wallet";
+import { IconCash } from "./cash";
+import { IconCard } from "./card";
 export {
   IconTicket,
   IconAccount,
@@ -25,4 +29,8 @@ export {
   IconChevronRight,
   IconMail,
   IconNotification,
+  IconTransaction,
+  IconCash,
+  IconCard,
+  IconGraph,
 };

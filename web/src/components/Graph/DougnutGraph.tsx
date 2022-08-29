@@ -11,10 +11,11 @@ const DougnutGraph: React.FC<DougnutGraphProps> = ({ title, data }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
+        display: true,
         position: "top" as const,
       },
       title: {
-        display: true,
+        display: false,
         text: title,
       },
     },

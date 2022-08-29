@@ -66,7 +66,7 @@ const Calendar: React.FC<CalendarProps> = () => {
                   {day_of_week.map((day) => (
                     <th>
                       <div className="w-full flex justify-center">
-                        <p className="text-lg font-medium text-center text-gray-800">
+                        <p className="text-sm font-medium text-center text-gray-800">
                           {day}
                         </p>
                       </div>
@@ -79,7 +79,7 @@ const Calendar: React.FC<CalendarProps> = () => {
                   <tr>
                     {week.map((day) => (
                       <td
-                        className="pt-4"
+                        className="pt-2"
                         onClick={() => {
                           setDaySelected(day);
                         }}
@@ -87,7 +87,7 @@ const Calendar: React.FC<CalendarProps> = () => {
                         <div className="w-full h-full">
                           <div className="flex items-center justify-center w-full rounded-full cursor-pointer">
                             <p
-                              className={`text-lg w-8 h-8 flex items-center justify-center font-medium ${getDayClass(
+                              className={`text-sm w-7 h-7 flex items-center justify-center font-light ${getDayClass(
                                 day
                               )}`}
                             >

@@ -54,8 +54,13 @@ export interface SvgIconProps {
   width?: number;
   height?: number;
   strokeWidth?: number;
-  strokeColour?: string;
-  fillColour?: string;
+  strokeColor?: string;
+  fillColor?: string;
   rotateCenter?: number;
 }
 export interface SvgIcon extends FunctionComponent<SvgIconProps> {}
+export interface BalanceProps {
+  title: string;
+  amount: number;
+  icon: React.ReactElement;
+}

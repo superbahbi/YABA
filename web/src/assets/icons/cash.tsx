@@ -1,7 +1,7 @@
 import React from "react";
 import { SvgIcon } from "../../types/interface";
 
-export const IconMail: SvgIcon = ({
+export const IconCash: SvgIcon = ({
   strokeColor = "text-black-500",
   strokeWidth = 1.5,
   width = 24,
@@ -19,7 +19,7 @@ export const IconMail: SvgIcon = ({
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+      d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
     />
   </svg>
 );

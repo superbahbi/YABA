@@ -9,6 +9,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
@@ -19,7 +20,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 
 const LineGraph: React.FC<LineGraphProps> = ({ title, income, expense }) => {
@@ -34,6 +36,7 @@ const LineGraph: React.FC<LineGraphProps> = ({ title, income, expense }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
+        display: false,
         position: "top" as const,
         font: {
           size: 30,
@@ -42,7 +45,7 @@ const LineGraph: React.FC<LineGraphProps> = ({ title, income, expense }) => {
         },
       },
       title: {
-        display: true,
+        display: false,
         text: title,
       },
     },
@@ -65,19 +68,20 @@ const LineGraph: React.FC<LineGraphProps> = ({ title, income, expense }) => {
     labels,
     datasets: [
       {
-        label: "Income",
-        data: income,
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 1)",
-        borderWidth: 2,
-        tension: 0.3,
         fill: true,
-      },
-      {
         label: "Expenses",
         data: expense,
         borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 1)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        borderWidth: 2,
+        tension: 0.3,
+      },
+      {
+        fill: true,
+        label: "Income",
+        data: income,
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
         borderWidth: 2,
         tension: 0.3,
       },

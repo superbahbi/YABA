@@ -7,6 +7,7 @@ import {
   IconInvoice,
   IconAccount,
   IconSetting,
+  IconTransaction,
 } from "../assets/icons";
 import { NavbarProps } from "../types/interface";
 
@@ -22,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = () => {
   ];
   const icons = [
     IconHome,
-    IconChart,
+    IconTransaction,
     IconChart,
     IconWallet,
     IconInvoice,

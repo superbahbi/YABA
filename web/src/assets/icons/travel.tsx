@@ -2,7 +2,7 @@ import React from "react";
 import { SvgIcon } from "../../types/interface";
 
 export const IconTravel: SvgIcon = ({
-  strokeColour = "text-black-500",
+  strokeColor = "text-black-500",
   strokeWidth = 1.5,
   width = 24,
   height = 24,
@@ -12,7 +12,7 @@ export const IconTravel: SvgIcon = ({
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    className={`stroke-current ${strokeColour} w-6 h-6`}
+    className={`stroke-current ${strokeColor} w-6 h-6`}
     width={width}
     height={height}
   >
