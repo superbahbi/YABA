@@ -10,7 +10,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
         <div className="sticky top-0 h-screen">
           <Navbar />
         </div>
-        <div className="flex flex-col w-[60%]">
+        <div className="flex flex-col w-[1440px]">
           <div>
             <Header />
           </div>

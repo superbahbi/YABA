@@ -29,8 +29,8 @@ const Overview: React.FC<OverviewProps> = () => {
     <>
       <Main>
         <div className="flex w-full">
-          <div className="grid grid-cols-6 gap-4 w-full m-4">
-            <div className="col-span-5 bg-white p-4 rounded">
+          <div className="grid xl:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 gap-4 w-full m-4">
+            <div className="xl:col-span-4 md:col-span-2 sm:col-span-1 bg-white p-4 rounded">
               <div className="text-midnight text-lg font-semibold pb-2">
                 <h1 className="">Spending</h1>
               </div>
@@ -42,7 +42,7 @@ const Overview: React.FC<OverviewProps> = () => {
                 />
               </div>
             </div>
-            <div className="col-span-1 bg-white p-4 rounded">
+            <div className="xl:col-span-2 md:col-span-1 sm:col-span-1 bg-white p-4 rounded min-w-xs ">
               <div className="text-midnight text-lg font-semibold  pb-2">
                 <h1 className="">Scheduler</h1>
               </div>
@@ -78,7 +78,7 @@ const Overview: React.FC<OverviewProps> = () => {
                 />
               </div>
             </div>
-            <div className="col-span-1 bg-white p-4 rounded">
+            <div className="md:col-span-1 bg-white p-4 rounded">
               <div className="text-midnight text-lg font-semibold pb-2">
                 <h1 className="">Accounts</h1>
               </div>
@@ -100,13 +100,13 @@ const Overview: React.FC<OverviewProps> = () => {
                 />
               </div>
             </div>
-            <div className="col-span-1 bg-white p-4 rounded">
+            <div className="md:col-span-1 bg-white p-4 rounded">
               <div className="text-midnight text-lg font-semibold  pb-2">
                 <h1 className="">Credit Cards</h1>
               </div>
               <div className="flex flex-col w-full"></div>
             </div>
-            <div className="col-span-3 row-span-3 bg-white p-4 rounded">
+            <div className="md:col-span-3 sm:col-span-1 row-span-3 bg-white p-4 rounded">
               <div className="text-midnight text-lg font-semibold  pb-2">
                 <h1 className="">Budget Breakdown</h1>
               </div>
@@ -117,9 +117,11 @@ const Overview: React.FC<OverviewProps> = () => {
                 />
               </div>
             </div>
-            <div className="col-span-2 bg-white p-4 rounded">7</div>
-            <div className="col-span-1 bg-white p-4 rounded">8</div>
-            <div className="col-span-1 bg-white p-4 rounded">9</div>
+            <div className="md:col-span-2 sm:col-span-1 bg-white p-4 rounded">
+              7
+            </div>
+            <div className="md:col-span-1 bg-white p-4 rounded">8</div>
+            <div className="md:col-span-1 bg-white p-4 rounded">9</div>
           </div>
         </div>
       </Main>

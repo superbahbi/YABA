@@ -4,7 +4,7 @@ import { IconMail, IconNotification } from "../assets/icons";
 const Header: React.FC<HeaderProps> = () => {
   return (
     <>
-      <div className="flex flex-row justify-end">
+      <div className="hidden md:flex flex-row justify-end">
         <div className="flex flex-row ">
           <div className="flex justify-center items-center p-2">
             <IconMail />

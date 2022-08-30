@@ -31,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = () => {
     IconSetting,
   ];
   return (
-    <nav className="flex-col h-full w-10 lg:px-6 md:px-3 lg:mr-6 pt-4 lg:w-52 hidden md:flex">
+    <nav className="hidden md:flex flex-col h-full w-10 lg:px-6 md:px-3 lg:mr-6 pt-4 lg:w-52">
       <Link
         className="text-sm uppercase font-bold p-4 px-0 hidden lg:block"
         to="/"
