@@ -31,33 +31,28 @@ const Navbar: React.FC<NavbarProps> = () => {
     IconSetting,
   ];
   return (
-    <nav className="hidden md:flex flex-col h-full w-10 lg:px-6 md:px-3 lg:mr-6 pt-4 lg:w-52">
+    <ul className="menu p-2 rounded-box lg:px-6 md:px-3 lg:mr-6 pt-4 lg:w-56">
       <Link
-        className="text-sm uppercase font-bold p-4 px-0 hidden lg:block"
-        to="/"
+        className="hidden lg:block text-center text-sm uppercase font-bold p-4 px-0"
+        to="/overview"
       >
-        <h1 className="text-2xl text-sky-500">YABA</h1>
+        <h1 className="text-2xl text-primary">YABA</h1>
       </Link>
-      <ul className="flex flex-col list-none">
-        {icons.map((Icon, index) => {
-          return (
-            <li className="items-center" key={index}>
-              <Link
-                className={"flex text-md py-3 font-light"}
-                to={index === 0 ? "/" : "/" + linkNames[index].toLowerCase()}
-              >
-                <i className={"flex items-center mr-2"}>
-                  <Icon />
-                </i>
-                <span className="hidden lg:inline-block">
-                  {linkNames[index]}
-                </span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+      {icons.map((Icon, index) => {
+        return (
+          <li key={index}>
+            <Link
+              className="text-neutral active:text-white"
+              to={"/" + linkNames[index].toLowerCase()}
+            >
+              <Icon />
+              <span className="hidden lg:inline-block">{linkNames[index]}</span>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+    // </nav>
   );
 };
 export default Navbar;

@@ -30,11 +30,11 @@ const Overview: React.FC<OverviewProps> = () => {
       <Main>
         <div className="flex w-full">
           <div className="grid xl:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 gap-4 w-full m-4">
-            <div className="xl:col-span-4 md:col-span-2 sm:col-span-1 bg-white p-4 rounded">
-              <div className="text-midnight text-lg font-semibold pb-2">
+            <div className="xl:col-span-4 md:col-span-2 sm:col-span-1 p-4 rounded">
+              <div className="text-primary text-lg font-semibold pb-2">
                 <h1 className="">Spending</h1>
               </div>
-              <div className="flex flex-col w-full h-96">
+              <div className="flex flex-col w-full md:h-96 h-60">
                 <LineGraph
                   title="Income vs Expenses"
                   income={income}
@@ -42,16 +42,16 @@ const Overview: React.FC<OverviewProps> = () => {
                 />
               </div>
             </div>
-            <div className="xl:col-span-2 md:col-span-1 sm:col-span-1 bg-white p-4 rounded min-w-xs ">
-              <div className="text-midnight text-lg font-semibold  pb-2">
+            <div className="xl:col-span-2 md:col-span-1 sm:col-span-1 p-4 rounded min-w-xs ">
+              <div className="text-primary text-lg font-semibold  pb-2">
                 <h1 className="">Scheduler</h1>
               </div>
               <div className="flex flex-col w-full">
                 <Calendar />
               </div>
             </div>
-            <div className="row-span-3 bg-white p-4 rounded">
-              <div className="text-midnight text-lg font-semibold pb-2">
+            <div className="row-span-3 p-4 rounded">
+              <div className="text-primary text-lg font-semibold pb-2">
                 <h1 className="">Goal Budget</h1>
               </div>
               <div className="flex flex-col w-full">
@@ -78,36 +78,36 @@ const Overview: React.FC<OverviewProps> = () => {
                 />
               </div>
             </div>
-            <div className="md:col-span-1 bg-white p-4 rounded">
-              <div className="text-midnight text-lg font-semibold pb-2">
+            <div className="md:col-span-1 p-4 rounded">
+              <div className="text-primary text-lg font-semibold pb-2">
                 <h1 className="">Accounts</h1>
               </div>
               <div className="flex flex-col w-full">
                 <Balance
                   title="Cash"
                   amount={parseFloat(faker.finance.amount())}
-                  icon={<IconCash strokeColor="text-sky-600" />}
+                  icon={<IconCash strokeColor="text-accent" />}
                 />
                 <Balance
                   title="Credit card"
                   amount={parseFloat(faker.finance.amount())}
-                  icon={<IconCard strokeColor="text-sky-600" />}
+                  icon={<IconCard strokeColor="text-accent" />}
                 />
                 <Balance
                   title="Investment"
                   amount={parseFloat(faker.finance.amount())}
-                  icon={<IconGraph strokeColor="text-sky-600" />}
+                  icon={<IconGraph strokeColor="text-accent" />}
                 />
               </div>
             </div>
-            <div className="md:col-span-1 bg-white p-4 rounded">
-              <div className="text-midnight text-lg font-semibold  pb-2">
+            <div className="md:col-span-1 p-4 rounded">
+              <div className="text-primary text-lg font-semibold  pb-2">
                 <h1 className="">Credit Cards</h1>
               </div>
               <div className="flex flex-col w-full"></div>
             </div>
-            <div className="md:col-span-3 sm:col-span-1 row-span-3 bg-white p-4 rounded">
-              <div className="text-midnight text-lg font-semibold  pb-2">
+            <div className="md:col-span-3 sm:col-span-1 row-span-3 p-4 rounded">
+              <div className="text-primary text-lg font-semibold  pb-2">
                 <h1 className="">Budget Breakdown</h1>
               </div>
               <div className="flex flex-col w-full h-96">
@@ -117,11 +117,9 @@ const Overview: React.FC<OverviewProps> = () => {
                 />
               </div>
             </div>
-            <div className="md:col-span-2 sm:col-span-1 bg-white p-4 rounded">
-              7
-            </div>
-            <div className="md:col-span-1 bg-white p-4 rounded">8</div>
-            <div className="md:col-span-1 bg-white p-4 rounded">9</div>
+            <div className="md:col-span-2 sm:col-span-1 p-4 rounded">7</div>
+            <div className="md:col-span-1 p-4 rounded">8</div>
+            <div className="md:col-span-1 p-4 rounded">9</div>
           </div>
         </div>
       </Main>

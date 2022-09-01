@@ -4,12 +4,15 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT || 3010;
 
 app.get("/", (req: Request, res: Response) => {
   res.send("YABA backend server"); // Send a response to the client
 });
 
-app.listen(port, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(
+    "⚡️[server]: App is running at http://localhost:%d",
+    process.env.PORT
+  );
+  console.log("  Press CTRL-C to stop\n");
 });

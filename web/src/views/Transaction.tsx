@@ -9,12 +9,14 @@ const Transaction: React.FC<TransactionProps> = () => {
   return (
     <>
       <Main>
-        <Table
-          title="Transaction"
-          headers={["ID", "Date", "Description", "Category", "Amount"]}
-          data={transaction}
-          limit={20}
-        />
+        <div className="flex">
+          <Table
+            title="Transaction"
+            headers={["ID", "Date", "Description", "Category", "Amount"]}
+            data={transaction}
+            limit={20}
+          />
+        </div>
       </Main>
     </>
   );

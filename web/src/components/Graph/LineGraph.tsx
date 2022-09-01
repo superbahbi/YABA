@@ -73,6 +73,7 @@ const LineGraph: React.FC<LineGraphProps> = ({ title, income, expense }) => {
         data: expense,
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.2)",
+        color: "rgb(53, 162, 235)",
         borderWidth: 2,
         tension: 0.3,
       },

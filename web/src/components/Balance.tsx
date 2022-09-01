@@ -10,7 +10,7 @@ const Balance: React.FC<BalanceProps> = ({ title, amount, icon }) => {
         </i>
         <div className="flex flex-col">
           <span className="text-xs text-gray-400">{title}</span>
-          <span className="text-md font-semibold text-sky-600">${amount}</span>
+          <span className="text-md font-semibold text-accent">${amount}</span>
         </div>
       </div>
     </>

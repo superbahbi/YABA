@@ -8,12 +8,14 @@ import Settings from "./views/Settings";
 import Wallet from "./views/Wallet";
 import Transaction from "./views/Transaction";
 import "react-calendar/dist/Calendar.css";
+import Landing from "./layouts/Landing";
 function App() {
   return (
     <>
-      <div className="App">
+      <div className="App" data-theme="light">
         <Routes>
-          <Route path="/" element={<Overview />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="overview" element={<Overview />} />
           <Route path="transaction" element={<Transaction />} />
           <Route path="analytics" element={<Analytics />} />
           <Route path="wallet" element={<Wallet />} />
