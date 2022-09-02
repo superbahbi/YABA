@@ -6,7 +6,10 @@ import { MainProps } from "../types/interface";
 const Main: React.FC<MainProps> = ({ children }) => {
   return (
     <>
-      <div className="flex flex-row justify-center w-full min-h-screen bg-base-100">
+      <div
+        data-theme="light"
+        className="flex flex-row justify-center w-full min-h-screen bg-base-100"
+      >
         <div className="sticky top-0 h-screen">
           <Navbar />
         </div>

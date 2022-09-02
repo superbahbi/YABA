@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import NextLink from "next/link";
+
 import {
   IconHome,
   IconChart,
@@ -13,13 +14,13 @@ import { NavbarProps } from "../types/interface";
 
 const Navbar: React.FC<NavbarProps> = () => {
   const linkNames = [
-    "Overview",
-    "Transaction",
-    "Analytics",
-    "Wallet",
-    "Invoice",
-    "Account",
-    "Settings",
+    "overview",
+    "transaction",
+    "analytics",
+    "wallet",
+    "invoice",
+    "account",
+    "settings",
   ];
   const icons = [
     IconHome,
@@ -31,24 +32,25 @@ const Navbar: React.FC<NavbarProps> = () => {
     IconSetting,
   ];
   return (
-    <ul className="menu p-2 rounded-box lg:px-6 md:px-3 lg:mr-6 pt-4 lg:w-56">
-      <Link
+    <ul className="menu p-2 rounded-box lg:px-6 md:px-3 lg:mr-6 pt-4 lg:w-58">
+      <NextLink
         className="hidden lg:block text-center text-sm uppercase font-bold p-4 px-0"
-        to="/overview"
+        href="/overview"
       >
         <h1 className="text-2xl text-primary">YABA</h1>
-      </Link>
+      </NextLink>
       {icons.map((Icon, index) => {
         return (
-          <li key={index}>
-            <Link
-              className="text-neutral active:text-white"
-              to={"/" + linkNames[index].toLowerCase()}
-            >
-              <Icon />
-              <span className="hidden lg:inline-block">{linkNames[index]}</span>
-            </Link>
-          </li>
+          <NextLink href={"/" + linkNames[index]} key={index}>
+            <li className="flex flex-row text-neutral active:text-white">
+              <span>
+                <Icon />{" "}
+                <span className="hidden uppercase lg:inline-block">
+                  {linkNames[index]}
+                </span>
+              </span>
+            </li>
+          </NextLink>
         );
       })}
     </ul>

@@ -17,7 +17,9 @@ import { faker } from "@faker-js/faker";
 import Calendar from "../components/Calendar";
 import Balance from "../components/Balance";
 
-const Overview: React.FC<OverviewProps> = () => {
+// const Overview: React.FC<OverviewProps> = () => {
+
+export default function Overview(): OverviewProps {
   const income = Array.from(Array(12)).map(() =>
     faker.datatype.number({ min: 2000, max: 2500 })
   );
@@ -25,6 +27,8 @@ const Overview: React.FC<OverviewProps> = () => {
     faker.datatype.number({ min: 1800, max: 1950 })
   );
   const bugetBreakdownData = [25, 30, 15, 15, 7, 8];
+  const balance = Array.from([2000, 3000, 5000].map((item) => item));
+
   return (
     <>
       <Main>
@@ -85,17 +89,17 @@ const Overview: React.FC<OverviewProps> = () => {
               <div className="flex flex-col w-full">
                 <Balance
                   title="Cash"
-                  amount={parseFloat(faker.finance.amount())}
+                  amount={balance[0]}
                   icon={<IconCash strokeColor="text-accent" />}
                 />
                 <Balance
                   title="Credit card"
-                  amount={parseFloat(faker.finance.amount())}
+                  amount={balance[1]}
                   icon={<IconCard strokeColor="text-accent" />}
                 />
                 <Balance
                   title="Investment"
-                  amount={parseFloat(faker.finance.amount())}
+                  amount={balance[2]}
                   icon={<IconGraph strokeColor="text-accent" />}
                 />
               </div>
@@ -125,5 +129,4 @@ const Overview: React.FC<OverviewProps> = () => {
       </Main>
     </>
   );
-};
-export default Overview;
+}
