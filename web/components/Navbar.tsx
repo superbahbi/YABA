@@ -43,12 +43,12 @@ const Navbar: React.FC<NavbarProps> = () => {
         return (
           <NextLink href={"/" + linkNames[index]} key={index}>
             <li className="flex flex-row text-neutral active:text-white">
-              <span>
-                <Icon />{" "}
-                <span className="hidden uppercase lg:inline-block">
+              <div className="">
+                <Icon />
+                <div className="hidden capitalize lg:block">
                   {linkNames[index]}
-                </span>
-              </span>
+                </div>
+              </div>
             </li>
           </NextLink>
         );
