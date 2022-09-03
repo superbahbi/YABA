@@ -8,8 +8,9 @@
 
 <h3 align="center">YABA</h3>
 </div>
-<!-- GETTING STARTED -->
 
+<!-- GETTING STARTED -->
+[![GitHub Super-Linter](https://github.com/superbahbi/YABA/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 ## Getting Started
 
 ### Known Issue
