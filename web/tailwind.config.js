@@ -26,9 +26,9 @@ module.exports = {
         "2xl": "1rem",
         "4xl": "2rem",
       },
-      backgroundImage: {
-        "radial-pattern":
-          "radial-gradient(hsla(var(215 28% 17%) / .2) 0.5px,hsla(var(0 0% 95%) / 1) 0.5px",
+      colors: {
+        "apple-blue": "#1982FC",
+        "apple-green": "#43CC47",
       },
     },
   },
