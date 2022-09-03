@@ -1,7 +1,7 @@
 import React from "react";
 import { SvgIcon } from "../../types/interface";
 
-export const IconChevronRight: SvgIcon = ({
+export const IconMenu: SvgIcon = ({
   strokeColor = "text-black-500",
   strokeWidth = 1.5,
   width = 24,
@@ -19,7 +19,7 @@ export const IconChevronRight: SvgIcon = ({
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M8.25 4.5l7.5 7.5-7.5 7.5"
+      d="M4 6h16M4 12h16M4 18h7"
     />
   </svg>
 );

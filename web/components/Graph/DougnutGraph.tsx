@@ -5,7 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DougnutGraph: React.FC<DougnutGraphProps> = ({ title, data }) => {
+const DougnutGraph: React.FC<DougnutGraphProps> = ({ data }) => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -13,10 +13,6 @@ const DougnutGraph: React.FC<DougnutGraphProps> = ({ title, data }) => {
       legend: {
         display: true,
         position: "top" as const,
-      },
-      title: {
-        display: false,
-        text: title,
       },
     },
   };
@@ -45,6 +41,7 @@ const DougnutGraph: React.FC<DougnutGraphProps> = ({ title, data }) => {
       },
     ],
   };
+
   return <Doughnut options={options} data={dataSet} />;
 };
 export default DougnutGraph;

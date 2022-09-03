@@ -32,29 +32,24 @@ const Navbar: React.FC<NavbarProps> = () => {
     IconSetting,
   ];
   return (
-    <ul className="menu p-2 rounded-box lg:px-6 md:px-3 lg:mr-6 pt-4 lg:w-58">
-      <NextLink
-        className="hidden lg:block text-center text-sm uppercase font-bold p-4 px-0"
-        href="/overview"
-      >
-        <h1 className="text-2xl text-primary">YABA</h1>
-      </NextLink>
-      {icons.map((Icon, index) => {
-        return (
-          <NextLink href={"/" + linkNames[index]} key={index}>
-            <li className="flex flex-row text-neutral active:text-white">
-              <div className="">
-                <Icon />
-                <div className="hidden capitalize lg:block">
-                  {linkNames[index]}
+    <div className="fixed z-1 top-16 overflow-x-hidden">
+      <ul className="menu rounded-box hidden md:block p-2 pt-4 md:px-3 lg:mr-6 lg:px-6 lg:w-58">
+        {icons.map((Icon, index) => {
+          return (
+            <NextLink href={"/" + linkNames[index]} key={index}>
+              <li className="flex flex-row active:text-white">
+                <div className="">
+                  <Icon />
+                  <div className="hidden capitalize lg:block">
+                    {linkNames[index]}
+                  </div>
                 </div>
-              </div>
-            </li>
-          </NextLink>
-        );
-      })}
-    </ul>
-    // </nav>
+              </li>
+            </NextLink>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 export default Navbar;

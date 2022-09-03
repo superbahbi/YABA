@@ -7,17 +7,13 @@ const Main: React.FC<MainProps> = ({ children }) => {
   return (
     <>
       <div
-        data-theme="light"
-        className="flex flex-row justify-center w-full min-h-screen bg-base-100"
+        data-theme="dark"
+        className="flex flex-col justify-center w-full min-h-screen bg-base-100"
       >
-        <div className="sticky top-0 h-screen">
+        <Header />
+        <div className="flex flex-row mx-auto md:w-[1440px]">
           <Navbar />
-        </div>
-        <div className="flex flex-col md:w-[1440px]">
-          <div>
-            <Header />
-          </div>
-          <div>{children}</div>
+          <div className="lg:ml-56 md:ml-12 pt-14">{children}</div>
         </div>
       </div>
     </>

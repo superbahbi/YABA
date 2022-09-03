@@ -41,13 +41,13 @@ export interface ProgressProps {
 }
 
 export interface LineGraphProps {
-  title: string;
   income: number[];
   expense: number[];
+  labelColor?: string;
 }
 export interface DougnutGraphProps {
-  title: string;
   data: number[];
+  labelColor?: string;
 }
 export interface CalendarProps {}
 export interface SvgIconProps {

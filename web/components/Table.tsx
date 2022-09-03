@@ -17,14 +17,14 @@
 //                       <th
 //                         key={header}
 //                         scope="col"
-//                         className="text-sm font-semibold text-gray-700 px-6 py-4 text-left"
+//                         className="text-sm font-semibold px-6 py-4 text-left"
 //                       >
 //                         {header}
 //                       </th>
 //                     ))}
 //                     <th
 //                       scope="col"
-//                       className="text-sm font-semibold text-gray-700 px-6 py-4 text-left"
+//                       className="text-sm font-semibold px-6 py-4 text-left"
 //                     >
 //                       Action
 //                     </th>
@@ -38,14 +38,14 @@
 //                     >
 //                       {headers.map((header) => (
 //                         <td
-//                           className="px-6 py-4 whitespace-nowrap text-sm font-light text-gray-900 "
+//                           className="px-6 py-4 whitespace-nowrap text-sm font-light"
 //                           key={header}
 //                         >
 //                           {item[header.toLowerCase() as keyof TransactionData]}
 //                         </td>
 //                       ))}
 
-//                       <td className="px-6 py-2 whitespace-nowrap text-sm font-light text-gray-900 cursor-pointer">
+//                       <td className="px-6 py-2 whitespace-nowrap text-sm font-lightcursor-pointer">
 //                         Edit
 //                       </td>
 //                     </tr>
@@ -79,14 +79,14 @@ const Table: React.FC<TableProps> = ({ title, headers, data, limit }) => {
               <th
                 key={header}
                 scope="col"
-                className="text-sm font-semibold text-gray-700 px-6 py-4 text-left"
+                className="text-sm font-semibold px-6 py-4 text-left"
               >
                 {header}
               </th>
             ))}
             <th
               scope="col"
-              className="text-sm font-semibold text-gray-700 px-6 py-4 text-left"
+              className="text-sm font-semibold px-6 py-4 text-left"
             >
               Action
             </th>
@@ -100,14 +100,14 @@ const Table: React.FC<TableProps> = ({ title, headers, data, limit }) => {
             >
               {headers.map((header) => (
                 <td
-                  className="px-6 py-4 whitespace-nowrap text-sm font-light text-gray-900 "
+                  className="px-6 py-4 whitespace-nowrap text-sm font-light"
                   key={header}
                 >
                   {item[header.toLowerCase() as keyof TransactionData]}
                 </td>
               ))}
 
-              <td className="px-6 py-2 whitespace-nowrap text-sm font-light text-gray-900 cursor-pointer">
+              <td className="px-6 py-2 whitespace-nowrap text-sm font-lightcursor-pointer">
                 Edit
               </td>
             </tr>

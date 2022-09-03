@@ -34,23 +34,22 @@ const Calendar: React.FC<CalendarProps> = () => {
     if (nowDay === currDay) {
       return "text-white bg-primary rounded-full";
     } else if (currDay === slcDay) {
-      return "text-white bg-accent rounded-full";
-    } else {
-      return "text-neutral";
+      return "text-white bg-secondary rounded-full";
     }
+    return;
   }
 
   return (
     <>
       <div className="flex justify-center items-center">
-        <div className="flex flex-col p-5 rounded-lg">
+        <div className="flex flex-col rounded-lg">
           <div className="flex items-center justify-between">
-            <h1 className="text-lg font-bold text-neutral">
+            <h1 className="text-lg font-bold">
               {dayjs(new Date(dayjs().year(), currentMonthIdx)).format(
                 "MMMM YYYY"
               )}
             </h1>
-            <div className="flex items-center text-neutral">
+            <div className="flex items-center">
               <button onClick={() => setCurrentMonthIdx(currentMonthIdx - 1)}>
                 <IconChevronLeft />
               </button>
@@ -66,9 +65,7 @@ const Calendar: React.FC<CalendarProps> = () => {
                   {dayOfWeek.map((day, i) => (
                     <th key={i}>
                       <div className="w-full flex justify-center">
-                        <p className="text-sm font-medium text-center text-neutral">
-                          {day}
-                        </p>
+                        <p className="text-md font-medium text-center">{day}</p>
                       </div>
                     </th>
                   ))}
@@ -80,7 +77,7 @@ const Calendar: React.FC<CalendarProps> = () => {
                     {week.map((day, k) => (
                       <td
                         key={k}
-                        className="pt-2"
+                        className="pt-4 px-2"
                         onClick={() => {
                           setDaySelected(day);
                         }}
@@ -88,7 +85,7 @@ const Calendar: React.FC<CalendarProps> = () => {
                         <div className="w-full h-full">
                           <div className="flex items-center justify-center w-full rounded-full cursor-pointer">
                             <p
-                              className={`text-sm w-7 h-7 flex items-center justify-center font-light ${getDayClass(
+                              className={`text-md w-7 h-7 flex items-center justify-center font-light ${getDayClass(
                                 day
                               )}`}
                             >

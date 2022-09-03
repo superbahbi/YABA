@@ -15,6 +15,7 @@ import { IconTravel } from "./travel";
 import { IconWallet } from "./wallet";
 import { IconCash } from "./cash";
 import { IconCard } from "./card";
+import { IconMenu } from "./menu";
 export {
   IconTicket,
   IconAccount,
@@ -33,4 +34,5 @@ export {
   IconCash,
   IconCard,
   IconGraph,
+  IconMenu,
 };

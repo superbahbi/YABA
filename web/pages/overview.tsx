@@ -1,23 +1,20 @@
-import React from "react";
-import Main from "../layouts/Main";
-
-import Progress from "../components/Progress";
-import { OverviewProps } from "../types/interface";
-import {
-  IconTicket,
-  IconCollege,
-  IconTravel,
-  IconCash,
-  IconCard,
-  IconGraph,
-} from "../assets/icons";
-import LineGraph from "../components/Graph/LineGraph";
-import DougnutGraph from "../components/Graph/DougnutGraph";
 import { faker } from "@faker-js/faker";
-import Calendar from "../components/Calendar";
+import Head from "next/head";
+import {
+  IconCard,
+  IconCash,
+  IconCollege,
+  IconGraph,
+  IconTicket,
+  IconTravel,
+} from "../assets/icons";
 import Balance from "../components/Balance";
-
-// const Overview: React.FC<OverviewProps> = () => {
+import Calendar from "../components/Calendar";
+import DougnutGraph from "../components/Graph/DougnutGraph";
+import LineGraph from "../components/Graph/LineGraph";
+import Progress from "../components/Progress";
+import Main from "../layouts/Main";
+import { OverviewProps } from "../types/interface";
 
 export default function Overview(): OverviewProps {
   const income = Array.from(Array(12)).map(() =>
@@ -31,27 +28,43 @@ export default function Overview(): OverviewProps {
 
   return (
     <>
+      <Head>
+        <title>YABA. | Overview</title>
+        <meta property="og:title" content="Overview" key="title" />
+      </Head>
       <Main>
         <div className="flex w-full">
-          <div className="grid xl:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 gap-4 w-full m-4">
-            <div className="xl:col-span-4 md:col-span-2 sm:col-span-1 p-4 rounded">
-              <div className="text-primary text-lg font-semibold pb-2">
-                <h1 className="">Spending</h1>
-              </div>
-              <div className="flex flex-col w-full md:h-96 h-60">
-                <LineGraph
-                  title="Income vs Expenses"
-                  income={income}
-                  expense={expense}
-                />
+          <div className="grid xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 gap-4 w-full m-4">
+            <div className="xl:col-span-4 lg:col-span-4 md:col-span-2 sm:col-span-1 p-4 rounded">
+              <div className="flex flex-col w-full ">
+                <div className="shadow-lg rounded-lg overflow-hidden bg-base-300">
+                  <div className="py-3 px-5 border-b-2 border-base-100">
+                    <div className="text-primary text-lg font-semibold">
+                      <h1>Spending</h1>
+                    </div>
+                  </div>
+                  <div className="p-10 md:h-96 h-60">
+                    <LineGraph
+                      income={income}
+                      expense={expense}
+                      labelColor="#A6ADBB"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="xl:col-span-2 md:col-span-1 sm:col-span-1 p-4 rounded min-w-xs ">
-              <div className="text-primary text-lg font-semibold  pb-2">
-                <h1 className="">Scheduler</h1>
-              </div>
+            <div className="xl:col-span-2 lg:col-span-2 md:col-span-1 sm:col-span-1 p-4 rounded min-w-xs ">
               <div className="flex flex-col w-full">
-                <Calendar />
+                <div className="shadow-lg rounded-lg overflow-hidden bg-base-300">
+                  <div className="py-3 px-5 border-b-2 border-base-100">
+                    <div className="text-primary text-lg font-semibold">
+                      <h1>Scheduler</h1>
+                    </div>
+                  </div>
+                  <div className="py-10">
+                    <Calendar />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="row-span-3 p-4 rounded">
@@ -111,14 +124,20 @@ export default function Overview(): OverviewProps {
               <div className="flex flex-col w-full"></div>
             </div>
             <div className="md:col-span-3 sm:col-span-1 row-span-3 p-4 rounded">
-              <div className="text-primary text-lg font-semibold  pb-2">
-                <h1 className="">Budget Breakdown</h1>
-              </div>
-              <div className="flex flex-col w-full h-96">
-                <DougnutGraph
-                  title="Budget Breakdown"
-                  data={bugetBreakdownData}
-                />
+              <div className="flex flex-col w-full">
+                <div className="shadow-lg rounded-lg overflow-hidden bg-base-300">
+                  <div className="py-3 px-5 border-b-2 border-base-100">
+                    <div className="text-primary text-lg font-semibold">
+                      <h1>Budget Breakdown</h1>
+                    </div>
+                  </div>
+                  <div className="p-10 h-96">
+                    <DougnutGraph
+                      data={bugetBreakdownData}
+                      labelColor="#A6ADBB"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="md:col-span-2 sm:col-span-1 p-4 rounded">7</div>

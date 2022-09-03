@@ -12,7 +12,7 @@ export const IconTravel: SvgIcon = ({
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    className={`stroke-current ${strokeColor} w-6 h-6`}
+    className={`stroke-current ${strokeColor} w-5 h-5`}
     width={width}
     height={height}
   >

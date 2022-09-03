@@ -24,7 +24,11 @@ ChartJS.register(
   Filler
 );
 
-const LineGraph: React.FC<LineGraphProps> = ({ title, income, expense }) => {
+const LineGraph: React.FC<LineGraphProps> = ({
+  income,
+  expense,
+  labelColor = "#fff",
+}) => {
   const options = {
     layout: {
       padding: {
@@ -44,9 +48,13 @@ const LineGraph: React.FC<LineGraphProps> = ({ title, income, expense }) => {
           weight: "bold",
         },
       },
-      title: {
-        display: false,
-        text: title,
+    },
+    scales: {
+      y: {
+        ticks: { color: labelColor, beginAtZero: true },
+      },
+      x: {
+        ticks: { color: labelColor, beginAtZero: true },
       },
     },
   };
