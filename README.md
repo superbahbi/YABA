@@ -46,9 +46,9 @@ TODO
 
 ## Contact
 
-Robert Kugler - [@bahbilee](https://twitter.com/bahbilee)
+Robert Kugler - [@bahbilee](https://github.com/superbahbi)
 
-Elton Bautista - [@psychtotech](https://twitter.com/psychtotech)
+Elton Bautista - [@psychtotech](https://github.com/eltonbautista)
 
 Project Link: [https://github.com/superbahbi/YABA](https://github.com/superbahbi/YABA)
 
