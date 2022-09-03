@@ -22,7 +22,7 @@ Problem: Unknown at rule @tailwindcss(unknownAtRules) in VS Code:
 
 ### Installation
 
-0. Clone the repo
+0. Clone the repository
 
    ```sh
    git clone https://github.com/superbahbi/YABA.git
