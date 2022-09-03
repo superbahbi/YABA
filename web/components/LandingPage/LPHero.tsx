@@ -17,7 +17,7 @@ export default function LPHero(props: ILPHeroProps) {
           loop
           preload="auto"
         >
-          <source src={bgVideo} type="video/mp4"></source>
+          <source src={bgVideo} type="video/webm"></source>
         </video>
         <div className="hero-content flex-col lg:flex-row-reverse lg:mw-[1440px]">
           <div className="mockup-phone border-primary">
