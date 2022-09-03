@@ -1,15 +1,11 @@
-<div id="top"></div>
+# yaba.
 <!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/superbahbi/YABA">
+<p align="center">
     <img src="https://user-images.githubusercontent.com/1689092/186068614-8a83a1e5-f532-4f00-8d32-19de62e425b7.jpg" alt="Logo" width="80">
-  </a>
+</p>
 
-<h3 align="center">YABA</h3>
-</div>
 <!-- GETTING STARTED -->
-
+[![GitHub Super-Linter](https://github.com/superbahbi/YABA/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 ## Getting Started
 
 ### Known Issue
@@ -26,7 +22,7 @@ Problem: Unknown at rule @tailwindcss(unknownAtRules) in VS Code:
 
 ### Installation
 
-0. Clone the repo
+0. Clone the repository
 
    ```sh
    git clone https://github.com/superbahbi/YABA.git

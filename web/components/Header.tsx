@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import Image from "next/image";
 import React from "react";
 import { IconMenu, IconMail, IconNotification } from "../assets/icons";
 import { HeaderProps } from "../types/interface";
@@ -52,7 +53,12 @@ const Header: React.FC<HeaderProps> = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={1} className="btn btn-ghost btn-circle avatar">
               <div className="w-8 rounded-full">
-                <img src="https://placeimg.com/80/80/people" />
+                <Image
+                  src="https://placeimg.com/80/80/people"
+                  alt="avatar"
+                  height={80}
+                  width={80}
+                />
               </div>
             </label>
             <ul
@@ -60,13 +66,21 @@ const Header: React.FC<HeaderProps> = () => {
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">Profile</a>
+                <NextLink href={"/profile"}>
+                  <span className="justify-between">Profile</span>
+                </NextLink>
               </li>
+
               <li>
-                <a>Settings</a>
+                <NextLink href={"/settings"}>
+                  <span>Settings</span>
+                </NextLink>
               </li>
+
               <li>
-                <a>Logout</a>
+                <NextLink href={"/logout"}>
+                  <span>Logout</span>
+                </NextLink>
               </li>
             </ul>
           </div>
