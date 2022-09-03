@@ -66,13 +66,21 @@ const Header: React.FC<HeaderProps> = () => {
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">Profile</a>
+                <NextLink href={"/profile"}>
+                  <span className="justify-between">Profile</span>
+                </NextLink>
               </li>
+
               <li>
-                <a>Settings</a>
+                <NextLink href={"/settings"}>
+                  <span>Settings</span>
+                </NextLink>
               </li>
+
               <li>
-                <a>Logout</a>
+                <NextLink href={"/logout"}>
+                  <span>Logout</span>
+                </NextLink>
               </li>
             </ul>
           </div>
