@@ -26,6 +26,10 @@ module.exports = {
         "2xl": "1rem",
         "4xl": "2rem",
       },
+      colors: {
+        "apple-blue": "#1982FC",
+        "apple-green": "#43CC47",
+      },
     },
   },
   daisyui: {

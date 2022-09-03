@@ -4,11 +4,8 @@ export interface ILPFooterProps {}
 
 export default function LPFooter(props: ILPFooterProps) {
   return (
-    <section>
-      <footer
-        className="footer p-10 bg-base-200 text-base-content"
-        data-theme="night"
-      >
+    <section className="flex justify-center" data-theme="night">
+      <footer className="footer p-10 bg-base-200 text-base-content lg:max-w-screen-xl">
         <div>
           <svg
             width="50"
