@@ -49,7 +49,7 @@ const LPNavbar: React.FC<ILPNavbarProps> = ({}) => {
                     href="/explore"
                   >
                     <button className="btn btn-ghost lowercase btn-xs sm:btn-sm md:btn-md lg:btn-md no-underline text-accent text-sm">
-                      login
+                      logiN
                     </button>
                   </NextLink>
                 </li>
