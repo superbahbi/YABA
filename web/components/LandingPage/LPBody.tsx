@@ -1,9 +1,8 @@
-import * as React from "react";
+import React from "react";
+import { ILPBodyProps } from "../../types/LPinterface";
 import LPToast from "./LPToast";
 
-export interface ILPBodyProps {}
-
-export default function LPBody(props: ILPBodyProps) {
+const LPBody: React.FC<ILPBodyProps> = ({}) => {
   return (
     <section
       className="flex justify-center min-h-screen pt-12"
@@ -40,4 +39,5 @@ export default function LPBody(props: ILPBodyProps) {
       </div>
     </section>
   );
-}
+};
+export default LPBody;

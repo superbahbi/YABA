@@ -1,8 +1,7 @@
-import * as React from "react";
+import React from "react";
+import { ILPNavbarProps } from "../../types/LPinterface";
 
-export interface ILPNavbarProps {}
-
-export default function LPNavbar(props: ILPNavbarProps) {
+const LPNavbar: React.FC<ILPNavbarProps> = ({}) => {
   return (
     <div
       className="navbar bg-base-100 z-10 sticky top-0 bg-none justify-center"
@@ -55,4 +54,5 @@ export default function LPNavbar(props: ILPNavbarProps) {
       </div>
     </div>
   );
-}
+};
+export default LPNavbar;

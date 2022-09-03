@@ -1,8 +1,7 @@
-import * as React from "react";
+import React from "react";
+import { ILPFooterProps } from "../../types/LPinterface";
 
-export interface ILPFooterProps {}
-
-export default function LPFooter(props: ILPFooterProps) {
+const LPFooter: React.FC<ILPFooterProps> = ({}) => {
   return (
     <section className="flex justify-center" data-theme="night">
       <footer className="footer p-10 bg-base-200 text-base-content lg:max-w-screen-xl">
@@ -47,4 +46,5 @@ export default function LPFooter(props: ILPFooterProps) {
       </footer>
     </section>
   );
-}
+};
+export default LPFooter;

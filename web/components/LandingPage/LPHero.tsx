@@ -1,12 +1,7 @@
-import * as React from "react";
+import React from "react";
+import { ILPHeroProps } from "../../types/LPinterface";
 
-export interface ILPHeroProps {
-  bgVideo: string;
-}
-
-export default function LPHero(props: ILPHeroProps) {
-  const { bgVideo } = props;
-
+const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
   return (
     <section>
       <div className="hero min-h-screen bg-base-200" data-theme="night">
@@ -79,4 +74,5 @@ export default function LPHero(props: ILPHeroProps) {
           </div> */}
     </section>
   );
-}
+};
+export default LPHero;
