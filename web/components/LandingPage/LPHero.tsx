@@ -1,3 +1,5 @@
+import NextLink from "next/link";
+import Image from "next/image";
 import React from "react";
 import { ILPHeroProps } from "../../types/LPinterface";
 
@@ -19,10 +21,12 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
             <div className="camera"></div>
             <div className="display">
               <div className="artboard artboard-demo phone-1">
-                <img
+                <Image
                   src="https://i.postimg.cc/DZRftwxp/yaba.png"
                   className="max-w-sm rounded-lg shadow-2xl"
-                  width={325}
+                  width={300}
+                  height={475}
+                  alt="yaba mockup"
                 />
               </div>
             </div>
@@ -36,16 +40,16 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
               feel better.
             </h2>
             <div className="btn-group mt-4 justify-center lg:justify-end">
-              <a className="link no-underline" href="/account">
+              <NextLink className="link no-underline" href="/account">
                 <button className="btn btn-primary lowercase btn-xs sm:btn-sm md:btn-md lg:btn-md">
                   Get Started
                 </button>
-              </a>
-              <a className="link no-underline" href="/overview">
+              </NextLink>
+              <NextLink className="link no-underline" href="/overview">
                 <button className="btn btn-ghost lowercase btn-xs sm:btn-sm md:btn-md lg:btn-md no-underline">
                   View Demo
                 </button>
-              </a>
+              </NextLink>
             </div>
           </div>
         </div>

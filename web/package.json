@@ -32,7 +32,8 @@
     "extends": [
       "react-app",
       "react-app/jest",
-      "next/core-web-vitals"
+      "next/core-web-vitals",
+      "next/babel"
     ]
   },
   "browserslist": {
