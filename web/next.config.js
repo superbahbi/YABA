@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  //whatever config you have
-  //...
   webpack(config, options) {
     const { isServer } = options;
     if (!options.defaultLoaders) {
@@ -30,8 +28,10 @@ const nextConfig = {
         },
       ],
     });
-
     return config;
+  },
+  images: {
+    domains: ["placeimg.com"],
   },
 };
 
