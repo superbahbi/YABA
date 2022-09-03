@@ -31,7 +31,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ["placeimg.com"],
+    domains: ["placeimg.com", "i.postimg.cc"],
   },
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import video from "../assets/videos/video.mp4";
+import video from "../assets/videos/video.webm";
 import LPBody from "../components/LandingPage/LPBody";
 import LPFooter from "../components/LandingPage/LPFooter";
 import LPHero from "../components/LandingPage/LPHero";
