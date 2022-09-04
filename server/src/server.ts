@@ -20,9 +20,11 @@ app.get("/", async (req: Request, res: Response) => {
 });
 
 app.listen(process.env.PORT, () => {
+  // tslint:disable-next-line:no-console
   console.log(
-    "⚡️[server]: App is running at http://localhost:%d",
+    "⚡️[Server]: App is running at http://localhost:%d",
     process.env.PORT
   );
+  // tslint:disable-next-line:no-console
   console.log("  Press CTRL-C to stop\n");
 });

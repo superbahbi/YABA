@@ -16,11 +16,11 @@ const getUser = async (req: Request, res: Response) => {
 };
 
 const addUser = async (req: Request, res: Response) => {
-  const data: Object = req.body;
-  //TODO: data validation
+  const data: Record<string, unknown> = req.body;
+  // TODO: data validation
   return res.status(200).json({
     message: "User added",
-    data: data,
+    data,
   });
 };
 

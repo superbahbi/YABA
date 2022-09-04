@@ -1,11 +1,11 @@
 {
   "main": "src/server.ts",
   "scripts": {
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node .",
-    "dev": "nodemon src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -22,6 +22,6 @@
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "plaid": "^10.9.0",
-    "ts-standard": "^11.0.0"
+    "ts-node-dev": "^2.0.0"
   }
 }

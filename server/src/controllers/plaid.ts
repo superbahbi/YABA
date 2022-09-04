@@ -19,7 +19,8 @@ const configuration: Configuration = new Configuration({
 });
 
 const plaidClient = new PlaidApi(configuration);
-app.get("/", async (req: Request, res: Response) => {
+
+const plaid = async (req: Request, res: Response) => {
   // res.send("YABA backend server"); // Send a response to the client
   const request: LinkTokenCreateRequest = {
     user: {
@@ -124,4 +125,5 @@ app.get("/", async (req: Request, res: Response) => {
   //   // handle error
   //   console.log(error);
   // }
-});
+};
+export default { plaid };

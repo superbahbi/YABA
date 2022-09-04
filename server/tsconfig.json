@@ -28,7 +28,6 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "preserve"
   },
   "include": [
