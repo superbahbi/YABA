@@ -4,10 +4,7 @@ import LPToast from "./LPToast";
 
 const LPBody: React.FC<ILPBodyProps> = ({}) => {
   return (
-    <section
-      className="flex justify-center min-h-screen pt-12"
-      data-theme="night"
-    >
+    <section className="flex justify-center min-h-screen pt-12">
       <div className="flex w-full md:max-w-screen-xl justify-center">
         <div className="toast toast-top toast-end relative grid">
           <LPToast textContent="Hey sweetie! How's the first month of college going?" />

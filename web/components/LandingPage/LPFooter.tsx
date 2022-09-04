@@ -3,7 +3,7 @@ import { ILPFooterProps } from "../../types/LPinterface";
 
 const LPFooter: React.FC<ILPFooterProps> = ({}) => {
   return (
-    <section className="flex justify-center" data-theme="night">
+    <section className="flex justify-center bg-base-200">
       <footer className="footer p-10 bg-base-200 text-base-content lg:max-w-screen-xl">
         <div>
           <svg
