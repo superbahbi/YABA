@@ -5,7 +5,8 @@ export interface ILPHeroProps {
   bgVideo: string;
 }
 export interface ILPNavbarProps {
-
+  setTheme: React.Dispatch<React.SetStateAction<boolean>>;
+  theme: boolean;
 }
 
 export interface ILPToastProps {

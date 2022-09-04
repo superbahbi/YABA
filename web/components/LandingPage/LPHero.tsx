@@ -4,9 +4,10 @@ import React from "react";
 import { ILPHeroProps } from "../../types/LPinterface";
 
 const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
+  console.log(bgVideo);
   return (
-    <section>
-      <div className="hero min-h-screen bg-base-200" data-theme="night">
+    <section data-theme="night">
+      <div className="hero min-h-screen bg-base-200">
         <video
           className="top-0 left-0 w-full h-full object-cover"
           autoPlay
@@ -32,9 +33,20 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
             </div>
           </div>
           <div>
-            <h1 className="text-5xl tracking-wide lg:text-8xl font-bold flex justify-center lg:justify-end">
-              yaba.
-            </h1>
+            <label className="swap">
+              <input type="checkbox" />
+              <div className="swap-on">
+                <h1 className="text-5xl text-primary tracking-wide lg:text-8xl font-bold flex justify-center lg:justify-end">
+                  YABA.
+                </h1>
+              </div>
+              <div className="swap-off">
+                <h1 className="text-5xl text-primary tracking-wide lg:text-8xl font-bold flex justify-center lg:justify-end">
+                  yaba.
+                </h1>
+              </div>
+            </label>
+
             <h2 className="text-accent text-3xl lg:text-5xl font-bold flex justify-center lg:justify-end">
               save more, <br />
               feel better.
