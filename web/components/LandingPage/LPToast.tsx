@@ -9,7 +9,7 @@ const LPToast: React.FC<ILPToastProps> = ({ justifySelfEnd, textContent }) => {
       </div>
     </div>
   ) : (
-    <div className="alert alert-success w-1/2 md:w-2/5 bg-primary">
+    <div className="alert alert-success w-1/2 md:w-2/5 bg-apple-blue">
       <div>
         <p>{textContent}</p>
       </div>
