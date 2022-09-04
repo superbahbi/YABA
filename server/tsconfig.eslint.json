@@ -1,0 +1,8 @@
+{
+  "ts-standard": {
+    "project": "tsconfig.json"
+  },
+  "include": [
+    "src/**/*.ts",
+  ]
+}
