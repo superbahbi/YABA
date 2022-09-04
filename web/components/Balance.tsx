@@ -14,8 +14,8 @@ const Balance: React.FC<BalanceProps> = ({ data }) => {
         </div>
       </div> */}
       <div className="stats stats-vertical lg:stats-horizontal shadow flex items-center">
-        {data.map((item) => (
-          <div className="stat place-items-center">
+        {data.map((item, index) => (
+          <div key={index} className="stat place-items-center">
             <div className="stat-title">{item.title}</div>
             <div className="stat-value text-lg">{item.amount}</div>
             <div className="stat-desc">{item.description}</div>
