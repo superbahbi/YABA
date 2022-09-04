@@ -1,8 +1,12 @@
 {
   "ts-standard": {
-    "project": "tsconfig.json"
+    "ignore": [
+      "src/**/*.ts"
+    ]
   },
-  "include": [
-    "src/**/*.ts",
+
+  "exclude": [
+    "node_modules",
+    "dist",
   ]
 }
