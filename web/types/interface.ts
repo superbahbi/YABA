@@ -24,10 +24,11 @@ export interface TransactionData {
   ip_address: string;
 }
 export interface TableProps {
-  title: string;
-  headers: string[];
-  data: TransactionData[];
+  title?: string;
+  headers?: string[];
+  data?: any[];
   limit?: number;
+  children?: React.ReactNode;
 }
 export interface PaginationProps {}
 export interface HeaderProps {}
@@ -60,7 +61,20 @@ export interface SvgIconProps {
 }
 export interface SvgIcon extends FunctionComponent<SvgIconProps> {}
 export interface BalanceProps {
+  data: IBalanceData[];
+}
+export interface IBalanceData {
   title: string;
   amount: number;
-  icon: React.ReactElement;
+  description: string;
+}
+export interface IBalanceProps {}
+export interface ITrendsProps {
+  title: string;
+  amount: number;
+  maxProgress?: number;
+  barColor?: string;
+}
+export interface ICreditScoreProps {
+  score: number;
 }

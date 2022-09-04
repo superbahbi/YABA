@@ -7,8 +7,8 @@ const Main: React.FC<MainProps> = ({ children }) => {
   return (
     <>
       <div
-        data-theme="dark"
-        className="flex flex-col justify-center w-full min-h-screen bg-base-100"
+        data-theme="night"
+        className="flex flex-col justify-center w-full bg-base-100"
       >
         <Header />
         <div className="flex flex-row mx-auto md:w-[1440px]">
