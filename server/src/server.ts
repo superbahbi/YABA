@@ -19,9 +19,6 @@ app.get("/", async (req: Request, res: Response) => {
   res.json({ message: "YABA backend server" }); // Send a JSON response to the client
 });
 
-// app.post("/api/login", authController.login);
-// app.post("/api/register", authController.register);
-
 app.listen(process.env.PORT, () => {
   console.log(
     "⚡️[server]: App is running at http://localhost:%d",
