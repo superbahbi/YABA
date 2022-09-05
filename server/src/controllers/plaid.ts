@@ -1,3 +1,5 @@
+
+import { Request, Response } from "express";
 import {
   Configuration,
   CountryCode,
@@ -8,6 +10,7 @@ import {
   PlaidEnvironments,
   Products,
 } from "plaid";
+
 const configuration: Configuration = new Configuration({
   basePath: PlaidEnvironments.sandbox,
   baseOptions: {
@@ -20,7 +23,7 @@ const configuration: Configuration = new Configuration({
 
 const plaidClient = new PlaidApi(configuration);
 
-const plaid = async (req: Request, res: Response) => {
+const plaid = async (_: Request, res: Response) => {
   // res.send("YABA backend server"); // Send a response to the client
   const request: LinkTokenCreateRequest = {
     user: {
@@ -125,5 +128,6 @@ const plaid = async (req: Request, res: Response) => {
   //   // handle error
   //   console.log(error);
   // }
+  return res.status(200).send("plaid endpoint")
 };
 export default { plaid };
