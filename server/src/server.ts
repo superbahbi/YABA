@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import express, { Express, Request, Response } from "express";
+import express, { Express, Response } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import userRoutes from "./routes/user";
@@ -15,7 +15,7 @@ app.use(
 );
 app.use("/api/", userRoutes);
 app.use("/api/", authRoutes);
-app.get("/", async (req: Request, res: Response) => {
+app.get("/", async (_, res: Response) => {
   res.json({ message: "YABA backend server" }); // Send a JSON response to the client
 });
 

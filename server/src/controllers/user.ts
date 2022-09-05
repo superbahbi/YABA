@@ -1,7 +1,8 @@
 import { IUserProps } from "../types/interfaces";
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 
-const getAllUsers = async (req: Request, res: Response) => {
+
+const getAllUsers = async (_: Request, res: Response) => {
   return res.status(200).json({
     message: "All users",
     data: [],
