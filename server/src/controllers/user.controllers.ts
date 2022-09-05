@@ -1,11 +1,13 @@
 import { IUserProps } from "../types/interfaces";
 import { Request, Response } from "express";
-
+import { User } from '../entities/user.entity';
+import { AppDataSource } from '../utils/data-source';
+const postRepository = AppDataSource.getRepository(User);
 
 const getAllUsers = async (_: Request, res: Response) => {
+  const user = await postRepository.find();
   return res.status(200).json({
-    message: "All users",
-    data: [],
+    data: user
   });
 };
 
