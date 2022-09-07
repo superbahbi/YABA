@@ -5,6 +5,7 @@ import LPBody from "../components/LandingPage/LPBody";
 import LPFooter from "../components/LandingPage/LPFooter";
 import LPHero from "../components/LandingPage/LPHero";
 import LPNavbar from "../components/LandingPage/LPNavbar";
+import Auth from "../layouts/Auth";
 
 export interface IHomeProps {}
 
@@ -21,6 +22,8 @@ const Home: React.FC<IHomeProps> = ({}) => {
         </main>
         <LPFooter />
       </div>
+
+      {/* <Auth /> */}
     </>
   );
 };

@@ -18,7 +18,7 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
           <source src={bgVideo} type="video/webm"></source>
         </video>
         <div className="hero-content flex-col lg:flex-row-reverse lg:mw-[1440px]">
-          <div className="mockup-phone border-primary">
+          {/* <div className="mockup-phone border-primary">
             <div className="camera"></div>
             <div className="display">
               <div className="artboard artboard-demo phone-1">
@@ -31,7 +31,14 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
+          <Image
+            src="https://i.postimg.cc/cHG0h7FT/i-Phone-13.png"
+            className="max-w-sm rounded-lg shadow-2xl"
+            width={460}
+            height={500}
+            alt="yaba mockup"
+          />
           <div>
             <label className="swap">
               <input type="checkbox" />
