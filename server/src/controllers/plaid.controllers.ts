@@ -45,9 +45,9 @@ const plaid = async (_: Request, res: Response) => {
     },
   };
   try {
-    const response = await plaidClient.linkTokenCreate(request);
-    const linkToken = response.data.link_token;
-    console.log("linkToken", linkToken);
+    const linkTokenCreateResponse = await plaidClient.linkTokenCreate(request);
+    const linkToken = linkTokenCreateResponse.data.link_token;
+    // console.log("linkToken", linkToken);
     // const getrequest: LinkTokenGetRequest = {
     //   link_token: linkToken,
     // };
@@ -58,21 +58,18 @@ const plaid = async (_: Request, res: Response) => {
     // } catch (e) {
     //   console.log(e);
     // }
-    const ItemPublicTokenExchangeRequest: ItemPublicTokenExchangeRequest = {
-      public_token: linkToken,
-    };
     try {
-      const response = await plaidClient.itemPublicTokenExchange(
-        ItemPublicTokenExchangeRequest
+      const itemPublicTokenExchangeResponse = await plaidClient.itemPublicTokenExchange(
+        { public_token: linkToken, }
       );
-      const accessToken = response.data.access_token;
-      const itemId = response.data.item_id;
-      console.log({ accessToken: accessToken, itemId: itemId });
+      const accessToken = itemPublicTokenExchangeResponse.data.access_token;
+      const itemId = itemPublicTokenExchangeResponse.data.item_id;
+      // console.log({ accessToken: accessToken, itemId: itemId });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
   // const publicTokenRequest: SandboxPublicTokenCreateRequest = {
   //   institution_id: "ins_109512",

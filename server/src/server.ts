@@ -28,10 +28,9 @@ AppDataSource.initialize().then(async () => {
   app.listen(process.env.PORT, () => {
     // tslint:disable-next-line:no-console
     console.log(
-      "⚡️[Server]: App is running at http://localhost:%d",
+      "⚡️[Server]: App is running at http://localhost:%d\n   Press CTRL-C to stop",
       process.env.PORT
     );
-    // tslint:disable-next-line:no-console
-    console.log("  Press CTRL-C to stop\n");
   });
+  // tslint:disable-next-line:no-console
 }).catch(error => console.log("TypeORM connection error: ", error));

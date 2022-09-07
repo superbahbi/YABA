@@ -1,4 +1,4 @@
-import { sign, verify } from "jsonwebtoken";
+import { sign } from "jsonwebtoken";
 import { validationResult } from 'express-validator';
 import { CookieOptions, Request, Response } from "express";
 import { AppDataSource } from "../utils/data-source"
