@@ -1,15 +1,10 @@
 import {
     Entity,
-    PrimaryGeneratedColumn,
     Column,
-    BaseEntity,
 } from "typeorm";
-
+import Model from "./mode.entity";
 @Entity()
-export class User extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
-
+export class User extends Model {
     @Column({ unique: true })
     email!: string;
 
