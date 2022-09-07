@@ -19,7 +19,7 @@ const Transaction: React.FC<TransactionProps> = () => {
         <div className="flex w-full">
           <div className="grid xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 w-full m-4">
             <div className="xl:col-span-4 lg:col-span-4 md:col-span-2 sm:col-span-1 p-4 rounded">
-              <Card title="Spending">
+              <Card title="Transaction">
                 <Table>
                   <thead>
                     <tr>

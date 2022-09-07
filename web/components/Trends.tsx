@@ -12,7 +12,11 @@ const Trends: React.FC<ITrendsProps> = ({
       <div className="flex flex-row items-center place-self-center p-4">
         <span className="min-w-[50px] text-sm">{title}</span>
         <progress
-          className={`progress progress-${barColor} h-1 rounded-lg pr-4`}
+          className={
+            barColor === "success"
+              ? "progress progress-success h-1 rounded-lg pr-4"
+              : "progress progress-accent h-1 rounded-lg pr-4"
+          }
           value={amount}
           max={maxProgress || amount}
         ></progress>

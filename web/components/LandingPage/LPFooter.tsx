@@ -1,7 +1,7 @@
 import React from "react";
 import { ILPFooterProps } from "../../types/LPinterface";
-
-const LPFooter: React.FC<ILPFooterProps> = ({}) => {
+import NextLink from "next/link";
+const LPFooter: React.FC<ILPFooterProps> = () => {
   return (
     <section className="flex justify-center bg-base-200">
       <footer className="footer p-10 bg-base-200 text-base-content lg:max-w-screen-xl">
@@ -25,23 +25,45 @@ const LPFooter: React.FC<ILPFooterProps> = ({}) => {
         </div>
         <div>
           <span className="footer-title lowercase text-2xl">services</span>
-          <a className="link link-hover">branding</a>
-          <a className="link link-hover">design</a>
-          <a className="link link-hover">marketing</a>
-          <a className="link link-hover">advertisement</a>
+          <NextLink href="/branding">
+            <p className="link link-hover">branding</p>
+          </NextLink>
+          <NextLink href="/design">
+            <p className="link link-hover">design</p>
+          </NextLink>
+          <NextLink href="/marketing">
+            <p className="link link-hover">marketing</p>
+          </NextLink>
+          <NextLink href="/advertisement">
+            <p className="link link-hover">advertisement</p>
+          </NextLink>
         </div>
         <div>
           <span className="footer-title lowercase text-2xl">company</span>
-          <a className="link link-hover">about us</a>
-          <a className="link link-hover">contact</a>
-          <a className="link link-hover">jobs</a>
-          <a className="link link-hover">press kit</a>
+          <NextLink href="/aboutus">
+            <p className="link link-hover">about us</p>
+          </NextLink>
+          <NextLink href="/contact">
+            <p className="link link-hover">contact</p>
+          </NextLink>
+          <NextLink href="/jobs">
+            <p className="link link-hover">jobs</p>
+          </NextLink>
+          <NextLink href="/presskit">
+            <p className="link link-hover">press kit</p>
+          </NextLink>
         </div>
         <div>
           <span className="footer-title lowercase text-2xl">legal</span>
-          <a className="link link-hover">terms of use</a>
-          <a className="link link-hover">privacy policy</a>
-          <a className="link link-hover">cookie policy</a>
+          <NextLink href="/termsofuse">
+            <p className="link link-hover">terms of use</p>
+          </NextLink>
+          <NextLink href="/privacypolicy">
+            <p className="link link-hover">privacy policy</p>
+          </NextLink>
+          <NextLink href="/cookiepolicy">
+            <p className="link link-hover">cookie policy</p>
+          </NextLink>
         </div>
       </footer>
     </section>

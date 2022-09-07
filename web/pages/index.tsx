@@ -9,7 +9,7 @@ import Auth from "../layouts/Auth";
 
 export interface IHomeProps {}
 
-const Home: React.FC<IHomeProps> = ({}) => {
+const Home: React.FC<IHomeProps> = () => {
   const [theme, setTheme] = useState<boolean>(true);
   console.log(theme);
   return (

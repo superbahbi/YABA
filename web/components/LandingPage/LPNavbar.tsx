@@ -7,7 +7,7 @@ const LPNavbar: React.FC<ILPNavbarProps> = ({ setTheme, theme }) => {
     <div className="navbar bg-base-100 z-10 sticky top-0 bg-none justify-center">
       <div className="lg:max-w-screen-xl w-screen">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">yaba.</a>
+          <h1 className="btn btn-ghost normal-case text-xl">yaba.</h1>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0">

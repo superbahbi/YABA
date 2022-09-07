@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = () => {
   ];
   return (
     <>
-      <div className="navbar bg-base-100 fixed top-0">
+      <div className="navbar bg-base-100 fixed top-0 z-20">
         <div className="navbar-start">
           <div className="dropdown  md:hidden">
             <label tabIndex={0} className="btn btn-ghost btn-circle">

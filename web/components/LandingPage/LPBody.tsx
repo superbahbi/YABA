@@ -2,7 +2,7 @@ import React from "react";
 import { ILPBodyProps } from "../../types/LPinterface";
 import LPToast from "./LPToast";
 
-const LPBody: React.FC<ILPBodyProps> = ({}) => {
+const LPBody: React.FC<ILPBodyProps> = () => {
   return (
     <section className="flex justify-center min-h-screen pt-12">
       <div className="flex w-full md:max-w-screen-xl justify-center">

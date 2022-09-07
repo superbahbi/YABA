@@ -1,0 +1,12 @@
+{
+  "ts-standard": {
+    "ignore": [
+      "src/**/*.ts"
+    ]
+  },
+
+  "exclude": [
+    "node_modules",
+    "dist",
+  ]
+}
