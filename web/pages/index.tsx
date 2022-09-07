@@ -8,7 +8,7 @@ import LPNavbar from "../components/LandingPage/LPNavbar";
 
 export interface IHomeProps {}
 
-const Home: React.FC<IHomeProps> = ({}) => {
+const Home: React.FC<IHomeProps> = () => {
   const [theme, setTheme] = useState<boolean>(true);
   console.log(theme);
   return (
