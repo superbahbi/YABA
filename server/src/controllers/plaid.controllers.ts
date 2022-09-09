@@ -4,7 +4,7 @@ import {
   Configuration,
   CountryCode,
   DepositoryAccountSubtype,
-  ItemPublicTokenExchangeRequest,
+
   LinkTokenCreateRequest,
   PlaidApi,
   PlaidEnvironments,
@@ -64,7 +64,7 @@ const plaid = async (_: Request, res: Response) => {
       );
       const accessToken = itemPublicTokenExchangeResponse.data.access_token;
       const itemId = itemPublicTokenExchangeResponse.data.item_id;
-      // console.log({ accessToken: accessToken, itemId: itemId });
+      console.log({ accessToken: accessToken, itemId: itemId });
     } catch (err) {
       // console.log(err);
     }

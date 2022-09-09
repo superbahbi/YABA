@@ -23,7 +23,6 @@ const tokenCookieOptions: CookieOptions = {
   maxAge: 15 * 60 * 1000,
 };
 
-
 const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   // verify user input data
