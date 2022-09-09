@@ -5,6 +5,8 @@ import morgan from "morgan";
 import bodyParser from "body-parser";
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
+import plaidRoutes from "./routes/plaid.routes";
+
 import { AppDataSource } from './utils/data-source';
 dotenv.config();
 
@@ -21,6 +23,8 @@ AppDataSource.initialize().then(async () => {
 
   app.use("/api/", userRoutes);
   app.use("/api/", authRoutes);
+  app.use("/api", plaidRoutes)
+
   app.get("/", async (_, res: Response) => {
     res.json({ message: "YABA backend server" }); // Send a JSON response to the client
   });

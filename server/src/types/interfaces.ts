@@ -1,7 +1,6 @@
 
 /**
  * @name IUserProps
- * 
  * @description Interface for the user object
  */
 export interface IUserProps {
