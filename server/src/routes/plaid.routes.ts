@@ -5,4 +5,8 @@ const router = express.Router();
 
 router.post("/create_link_token",
     controller.createLinkToken);
+router.post("/exchange_public_token",
+    controller.exchangePublicToken);
+router.post("/balance",
+    controller.balance);
 export = router;
