@@ -38,7 +38,7 @@
   ],
   "include": [
     "next-env.d.ts",
-    "custom.d.ts",
+    "*.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ]

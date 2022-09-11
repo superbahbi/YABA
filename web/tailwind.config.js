@@ -13,9 +13,6 @@ module.exports = {
       lg: "992px",
       xl: "1440px",
     },
-    fontFamily: {
-      sans: ["Sora", "sans-serif"],
-    },
     extend: {
       spacing: {
         128: "32rem",

@@ -1,130 +1,125 @@
 
 import { Request, Response } from "express";
 import {
+  AccountsGetRequest,
   Configuration,
   CountryCode,
   DepositoryAccountSubtype,
 
+  ItemPublicTokenExchangeRequest,
+
   LinkTokenCreateRequest,
+  LinkTokenGetRequest,
   PlaidApi,
   PlaidEnvironments,
   Products,
 } from "plaid";
 
 const configuration: Configuration = new Configuration({
-  basePath: PlaidEnvironments.sandbox,
+  basePath: PlaidEnvironments[process.env.PLAID_ENV as string],
   baseOptions: {
     headers: {
       "PLAID-CLIENT-ID": process.env.PLAID_CLIENT_ID,
       "PLAID-SECRET": process.env.PLAID_SECRET,
+      // "Plaid-Version": "2020-09-14",
     },
   },
 });
 
 const plaidClient = new PlaidApi(configuration);
 
-const plaid = async (_: Request, res: Response) => {
-  // res.send("YABA backend server"); // Send a response to the client
-  const request: LinkTokenCreateRequest = {
+const createLinkToken = async (_: Request, res: Response) => {
+  const createLinkRokenRequest: LinkTokenCreateRequest = {
     user: {
+      // TODO: use req.sessionID
       client_user_id: "user-id",
     },
-    client_name: "Plaid Test App",
-    products: [Products.Auth, Products.Transactions],
+    client_name: process.env.PLAID_CLIENT_NAME as string,
+    products: [
+      Products.Assets,
+      Products.Auth,
+      Products.Identity,
+      Products.Investments,
+      Products.Liabilities,
+      Products.Transactions,
+      Products.Income
+    ],
     country_codes: [CountryCode.Us],
     language: "en",
     webhook: "https://sample-web-hook.com",
-    // redirect_uri: "https://localhost:3010",
+    redirect_uri: process.env.PLAID_REDIRECT_URL as string,
     account_filters: {
       depository: {
         account_subtypes: [
-          DepositoryAccountSubtype.Checking,
-          DepositoryAccountSubtype.Savings,
+          DepositoryAccountSubtype.All,
         ],
       },
     },
   };
   try {
-    const linkTokenCreateResponse = await plaidClient.linkTokenCreate(request);
-    const linkToken = linkTokenCreateResponse.data.link_token;
-    // console.log("linkToken", linkToken);
-    // const getrequest: LinkTokenGetRequest = {
-    //   link_token: linkToken,
-    // };
-    // try {
-    //   const data = await plaidClient.linkTokenGet(getrequest);
-    //   console.log(data);
-    //   res.status(200).send(response.data);
-    // } catch (e) {
-    //   console.log(e);
-    // }
+    const linkTokenCreateResponse = await plaidClient.linkTokenCreate(createLinkRokenRequest);
+
     try {
-      const itemPublicTokenExchangeResponse = await plaidClient.itemPublicTokenExchange(
-        { public_token: linkToken, }
-      );
-      const accessToken = itemPublicTokenExchangeResponse.data.access_token;
-      const itemId = itemPublicTokenExchangeResponse.data.item_id;
-      console.log({ accessToken: accessToken, itemId: itemId });
-    } catch (err) {
-      // console.log(err);
+      const response = await plaidClient.linkTokenGet({
+        link_token: linkTokenCreateResponse.data.link_token
+      });
+      console.log("🚀[Log]: ~ file: plaid.controllers.ts ~ line 66 ~ createLinkToken")
+      res.status(200).send(response.data);
+    } catch (e) {
+      // TODO: handle error
+      console.log(e);
     }
   } catch (e) {
-    // console.log(e);
+    // TODO: handle error
+    console.log(e);
   }
-  // const publicTokenRequest: SandboxPublicTokenCreateRequest = {
-  //   institution_id: "ins_109512",
-  //   initial_products: [Products.Auth, Products.Transactions],
-  // };
-  // try {
-  //   const publicTokenResponse = await plaidClient.sandboxPublicTokenCreate(
-  //     publicTokenRequest
-  //   );
-  //   const publicToken = publicTokenResponse.data.public_token;
-  //   // The generated public_token can now be exchanged
-  //   // for an access_token
-  //   const exchangeRequest: ItemPublicTokenExchangeRequest = {
-  //     public_token: publicToken,
-  //   };
-  //   const exchangeTokenResponse = await plaidClient.itemPublicTokenExchange(
-  //     exchangeRequest
-  //   );
-  //   const accessToken = exchangeTokenResponse.data.access_token;
-  //   console.log(accessToken);
-  //   const request: TransactionsGetRequest = {
-  //     access_token: accessToken,
-  //     start_date: "2018-01-01",
-  //     end_date: "2020-02-01",
-  //   };
-  //   try {
-  //     const response = await plaidClient.transactionsGet(request);
-  //     let transactions = response.data.transactions;
-  //     console.log(transactions);
-  //     const total_transactions = response.data.total_transactions;
-  //     // Manipulate the offset parameter to paginate
-  //     // transactions and retrieve all available data
-  //     while (transactions.length < total_transactions) {
-  //       const paginatedRequest: TransactionsGetRequest = {
-  //         access_token: accessToken,
-  //         start_date: "2018-01-01",
-  //         end_date: "2020-02-01",
-  //         options: {
-  //           offset: transactions.length,
-  //         },
-  //       };
-  //       const paginatedResponse = await plaidClient.transactionsGet(
-  //         paginatedRequest
-  //       );
-  //       transactions = transactions.concat(paginatedResponse.data.transactions);
-  //       res.send(transactions);
-  //     }
-  //   } catch (error) {
-  //     // handle error
-  //     console.log(error);
-  //   }
-  // } catch (error) {
-  //   // handle error
-  //   console.log(error);
-  // }
-  return res.status(200).send("plaid endpoint")
+}
+
+// Exchanges the public token from Plaid Link for an access token
+const exchangePublicToken = async (req: Request, res: Response) => {
+  try {
+    const exchangeResponse = await plaidClient.itemPublicTokenExchange({
+      public_token: req.body.public_token,
+    });
+
+    const accessToken = exchangeResponse.data.access_token;
+    // const itemId = exchangeResponse.data.item_id;
+    // FOR DEMO PURPOSES ONLY
+    // Store access_token in DB instead of session storage
+    // req.session.access_token = exchangeResponse.data.access_token;
+
+    try {
+      const response = await plaidClient.accountsBalanceGet({
+        access_token: accessToken as string,
+      });
+      const accounts = response.data.accounts;
+      console.log("balance", accounts)
+      res.status(200).json({ accounts });
+    } catch (error) {
+      console.log(error)
+    }
+  } catch (err) {
+    console.log(err)
+  }
 };
-export default { plaid };
+
+// Fetches balance data using the Node client library for Plaid
+const balance = async (req: Request, res: Response) => {
+  // Pull real-time balance information for each account associated
+  // with the Item
+  const accessToken = req.body.accessToken;
+  console.log("balance", accessToken)
+
+  const request: AccountsGetRequest = {
+    access_token: accessToken as string,
+  };
+  try {
+    const response = await plaidClient.accountsBalanceGet(request);
+    const accounts = response.data.accounts;
+    console.log("balance", accounts)
+    res.status(200).json(accounts);
+  } catch (error) {
+    console.log(error)
+  }
+};
+export default { createLinkToken, exchangePublicToken, balance };
