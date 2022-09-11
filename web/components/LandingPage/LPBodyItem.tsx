@@ -40,7 +40,7 @@ const LPBodyItem: React.FC<ILPBodyItemProps> = ({
         </p>
 
         <NextLink className="link no-underline " href="/account">
-          <button className="btn btn-primary w-1/2 lowercase btn-xs sm:btn-sm md:btn-md lg:btn-md justify-self-center">
+          <button className="btn btn-primary w-1/3 lowercase btn-xs sm:btn-sm md:btn-md ">
             Get Started
           </button>
         </NextLink>
