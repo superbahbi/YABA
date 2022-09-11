@@ -4,7 +4,7 @@ import { ILPNavbarProps } from "../../types/LPinterface";
 
 const LPNavbar: React.FC<ILPNavbarProps> = ({ setTheme, theme }) => {
   return (
-    <div className="navbar bg-base-100 z-10 sticky top-0 bg-none justify-center lg:px-20">
+    <div className="navbar bg-base-100 z-10 bg-none justify-center lg:px-20">
       <div className="lg:max-w-screen-xl w-screen">
         <div className="flex-1 pl-4 lg:pl-0">
           <h1 className="btn btn-ghost normal-case text-xl lg:p-0">yaba.</h1>

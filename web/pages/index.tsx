@@ -6,6 +6,7 @@ import LPFooter from "../components/LandingPage/LPFooter";
 import LPHero from "../components/LandingPage/LPHero";
 import LPNavbar from "../components/LandingPage/LPNavbar";
 import Auth from "../layouts/Auth";
+import LPEnd from "../components/LandingPage/LPEnd";
 export interface IHomeProps {}
 
 const Home: React.FC<IHomeProps> = () => {
@@ -18,6 +19,7 @@ const Home: React.FC<IHomeProps> = () => {
           <LPNavbar setTheme={setTheme} theme={theme} />
           <LPHero bgVideo={theme ? video : videoSecondary} />
           <LPBody />
+          <LPEnd />
         </main>
         <LPFooter />
       </div>
