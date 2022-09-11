@@ -4,7 +4,7 @@ import NextLink from "next/link";
 const LPFooter: React.FC<ILPFooterProps> = () => {
   return (
     <section className="flex justify-center bg-base-200">
-      <footer className="footer p-10 bg-base-200 text-base-content lg:max-w-screen-xl">
+      <footer className="footer p-4 bg-base-200 text-base-content lg:max-w-screen-xl">
         <div>
           <svg
             width="50"
