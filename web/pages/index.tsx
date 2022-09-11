@@ -6,7 +6,6 @@ import LPFooter from "../components/LandingPage/LPFooter";
 import LPHero from "../components/LandingPage/LPHero";
 import LPNavbar from "../components/LandingPage/LPNavbar";
 import Auth from "../layouts/Auth";
-
 export interface IHomeProps {}
 
 const Home: React.FC<IHomeProps> = () => {
@@ -14,7 +13,7 @@ const Home: React.FC<IHomeProps> = () => {
   console.log(theme);
   return (
     <>
-      <div data-theme={theme ? "night" : "lofi"}>
+      <div className="font-Questrial" data-theme={theme ? "night" : "lofi"}>
         <main>
           <LPNavbar setTheme={setTheme} theme={theme} />
           <LPHero bgVideo={theme ? video : videoSecondary} />
