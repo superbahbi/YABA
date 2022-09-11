@@ -9,6 +9,6 @@ body {
 }
 
 @font-face {
-  font-family: "Questrial";
+  font-family: Questrial;
   src: url('https://fonts.googleapis.com/css2?family=Questrial:wght@100;200;300;400;500;600;700;800&display=swap');
 }
