@@ -78,3 +78,21 @@ export interface ITrendsProps {
 export interface ICreditScoreProps {
   score: number;
 }
+export interface IAccountsData {
+  account_id: string;
+  balances: {
+    available: number;
+    current: number;
+    limit: number;
+    iso_currency_code: string;
+    unofficial_currency_code: string;
+  };
+  mask: string;
+  name: string;
+  official_name: string;
+  subtype: string;
+  type: string;
+}
+export interface ILinkTokenData {
+  link_token: string;
+}

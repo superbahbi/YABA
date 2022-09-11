@@ -13,9 +13,6 @@ module.exports = {
       lg: "992px",
       xl: "1440px",
     },
-    fontFamily: {
-      Questrial: ["Questrial", "sans-serif"],
-    },
     extend: {
       spacing: {
         128: "32rem",
@@ -29,9 +26,6 @@ module.exports = {
       colors: {
         "apple-blue": "#1982FC",
         "apple-green": "#43CC47",
-      },
-      fontFamily: {
-        Questrial: ["Questrial", "sans-serif"],
       },
     },
   },

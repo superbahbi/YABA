@@ -5,22 +5,32 @@ import morgan from "morgan";
 import bodyParser from "body-parser";
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
+import plaidRoutes from "./routes/plaid.routes";
+import session from "express-session";
+
 import { AppDataSource } from './utils/data-source';
 dotenv.config();
 
 AppDataSource.initialize().then(async () => {
   const app: Express = express();
-
+  if (process.env.NODE_ENV === 'development') app.use(morgan("dev"));
   app.use(cors());
   app.use(
     bodyParser.urlencoded({
       extended: true,
     })
   );
-  if (process.env.NODE_ENV === 'development') app.use(morgan("dev"));
 
+  app.use(session({
+    secret: process.env.SESSION_SECRET as string,
+    resave: true,
+    saveUninitialized: true,
+    // cookie: { secure: true }
+  }))
   app.use("/api/", userRoutes);
   app.use("/api/", authRoutes);
+  app.use("/api", plaidRoutes)
+
   app.get("/", async (_, res: Response) => {
     res.json({ message: "YABA backend server" }); // Send a JSON response to the client
   });
