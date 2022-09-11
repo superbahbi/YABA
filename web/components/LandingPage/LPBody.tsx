@@ -8,7 +8,7 @@ const LPBody: React.FC<ILPBodyProps> = () => {
     <section className="grid justify-items-center pt-12 px-4 lg:px-20">
       <div className="grid max-w-screen-xl w-full min-h-screen">
         <div className="grid lg:grid-cols-2 lg:gap-10 lg:gap-y-32">
-          <h1 className="text-4xl lg:text-6xl pb-14 h-fit lg:col-span-2 lg:sticky lg:top-16 z-10">
+          <h1 className="text-4xl lg:text-6xl pb-14 h-fit lg:col-span-2 lg:sticky lg:top-2 z-10">
             we do it all.
           </h1>
           <LPBodyItem
