@@ -14,7 +14,7 @@ module.exports = {
       xl: "1440px",
     },
     fontFamily: {
-      sans: ["Sora", "sans-serif"],
+      Questrial: ["Questrial", "sans-serif"],
     },
     extend: {
       spacing: {
@@ -29,6 +29,9 @@ module.exports = {
       colors: {
         "apple-blue": "#1982FC",
         "apple-green": "#43CC47",
+      },
+      fontFamily: {
+        Questrial: ["Questrial", "sans-serif"],
       },
     },
   },
