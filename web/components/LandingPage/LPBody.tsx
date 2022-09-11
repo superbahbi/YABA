@@ -1,37 +1,95 @@
 import React from "react";
 import { ILPBodyProps } from "../../types/LPinterface";
-import LPToast from "./LPToast";
 
 const LPBody: React.FC<ILPBodyProps> = () => {
   return (
-    <section className="flex justify-center min-h-screen pt-12">
-      <div className="flex w-full md:max-w-screen-xl justify-center">
-        <div className="toast toast-top toast-end relative grid">
-          <LPToast textContent="Hey sweetie! How's the first month of college going?" />
-          <LPToast
-            justifySelfEnd
-            textContent="Hi mom!! It's been so great! Jessica and I met the president
-                  of the curling team!"
-          />
-          <LPToast
-            justifySelfEnd
-            textContent="Oh.. But I'm having a bit of trouble with something..."
-          />
-          <LPToast textContent="That's fantabulous honey! I'm so proud of you! But, what's wrong?" />
-          <LPToast
-            justifySelfEnd
-            textContent="I'm running out of money too quickly.. Haha.. College life am I right?"
-          />
-          <LPToast textContent="Bruh. Do you remember how we switched to Groomify for Buddy's grooming appointments? " />
-          <LPToast
-            justifySelfEnd
-            textContent="Mmhmm.. Yeah. They had such a great website, and their service was even better. But what's your point?"
-          />
-          <LPToast textContent="Groomify's developers just released a new application - an amazing budgeting application!" />
-          <LPToast
-            justifySelfEnd
-            textContent="Okay perfect! I think Jessica mentioned this to me, I'm pretty sure it's called YABA. Gonna check it out now, love ya mom!!"
-          />
+    <section className="grid justify-items-center pt-12 px-4 lg:px-20">
+      <div className="grid max-w-screen-xl w-full min-h-screen">
+        <div className="grid lg:grid-cols-2 lg:gap-10 lg:gap-y-32">
+          <h1 className="text-4xl lg:text-6xl pb-14 h-fit lg:col-span-2">
+            we do it all.
+          </h1>
+          <div className="flex items-end mt-10 md:mt-0">
+            <h1 className="text-6xl lg:text-9xl ">
+              <span className="h-fit">01</span>
+            </h1>
+          </div>
+          <div className="mb-10 md:mb-0 lg:w-[90%] lg:grid items-end h-[50vh]">
+            <h2 className="text-4xl py-4 lg:py-0 lg:text-7xl lg:mb-5">
+              brand experience
+            </h2>
+            <p className="text-sm md:text-base ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+              dignissimos ex laborum aliquid ducimus doloremque alias earum
+              inventore distinctio magnam! Fuga possimus, adipisci quibusdam
+              obcaecati neque ullam hic natus ipsa omnis unde doloremque
+              voluptatum nobis earum veniam ipsam a modi voluptatem laborum ut?
+              Quam veniam ex tempore non? Ea, a.
+            </p>
+
+            <p className="text-sm md:text-base ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+              dignissimos ex laborum aliquid ducimus doloremque alias earum
+              inventore distinctio magnam! Fuga possimus, adipisci quibusdam
+              obcaecati neque ullam hic natus ipsa omnis unde doloremque
+              voluptatum nobis earum veniam ipsam a modi voluptatem laborum ut?
+              Quam veniam ex tempore non? Ea, a.
+            </p>
+          </div>
+          <div className="flex items-end mt-10 md:mt-0">
+            <h1 className="text-6xl lg:text-9xl ">
+              <span className="h-fit">02</span>
+            </h1>
+          </div>
+          <div className="mb-10 md:mb-0 lg:w-[90%] lg:grid items-end h-[50vh]">
+            <h2 className="text-4xl py-4 lg:py-0 lg:text-7xl lg:mb-5">
+              brand experience
+            </h2>
+            <p className="text-sm md:text-base ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+              dignissimos ex laborum aliquid ducimus doloremque alias earum
+              inventore distinctio magnam! Fuga possimus, adipisci quibusdam
+              obcaecati neque ullam hic natus ipsa omnis unde doloremque
+              voluptatum nobis earum veniam ipsam a modi voluptatem laborum ut?
+              Quam veniam ex tempore non? Ea, a.
+            </p>
+
+            <p className="text-sm md:text-base ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+              dignissimos ex laborum aliquid ducimus doloremque alias earum
+              inventore distinctio magnam! Fuga possimus, adipisci quibusdam
+              obcaecati neque ullam hic natus ipsa omnis unde doloremque
+              voluptatum nobis earum veniam ipsam a modi voluptatem laborum ut?
+              Quam veniam ex tempore non? Ea, a.
+            </p>
+          </div>
+          <div className="flex items-end mt-10 md:mt-0">
+            <h1 className="text-6xl lg:text-9xl ">
+              <span className="h-fit">03</span>
+            </h1>
+          </div>
+          <div className="mb-10 md:mb-0 lg:w-[90%] lg:grid items-end h-[50vh]">
+            <h2 className="text-4xl py-4 lg:py-0 lg:text-7xl lg:mb-5">
+              brand experience
+            </h2>
+            <p className="text-sm md:text-base ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+              dignissimos ex laborum aliquid ducimus doloremque alias earum
+              inventore distinctio magnam! Fuga possimus, adipisci quibusdam
+              obcaecati neque ullam hic natus ipsa omnis unde doloremque
+              voluptatum nobis earum veniam ipsam a modi voluptatem laborum ut?
+              Quam veniam ex tempore non? Ea, a.
+            </p>
+
+            <p className="text-sm md:text-base ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+              dignissimos ex laborum aliquid ducimus doloremque alias earum
+              inventore distinctio magnam! Fuga possimus, adipisci quibusdam
+              obcaecati neque ullam hic natus ipsa omnis unde doloremque
+              voluptatum nobis earum veniam ipsam a modi voluptatem laborum ut?
+              Quam veniam ex tempore non? Ea, a.
+            </p>
+          </div>
         </div>
       </div>
     </section>
