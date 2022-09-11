@@ -1,11 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import Main from "../layouts/Main";
 import formurlencoded from "form-urlencoded";
-import {
-  AccountProps,
-  IAccountsData,
-  ILinkTokenData,
-} from "../types/interface";
+import { AccountProps, IAccountsData } from "../types/interface";
 import {
   usePlaidLink,
   PlaidLinkOnSuccess,
@@ -17,36 +13,14 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Card from "../components/Card";
-async function fetchAccounts(): Promise<ILinkTokenData> {
-  const res = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + "/api/create_link_token",
-    {
-      method: "POST",
-    }
-  );
-
-  return await res.json();
-}
 const Account: React.FC<AccountProps> = () => {
-  const [token, setToken] = useState<ILinkTokenData>();
   const [accounts, setAccounts] = useState();
-  const linkToken = useQuery(["linkToken"], fetchAccounts);
-  console.log(linkToken.data);
-  // const { link_token } = responseLinkToken.data;
-  // get a link_token from your API when component mounts
-  // useEffect(() => {
-  // const createLinkToken = async () => {
-  // const response = await fetch(
-  //   process.env.NEXT_PUBLIC_API_URL + "/api/create_link_token",
-  //   {
-  //     method: "POST",
-  //   }
-  // );
-  // const { link_token } = await response.json();
-  // setToken(link_token);
-  // };
-  // createLinkToken();
-  // }, []);
+
+  const { data, isFetching } = useQuery(["linkToken"], () =>
+    fetch(process.env.NEXT_PUBLIC_API_URL + "/api/create_link_token").then(
+      (res) => res.json()
+    )
+  );
   const onSuccess = useCallback<PlaidLinkOnSuccess>(
     (publicToken: string, metadata: PlaidLinkOnSuccessMetadata) => {
       const exchangePublicToken = async () => {
@@ -65,21 +39,12 @@ const Account: React.FC<AccountProps> = () => {
         );
         const { accounts } = await exchangeResponse.json();
         setAccounts(accounts);
-        console.log("accounts", accounts);
       };
       exchangePublicToken();
     },
     []
   );
   const onEvent = useCallback<PlaidLinkOnEvent>((eventName, metadata) => {
-    console.log(
-      "🚀 ~ file: account.tsx ~ line 42 ~ onEvent ~ metadata",
-      metadata
-    );
-    console.log(
-      "🚀 ~ file: account.tsx ~ line 42 ~ onEvent ~ eventName",
-      eventName
-    );
     console.log(eventName, metadata);
   }, []);
   const onExit = useCallback<PlaidLinkOnExit>((error, metadata) => {
@@ -87,18 +52,14 @@ const Account: React.FC<AccountProps> = () => {
   }, []);
 
   const config: PlaidLinkOptions = {
-    token: token?.data?.link_token,
+    token: data.link_token,
     onSuccess,
     onEvent,
     onExit,
   };
 
-  const {
-    open,
-    ready,
-    // error,
-    // exit
-  } = usePlaidLink(config);
+  const { open, ready } = usePlaidLink(config);
+
   return (
     <>
       <Main>
@@ -106,7 +67,7 @@ const Account: React.FC<AccountProps> = () => {
           <div className="h-screen m-4 p-4">
             <Card title="Connect">
               <button className="btn" onClick={() => open()} disabled={!ready}>
-                Add a bank account
+                <div>{isFetching ? "Updating..." : "Add a bank account"}</div>
               </button>
             </Card>
 

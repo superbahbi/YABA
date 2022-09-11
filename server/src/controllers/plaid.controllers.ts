@@ -63,7 +63,8 @@ const createLinkToken = async (_: Request, res: Response) => {
       const response = await plaidClient.linkTokenGet({
         link_token: linkTokenCreateResponse.data.link_token
       });
-      res.status(200).send(response.data.link_token);
+      console.log("🚀[Log]: ~ file: plaid.controllers.ts ~ line 66 ~ createLinkToken")
+      res.status(200).send(response.data);
     } catch (e) {
       // TODO: handle error
       console.log(e);
