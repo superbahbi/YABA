@@ -28,6 +28,7 @@
     "typescript": "^4.8.2"
   },
   "dependencies": {
+    "@prisma/client": "^4.3.1",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
@@ -36,12 +37,9 @@
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "pg": "^8.8.0",
     "plaid": "^10.9.0",
-    "postgres": "^3.2.4",
     "reflect-metadata": "^0.1.13",
     "ts-node-dev": "^2.0.0",
-    "typedoc": "^0.23.14",
-    "typeorm": "^0.3.9"
+    "typedoc": "^0.23.14"
   }
 }

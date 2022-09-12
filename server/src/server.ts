@@ -8,39 +8,35 @@ import authRoutes from "./routes/auth.routes";
 import plaidRoutes from "./routes/plaid.routes";
 import session from "express-session";
 
-import { AppDataSource } from './utils/data-source';
 dotenv.config();
 
-AppDataSource.initialize().then(async () => {
-  const app: Express = express();
-  if (process.env.NODE_ENV === 'development') app.use(morgan("dev"));
-  app.use(cors());
-  app.use(
-    bodyParser.urlencoded({
-      extended: true,
-    })
-  );
+const app: Express = express();
+if (process.env.NODE_ENV === 'development') app.use(morgan("dev"));
+app.use(cors());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
-  app.use(session({
-    secret: process.env.SESSION_SECRET as string,
-    resave: true,
-    saveUninitialized: true,
-    // cookie: { secure: true }
-  }))
-  app.use("/api/", userRoutes);
-  app.use("/api/", authRoutes);
-  app.use("/api", plaidRoutes)
+app.use(session({
+  secret: process.env.SESSION_SECRET as string,
+  resave: true,
+  saveUninitialized: true,
+  // cookie: { secure: true }
+}))
+app.use("/api/", userRoutes);
+app.use("/api/", authRoutes);
+app.use("/api", plaidRoutes)
 
-  app.get("/", async (_, res: Response) => {
-    res.json({ message: "YABA backend server" }); // Send a JSON response to the client
-  });
+app.get("/", async (_, res: Response) => {
+  res.json({ message: "YABA backend server" }); // Send a JSON response to the client
+});
 
-  app.listen(process.env.PORT, () => {
-    // tslint:disable-next-line:no-console
-    console.log(
-      "⚡️[Server]: App is running at http://localhost:%d\n   Press CTRL-C to stop",
-      process.env.PORT
-    );
-  });
+app.listen(process.env.PORT, () => {
   // tslint:disable-next-line:no-console
-}).catch(error => console.log("TypeORM connection error: ", error));
+  console.log(
+    "⚡️[Server]: App is running at http://localhost:%d\n   Press CTRL-C to stop",
+    process.env.PORT
+  );
+});

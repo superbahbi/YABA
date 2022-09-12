@@ -1,11 +1,9 @@
 import { sign } from "jsonwebtoken";
 import { validationResult } from 'express-validator';
 import { CookieOptions, Request, Response } from "express";
-import { AppDataSource } from "../utils/data-source"
-import { User } from "../entities/user.entity"
-import { QueryFailedError } from 'typeorm';
+import { Prisma, PrismaClient } from '@prisma/client'
 
-const postRepository = AppDataSource.getRepository(User);
+const prisma = new PrismaClient()
 
 const cookiesOptions: CookieOptions = {
   httpOnly: true,
@@ -32,20 +30,31 @@ const login = async (req: Request, res: Response) => {
   }
 
   // Check if user exists in database
-  const user = await postRepository.findOneBy({ email: email.toLowerCase() });
-
+  const user = await prisma.user.findUnique({
+    where: {
+      email: email.toLowerCase(),
+    },
+    select: {
+      id: true,
+      email: true,
+      firstName: true,
+      lastName: true,
+      password: false,
+    },
+  })
+  console.log(user)
   // Check if user exist
   if (!user) {
     return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
   }
-  // Check if password is correct
-  if (!User.comparePassword(password, user.password)) {
-    return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
-  }
+  // TODO Check if password is correct
+  // if (!User.comparePassword(password, user.password)) {
+  //   return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
+  // }
   // TODO Check if user is verified
   // Sign Access and Refresh Tokens
-  const accessToken = sign(user.toJSON(), process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
-  const refreshToken = sign(user.toJSON(), process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
+  const accessToken = sign(user, process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
+  const refreshToken = sign(user, process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
   // Add Cookies to response
   res.cookie('access_token', accessToken, tokenCookieOptions);
   res.cookie('refresh_token', refreshToken, tokenCookieOptions);
@@ -54,7 +63,7 @@ const login = async (req: Request, res: Response) => {
     httpOnly: false,
   });
   // Send response
-  return res.status(200).json({ user: user.toJSON(), accessToken });
+  return res.status(200).json({ user, accessToken });
 };
 const register = async (req: Request, res: Response) => {
   const { email, password, confirmPassword, firstName, lastName } = req.body;
@@ -64,19 +73,23 @@ const register = async (req: Request, res: Response) => {
   if (!errors.isEmpty()) return res.status(400).json({ data: { error: errors.array() } });
 
   // verify user password and confirm password
-  if (!await User.comparePassword(password, confirmPassword)) {
-    return res.status(400).json({ data: { errors: [{ msg: 'Passwords do not match' }] } });
-  }
+  if (password !== confirmPassword) return res.status(400).json({ data: { error: [{ msg: 'Password and Confirm Password do not match' }] } });
 
   try {
     // Check if user exists in database
-    const user = await postRepository.save(postRepository.create({ email, password, firstName, lastName }));
+    const user: Prisma.UserCreateInput = await prisma.user.create({
+      data: {
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        password: password,
+      },
+    })
+    // const user = await postRepository.save(postRepository.create({ email, password, firstName, lastName }));
     return res.status(200).json({ data: { user } });
   }
   catch (error) {
-    if (error instanceof QueryFailedError) {
-      return res.status(400).json({ data: { error: { code: error.driverError.code, severity: error.driverError.severity, msg: error.driverError.detail, } } });
-    }
+    return res.status(400).json({ data: { error } });
   }
 
 

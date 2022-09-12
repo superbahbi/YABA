@@ -4,15 +4,9 @@ import {
   AccountsGetRequest,
   Configuration,
   CountryCode,
-  DepositoryAccountSubtype,
-
-  ItemPublicTokenExchangeRequest,
-
-  LinkTokenCreateRequest,
-  LinkTokenGetRequest,
-  PlaidApi,
+  DepositoryAccountSubtype, LinkTokenCreateRequest, PlaidApi,
   PlaidEnvironments,
-  Products,
+  Products
 } from "plaid";
 
 const configuration: Configuration = new Configuration({
