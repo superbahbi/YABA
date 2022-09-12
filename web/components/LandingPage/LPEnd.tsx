@@ -2,7 +2,7 @@ import React from "react";
 
 export interface ILPEndProps {}
 
-const LPEnd: React.FC<ILPEndProps> = ({}) => {
+const LPEnd: React.FC<ILPEndProps> = () => {
   return (
     <section className="grid justify-items-center pt-12 px-4 lg:px-20 lg:pt-32">
       <div className="grid max-w-screen-xl w-full">
