@@ -1,11 +1,12 @@
 import Image from "next/image";
 import NextLink from "next/link";
 import React from "react";
-import Form from "../components/Form";
 
-interface AuthProps {}
+interface AuthProps {
+  children: React.ReactNode;
+}
 
-const Auth: React.FC<AuthProps> = ({}) => {
+const Auth: React.FC<AuthProps> = ({ children }) => {
   return (
     <>
       <div className="grid grid-rows-6 grid-cols-4 min-h-screen">
@@ -85,7 +86,7 @@ const Auth: React.FC<AuthProps> = ({}) => {
             </div>
           </div>
           <div className="col-start-1 col-end-5 row-span-full md:col-start-3 md:col-end-5">
-            <Form />
+            {children}
           </div>
         </main>
       </div>
