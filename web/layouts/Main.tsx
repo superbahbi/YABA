@@ -8,12 +8,14 @@ const Main: React.FC<MainProps> = ({ children }) => {
     <>
       <div
         data-theme="night"
-        className="flex flex-col justify-center w-full bg-base-100"
+        className="flex flex-col justify-center w-full bg-base-100 "
       >
-        <Header />
-        <div className="flex flex-row mx-auto md:w-[1440px]">
-          <Navbar />
-          <div className="lg:ml-56 md:ml-12 pt-14">{children}</div>
+        <div className="md:max-w-screen-xl md:mx-auto">
+          <Header />
+          <div className="flex flex-row">
+            <Navbar />
+            <div className="lg:ml-56 md:ml-12">{children}</div>
+          </div>
         </div>
       </div>
     </>
