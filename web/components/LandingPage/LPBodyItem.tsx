@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 import NextLink from "next/link";
 
 export interface ILPBodyItemProps {
   num: string;
-  imgSrc: string;
+  imgSrc: string | StaticImageData;
   heading: string;
   textOne: string;
   textTwo?: string;
@@ -24,12 +24,12 @@ const LPBodyItem: React.FC<ILPBodyItemProps> = ({
           <span className="h-fit">{num}</span>
         </h1>
         <div className="col-span-2 grid justify-items-center">
-          <Image src={imgSrc} alt="test" width="200" height="400" />
+          <Image src={imgSrc} alt="test" width="250" height="500" />
         </div>
       </div>
-      <div className="mb-10 md:mb-0 lg:w-[90%] grid items-end lg:h-[50vh]">
+      <div className="mb-10 md:mb-0 lg:w-[90%] grid items-end lg:h-[50vh] self-end">
         <h2 className="text-4xl py-4 lg:py-0 lg:text-7xl">{heading}</h2>
-        <p className="text-sm md:text-base pb-6 lg:pb-0 self-center">
+        <p className="text-sm md:text-base pb-6 lg:pb-0 self-center max-w-4/5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
           dignissimos ex laborum aliquid ducimus doloremque alias earum
           inventore distinctio magnam! Fuga possimus, adipisci quibusdam

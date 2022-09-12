@@ -14,17 +14,18 @@ const Home: React.FC<IHomeProps> = () => {
   console.log(theme);
   return (
     <>
+      <LPNavbar setTheme={setTheme} theme={theme} />
+
       <div className="font-Questrial" data-theme={theme ? "night" : "lofi"}>
         <main>
-          <LPNavbar setTheme={setTheme} theme={theme} />
           <LPHero bgVideo={theme ? video : videoSecondary} />
           <LPBody />
           <LPEnd />
         </main>
-        <LPFooter />
       </div>
 
-      {/* <Auth /> */}
+      <Auth />
+      <LPFooter />
     </>
   );
 };

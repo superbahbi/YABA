@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 import { ILPBodyProps } from "../../types/LPinterface";
 import LPBodyItem from "./LPBodyItem";
+import yabaOne from "/assets/images/yaba-signup.png";
+import yabaTwo from "/assets/images/yaba-login.png";
 
 const LPBody: React.FC<ILPBodyProps> = () => {
   return (
@@ -12,22 +14,22 @@ const LPBody: React.FC<ILPBodyProps> = () => {
             we do it all.
           </h1>
           <LPBodyItem
-            heading="brand experience"
+            heading="purchase guarantee"
             imgSrc="https://i.postimg.cc/mZFsrnbZ/i-Phone-13-Pro.png"
             num={"01."}
             textOne=""
             textTwo=""
           />
           <LPBodyItem
-            heading="brand experience"
-            imgSrc="https://i.postimg.cc/mZFsrnbZ/i-Phone-13-Pro.png"
+            heading="access all accounts"
+            imgSrc={yabaTwo}
             num={"02."}
             textOne=""
             textTwo=""
           />
           <LPBodyItem
-            heading="brand experience"
-            imgSrc="https://i.postimg.cc/mZFsrnbZ/i-Phone-13-Pro.png"
+            heading="experience sexperience"
+            imgSrc={yabaOne}
             num={"03."}
             textOne=""
             textTwo=""
