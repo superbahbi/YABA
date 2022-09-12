@@ -1,36 +1,37 @@
 import React from "react";
 import { ILPBodyProps } from "../../types/LPinterface";
-import LPToast from "./LPToast";
+import LPBodyItem from "./LPBodyItem";
+import yabaOne from "/assets/images/yaba-signup.png";
+import yabaTwo from "/assets/images/yaba-login.png";
 
 const LPBody: React.FC<ILPBodyProps> = () => {
   return (
-    <section className="flex justify-center min-h-screen pt-12">
-      <div className="flex w-full md:max-w-screen-xl justify-center">
-        <div className="toast toast-top toast-end relative grid">
-          <LPToast textContent="Hey sweetie! How's the first month of college going?" />
-          <LPToast
-            justifySelfEnd
-            textContent="Hi mom!! It's been so great! Jessica and I met the president
-                  of the curling team!"
+    <section className="grid justify-items-center pt-12 px-4 lg:px-20">
+      <div className="grid max-w-screen-xl w-full min-h-screen">
+        <div className="grid lg:grid-cols-2 lg:gap-10 lg:gap-y-32">
+          <h1 className="text-4xl lg:text-6xl pb-14 h-fit lg:col-span-2 lg:sticky lg:top-2 z-10">
+            we do it all.
+          </h1>
+          <LPBodyItem
+            heading="purchase guarantee"
+            imgSrc="https://i.postimg.cc/mZFsrnbZ/i-Phone-13-Pro.png"
+            num={"01."}
+            textOne=""
+            textTwo=""
           />
-          <LPToast
-            justifySelfEnd
-            textContent="Oh.. But I'm having a bit of trouble with something..."
+          <LPBodyItem
+            heading="access all accounts"
+            imgSrc={yabaTwo}
+            num={"02."}
+            textOne=""
+            textTwo=""
           />
-          <LPToast textContent="That's fantabulous honey! I'm so proud of you! But, what's wrong?" />
-          <LPToast
-            justifySelfEnd
-            textContent="I'm running out of money too quickly.. Haha.. College life am I right?"
-          />
-          <LPToast textContent="Bruh. Do you remember how we switched to Groomify for Buddy's grooming appointments? " />
-          <LPToast
-            justifySelfEnd
-            textContent="Mmhmm.. Yeah. They had such a great website, and their service was even better. But what's your point?"
-          />
-          <LPToast textContent="Groomify's developers just released a new application - an amazing budgeting application!" />
-          <LPToast
-            justifySelfEnd
-            textContent="Okay perfect! I think Jessica mentioned this to me, I'm pretty sure it's called YABA. Gonna check it out now, love ya mom!!"
+          <LPBodyItem
+            heading="experience sexperience"
+            imgSrc={yabaOne}
+            num={"03."}
+            textOne=""
+            textTwo=""
           />
         </div>
       </div>

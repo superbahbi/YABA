@@ -18,21 +18,14 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
           <source src={bgVideo} type="video/webm"></source>
         </video>
         <div className="hero-content flex-col lg:flex-row-reverse lg:mw-[1440px]">
-          <div className="mockup-phone border-primary">
-            <div className="camera"></div>
-            <div className="display">
-              <div className="artboard artboard-demo phone-1">
-                <Image
-                  src="https://i.postimg.cc/DZRftwxp/yaba.png"
-                  className="max-w-sm rounded-lg shadow-2xl"
-                  width={300}
-                  height={475}
-                  alt="yaba mockup"
-                />
-              </div>
-            </div>
-          </div>
-          <div>
+          <Image
+            src="https://i.postimg.cc/mZFsrnbZ/i-Phone-13-Pro.png"
+            className="max-w-sm rounded-lg shadow-2xl"
+            width={300}
+            height={600}
+            alt="yaba mockup"
+          />
+          <div className="grid">
             <label className="swap">
               <input type="checkbox" />
               <div className="swap-on">
@@ -66,28 +59,6 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
           </div>
         </div>
       </div>
-      {/* <div
-            className="flex flex-col w-full border-opacity-50"
-            data-theme="night"
-          >
-            <div className="grid h-20 card bg-base-300 rounded-box place-items-center">
-              <h1 className="text-5xl tracking-wide lg:text-3xl font-bold flex justify-center lg:justify-end">
-                explore
-              </h1>
-            </div>
-            <div className="divider">
-              <button className="btn btn-ghost lowercase btn-xs sm:btn-sm md:btn-md lg:btn-md no-underline">
-                <h1 className="text-5xl tracking-wide lg:text-4xl font-bold flex justify-center lg:justify-end">
-                  &#8595;
-                </h1>
-              </button>
-            </div>
-            <div className="grid h-20 card bg-base-300 rounded-box place-items-center">
-              <h1 className="text-5xl tracking-wide lg:text-3xl font-bold flex justify-center lg:justify-end">
-                experience.
-              </h1>
-            </div>
-          </div> */}
     </section>
   );
 };
