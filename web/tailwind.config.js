@@ -27,6 +27,9 @@ module.exports = {
         "apple-blue": "#1982FC",
         "apple-green": "#43CC47",
       },
+      bgLinearGradientDeg: {
+        75: "75deg",
+      },
     },
   },
   daisyui: {
@@ -62,5 +65,5 @@ module.exports = {
       "winter",
     ],
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("tailwindcss-linear-gradient")],
 };
