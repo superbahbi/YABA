@@ -10,7 +10,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
         data-theme="night"
         className="flex flex-col justify-center w-full bg-base-100 "
       >
-        <div className="md:max-w-screen-xl md:mx-auto">
+        <div className="md:max-w-screen-xl w-screen md:mx-auto">
           <Header />
           <div className="flex flex-row">
             <Navbar />

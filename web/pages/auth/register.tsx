@@ -1,8 +1,6 @@
 import React from "react";
-import Form from "../../components/Form";
 import { IconGoogle } from "../../assets/icons";
 import NextLink from "next/link";
-import Image from "next/image";
 import Auth from "../../layouts/Auth";
 export interface RregisterProps {}
 
@@ -10,11 +8,11 @@ const Register: React.FC<RregisterProps> = () => {
   return (
     <>
       <Auth>
-        <div className="mx-auto flex flex-col justify-center px-8 py-8">
+        <div className="mx-auto flex flex-col justify-center px-16 py-8">
           <p className="text-center text-2xl font-bold">
             Create your free account
           </p>
-          <p className="mt-6 text-center font-medium md:text-left">
+          <p className="mt-6 text-center font-medium">
             Already using yaba?{" "}
             <NextLink href="/auth/login">
               <span className="whitespace-nowrap font-semibold text-primary cursor-pointer">
