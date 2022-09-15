@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { IconGoogle } from "../../assets/icons";
 import NextLink from "next/link";
 import Auth from "../../layouts/Auth";
 export interface RregisterProps {}
 
 const Register: React.FC<RregisterProps> = () => {
+  const [checked, setChecked] = useState(true);
   return (
     <>
       <Auth>
@@ -37,7 +38,7 @@ const Register: React.FC<RregisterProps> = () => {
               </div>
             </div>
             <div className="flex flex-col pt-4">
-              <div className="relative flex rounded-md border-2 transition focus-within:border-blue-600">
+              <div className="relative flex rounded-md border-2 transition focus-within:border-blue-600 bg-white">
                 <input
                   type="password"
                   id="login-password"
@@ -68,10 +69,10 @@ const Register: React.FC<RregisterProps> = () => {
             </div>
             <div className="block">
               <input
-                className="mr-2 h-5 w-5 appearance-none rounded border border-gray-300 bg-contain bg-no-repeat align-top text-black shadow checked:bg-blue-600 focus:border-blue-600 focus:shadow"
                 type="checkbox"
-                id="remember-me"
-                checked
+                checked={checked}
+                onChange={() => setChecked(!checked)}
+                className="checkbox mr-2 h-5 w-5 appearance-none rounded border border-gray-300 bg-contain bg-no-repeat align-top text-black shadow checked:bg-blue-600 focus:border-blue-600 focus:shadow"
               />
               <label className="inline-block" htmlFor="remember-me">
                 I agree to the{" "}

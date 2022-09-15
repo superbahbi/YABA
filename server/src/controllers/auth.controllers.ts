@@ -63,7 +63,7 @@ const login = async (req: Request, res: Response) => {
     httpOnly: false,
   });
   // Send response
-  return res.status(200).json({ user, accessToken });
+  return res.status(200).json({ user, accessToken, refreshToken });
 };
 const register = async (req: Request, res: Response) => {
   const { email, password, confirmPassword, firstName, lastName } = req.body;
