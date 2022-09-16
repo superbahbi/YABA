@@ -8,7 +8,7 @@
     "watch": "tsc -w",
     "prestart": "npm run build",
     "start": "node .",
-    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "typedoc --out docs src/server.ts --includes ./src/**/*.ts --readme none"
   },

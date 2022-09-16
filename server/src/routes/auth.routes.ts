@@ -11,7 +11,6 @@ router.post("/login",
 router.post("/register",
     body('email').isEmail(),
     body('password').isLength({ min: 6 }),
-    body('confirmPassword').isLength({ min: 6 }),
     body('firstName').isLength({ min: 2 }),
     body('lastName').isLength({ min: 2 }),
     controller.register);

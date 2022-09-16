@@ -1,18 +1,14 @@
-import Image from "next/image";
-import NextLink from "next/link";
 import React from "react";
-
 interface AuthProps {
   children: React.ReactNode;
 }
-
 const Auth: React.FC<AuthProps> = ({ children }) => {
   return (
     <>
       <div className="min-w-screen min-h-screen" data-theme="night">
         <div className="h-screen from-base-300 to-slate-200 bg-linear-gradient-50 relative">
           <div className="absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="flex flex-row rounded-lg">
+            <div className="flex flex-row">
               <div className="hidden md:flex md:w-1/2 bg-slate-200 p-8">
                 <div className="w-3/4 flex flex-col justify-center mx-auto">
                   <div className="flex my-4">
