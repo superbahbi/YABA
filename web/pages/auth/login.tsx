@@ -1,65 +1,58 @@
-import React, { useState } from "react";
+import React from "react";
 import NextLink from "next/link";
 import Auth from "../../layouts/Auth";
-import { useForm, Resolver } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import formUrlEncoded from "form-urlencoded";
-export interface ILoginProps {}
-type FormValues = {
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
+export interface ILoginProps {
   email: string;
   password: string;
-};
-const resolver: Resolver<FormValues> = async (values) => {
-  return {
-    values: values.email ? values : {},
-    errors: !values.email
-      ? {
-          email: {
-            type: "required",
-            message: "This is required.",
-          },
-        }
-      : {},
-  };
-};
+}
+const schema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});
+
 const Login: React.FC<ILoginProps> = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({ resolver });
+  } = useForm<ILoginProps>({ resolver: zodResolver(schema) });
 
-  const onSubmit = async (data: FormValues, e: React.SyntheticEvent) => {
-    e.preventDefault();
-    const response = await fetch(
-      process.env.NEXT_PUBLIC_API_URL + "/api/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formUrlEncoded(data),
+  const onSubmit = async (data: ILoginProps) => {
+    try {
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_API_URL + "/api/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: formUrlEncoded(data),
+        }
+      );
+      const { user, accessToken, refreshToken } = await response.json();
+      console.log(
+        "🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ refreshToken",
+        refreshToken
+      );
+      console.log(
+        "🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ accessToken",
+        accessToken
+      );
+      console.log("🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ user", user);
+      if (user && accessToken) {
+        // TODO: Save the user and access token to local storage or a cookie
+        // localStorage.setItem("user", JSON.stringify(user));
+        // localStorage.setItem("accessToken", accessToken);
+        // window.location.href = "/overview";
       }
-    );
-    const { user, accessToken, refreshToken } = await response.json();
-    console.log(
-      "🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ refreshToken",
-      refreshToken
-    );
-    console.log(
-      "🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ accessToken",
-      accessToken
-    );
-    console.log("🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ user", user);
-    if (user && accessToken) {
-      // TODO: Save the user and access token to local storage or a cookie
-      // localStorage.setItem("user", JSON.stringify(user));
-      // localStorage.setItem("accessToken", accessToken);
-      // window.location.href = "/overview";
+    } catch (errors) {
+      console.log(errors);
     }
-  };
-
-  const onError = (errors: any, e: React.SyntheticEvent) => {
-    console.log(errors, e);
   };
 
   return (
@@ -77,7 +70,7 @@ const Login: React.FC<ILoginProps> = () => {
           </p>
           <form
             className="flex flex-col items-stretch pt-3 md:pt-3"
-            onSubmit={handleSubmit(onSubmit, onError)}
+            onSubmit={handleSubmit(onSubmit)}
           >
             <div className="flex flex-col pt-4">
               <div className="relative flex rounded-md border-2 transition focus-within:border-blue-600">

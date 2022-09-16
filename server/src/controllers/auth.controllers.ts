@@ -39,7 +39,7 @@ const login = async (req: Request, res: Response) => {
       email: true,
       firstName: true,
       lastName: true,
-      password: false,
+      password: true,
     },
   })
   console.log(user)
@@ -48,9 +48,9 @@ const login = async (req: Request, res: Response) => {
     return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
   }
   // TODO Check if password is correct
-  // if (!User.comparePassword(password, user.password)) {
-  //   return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
-  // }
+  if (password === user.password) {
+    return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
+  }
   // TODO Check if user is verified
   // Sign Access and Refresh Tokens
   const accessToken = sign(user, process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
@@ -66,14 +66,11 @@ const login = async (req: Request, res: Response) => {
   return res.status(200).json({ user, accessToken, refreshToken });
 };
 const register = async (req: Request, res: Response) => {
-  const { email, password, confirmPassword, firstName, lastName } = req.body;
+  const { email, password, firstName, lastName } = req.body;
 
   // verify user input data
   const errors = validationResult(req);
   if (!errors.isEmpty()) return res.status(400).json({ data: { error: errors.array() } });
-
-  // verify user password and confirm password
-  if (password !== confirmPassword) return res.status(400).json({ data: { error: [{ msg: 'Password and Confirm Password do not match' }] } });
 
   try {
     // Check if user exists in database
@@ -85,11 +82,10 @@ const register = async (req: Request, res: Response) => {
         password: password,
       },
     })
-    // const user = await postRepository.save(postRepository.create({ email, password, firstName, lastName }));
-    return res.status(200).json({ data: { user } });
+    return res.status(200).json({ status: "success", data: { user } });
   }
   catch (error) {
-    return res.status(400).json({ data: { error } });
+    return res.status(400).json({ status: "error", data: { error } });
   }
 
 
