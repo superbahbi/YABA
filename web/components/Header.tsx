@@ -2,7 +2,7 @@ import NextLink from "next/link";
 import Image from "next/image";
 import React from "react";
 import { IconMenu, IconMail, IconNotification } from "../assets/icons";
-import Logo from "../assets/images/logo.jpg";
+import Logo from "../assets/images/logo.png";
 import { HeaderProps } from "../types/interface";
 const Header: React.FC<HeaderProps> = () => {
   const linkNames = [
@@ -18,11 +18,13 @@ const Header: React.FC<HeaderProps> = () => {
     <>
       <div className="navbar bg-base-100 z-10 sticky top-0 bg-none px-8">
         <div className="navbar-start">
-          <Image src={Logo} alt="logo" width={50} height={50} />
+          <NextLink href="/">
+            <div className="pl-2">
+              <Image src={Logo} alt="logo" width={32} height={32} />
+            </div>
+          </NextLink>
         </div>
-        <div className="navbar-center">
-          <div className="normal-case text-xl font-bold">yaba.</div>
-        </div>
+
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle text-accent">
             <IconMail />
