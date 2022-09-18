@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React from "react";
 interface AuthProps {
   children: React.ReactNode;
@@ -5,11 +6,11 @@ interface AuthProps {
 const Auth: React.FC<AuthProps> = ({ children }) => {
   return (
     <>
-      <div className="min-w-screen min-h-screen" data-theme="night">
+      <div className="min-w-screen min-h-screen">
         <div className="h-screen from-base-300 to-slate-200 bg-linear-gradient-50 relative">
           <div className="absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2">
             <div className="flex flex-row">
-              <div className="hidden md:flex md:w-1/2 bg-slate-200 p-8">
+              <div className="hidden md:flex md:w-1/2 bg-white/90 rounded-l-3xl p-8">
                 <div className="w-3/4 flex flex-col justify-center mx-auto">
                   <div className="flex my-4">
                     <div className="flex-shrink-0">
@@ -145,11 +146,11 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                       </div>
                     </div>
                     <div className="ml-4">
-                      <h5 className="flex flex-col text-lg font-bold leading-6 text-gray-900">
+                      <h5 className="flex flex-col text-lg font-bold leading-6 text-secondary">
                         <span>All your accounts</span>
                         <span>All in one place.</span>
                       </h5>
-                      <p className="mt-2 text-base leading-6 text-gray-500">
+                      <p className="mt-2 text-base leading-6 text-primary">
                         See it all at a glance when you link your cash accounts,
                         credit cards, investments, and bills.
                       </p>
@@ -233,10 +234,10 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                       </div>
                     </div>
                     <div className="ml-4">
-                      <h5 className="text-lg font-bold leading-6 text-gray-900">
+                      <h5 className="text-lg font-bold leading-6 text-secondary">
                         Keep your cashflow crystal clear
                       </h5>
-                      <p className="mt-2 text-base leading-6 text-gray-500">
+                      <p className="mt-2 text-base leading-6 text-primary">
                         Effortlessly track your cashflow and gain insights
                         that’ll help you see easy opportunities to save.
                       </p>
@@ -308,10 +309,10 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                       </div>
                     </div>
                     <div className="ml-4">
-                      <h5 className="text-lg font-bold leading-6 text-gray-900">
+                      <h5 className="text-lg font-bold leading-6 text-secondary">
                         Bill Negotiation
                       </h5>
-                      <p className="mt-2 text-base leading-6 text-gray-500">
+                      <p className="mt-2 text-base leading-6 text-primary">
                         Join the other yabars who’ve already racked up a
                         combined $2M+ in savings.
                       </p>
@@ -320,7 +321,9 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                 </div>
               </div>
 
-              <div className="w-1/2 bg-base-300 p-8">{children}</div>
+              <div className="w-1/2 bg-white/90 rounded-r-3xl p-8">
+                {children}
+              </div>
             </div>
           </div>
         </div>

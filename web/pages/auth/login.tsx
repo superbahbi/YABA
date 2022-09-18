@@ -58,7 +58,7 @@ const Login: React.FC<ILoginProps> = () => {
   return (
     <>
       <Auth>
-        <div className="mx-auto flex flex-col justify-center px-16 py-8">
+        <div className="mx-auto flex flex-col justify-center px-16 py-8 text-secondary">
           <p className="text-center text-2xl font-bold">Welcome back to yaba</p>
           <p className="mt-6 text-center font-medium">
             Don&apos;t have an account?

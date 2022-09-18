@@ -27,6 +27,7 @@
     "react-hook-form": "^7.35.0",
     "react-plaid-link": "^3.3.2",
     "tailwindcss-linear-gradient": "^1.0.2",
+    "theme-change": "^2.2.0",
     "typedoc": "^0.23.14",
     "web-vitals": "^2.1.4",
     "zod": "^3.19.1"
