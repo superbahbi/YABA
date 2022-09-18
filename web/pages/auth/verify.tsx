@@ -39,7 +39,7 @@ const Verify: React.FC<IVerifyProps> = () => {
   return (
     <>
       <Auth>
-        <div className="mx-auto flex flex-col justify-center px-16 py-8">
+        <div className="mx-auto flex flex-col justify-center text-secondary px-16 py-8">
           <p className="text-center text-2xl font-bold">
             Verify your email address
           </p>
