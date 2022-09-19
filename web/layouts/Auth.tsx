@@ -7,10 +7,10 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
   return (
     <>
       <div className="min-w-screen min-h-screen">
-        <div className="h-screen from-base-300 to-slate-200 bg-linear-gradient-50 relative">
-          <div className="absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="flex flex-row">
-              <div className="hidden md:flex md:w-1/2 bg-white/90 rounded-l-3xl p-8">
+        <div className="h-screen bg-white md:from-base-300 md:to-slate-200 md:bg-linear-gradient-50  relative">
+          <div className="md:absolute md:top-1/2 md:left-1/2 md:w-2/5 md:transform md:-translate-x-1/2 md:-translate-y-1/2">
+            <div className="flex flex-row justify-center">
+              <div className="hidden xxl:flex xxl:w-1/2 bg-white/90 rounded-l-3xl p-8">
                 <div className="w-3/4 flex flex-col justify-center mx-auto">
                   <div className="flex my-4">
                     <div className="flex-shrink-0">
@@ -321,8 +321,10 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                 </div>
               </div>
 
-              <div className="w-1/2 bg-white/90 rounded-r-3xl p-8">
-                {children}
+              <div className="w-full xxl:w-1/2 bg-white/90 md:rounded-3xl xxl:rounded-r-3xl xxl:rounded-l-none xxl:p-8">
+                <div className="mx-auto flex flex-col justify-center text-secondary px-4 lg:px-8 xl:px-16 py-8">
+                  {children}
+                </div>
               </div>
             </div>
           </div>

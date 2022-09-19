@@ -39,69 +39,67 @@ const Verify: React.FC<IVerifyProps> = () => {
   return (
     <>
       <Auth>
-        <div className="mx-auto flex flex-col justify-center text-secondary px-16 py-8">
-          <p className="text-center text-2xl font-bold">
-            Verify your email address
-          </p>
-          <p className="mt-6 text-center font-light">
-            Enter the code you received at
-          </p>
-          <p className=" text-center font-medium">su****@g****.com</p>
+        <p className="text-center text-2xl font-bold">
+          Verify your email address
+        </p>
+        <p className="mt-6 text-center font-light">
+          Enter the code you received at
+        </p>
+        <p className=" text-center font-medium">su****@g****.com</p>
 
-          <form
-            className="flex flex-col items-stretch pt-3 md:pt-3"
-            onSubmit={handleSubmit(onSubmit)}
+        <form
+          className="flex flex-col items-stretch pt-3 md:pt-3"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div
+            id="code"
+            className="flex flex-row justify-center text-center px-2 mt-5 text-gray-800"
           >
-            <div
-              id="code"
-              className="flex flex-row justify-center text-center px-2 mt-5 text-gray-800"
-            >
-              <input
-                className="m-2 border h-10 w-10 text-center form-control rounded"
-                type="text"
-                id="first"
-                maxLength={1}
-              />
-              <input
-                className="m-2 border h-10 w-10 text-center form-control rounded"
-                type="text"
-                id="second"
-                maxLength={1}
-              />
-              <input
-                className="m-2 border h-10 w-10 text-center form-control rounded"
-                type="text"
-                id="third"
-                maxLength={1}
-              />
-              <input
-                className="m-2 border h-10 w-10 text-center form-control rounded"
-                type="text"
-                id="fourth"
-                maxLength={1}
-              />
-              <input
-                className="m-2 border h-10 w-10 text-center form-control rounded"
-                type="text"
-                id="fifth"
-                maxLength={1}
-              />
-              <input
-                className="m-2 border h-10 w-10 text-center form-control rounded"
-                type="text"
-                id="sixth"
-                maxLength={1}
-              />
-            </div>
+            <input
+              className="m-2 border h-10 w-10 text-center form-control rounded"
+              type="text"
+              id="first"
+              maxLength={1}
+            />
+            <input
+              className="m-2 border h-10 w-10 text-center form-control rounded"
+              type="text"
+              id="second"
+              maxLength={1}
+            />
+            <input
+              className="m-2 border h-10 w-10 text-center form-control rounded"
+              type="text"
+              id="third"
+              maxLength={1}
+            />
+            <input
+              className="m-2 border h-10 w-10 text-center form-control rounded"
+              type="text"
+              id="fourth"
+              maxLength={1}
+            />
+            <input
+              className="m-2 border h-10 w-10 text-center form-control rounded"
+              type="text"
+              id="fifth"
+              maxLength={1}
+            />
+            <input
+              className="m-2 border h-10 w-10 text-center form-control rounded"
+              type="text"
+              id="sixth"
+              maxLength={1}
+            />
+          </div>
 
-            <button
-              type="submit"
-              className="mt-6 rounded-lg bg-blue-600 px-4 py-2 text-center text-base font-semibold text-white shadow-md outline-none ring-blue-500 ring-offset-2 transition hover:bg-blue-700 focus:ring-2"
-            >
-              Verify
-            </button>
-          </form>
-        </div>
+          <button
+            type="submit"
+            className="mt-6 rounded-lg bg-blue-600 px-4 py-2 text-center text-base font-semibold text-white shadow-md outline-none ring-blue-500 ring-offset-2 transition hover:bg-blue-700 focus:ring-2"
+          >
+            Verify
+          </button>
+        </form>
       </Auth>
     </>
   );

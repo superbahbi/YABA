@@ -45,7 +45,7 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
               feel better.
             </h2>
             <div className="btn-group mt-4 justify-center lg:justify-end">
-              <NextLink className="link no-underline" href="/account">
+              <NextLink className="link no-underline" href="/auth/register">
                 <button className="btn btn-primary lowercase btn-xs sm:btn-sm md:btn-md lg:btn-md">
                   Get Started
                 </button>

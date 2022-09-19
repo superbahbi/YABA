@@ -1,21 +1,11 @@
 import NextLink from "next/link";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React from "react";
 import { IconMenu, IconMail, IconNotification } from "../assets/icons";
 import Logo from "../assets/images/logo.png";
 import { HeaderProps } from "../types/interface";
-const setLocalStorage = (key: string, value: string) => {
-  if (typeof window !== "undefined") {
-    localStorage.setItem(key, value);
-  }
-};
-const getLocalStorage = (key: string) => {
-  if (typeof window !== "undefined") {
-    return localStorage.getItem(key);
-  }
-};
+
 const Header: React.FC<HeaderProps> = () => {
-  console.log(getLocalStorage("theme"));
   const linkNames = [
     "overview",
     "transaction",
