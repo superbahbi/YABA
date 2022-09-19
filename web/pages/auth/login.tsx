@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import formUrlEncoded from "form-urlencoded";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { useRouter } from "next/router";
 
 export interface ILoginProps {
   email: string;
@@ -16,6 +17,7 @@ const schema = z.object({
 });
 
 const Login: React.FC<ILoginProps> = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -44,11 +46,12 @@ const Login: React.FC<ILoginProps> = () => {
         accessToken
       );
       console.log("🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ user", user);
-      if (user && accessToken) {
+      if (accessToken) {
+        console.log("test");
         // TODO: Save the user and access token to local storage or a cookie
-        // localStorage.setItem("user", JSON.stringify(user));
-        // localStorage.setItem("accessToken", accessToken);
-        // window.location.href = "/overview";
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("accessToken", accessToken);
+        router.push("/overview");
       }
     } catch (errors) {
       console.log(errors);
@@ -60,7 +63,7 @@ const Login: React.FC<ILoginProps> = () => {
       <Auth>
         <p className="text-center text-2xl font-bold">Welcome back to yaba</p>
         <p className="mt-6 text-center font-medium">
-          Don&apos;t have an account?
+          Don&apos;t have an account?{" "}
           <NextLink href="/auth/register">
             <span className="whitespace-nowrap font-semibold text-primary cursor-pointer">
               Sign up for free.

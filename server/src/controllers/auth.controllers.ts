@@ -2,7 +2,7 @@ import { sign } from "jsonwebtoken";
 import { validationResult } from 'express-validator';
 import { CookieOptions, Request, Response } from "express";
 import { Prisma, PrismaClient } from '@prisma/client'
-
+import argon2 from "argon2"
 const prisma = new PrismaClient()
 
 const cookiesOptions: CookieOptions = {
@@ -21,6 +21,14 @@ const tokenCookieOptions: CookieOptions = {
   maxAge: 15 * 60 * 1000,
 };
 
+/*
+  * @route   POST /api/auth/login
+  * @desc    Login user
+  * @access  Public
+  * @params  email, password
+  * @return  user, token
+  * @errors  400, 500
+*/
 const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   // verify user input data
@@ -33,28 +41,32 @@ const login = async (req: Request, res: Response) => {
   const user = await prisma.user.findUnique({
     where: {
       email: email.toLowerCase(),
-    },
-    select: {
-      id: true,
-      email: true,
-      firstName: true,
-      lastName: true,
-      password: true,
-    },
+    }
   })
-  console.log(user)
+
+
   // Check if user exist
   if (!user) {
     return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
   }
+
   // TODO Check if password is correct
-  if (password === user.password) {
+  const valid = await argon2.verify(user.password, password);
+  if (!valid) {
     return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
+  }
+
+  // Sanitize user data with password before sending it to client
+  const sanitizedUser = {
+    id: user.id,
+    email: user.email,
+    firstName: user.firstName,
+    lastName: user.lastName,
   }
   // TODO Check if user is verified
   // Sign Access and Refresh Tokens
-  const accessToken = sign(user, process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
-  const refreshToken = sign(user, process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
+  const accessToken = sign(sanitizedUser, process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
+  const refreshToken = sign(sanitizedUser, process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
   // Add Cookies to response
   res.cookie('access_token', accessToken, tokenCookieOptions);
   res.cookie('refresh_token', refreshToken, tokenCookieOptions);
@@ -63,8 +75,21 @@ const login = async (req: Request, res: Response) => {
     httpOnly: false,
   });
   // Send response
-  return res.status(200).json({ user, accessToken, refreshToken });
+  return res.status(200).json({
+    user: sanitizedUser,
+    accessToken,
+    refreshToken
+  });
 };
+
+/*
+  * @route   POST /api/auth/register
+  * @desc    Register user
+  * @access  Public
+  * @params  email, password, firstName, lastName
+  * @return  void
+  * @errors  400, 500
+*/
 const register = async (req: Request, res: Response) => {
   const { email, password, firstName, lastName } = req.body;
 
@@ -72,6 +97,8 @@ const register = async (req: Request, res: Response) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) return res.status(400).json({ data: { error: errors.array() } });
 
+  // hashing password
+  const hashedPassword = await argon2.hash(password)
   try {
     // Check if user exists in database
     const user: Prisma.UserCreateInput = await prisma.user.create({
@@ -79,7 +106,7 @@ const register = async (req: Request, res: Response) => {
         email: email,
         firstName: firstName,
         lastName: lastName,
-        password: password,
+        password: hashedPassword,
       },
     })
     return res.status(200).json({ status: "success", data: { user } });

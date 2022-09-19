@@ -7,6 +7,7 @@ import formUrlEncoded from "form-urlencoded";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Head from "next/head";
+
 export interface IRegisterProps {
   email: string;
   password: string;
@@ -44,6 +45,7 @@ const Register: React.FC<IRegisterProps> = () => {
       console.log(errors);
     }
   };
+
   return (
     <>
       <Head>

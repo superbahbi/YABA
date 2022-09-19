@@ -11,7 +11,6 @@ import {
   PlaidLinkOnSuccessMetadata,
 } from "react-plaid-link";
 import { useQuery } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Card from "../components/Card";
 const Account: React.FC<AccountProps> = () => {
   const [accounts, setAccounts] = useState<IAccountsData[]>();
@@ -97,7 +96,6 @@ const Account: React.FC<AccountProps> = () => {
           </div>
         </div>
       </Main>
-      <ReactQueryDevtools initialIsOpen />
     </>
   );
 };
