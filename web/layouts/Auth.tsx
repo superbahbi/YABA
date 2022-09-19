@@ -1,9 +1,18 @@
 /* eslint-disable react/no-unknown-property */
-import React from "react";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
+import { IconArrowLeft } from "../assets/icons";
+import { themeChange } from "theme-change";
+
 interface AuthProps {
   children: React.ReactNode;
 }
 const Auth: React.FC<AuthProps> = ({ children }) => {
+  const router = useRouter();
+  useEffect(() => {
+    themeChange(false);
+    // 👆 false parameter is required for react project
+  }, []);
   return (
     <>
       <div className="min-w-screen min-h-screen">
@@ -321,7 +330,15 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                 </div>
               </div>
 
-              <div className="w-full xxl:w-1/2 bg-white/90 md:rounded-3xl xxl:rounded-r-3xl xxl:rounded-l-none xxl:p-8">
+              <div className="w-full xxl:w-1/2 bg-white/90 md:rounded-3xl xxl:rounded-r-3xl xxl:rounded-l-none">
+                <div className="p-4">
+                  <button
+                    className="btn btn-ghost btn-circle"
+                    onClick={() => router.back()}
+                  >
+                    <IconArrowLeft strokeColor="text-secondary" />
+                  </button>
+                </div>
                 <div className="mx-auto flex flex-col justify-center text-secondary px-4 lg:px-8 xl:px-16 py-8">
                   {children}
                 </div>
