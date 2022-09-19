@@ -1,3 +1,4 @@
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import React, { useEffect } from "react";
 import { themeChange } from "theme-change";
 import Header from "../components/Header";
@@ -20,6 +21,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
           </div>
         </div>
       </div>
+      <ReactQueryDevtools initialIsOpen />
     </>
   );
 };
