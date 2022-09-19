@@ -19,6 +19,7 @@ import { IconTransaction } from "./transaction";
 import { IconTravel } from "./travel";
 import { IconWallet } from "./wallet";
 import { IconGoogle } from "./google";
+import { IconArrowLeft } from "./arrow-left";
 export {
   IconTicket,
   IconAccount,
@@ -40,5 +41,6 @@ export {
   IconMenu,
   IconArrowUp,
   IconArrowDown,
+  IconArrowLeft,
   IconGoogle,
 };
