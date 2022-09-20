@@ -14,4 +14,12 @@ router.post("/register",
     body('firstName').isLength({ min: 2 }),
     body('lastName').isLength({ min: 2 }),
     controller.register);
+router.post("/forgot-password",
+    body('email').isEmail(),
+    controller.forgotPassword);
+router.post("/reset-password",
+    body('email').isEmail(),
+    body('password').isLength({ min: 6 }),
+    controller.resetPassword);
+
 export = router;
