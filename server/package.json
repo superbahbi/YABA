@@ -19,6 +19,8 @@
     "@types/jsonwebtoken": "^8.5.9",
     "@types/morgan": "^1.9.3",
     "@types/node": "^18.7.14",
+    "@types/nodemailer": "^6.4.6",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
@@ -38,9 +40,11 @@
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.7.8",
     "plaid": "^10.9.0",
     "reflect-metadata": "^0.1.13",
     "ts-node-dev": "^2.0.0",
-    "typedoc": "^0.23.14"
+    "typedoc": "^0.23.14",
+    "uuid": "^9.0.0"
   }
 }
