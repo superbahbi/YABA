@@ -24,6 +24,7 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
             width={300}
             height={600}
             alt="yaba mockup"
+            priority
           />
           <div className="grid">
             <label className="swap">

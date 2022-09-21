@@ -18,7 +18,7 @@ router.post("/forgot-password",
     body('email').isEmail(),
     controller.forgotPassword);
 router.post("/reset-password",
-    body('email').isEmail(),
+    body('token').isLength({ min: 1 }),
     body('password').isLength({ min: 6 }),
     controller.resetPassword);
 

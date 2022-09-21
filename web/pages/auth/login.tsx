@@ -103,7 +103,7 @@ const Login: React.FC<ILoginProps> = () => {
           </div>
           <div className="block">
             <label className="inline-block" htmlFor="remember-me">
-              <NextLink href="/forgotpassword">
+              <NextLink href="/auth/forgotpassword">
                 <span className="underline cursor-pointer">
                   Forgot password?
                 </span>

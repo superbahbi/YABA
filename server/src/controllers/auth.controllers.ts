@@ -132,7 +132,7 @@ const forgotPassword = async (req: Request, res: Response) => {
   const { email } = req.body;
   // verify user input data
   const errors = validationResult(req);
-  if (!errors.isEmpty()) return res.status(400).json({ data: { error: errors.array() } });
+  if (!errors.isEmpty()) return res.status(400).json({ data: { errors: errors.array() } });
 
   // Check if user exists in database
   const user = await prisma.user.findUnique({
@@ -143,7 +143,7 @@ const forgotPassword = async (req: Request, res: Response) => {
 
   // Check if user exist
   if (!user) {
-    return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
+    return res.status(400).json({ data: { errors: [{ message: 'Invalid credentials' }] } });
   }
 
   // TODO send email with reset link
@@ -155,9 +155,9 @@ const forgotPassword = async (req: Request, res: Response) => {
     }
   })
   await sendEmail(user.email,
-    `<a href="http://localhost:3000 /change-password/${token}">reset password</a>`
+    `<a href="http://localhost:3000/auth/resetpassword/${token}">reset password</a>`
   )
-  return res.status(200).json({ status: "success" });
+  return res.status(200).json({ data: { status: "success" } });
 };
 
 /*
@@ -170,6 +170,7 @@ const forgotPassword = async (req: Request, res: Response) => {
 */
 const resetPassword = async (req: Request, res: Response) => {
   const { token, password } = req.body;
+  console.log(token, password)
   // verify user input data
   const errors = validationResult(req);
   if (!errors.isEmpty()) return res.status(400).json({ data: { error: errors.array() } });
@@ -180,17 +181,17 @@ const resetPassword = async (req: Request, res: Response) => {
       token: token,
     }
   })
-
+  console.log("resetPasswordToken", resetPasswordToken)
   // Check if user exist
   if (!resetPasswordToken) {
-    return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
+    return res.status(400).json({ data: { errors: [{ msg: 'Invalid credentials' }] } });
   }
 
   // hashing password
   const hashedPassword = await argon2.hash(password)
   try {
     // Check if user exists in database
-    const user: Prisma.UserCreateInput = await prisma.user.update({
+    await prisma.user.update({
       where: {
         id: resetPasswordToken.userId,
       },
@@ -198,10 +199,10 @@ const resetPassword = async (req: Request, res: Response) => {
         password: hashedPassword,
       },
     })
-    return res.status(200).json({ status: "success", data: { user } });
+    return res.status(200).json({ data: { status: "success" } });
   }
   catch (error) {
-    return res.status(400).json({ status: "error", data: { error } });
+    return res.status(400).json({ data: { status: "error", error: { error } } });
   }
 
 }
