@@ -1,16 +1,19 @@
-import React from "react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import React, { useEffect } from "react";
+import { themeChange } from "theme-change";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { MainProps } from "../types/interface";
 
 const Main: React.FC<MainProps> = ({ children }) => {
+  useEffect(() => {
+    themeChange(false);
+    // 👆 false parameter is required for react project
+  }, []);
   return (
     <>
-      <div
-        data-theme="night"
-        className="flex flex-col justify-center w-full bg-base-100 "
-      >
-        <div className="md:max-w-screen-xl md:mx-auto">
+      <div className="flex flex-col justify-center w-full bg-base-100 ">
+        <div className="md:max-w-screen-xl w-screen md:mx-auto">
           <Header />
           <div className="flex flex-row">
             <Navbar />
@@ -18,6 +21,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
           </div>
         </div>
       </div>
+      <ReactQueryDevtools initialIsOpen />
     </>
   );
 };

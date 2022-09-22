@@ -11,10 +11,9 @@ import {
   PlaidLinkOnSuccessMetadata,
 } from "react-plaid-link";
 import { useQuery } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Card from "../components/Card";
 const Account: React.FC<AccountProps> = () => {
-  const [accounts, setAccounts] = useState();
+  const [accounts, setAccounts] = useState<IAccountsData[]>();
 
   const { data, isFetching } = useQuery(["linkToken"], () =>
     fetch(process.env.NEXT_PUBLIC_API_URL + "/api/create_link_token").then(
@@ -52,7 +51,7 @@ const Account: React.FC<AccountProps> = () => {
   }, []);
 
   const config: PlaidLinkOptions = {
-    token: data.link_token,
+    token: data?.link_token,
     onSuccess,
     onEvent,
     onExit,
@@ -97,7 +96,6 @@ const Account: React.FC<AccountProps> = () => {
           </div>
         </div>
       </Main>
-      <ReactQueryDevtools initialIsOpen />
     </>
   );
 };

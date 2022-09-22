@@ -4,10 +4,7 @@ export interface ILPFooterProps {}
 export interface ILPHeroProps {
   bgVideo: string;
 }
-export interface ILPNavbarProps {
-  setTheme?: React.Dispatch<React.SetStateAction<boolean>>;
-  theme?: boolean;
-}
+export interface ILPNavbarProps {}
 
 export interface ILPToastProps {
   justifySelfEnd?: boolean;

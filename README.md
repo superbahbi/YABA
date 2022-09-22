@@ -2,7 +2,7 @@
 # yaba
 <!-- PROJECT LOGO -->
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/1689092/186068614-8a83a1e5-f532-4f00-8d32-19de62e425b7.jpg" alt="Logo" width="80">
+    <img src="https://user-images.githubusercontent.com/1689092/190883509-0caecdeb-d613-4edd-90cf-0e489a937a43.png" alt="Logo" width="80">
 </p>
 
 <!-- GETTING STARTED -->

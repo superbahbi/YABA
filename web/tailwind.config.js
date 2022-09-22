@@ -12,6 +12,7 @@ module.exports = {
       md: "768px",
       lg: "992px",
       xl: "1440px",
+      xxl: "1920px",
     },
     extend: {
       spacing: {
@@ -26,6 +27,9 @@ module.exports = {
       colors: {
         "apple-blue": "#1982FC",
         "apple-green": "#43CC47",
+      },
+      bgLinearGradientDeg: {
+        75: "75deg",
       },
     },
   },
@@ -62,5 +66,5 @@ module.exports = {
       "winter",
     ],
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("tailwindcss-linear-gradient")],
 };
