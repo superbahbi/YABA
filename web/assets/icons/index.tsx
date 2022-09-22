@@ -20,6 +20,7 @@ import { IconTravel } from "./travel";
 import { IconWallet } from "./wallet";
 import { IconGoogle } from "./google";
 import { IconArrowLeft } from "./arrow-left";
+import { IconCheckCircle } from "./check-circle";
 export {
   IconTicket,
   IconAccount,
@@ -43,4 +44,5 @@ export {
   IconArrowDown,
   IconArrowLeft,
   IconGoogle,
+  IconCheckCircle,
 };

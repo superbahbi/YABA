@@ -15,15 +15,67 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
   }, []);
   return (
     <>
-      <div className="min-w-screen min-h-screen">
-        <div className="h-screen bg-white md:from-base-300 md:to-slate-200 md:bg-linear-gradient-50  relative">
-          <div className="md:absolute md:top-1/2 md:left-1/2 md:w-2/5 md:transform md:-translate-x-1/2 md:-translate-y-1/2">
-            <div className="flex flex-row justify-center">
-              <div className="hidden xxl:flex xxl:w-1/2 bg-white/90 rounded-l-3xl p-8">
-                <div className="w-3/4 flex flex-col justify-center mx-auto">
-                  <div className="flex my-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-md">
+      <div className="min-h-screen lg:bg-[linear-gradient(90deg,_white_70%,_yellow_70%)]">
+        <div className="mx-auto pt-20 px-4 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
+          <div className="flex flex-col items-center justify-between lg:flex-row">
+            <div className="lg:max-w-lg lg:pr-5">
+              <div className="max-w-xl">
+                <div>
+                  <p className="mb-2 inline-block rounded-full px-3 text-xs font-semibold uppercase tracking-wider text-blue-900">
+                    New and improved
+                  </p>
+                </div>
+                <h2 className="mb-6 max-w-lg text-3xl font-bold leading-snug tracking-tight text-blue-600 sm:text-5xl sm:leading-snug">
+                  Budget platform for your{" "}
+                  <span className="my-1 inline-block border-b-8 font-light text-blue-600">
+                    financial needs
+                  </span>
+                </h2>
+                <p className="text-base text-gray-700">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque it.
+                </p>
+              </div>
+            </div>
+            <div className="relative text-blue-600 lg:ml-32 lg:w-1/2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="my-6 mx-auto h-10 w-10 animate-bounce rounded-full bg-blue-50 p-2 lg:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M16 17l-4 4m0 0l-4-4m4 4V3"
+                />
+              </svg>
+              <div className="-mx-4 flex flex-col bg-gray-50 px-4 py-6 text-center sm:px-12 sm:text-left lg:bg-white lg:py-10 lg:shadow-xl lg:shadow-blue-900/20">
+                <button
+                  className="btn btn-ghost btn-circle"
+                  onClick={() => router.back()}
+                >
+                  <IconArrowLeft strokeColor="text-secondary" />
+                </button>
+
+                <div className="p-4">{children} </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <div classNameName="min-w-screen min-h-screen">
+        <div classNameName="h-screen bg-white md:from-base-300 md:to-slate-200 md:bg-linear-gradient-50  relative">
+          <div classNameName="md:absolute md:top-1/2 md:left-1/2 md:w-2/5 md:transform md:-translate-x-1/2 md:-translate-y-1/2">
+            <div classNameName="flex flex-row justify-center">
+              <div classNameName="hidden xxl:flex xxl:w-1/2 bg-white/90 rounded-l-3xl p-8">
+                <div classNameName="w-3/4 flex flex-col justify-center mx-auto">
+                  <div classNameName="flex my-4">
+                    <div classNameName="flex-shrink-0">
+                      <div classNameName="flex h-12 w-12 items-center justify-center rounded-md">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           x="0"
@@ -39,18 +91,18 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                             x2="261.155"
                             y1="282.962"
                             y2="88.71"
-                            className="gradient-element"
+                            classNameName="gradient-element"
                             data-inspector="11:142"
                             gradientUnits="userSpaceOnUse"
                           >
                             <stop
-                              className="primary-color-gradient"
+                              classNameName="primary-color-gradient"
                               data-inspector="12:45"
                               offset="0"
                               stopColor="#2AFADF"
                             ></stop>
                             <stop
-                              className="secondary-color-gradient"
+                              classNameName="secondary-color-gradient"
                               data-inspector="13:45"
                               offset="1"
                               stopColor="#4C83FF"
@@ -90,25 +142,25 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                             <path
                               fill="#4C83FF"
                               d="M234.3 19.1v25h-22.5v-25h22.5z"
-                              className="secondary-color"
+                              classNameName="secondary-color"
                               data-inspector="22:49"
                             ></path>
                             <path
                               fill="#2AFADF"
                               d="M188.1 19.1v25h-21.6v-25h21.6z"
-                              className="primary-color"
+                              classNameName="primary-color"
                               data-inspector="23:49"
                             ></path>
                             <path
                               fill="#4C83FF"
                               d="M325.7 19.1V74h-22.5V19.1h22.5z"
-                              className="secondary-color"
+                              classNameName="secondary-color"
                               data-inspector="24:49"
                             ></path>
                             <path
                               fill="#2AFADF"
                               d="M279.5 19.1V74H258V19.1h21.5z"
-                              className="primary-color"
+                              classNameName="primary-color"
                               data-inspector="25:49"
                             ></path>
                           </g>
@@ -154,20 +206,20 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
-                      <h5 className="flex flex-col text-lg font-bold leading-6 text-secondary">
+                    <div classNameName="ml-4">
+                      <h5 classNameName="flex flex-col text-lg font-bold leading-6 text-secondary">
                         <span>All your accounts</span>
                         <span>All in one place.</span>
                       </h5>
-                      <p className="mt-2 text-base leading-6 text-primary">
+                      <p classNameName="mt-2 text-base leading-6 text-primary">
                         See it all at a glance when you link your cash accounts,
                         credit cards, investments, and bills.
                       </p>
                     </div>
                   </div>
-                  <div className="flex my-4">
-                    <div className="flex-shrink-0 ">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-md">
+                  <div classNameName="flex my-4">
+                    <div classNameName="flex-shrink-0 ">
+                      <div classNameName="flex h-12 w-12 items-center justify-center rounded-md">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           x="0"
@@ -185,25 +237,25 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                             <path
                               fill="#4C83FF"
                               d="M57.3 369.4l57.8 57.8L57.3 485V369.4z"
-                              className="secondary-color"
+                              classNameName="secondary-color"
                               data-inspector="53:49"
                             ></path>
                             <path
                               fill="#4C83FF"
                               d="M182.9 80.4h-34.7V45.8h34.7v34.6z"
-                              className="secondary-color"
+                              classNameName="secondary-color"
                               data-inspector="54:49"
                             ></path>
                             <path
                               fill="#4C83FF"
                               d="M238.1 80.4h-34.7V45.8h34.7v34.6z"
-                              className="secondary-color"
+                              classNameName="secondary-color"
                               data-inspector="55:49"
                             ></path>
                             <path
                               fill="#2AFADF"
                               d="M293.4 80.4h-34.7V45.8h34.7v34.6z"
-                              className="primary-color"
+                              classNameName="primary-color"
                               data-inspector="56:49"
                             ></path>
                           </g>
@@ -213,18 +265,18 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                             x2="304.154"
                             y1="400.794"
                             y2="78.576"
-                            className="gradient-element"
+                            classNameName="gradient-element"
                             data-inspector="58:142"
                             gradientUnits="userSpaceOnUse"
                           >
                             <stop
-                              className="primary-color-gradient"
+                              classNameName="primary-color-gradient"
                               data-inspector="59:45"
                               offset="0"
                               stopColor="#2AFADF"
                             ></stop>
                             <stop
-                              className="secondary-color-gradient"
+                              classNameName="secondary-color-gradient"
                               data-inspector="60:45"
                               offset="1"
                               stopColor="#4C83FF"
@@ -242,19 +294,19 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
-                      <h5 className="text-lg font-bold leading-6 text-secondary">
+                    <div classNameName="ml-4">
+                      <h5 classNameName="text-lg font-bold leading-6 text-secondary">
                         Keep your cashflow crystal clear
                       </h5>
-                      <p className="mt-2 text-base leading-6 text-primary">
+                      <p classNameName="mt-2 text-base leading-6 text-primary">
                         Effortlessly track your cashflow and gain insights
                         that’ll help you see easy opportunities to save.
                       </p>
                     </div>
                   </div>
-                  <div className="flex my-4">
-                    <div className="flex-shrink-0 ">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-md">
+                  <div classNameName="flex my-4">
+                    <div classNameName="flex-shrink-0 ">
+                      <div classNameName="flex h-12 w-12 items-center justify-center rounded-md">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           x="0"
@@ -270,18 +322,18 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                             x2="272.31"
                             y1="451.034"
                             y2="125.04"
-                            className="gradient-element"
+                            classNameName="gradient-element"
                             data-inspector="78:142"
                             gradientUnits="userSpaceOnUse"
                           >
                             <stop
-                              className="primary-color-gradient"
+                              classNameName="primary-color-gradient"
                               data-inspector="79:45"
                               offset="0"
                               stopColor="#2AFADF"
                             ></stop>
                             <stop
-                              className="secondary-color-gradient"
+                              classNameName="secondary-color-gradient"
                               data-inspector="80:45"
                               offset="1"
                               stopColor="#4C83FF"
@@ -300,13 +352,13 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                             <path
                               fill="#2AFADF"
                               d="M483.5 169.1v35.8h-35.8v-35.8h35.8z"
-                              className="primary-color"
+                              classNameName="primary-color"
                               data-inspector="85:49"
                             ></path>
                             <path
                               fill="#4C83FF"
                               d="M484.2 107.4v39.3h-37.3v-39.3h37.3zm-94.8 374.2h91.4V379l-91.4 102.6z"
-                              className="secondary-color"
+                              classNameName="secondary-color"
                               data-inspector="86:49"
                             ></path>
                           </g>
@@ -317,11 +369,11 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
-                      <h5 className="text-lg font-bold leading-6 text-secondary">
+                    <div classNameName="ml-4">
+                      <h5 classNameName="text-lg font-bold leading-6 text-secondary">
                         Bill Negotiation
                       </h5>
-                      <p className="mt-2 text-base leading-6 text-primary">
+                      <p classNameName="mt-2 text-base leading-6 text-primary">
                         Join the other yabars who’ve already racked up a
                         combined $2M+ in savings.
                       </p>
@@ -330,23 +382,23 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
                 </div>
               </div>
 
-              <div className="w-full xxl:w-1/2 bg-white/90 md:rounded-3xl xxl:rounded-r-3xl xxl:rounded-l-none">
-                <div className="p-4">
+              <div classNameName="w-full xxl:w-1/2 bg-white/90 md:rounded-3xl xxl:rounded-r-3xl xxl:rounded-l-none">
+                <div classNameName="p-4">
                   <button
-                    className="btn btn-ghost btn-circle"
+                    classNameName="btn btn-ghost btn-circle"
                     onClick={() => router.back()}
                   >
                     <IconArrowLeft strokeColor="text-secondary" />
                   </button>
                 </div>
-                <div className="mx-auto flex flex-col justify-center text-secondary px-4 lg:px-8 xl:px-16 py-8">
+                <div classNameName="mx-auto flex flex-col justify-center text-secondary px-4 lg:px-8 xl:px-16 py-8">
                   {children}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

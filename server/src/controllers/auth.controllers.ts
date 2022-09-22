@@ -67,8 +67,9 @@ const login = async (req: Request, res: Response) => {
   }
   // TODO Check if user is verified
   // Sign Access and Refresh Tokens
-  const accessToken = sign(sanitizedUser, process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
-  const refreshToken = sign(sanitizedUser, process.env.JWT_ACCESS_TOKEN_SECRET as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
+  // TODO change expriation time to an env variable
+  const accessToken = sign(sanitizedUser, process.env.JWT_ACCESS_TOKEN_SECRET_KEY as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
+  const refreshToken = sign(sanitizedUser, process.env.JWT_REFRESH_TOKEN_SECRET_KEY as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
   // Add Cookies to response
   res.cookie('access_token', accessToken, tokenCookieOptions);
   res.cookie('refresh_token', refreshToken, tokenCookieOptions);
@@ -143,7 +144,7 @@ const forgotPassword = async (req: Request, res: Response) => {
 
   // Check if user exist
   if (!user) {
-    return res.status(400).json({ data: { errors: [{ message: 'Invalid credentials' }] } });
+    return res.status(200).json({ status: "success" });
   }
 
   // TODO send email with reset link
@@ -157,7 +158,7 @@ const forgotPassword = async (req: Request, res: Response) => {
   await sendEmail(user.email,
     `<a href="http://localhost:3000/auth/resetpassword/${token}">reset password</a>`
   )
-  return res.status(200).json({ data: { status: "success" } });
+  return res.status(200).json({ status: "success" });
 };
 
 /*
@@ -173,7 +174,7 @@ const resetPassword = async (req: Request, res: Response) => {
   console.log(token, password)
   // verify user input data
   const errors = validationResult(req);
-  if (!errors.isEmpty()) return res.status(400).json({ data: { error: errors.array() } });
+  if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
   // Check if user exists in database
   const resetPasswordToken = await prisma.resetPasswordToken.findUnique({
@@ -184,7 +185,7 @@ const resetPassword = async (req: Request, res: Response) => {
   console.log("resetPasswordToken", resetPasswordToken)
   // Check if user exist
   if (!resetPasswordToken) {
-    return res.status(400).json({ data: { errors: [{ msg: 'Invalid credentials' }] } });
+    return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
   }
 
   // hashing password
@@ -199,10 +200,10 @@ const resetPassword = async (req: Request, res: Response) => {
         password: hashedPassword,
       },
     })
-    return res.status(200).json({ data: { status: "success" } });
+    return res.status(200).json({ status: "success" });
   }
   catch (error) {
-    return res.status(400).json({ data: { status: "error", error: { error } } });
+    return res.status(400).json({ status: "error", error: { error } });
   }
 
 }
