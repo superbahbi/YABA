@@ -77,7 +77,9 @@ const LPNavbar: React.FC<ILPNavbarProps> = ({ setTheme, theme }) => {
                 <input
                   type="checkbox"
                   onChange={() => {
-                    setTheme(!theme);
+                    if (setTheme) {
+                      setTheme(!theme);
+                    }
                   }}
                 />
                 <svg
@@ -168,7 +170,9 @@ const LPNavbar: React.FC<ILPNavbarProps> = ({ setTheme, theme }) => {
                 <input
                   type="checkbox"
                   onChange={() => {
-                    setTheme(!theme);
+                    if (setTheme) {
+                      setTheme(!theme);
+                    }
                   }}
                 />
                 <svg
