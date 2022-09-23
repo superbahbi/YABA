@@ -61,11 +61,12 @@ const Register: React.FC<IRegisterProps> = () => {
             </span>
           </NextLink>
         </p>
-
-        <button className="mt-8 flex items-center justify-center rounded-md border px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-black hover:text-white focus:ring-2">
-          <IconGoogle />
-          Get started with Google
-        </button>
+        <div className="flex flex-col items-stretch mt-6">
+          <button className="flex items-center justify-center rounded-md border mt-4 px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-black hover:text-white focus:ring-2">
+            <IconGoogle />
+            Get started with Google
+          </button>
+        </div>
 
         <div className="divider text-xs"> Or use email instead</div>
         <form
