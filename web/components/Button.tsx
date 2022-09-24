@@ -13,8 +13,8 @@ const Button: React.FC<ButtonProps> = ({ children, direction, inset }) => {
         <span
           className={`absolute ${inset} ${direction} ${
             inset === "inset-x-0" ? "h-[2px]" : "w-[2px]"
-          } transition-all bg-indigo-600 group-hover:${
-            inset === "inset-x-0" ? "h-full" : "w-full"
+          } transition-all bg-indigo-600 ${
+            inset === "inset-x-0" ? "group-hover:h-full" : "group-hover:w-full"
           } group-active:bg-indigo-500`}
         ></span>
         <span className="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white">

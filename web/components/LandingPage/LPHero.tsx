@@ -31,7 +31,7 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
                   href="/"
                   className="focus:shadow-outline mb-3 inline-flex h-12 w-full items-center justify-center rounded bg-blue-700 px-6 font-medium tracking-wide text-white shadow-md transition duration-200 md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-blue-800"
                 >
-                  <Button direction="left-0" inset="inset-y-0">
+                  <Button direction="right-0" inset="inset-y-0">
                     Stream Now
                   </Button>
                 </NextLink>
