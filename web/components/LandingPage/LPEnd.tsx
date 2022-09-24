@@ -12,7 +12,7 @@ const LPEnd: React.FC<ILPEndProps> = () => {
           </h1>
           <ul className="steps hidden md:grid">
             <li className="step step-primary">
-              <h2 className="lg:text-2xl py-4">Fly to moon</h2>
+              <h2 className="lg:text-2xl py-4">Create a free account</h2>
               <p className="px-6 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Doloribus nihil reiciendis blanditiis veritatis autem! Dolorum
@@ -21,7 +21,7 @@ const LPEnd: React.FC<ILPEndProps> = () => {
               </p>
             </li>
             <li className="step step-primary">
-              <h2 className="lg:text-2xl py-4">Fly to moon</h2>
+              <h2 className="lg:text-2xl py-4">Connect your information</h2>
               <p className="px-6 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Doloribus nihil reiciendis blanditiis veritatis autem! Dolorum
@@ -30,7 +30,7 @@ const LPEnd: React.FC<ILPEndProps> = () => {
               </p>
             </li>
             <li className="step step-primary">
-              <h2 className="lg:text-2xl py-4">Fly to moon</h2>
+              <h2 className="lg:text-2xl py-4">Start saving</h2>
               <p className="px-6 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Doloribus nihil reiciendis blanditiis veritatis autem! Dolorum
@@ -39,7 +39,7 @@ const LPEnd: React.FC<ILPEndProps> = () => {
               </p>
             </li>
             <li className="step step-primary">
-              <h2 className="lg:text-2xl py-4">Fly to moon</h2>
+              <h2 className="lg:text-2xl py-4">Profit???</h2>
               <p className="px-6 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Doloribus nihil reiciendis blanditiis veritatis autem! Dolorum

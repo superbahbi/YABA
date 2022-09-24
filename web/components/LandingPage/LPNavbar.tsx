@@ -9,7 +9,7 @@ const LPNavbar: React.FC<ILPNavbarProps> = () => {
       <div className="navbar-start">
         <NextLink href="/">
           <div className="pl-2">
-            <Image src={Logo} alt="logo" width={32} height={32} />
+            <Image src={Logo} alt="logo" width={40} height={40} />
           </div>
         </NextLink>
       </div>
