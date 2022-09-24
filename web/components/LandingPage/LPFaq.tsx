@@ -5,7 +5,7 @@ import { ILPFaqProps } from "../../types/LPinterface";
 const LPFaq: React.FC<ILPFaqProps> = () => {
   return (
     <>
-      <div className="relative mx-auto w-full py-16 px-5 font-sans text-blue-600 sm:px-20 md:max-w-screen-lg lg:py-24">
+      <div className="relative mx-auto w-full py-16 px-5 font-sans sm:px-20 md:max-w-screen-lg lg:py-24">
         <h1 className="mb-5 text-center font-sans text-5xl font-bold">
           Frequently asked Questions
         </h1>
@@ -44,7 +44,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
                 />
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-2">
-                <h3 className="text-sm text-blue-600 lg:text-base">
+                <h3 className="text-sm lg:text-base">
                   Is there a free trial with Appsy?
                 </h3>
               </div>
@@ -83,7 +83,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
                 />
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-2">
-                <h3 className="text-sm text-blue-600 lg:text-base">
+                <h3 className="text-sm lg:text-base">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit?
                 </h3>
               </div>
@@ -122,7 +122,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
                 />
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-2">
-                <h3 className="text-sm text-blue-600 lg:text-base">
+                <h3 className="text-sm lg:text-base">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Distinctio.?
                 </h3>
@@ -162,7 +162,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
                 />
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-2">
-                <h3 className="text-sm text-blue-600 border-indigo-600 lg:text-base">
+                <h3 className="text-sm border-indigo-600 lg:text-base">
                   Lorem ipsum dolor sit amet.?
                 </h3>
               </div>
