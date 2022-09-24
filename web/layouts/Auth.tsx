@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { IconArrowLeft } from "../assets/icons";
