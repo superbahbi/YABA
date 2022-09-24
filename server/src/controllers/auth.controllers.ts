@@ -23,15 +23,15 @@ const tokenCookieOptions: CookieOptions = {
   maxAge: 15 * 60 * 1000,
 };
 
-/*
+/**
   * @route   POST /api/auth/login
-  * @desc    Login user
+  * @desc    Login user and return JWT token and user data (id, email, firstName, lastName)
   * @access  Public
   * @params  email, password
   * @return  user, token
   * @errors  400, 500
 */
-const login = async (req: Request, res: Response) => {
+export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   // verify user input data
   const errors = validationResult(req);
@@ -85,15 +85,15 @@ const login = async (req: Request, res: Response) => {
   });
 };
 
-/*
-  * @route   POST /api/auth/register
-  * @desc    Register user
-  * @access  Public
-  * @params  email, password, firstName, lastName
-  * @return  void
-  * @errors  400, 500
+/**
+* @route   POST /api/auth/register
+* @desc    Register user and send verification email to user email address 
+* @access  Public
+* @params  email, password, firstName, lastName
+* @return  void
+* @errors  400, 500
 */
-const register = async (req: Request, res: Response) => {
+export const register = async (req: Request, res: Response) => {
   const { email, password, firstName, lastName } = req.body;
 
   // verify user input data
@@ -117,19 +117,16 @@ const register = async (req: Request, res: Response) => {
   catch (error) {
     return res.status(400).json({ status: "error", data: { error } });
   }
-
-
-  return;
 };
-/*
-  * @route   POST /api/auth/forgot-password
-  * @desc    Forgot password
-  * @access  Public
-  * @params  email
-  * @return  void
-  * @errors  400, 500
+/** 
+* @route   POST /api/auth/forgot-password
+* @desc    Send reset password link to user email
+* @access  Public
+* @params  email
+* @return  void
+* @errors  400, 500
 */
-const forgotPassword = async (req: Request, res: Response) => {
+export const forgotPassword = async (req: Request, res: Response) => {
   const { email } = req.body;
   // verify user input data
   const errors = validationResult(req);
@@ -160,17 +157,16 @@ const forgotPassword = async (req: Request, res: Response) => {
   )
   return res.status(200).json({ status: "success" });
 };
-/*
-  * @route   POST /api/auth/change-password
-  * @desc    Change password
-  * @access  Public
-  * @params  token, password
-  * @return  void
-  * @errors  400, 500
+/**
+* @route    POST /api/auth/reset-password
+* @desc     Reset password with token sent to email address 
+* @access   public
+* @params   token, password
+* @return   void
+* @errors   400, 500 
 */
-const resetPassword = async (req: Request, res: Response) => {
+export const resetPassword = async (req: Request, res: Response) => {
   const { token, password } = req.body;
-  console.log(token, password)
   // verify user input data
   const errors = validationResult(req);
   if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
@@ -181,7 +177,6 @@ const resetPassword = async (req: Request, res: Response) => {
       token,
     }
   })
-  console.log("resetPasswordToken", resetPasswordToken)
   // Check if user exist
   if (!resetPasswordToken) {
     return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
@@ -206,16 +201,16 @@ const resetPassword = async (req: Request, res: Response) => {
   }
 
 }
-/*
+/**
   * @route   POST /api/auth/logout
-  * @desc    Logout user
+  * @desc    Logout user and clear cookies
   * @access  Private
   * @params  void
   * @return  void
 */
-const logout = (res: Response) => {
+export const logout = (res: Response) => {
   res.cookie('access_token', '', { maxAge: 1 });
   res.cookie('refresh_token', '', { maxAge: 1 });
   res.cookie('logged_in', '', { maxAge: 1 });
 };
-export default { login, register, forgotPassword, resetPassword, logout };
+// export default { login, register, forgotPassword, resetPassword, logout };

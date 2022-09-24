@@ -1,5 +1,21 @@
 import nodemailer from "nodemailer";
 
+/**
+ * @desc    Send email to user with a link to reset password
+ * @access  Private
+ * @params  to - email address of the receiver
+ * @params  html - html body of the email
+ * @return  void
+ * @throws  Error - if email is not sent
+ * @example
+ * sendEmail(
+ * test@yaba.com,
+ * "<h1>Reset Password</h1>
+ * <p>Please click the link below to reset your password</p>
+ * <a href="http://host:port/reset-password?token=1234567890">Reset Password</a>
+ * ")
+ * @see https://www.npmjs.com/package/nodemailer
+*/
 export async function sendEmail(to: string, html: string) {
     // create reusable transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
