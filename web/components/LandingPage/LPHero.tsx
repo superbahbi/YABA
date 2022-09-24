@@ -9,45 +9,40 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
   return (
     <section>
       <div className="">
-        <div className="mx-auto h-full px-4 py-10 sm:max-w-xl md:max-w-full md:px-24 md:py-36 lg:max-w-screen-xl lg:px-8">
+        <div className="mx-auto h-full px-4 py-10 sm:max-w-xl md:max-w-full md:px-24 md:py-24 lg:max-w-screen-xl lg:px-8">
           <div className="flex flex-col items-center justify-between lg:flex-row">
             <div className="">
-              <div className="lg:max-w-xl lg:pr-5">
-                <h2 className="mb-6 max-w-lg text-5xl font-light leading-snug tracking-tight text-blue-600 sm:text-8xl">
-                  Drive sales <br />
-                  to
-                  <span className="my-1 inline-block border-b-8 border-blue-600 font-bold text-blue-600">
-                    {" "}
-                    the sky{" "}
-                  </span>
+              <div className="lg:max-w-3xl lg:pr-5">
+                <h2 className="mb-6 max-w-2xl text-4xl font-bold leading-snug tracking-tight md:text-8xl">
+                  Welcome to the{" "}
+                  <span className="text-accent-focus">future</span> of{" "}
+                  <span className="text-accent-focus">money management.</span>
                 </h2>
-                <p className="text-base text-gray-700">
+                <p className="text-base ">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque it.
                 </p>
               </div>
               <div className="mt-10 flex flex-col items-center md:flex-row">
+                <Button direction="left-0" inset="inset-y-0" link="auth/login">
+                  Start Now
+                </Button>
+
                 <NextLink
-                  href="/"
-                  className="focus:shadow-outline mb-3 inline-flex h-12 w-full items-center justify-center rounded bg-blue-700 px-6 font-medium tracking-wide text-white shadow-md transition duration-200 md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-blue-800"
-                >
-                  <Button direction="right-0" inset="inset-y-0">
-                    Stream Now
-                  </Button>
-                </NextLink>
-                <NextLink
-                  href="e"
+                  href="auth/register"
                   aria-label=""
-                  className="underline-offset-2 inline-flex items-center font-semibold text-blue-600 underline transition-colors duration-200 hover:underline"
+                  className="underline-offset-2 inline-flex items-center font-semibold underline transition-colors duration-200 hover:underline"
                 >
-                  Watch how it works
+                  <button className="link md:ml-4 mt-4 md:mt-0 no-underline">
+                    Sign up
+                  </button>
                 </NextLink>
               </div>
-              <div className="mt-12 flex flex-col space-y-3 divide-gray-300 text-sm text-gray-700 sm:flex-row sm:space-y-0 sm:divide-x">
+              <div className="mt-12 flex flex-col space-y-3 divide-gray-300 text-sm  sm:flex-row sm:space-y-0 sm:divide-x">
                 <div className="flex max-w-xs space-x-2 px-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-12 w-12 text-emerald-600"
+                    className="h-12 w-12 "
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -102,7 +97,7 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
               <div className="w-fit rounded-[6rem] mx-auto overflow-hidden rounded-tl-none rounded-br-none bg-orange-400">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="absolute -left-10 -top-20 h-28 w-28 rounded-xl bg-white text-yellow-400"
+                  className="absolute -left-10 -top-20 h-28 w-28 rounded-xl "
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -114,7 +109,7 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
                 </svg>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="absolute right-0 -bottom-20 h-28 w-28 rounded-xl bg-white text-yellow-400"
+                  className="absolute right-0 -bottom-20 h-28 w-28 rounded-xl "
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >

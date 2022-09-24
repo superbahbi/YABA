@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import video from "../assets/videos/video.webm";
-import videoSecondary from "../assets/videos/video-secondary.webm";
 import LPBody from "../components/LandingPage/LPBody";
 import LPFooter from "../components/LandingPage/LPFooter";
 import LPHero from "../components/LandingPage/LPHero";
@@ -10,6 +8,8 @@ import { themeChange } from "theme-change";
 import LPFeature from "../components/LandingPage/LPFeature";
 import LPFaq from "../components/LandingPage/LPFaq";
 import { ILPIndexProps } from "../types/LPinterface";
+import LPStats from "../components/LandingPage/LPStats";
+import LPSocialProof from "../components/LandingPage/LPSocialProof";
 
 const Home: React.FC<ILPIndexProps> = () => {
   useEffect(() => {
@@ -21,10 +21,12 @@ const Home: React.FC<ILPIndexProps> = () => {
       <div>
         <LPNavbar />
         <main>
-          <LPHero bgVideo={true ? video : videoSecondary} />
-          <LPBody />
-          <LPEnd />
+          <LPHero />
           <LPFeature />
+          <LPSocialProof />
+          <LPBody />
+          {/* <LPEnd /> */}
+          <LPStats />
           <LPFaq />
         </main>
       </div>

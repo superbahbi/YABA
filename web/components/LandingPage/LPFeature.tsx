@@ -16,7 +16,7 @@ const LPFeature: React.FC<ILPFeatureProps> = () => {
           />
         </div>
         <div className="">
-          <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-indigo-600/20">
+          <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-accent-focus text-white shadow-lg shadow-indigo-600/20">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -33,33 +33,42 @@ const LPFeature: React.FC<ILPFeatureProps> = () => {
             </svg>
           </div>
           <h2 className="mb-10 max-w-lg text-4xl font-bold leading-snug lg:text-5xl lg:leading-snug">
-            A <span className="text-blue-600">revolutionary</span> way to manage
-            your finances.
+            A <span className="text-accent-focus">revolutionary</span> way to
+            manage your finances.
           </h2>
           <div className="grid gap-y-12 gap-x-8 lg:grid-cols-2">
             <div>
-              <p className="mb-6 border-l-4 border-blue-600 pl-4 text-2xl leading-10">
+              <p className="mb-6 border-l-4 border-accent-focus pl-4 text-2xl leading-10 text-accent-focus">
                 All your accounts. All in one place.
               </p>
-              <p className="text-lg text-gray-500">
+              <p className="text-lg">
                 See it all at a glance when you link your cash accounts, credit
                 cards, investments, and bills.
               </p>
             </div>
             <div>
-              <p className="mb-6 border-l-4 border-blue-600 pl-4 text-2xl leading-10">
+              <p className="mb-6 border-l-4 border-accent-focus pl-4 text-2xl leading-10 text-accent-focus">
                 Keep your cashflow crystal clear.
               </p>
-              <p className="text-lg text-gray-500">
+              <p className="text-lg">
                 Effortlessly track your cashflow and gain insights that’ll help
                 you see easy opportunities to save.
               </p>
             </div>
             <div>
-              <p className="mb-6 border-l-4 border-blue-600 pl-4 text-2xl leading-10">
+              <p className="mb-6 border-l-4 border-accent-focus pl-4 text-2xl leading-10 text-accent-focus">
                 Bill Negotiation.
               </p>
-              <p className="text-lg text-gray-500">
+              <p className="text-lg">
+                Join the other Minters who’ve already racked up a combined $2M+
+                in savings.2
+              </p>
+            </div>
+            <div>
+              <p className="mb-6 border-l-4 border-accent-focus pl-4 text-2xl leading-10 text-accent-focus">
+                Create Easily.
+              </p>
+              <p className="text-lg">
                 Join the other Minters who’ve already racked up a combined $2M+
                 in savings.2
               </p>
