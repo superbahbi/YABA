@@ -66,5 +66,5 @@ module.exports = {
       "winter",
     ],
   },
-  plugins: [require("daisyui"), require("tailwindcss-linear-gradient")],
+  plugins: [require("daisyui")],
 };
