@@ -10,3 +10,5 @@ export interface ILPToastProps {
   justifySelfEnd?: boolean;
   textContent: string;
 }
+export interface ILPFeatureProps {}
+export interface ILPFaqProps {}

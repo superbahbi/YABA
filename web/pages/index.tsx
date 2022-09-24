@@ -7,6 +7,8 @@ import LPHero from "../components/LandingPage/LPHero";
 import LPNavbar from "../components/LandingPage/LPNavbar";
 import LPEnd from "../components/LandingPage/LPEnd";
 import { themeChange } from "theme-change";
+import LPFeature from "../components/LandingPage/LPFeature";
+import LPFaq from "../components/LandingPage/LPFaq";
 
 export interface IHomeProps {}
 
@@ -23,6 +25,8 @@ const Home: React.FC<IHomeProps> = () => {
           <LPHero bgVideo={true ? video : videoSecondary} />
           <LPBody />
           <LPEnd />
+          <LPFeature />
+          <LPFaq />
         </main>
       </div>
       <LPFooter />
