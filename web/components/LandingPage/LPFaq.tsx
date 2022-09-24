@@ -25,6 +25,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
                 type="checkbox"
                 id="accordion-1"
                 checked
+                onChange={() => {}}
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"

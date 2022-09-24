@@ -106,9 +106,9 @@ const register = async (req: Request, res: Response) => {
     // Check if user exists in database
     const user: Prisma.UserCreateInput = await prisma.user.create({
       data: {
-        email: email,
-        firstName: firstName,
-        lastName: lastName,
+        email,
+        firstName,
+        lastName,
         password: hashedPassword,
       },
     })
@@ -151,7 +151,7 @@ const forgotPassword = async (req: Request, res: Response) => {
   const token = uuidv4();
   await prisma.resetPasswordToken.create({
     data: {
-      token: token,
+      token,
       userId: user.id,
     }
   })
@@ -160,9 +160,8 @@ const forgotPassword = async (req: Request, res: Response) => {
   )
   return res.status(200).json({ status: "success" });
 };
-
 /*
-  * @route   POST /api/auth/change-password 
+  * @route   POST /api/auth/change-password
   * @desc    Change password
   * @access  Public
   * @params  token, password
@@ -179,7 +178,7 @@ const resetPassword = async (req: Request, res: Response) => {
   // Check if user exists in database
   const resetPasswordToken = await prisma.resetPasswordToken.findUnique({
     where: {
-      token: token,
+      token,
     }
   })
   console.log("resetPasswordToken", resetPasswordToken)

@@ -33,7 +33,7 @@ const addUser = async (req: Request, res: Response) => {
 const updateUser = async (req: Request, res: Response) => {
   const updatedUser: IUserProps = req.body;
   // TODO: data validation
-  const updateUser = await prisma.user.update({
+  const updateUserQuery = await prisma.user.update({
     where: {
       id: updatedUser.id,
     },
@@ -45,21 +45,21 @@ const updateUser = async (req: Request, res: Response) => {
   })
   return res.status(200).json({
     message: "User updated",
-    data: updateUser,
+    data: updateUserQuery,
   });
 };
 
 const deleteUser = async (req: Request, res: Response) => {
   const id: string = req.params.id;
   // TODO: data validation
-  const deleteUser = await prisma.user.delete({
+  const deleteUserQuery = await prisma.user.delete({
     where: {
       id
     },
   })
   return res.status(200).json({
     message: "User deleted",
-    data: deleteUser,
+    data: deleteUserQuery,
   });
 };
 export default { getAllUsers, getUser, addUser, updateUser, deleteUser };

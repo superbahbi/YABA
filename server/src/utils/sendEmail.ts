@@ -15,9 +15,9 @@ export async function sendEmail(to: string, html: string) {
     // send mail with defined transport object
     const info = await transporter.sendMail({
         from: '"Yaba daba doo 👻" <yaba@yaba.com>', // sender address
-        to: to, // list of receivers
+        to, // list of receivers
         subject: "Change password", // Subject line
-        html: html, // html body
+        html, // html body
     });
 
     console.log("Message sent: %s", info.messageId);
