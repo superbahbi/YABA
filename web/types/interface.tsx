@@ -52,8 +52,8 @@ export interface DougnutGraphProps {
 }
 export interface CalendarProps {}
 export interface SvgIconProps {
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
   strokeWidth?: number;
   strokeColor?: string;
   fillColor?: string;
