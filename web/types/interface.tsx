@@ -3,6 +3,7 @@ import { FunctionComponent } from "react";
 export interface MainProps {
   children: React.ReactNode;
 }
+
 export interface OverviewProps {}
 export interface TransactionProps {}
 export interface AnalyticsProps {}

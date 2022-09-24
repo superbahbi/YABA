@@ -15,7 +15,6 @@ const LPBodyItem: React.FC<ILPBodyItemProps> = ({
   imgSrc,
   num,
   textOne,
-  textTwo,
 }) => {
   return (
     <>

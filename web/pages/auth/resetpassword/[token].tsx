@@ -20,7 +20,7 @@ const schema = z.object({
 
 const ResetPassword: React.FC<IResetPasswordProps> = () => {
   const [response, setResponse] = React.useState<IResponseProps>({});
-  const [errors, setErrors] = React.useState<IResponseProps>({});
+  const [, setErrors] = React.useState<IResponseProps>({});
   const router = useRouter();
   const { token } = router.query;
   const { register, handleSubmit } = useForm<IResetPasswordProps>({

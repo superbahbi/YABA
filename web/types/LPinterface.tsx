@@ -12,3 +12,5 @@ export interface ILPToastProps {
 }
 export interface ILPFeatureProps {}
 export interface ILPFaqProps {}
+export interface ILPEndProps {}
+export interface ILPIndexProps {}

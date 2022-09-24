@@ -9,10 +9,9 @@ import LPEnd from "../components/LandingPage/LPEnd";
 import { themeChange } from "theme-change";
 import LPFeature from "../components/LandingPage/LPFeature";
 import LPFaq from "../components/LandingPage/LPFaq";
+import { ILPIndexProps } from "../types/LPinterface";
 
-export interface IHomeProps {}
-
-const Home: React.FC<IHomeProps> = () => {
+const Home: React.FC<ILPIndexProps> = () => {
   useEffect(() => {
     themeChange(false);
     // 👆 false parameter is required for react project

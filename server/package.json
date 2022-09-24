@@ -1,8 +1,7 @@
 {
   "main": "src/server.ts",
   "scripts": {
-    "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "lint": "eslint --ext .ts .",
+    "lint": "npx eslint .",
     "lint:report": "npm run lint -- --format html -o ./lint/report.html",
     "build": "tsc",
     "watch": "tsc -w",
@@ -10,7 +9,7 @@
     "start": "node .",
     "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs": "typedoc --out docs src/server.ts --includes ./src/**/*.ts --readme none"
+    "docs": "typedoc src"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -21,13 +20,13 @@
     "@types/node": "^18.7.14",
     "@types/nodemailer": "^6.4.6",
     "@types/uuid": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
-    "eslint": "^8.23.0",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "eslint": "^8.24.0",
     "prettier": "^2.7.1",
     "ts-node": "^10.9.1",
     "tslint": "^6.1.3",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.3"
   },
   "dependencies": {
     "@prisma/client": "^4.3.1",
