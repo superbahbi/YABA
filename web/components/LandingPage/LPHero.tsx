@@ -9,11 +9,11 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
   return (
     <section>
       <div className="">
-        <div className="mx-auto h-full px-4 py-10 sm:max-w-xl md:max-w-full md:px-24 md:py-36 lg:max-w-screen-xl lg:px-8">
+        <div className="mx-auto h-full px-4 py-10 sm:max-w-xl md:max-w-full md:px-24 md:py-24 lg:max-w-screen-xl lg:px-8">
           <div className="flex flex-col items-center justify-between lg:flex-row">
             <div className="">
               <div className="lg:max-w-3xl lg:pr-5">
-                <h2 className="mb-6 max-w-2xl text-5xl font-bold leading-snug tracking-tight sm:text-8xl">
+                <h2 className="mb-6 max-w-2xl text-4xl font-bold leading-snug tracking-tight md:text-8xl">
                   Welcome to the{" "}
                   <span className="text-accent-focus">future</span> of{" "}
                   <span className="text-accent-focus">money management.</span>
@@ -33,7 +33,9 @@ const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
                   aria-label=""
                   className="underline-offset-2 inline-flex items-center font-semibold underline transition-colors duration-200 hover:underline"
                 >
-                  <button className="link ml-4 no-underline">Sign up</button>
+                  <button className="link md:ml-4 mt-4 md:mt-0 no-underline">
+                    Sign up
+                  </button>
                 </NextLink>
               </div>
               <div className="mt-12 flex flex-col space-y-3 divide-gray-300 text-sm  sm:flex-row sm:space-y-0 sm:divide-x">

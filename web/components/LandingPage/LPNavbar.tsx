@@ -16,7 +16,7 @@ const LPNavbar: React.FC<ILPNavbarProps> = () => {
 
       <div className="navbar-end">
         <NextLink href="/explore">
-          <button className="btn btn-ghost">
+          <button className="btn btn-ghost hidden md:block">
             <span className="lowercase">explore</span>
           </button>
         </NextLink>
