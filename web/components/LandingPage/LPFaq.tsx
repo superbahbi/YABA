@@ -6,7 +6,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
   return (
     <>
       <div className="relative mx-auto w-full py-16 px-5 font-sans sm:px-20 md:max-w-screen-lg lg:py-24">
-        <h1 className="mb-5 text-center font-sans text-5xl font-bold">
+        <h1 className="mb-5 text-center font-sans text-3xl md:text-5xl font-bold">
           Frequently asked Questions
         </h1>
         <p className="mb-12 text-center text-lg text-gray-500">
