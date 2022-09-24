@@ -1,6 +1,12 @@
 export interface ILPBodyProps {}
 export interface ILPFooterProps {}
 export interface ILPStatsProps {}
+export interface ILPSocialProofProps {}
+export interface ILPFooterLinkProps {
+  link: string;
+  title: string;
+  underline?: boolean;
+}
 export interface ILPHeroProps {
   bgVideo?: string;
 }
