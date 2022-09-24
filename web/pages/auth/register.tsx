@@ -52,10 +52,8 @@ const Register: React.FC<IRegisterProps> = () => {
         <title>yaba. | Register</title>
       </Head>
       <Auth>
-        <p className="text-center text-xl lg:text-2xl font-bold">
-          Create your free account
-        </p>
-        <p className="mt-6 text-center font-base">
+        <p className="text-3xl font-bold">Create your free account</p>
+        <p className="mt-3 font-medium">
           Already using yaba?{" "}
           <NextLink href="/auth/login">
             <span className="whitespace-nowrap font-semibold text-primary cursor-pointer">
@@ -63,89 +61,89 @@ const Register: React.FC<IRegisterProps> = () => {
             </span>
           </NextLink>
         </p>
-        <button className="mt-8 flex items-center justify-center rounded-md border px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-black hover:text-white focus:ring-2">
-          <IconGoogle />
-          Get started with Google
-        </button>
+        <div className="flex flex-col items-stretch mt-6">
+          <button className="flex items-center justify-center rounded-md border mt-4 px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-black hover:text-white focus:ring-2">
+            <IconGoogle />
+            Get started with Google
+          </button>
+        </div>
+
         <div className="divider text-xs"> Or use email instead</div>
         <form
-          className="flex flex-col items-stretch pt-3 md:pt-3"
+          className="flex flex-col items-stretch"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="flex flex-col pt-4">
-            <div className="relative flex rounded-md border-2 transition focus-within:border-blue-600">
-              <input
-                type="email"
-                id="login-email"
-                className="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
-                placeholder="Email"
-                {...register("email", { required: true })}
-              />
-            </div>
+          <div className="mt-2 flex flex-col">
+            <input
+              type="email"
+              id="login-email"
+              className="mt-2 border py-4 px-4 outline-none ring-blue-300 focus:ring"
+              placeholder="Email"
+              {...register("email", { required: true })}
+            />
             {errors?.email && <p className="pt-1">{errors.email.message}</p>}
           </div>
-          <div className="flex flex-col pt-4">
-            <div className="relative flex rounded-md border-2 transition focus-within:border-blue-600 bg-white">
-              <input
-                type="password"
-                id="login-password"
-                className="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
-                placeholder="Password (minimum 6 characters)"
-                {...register("password", { required: true })}
-              />
-            </div>
+          <div className="mt-2 flex flex-col">
+            <input
+              type="password"
+              id="login-password"
+              className="mt-2 border py-4 px-4 outline-none ring-blue-300 focus:ring"
+              placeholder="Password (minimum 6 characters)"
+              {...register("password", { required: true })}
+            />
+
             {errors?.password && (
               <p className="pt-1">{errors.password.message}</p>
             )}
           </div>
-          <div className="flex flex-col pt-4">
-            <div className="relative flex rounded-md border-2 transition focus-within:border-blue-600">
-              <input
-                type="text"
-                id="login-first-name"
-                className="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
-                placeholder="First Name"
-                {...register("firstName", { required: true })}
-              />
-            </div>
+          <div className="mt-2 flex flex-col">
+            {" "}
+            <input
+              type="text"
+              id="login-first-name"
+              className="mt-2 border py-4 px-4 outline-none ring-blue-300 focus:ring"
+              placeholder="First Name"
+              {...register("firstName", { required: true })}
+            />
             {errors?.firstName && (
               <p className="pt-1">{errors.firstName.message}</p>
             )}
           </div>
-          <div className="flex flex-col pt-4 mb-4 ">
-            <div className="relative flex rounded-md border-2 transition focus-within:border-blue-600">
-              <input
-                type="text"
-                id="login-last-name"
-                className="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
-                placeholder="Last Name"
-                {...register("lastName", { required: true })}
-              />
-            </div>
+          <div className="mt-2 flex flex-col">
+            {" "}
+            <input
+              type="text"
+              id="login-last-name"
+              className="mt-2 border py-4 px-4 outline-none ring-blue-300 focus:ring"
+              placeholder="Last Name"
+              {...register("lastName", { required: true })}
+            />
             {errors?.lastName && (
               <p className="pt-1">{errors.lastName.message}</p>
             )}
           </div>
-          <div className="block">
+
+          <label htmlFor="terms" className="mt-6 flex items-center">
             <input
+              className="mr-4 h-6 w-6 accent-blue-600"
               type="checkbox"
+              name="terms"
               checked={checked}
               onChange={() => setChecked(!checked)}
-              className="checkbox mr-2 h-5 w-5 appearance-none rounded border border-gray-300 bg-contain bg-no-repeat align-top text-black shadow checked:bg-blue-600 focus:border-blue-600 focus:shadow"
             />
-            <label
-              className="inline-block text-xs lg:text-base"
-              htmlFor="remember-me"
-            >
+            <span className="text-sm">
               I agree to the{" "}
               <NextLink href="/terms">
-                <span className="underline">Terms and Conditions</span>
+                <span className="font-medium text-blue-500 underline cursor-pointer">
+                  Terms and Conditions
+                </span>
               </NextLink>
-            </label>
-          </div>
+            </span>
+          </label>
+
           <button
             type="submit"
-            className="mt-6 rounded-lg bg-blue-600 px-4 py-2 text-center text-base font-semibold text-white shadow-md outline-none ring-blue-500 ring-offset-2 transition hover:bg-blue-700 focus:ring-2"
+            className="mt-10 bg-blue-600 px-6 py-3 font-bold text-white outline-none ring-blue-300 focus:ring"
           >
             Register
           </button>
