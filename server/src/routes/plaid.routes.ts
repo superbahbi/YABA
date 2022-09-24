@@ -1,12 +1,12 @@
 /** src/routes/auth.ts */
 import express from "express";
-import controller from "../controllers/plaid.controllers";
+import { createLinkToken, exchangePublicToken, balance } from "../controllers/plaid.controllers";
 const router = express.Router();
 
 router.get("/create_link_token",
-    controller.createLinkToken);
+    createLinkToken);
 router.post("/exchange_public_token",
-    controller.exchangePublicToken);
+    exchangePublicToken);
 router.post("/balance",
-    controller.balance);
+    balance);
 export = router;

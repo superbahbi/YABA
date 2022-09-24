@@ -21,8 +21,15 @@ const configuration: Configuration = new Configuration({
 });
 
 const plaidClient = new PlaidApi(configuration);
-
-const createLinkToken = async (_: Request, res: Response) => {
+/**
+ * @route   POST /api/create_link_token
+ * @desc    Create a link token for Plaid Link to initialize the Link flow for the user to connect their bank account to Plaid
+ * @access  Public
+ * @params  none
+ * @return  link_token
+ * @see https://plaid.com/docs/api/tokens/#linktokencreate
+ */
+export const createLinkToken = async (_: Request, res: Response) => {
   const createLinkRokenRequest: LinkTokenCreateRequest = {
     user: {
       // TODO: use req.sessionID
@@ -69,8 +76,15 @@ const createLinkToken = async (_: Request, res: Response) => {
   }
 }
 
-// Exchanges the public token from Plaid Link for an access token
-const exchangePublicToken = async (req: Request, res: Response) => {
+/**
+ * @route   POST /api/exchange_public_token
+ * @desc    Exchange a public token for an access token to use with Plaid's API endpoints to access the user's account data and perform other actions on the user's behalf (e.g. transactions, balance, identity, etc.) 
+ * @access  Public
+ * @params  public_token
+ * @return  access_token
+ * @see https://plaid.com/docs/api/tokens/#exchange-token-flow
+ */
+export const exchangePublicToken = async (req: Request, res: Response) => {
   try {
     const exchangeResponse = await plaidClient.itemPublicTokenExchange({
       public_token: req.body.public_token,
@@ -97,8 +111,16 @@ const exchangePublicToken = async (req: Request, res: Response) => {
   }
 };
 
-// Fetches balance data using the Node client library for Plaid
-const balance = async (req: Request, res: Response) => {
+
+/**
+ * @route   POST /api/balance
+ * @desc    Get accounts associated with an Item by access_token 
+ * @access  Public
+ * @params  access_token
+ * @return  accounts
+ * @see https://plaid.com/docs/api/accounts/#accountsget
+ */
+export const balance = async (req: Request, res: Response) => {
   // Pull real-time balance information for each account associated
   // with the Item
   const accessToken = req.body.accessToken;
@@ -116,4 +138,3 @@ const balance = async (req: Request, res: Response) => {
     console.log(error)
   }
 };
-export default { createLinkToken, exchangePublicToken, balance };
