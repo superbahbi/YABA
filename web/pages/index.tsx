@@ -9,6 +9,7 @@ import LPFeature from "../components/LandingPage/LPFeature";
 import LPFaq from "../components/LandingPage/LPFaq";
 import { ILPIndexProps } from "../types/LPinterface";
 import LPStats from "../components/LandingPage/LPStats";
+import LPSocialProof from "../components/LandingPage/LPSocialProof";
 
 const Home: React.FC<ILPIndexProps> = () => {
   useEffect(() => {
@@ -21,11 +22,11 @@ const Home: React.FC<ILPIndexProps> = () => {
         <LPNavbar />
         <main>
           <LPHero />
-          <LPStats />
           <LPFeature />
-
-          {/* <LPBody /> */}
+          <LPSocialProof />
+          <LPBody />
           {/* <LPEnd /> */}
+          <LPStats />
           <LPFaq />
         </main>
       </div>
