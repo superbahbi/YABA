@@ -1,6 +1,5 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
-import NextLink from "next/link";
 import Button from "../Button";
 
 export interface ILPBodyItemProps {

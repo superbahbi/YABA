@@ -3,15 +3,6 @@ import { FunctionComponent } from "react";
 export interface MainProps {
   children: React.ReactNode;
 }
-
-export interface OverviewProps {}
-export interface TransactionProps {}
-export interface AnalyticsProps {}
-export interface WalletsProps {}
-export interface InvoiceProps {}
-export interface AccountProps {}
-export interface SettingsProps {}
-
 export interface TransactionListProps {
   transaction: TransactionData[];
   limit: number;
@@ -27,13 +18,9 @@ export interface TransactionData {
 export interface TableProps {
   title?: string;
   headers?: string[];
-  data?: any[];
   limit?: number;
   children?: React.ReactNode;
 }
-export interface PaginationProps {}
-export interface HeaderProps {}
-export interface NavbarProps {}
 export interface ProgressProps {
   title: string;
   currentProgress: number;
@@ -51,7 +38,6 @@ export interface DougnutGraphProps {
   data: number[];
   labelColor?: string;
 }
-export interface CalendarProps {}
 export interface SvgIconProps {
   width?: number | string;
   height?: number | string;
@@ -60,7 +46,9 @@ export interface SvgIconProps {
   fillColor?: string;
   rotateCenter?: number;
 }
-export interface SvgIcon extends FunctionComponent<SvgIconProps> {}
+export interface SvgIcon extends FunctionComponent<SvgIconProps> {
+  displayName?: string;
+}
 export interface BalanceProps {
   data: IBalanceData[];
 }
@@ -69,7 +57,7 @@ export interface IBalanceData {
   amount: number;
   description: string;
 }
-export interface IBalanceProps {}
+
 export interface ITrendsProps {
   title: string;
   amount: number;
@@ -96,4 +84,40 @@ export interface IAccountsData {
 }
 export interface ILinkTokenData {
   link_token: string;
+}
+export interface OverviewProps {
+  f?: string;
+}
+export interface TransactionProps {
+  f?: string;
+}
+export interface AnalyticsProps {
+  f?: string;
+}
+export interface WalletsProps {
+  f?: string;
+}
+export interface InvoiceProps {
+  f?: string;
+}
+export interface AccountProps {
+  f?: string;
+}
+export interface SettingsProps {
+  f?: string;
+}
+export interface PaginationProps {
+  f?: string;
+}
+export interface HeaderProps {
+  f?: string;
+}
+export interface NavbarProps {
+  f?: string;
+}
+export interface IBalanceProps {
+  f?: string;
+}
+export interface CalendarProps {
+  f?: string;
 }

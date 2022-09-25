@@ -1,6 +1,5 @@
 import React from "react";
 import { ILPFooterProps } from "../../types/LPinterface";
-import NextLink from "next/link";
 import LPFooterLink from "./LPFooterLink";
 
 const LPFooter: React.FC<ILPFooterProps> = () => {

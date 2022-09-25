@@ -1,20 +1,20 @@
 import NextLink from "next/link";
 import Image from "next/image";
 import React from "react";
-import { IconMenu, IconMail, IconNotification } from "../assets/icons";
+import { IconMail, IconNotification } from "../assets/icons";
 import Logo from "../assets/images/logo.png";
 import { HeaderProps } from "../types/interface";
 
 const Header: React.FC<HeaderProps> = () => {
-  const linkNames = [
-    "overview",
-    "transaction",
-    "analytics",
-    "wallet",
-    "invoice",
-    "account",
-    "settings",
-  ];
+  // const linkNames = [
+  //   "overview",
+  //   "transaction",
+  //   "analytics",
+  //   "wallet",
+  //   "invoice",
+  //   "account",
+  //   "settings",
+  // ];
   return (
     <>
       <div className="navbar bg-base-100 z-10 sticky top-0 bg-none px-8">
