@@ -74,7 +74,7 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
               <div className="flex flex-col p-6 lg:px-7 lg:py-8">
                 <div className="">
                   <blockquote className="">
-                    <p className="text-3xl font-bold text-white sm:text-5xl">
+                    <p className="text-3xl font-semibold text-white sm:text-5xl">
                       "I cannot overstate how much this has helped our startup"
                     </p>
                   </blockquote>

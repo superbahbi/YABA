@@ -28,7 +28,9 @@ const LPBodyItem: React.FC<ILPBodyItemProps> = ({
         </div>
       </div>
       <div className="mb-10 md:mb-0 lg:w-[90%] grid items-end lg:h-[50vh] self-end">
-        <h3 className="text-3xl py-4 lg:py-0 lg:text-7xl">{heading}</h3>
+        <h3 className="text-3xl font-medium py-4 lg:py-0 lg:text-5xl">
+          {heading}
+        </h3>
         <p className="text-sm md:text-base pb-6 lg:pb-0 self-center max-w-4/5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
           dignissimos ex laborum aliquid ducimus doloremque alias earum
