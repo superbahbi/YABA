@@ -33,6 +33,10 @@ const nextConfig = {
   images: {
     domains: ["placeimg.com", "i.postimg.cc", "images.unsplash.com"],
   },
+  extends: [
+    //...
+    "plugin:@next/next/recommended",
+  ],
 };
 
 module.exports = nextConfig;
