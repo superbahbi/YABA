@@ -39,7 +39,7 @@ const LPBodyItem: React.FC<ILPBodyItemProps> = ({
         </p>
 
         <div className="max-w-sm">
-          <Button link="auth/register" direction="left-0" inset="inset-y-0">
+          <Button direction="left-0" inset="inset-y-0">
             Start now
           </Button>
         </div>
