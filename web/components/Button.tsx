@@ -12,7 +12,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   direction,
   inset,
-  link = "overview",
+  link = "/overview",
   type = "button",
 }) => {
   return (

@@ -4,8 +4,7 @@ import React from "react";
 import { ILPHeroProps } from "../../types/LPinterface";
 import Button from "../Button";
 
-const LPHero: React.FC<ILPHeroProps> = ({ bgVideo }) => {
-  console.log(bgVideo);
+const LPHero: React.FC<ILPHeroProps> = () => {
   return (
     <section>
       <div className="">
