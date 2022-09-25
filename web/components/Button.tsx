@@ -5,49 +5,37 @@ interface ButtonProps {
   inset?: "inset-x-0" | "inset-y-0";
   children: React.ReactNode;
   link?: string;
+  type?: "button" | "submit" | "reset";
 }
-const _Button: React.FC<ButtonProps> = ({
-  direction,
-  inset,
-  children,
-}: ButtonProps) => {
-  return (
-    <button className="relative inline-block px-8 py-3 overflow-hidden border border-base-content group focus:outline-none focus:ring">
-      <span
-        className={`absolute ${inset} ${direction} ${
-          inset === "inset-x-0" ? "h-[2px]" : "w-[2px]"
-        } transition-all bg-accent-focus ${
-          inset === "inset-x-0" ? "group-hover:h-full" : "group-hover:w-full"
-        } group-active:bg-accent-focus`}
-      ></span>
-      <span className="relative text-sm font-medium text-base-content transition-colors group-hover:text-white">
-        {children}
-      </span>
-    </button>
-  );
-};
+
 const Button: React.FC<ButtonProps> = ({
   children,
   direction,
   inset,
-  link,
+  link = "overview",
+  type = "button",
 }) => {
   return (
     <>
-      {link ? (
-        <NextLink
-          href={link}
+      <NextLink href={link}>
+        <button
+          type={type}
           className="relative inline-block px-8 py-3 overflow-hidden border border-base-content group focus:outline-none focus:ring"
         >
-          <_Button direction={direction} inset={inset}>
+          <span
+            className={`absolute ${inset} ${direction} ${
+              inset === "inset-x-0" ? "h-[2px]" : "w-[2px]"
+            } transition-all bg-accent-focus ${
+              inset === "inset-x-0"
+                ? "group-hover:h-full"
+                : "group-hover:w-full"
+            } group-active:bg-accent-focus`}
+          ></span>
+          <span className="relative text-sm font-medium text-base-content transition-colors group-hover:text-white">
             {children}
-          </_Button>
-        </NextLink>
-      ) : (
-        <_Button direction={direction} inset={inset}>
-          {children}
-        </_Button>
-      )}
+          </span>
+        </button>
+      </NextLink>
     </>
   );
 };
