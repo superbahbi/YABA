@@ -6,6 +6,7 @@ import formUrlEncoded from "form-urlencoded";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useRouter } from "next/router";
+import Button from "../../components/Button";
 
 export interface ILoginProps {
   email: string;
@@ -100,7 +101,7 @@ const Login: React.FC<ILoginProps> = () => {
             )}
           </div>
 
-          <span className="mt-6 flex items-center text-sm">
+          <span className="my-6 flex items-center text-sm">
             <NextLink href="/auth/forgotpassword">
               <span className="font-medium text-blue-500 underline cursor-pointer">
                 Forgot password?
@@ -108,12 +109,9 @@ const Login: React.FC<ILoginProps> = () => {
             </NextLink>
           </span>
 
-          <button
-            type="submit"
-            className="mt-10 bg-blue-600 px-6 py-3 font-bold text-white outline-none ring-blue-300 focus:ring"
-          >
+          <Button type="submit" direction="left-0" inset="inset-y-0">
             Sign in
-          </button>
+          </Button>
         </form>
       </Auth>
     </>
