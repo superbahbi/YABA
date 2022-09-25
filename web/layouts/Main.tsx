@@ -21,7 +21,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
           </div>
         </div>
       </div>
-      <ReactQueryDevtools initialIsOpen />
+      <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
 };

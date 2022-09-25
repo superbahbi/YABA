@@ -23,12 +23,16 @@ const LPHero: React.FC<ILPHeroProps> = () => {
                 </p>
               </div>
               <div className="mt-10 flex flex-col items-center md:flex-row">
-                <Button direction="left-0" inset="inset-y-0" link="auth/login">
-                  Start Now
-                </Button>
+                <NextLink href="/auth/register" passHref>
+                  <div>
+                    <Button direction="left-0" inset="inset-y-0">
+                      Get Started for Free
+                    </Button>
+                  </div>
+                </NextLink>
 
                 <NextLink
-                  href="auth/register"
+                  href="/auth/register"
                   aria-label=""
                   className="underline-offset-2 inline-flex items-center font-semibold underline transition-colors duration-200 hover:underline"
                 >

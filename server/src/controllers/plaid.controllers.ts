@@ -1,5 +1,7 @@
-
+import dotenv from 'dotenv';
+dotenv.config();
 import { Request, Response } from "express";
+
 import {
   AccountsGetRequest,
   Configuration,
@@ -14,13 +16,14 @@ const configuration: Configuration = new Configuration({
   baseOptions: {
     headers: {
       "PLAID-CLIENT-ID": process.env.PLAID_CLIENT_ID,
-      "PLAID-SECRET": process.env.PLAID_SECRET,
+      "PLAID-SECRET": process.env.PLAID_SECRET
       // "Plaid-Version": "2020-09-14",
     },
   },
 });
 
 const plaidClient = new PlaidApi(configuration);
+
 /**
  * @route   POST /api/create_link_token
  * @desc    Create a link token for Plaid Link to initialize the Link flow for the user to connect their bank account to Plaid
@@ -39,9 +42,6 @@ export const createLinkToken = async (_: Request, res: Response) => {
     products: [
       Products.Assets,
       Products.Auth,
-      Products.Identity,
-      Products.Investments,
-      Products.Liabilities,
       Products.Transactions,
       Products.Income
     ],
