@@ -8,7 +8,7 @@ import * as z from "zod";
 import { useRouter } from "next/router";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-
+import { IconAt, IconEye } from "../../assets/icons";
 export interface ILoginProps {
   email: string;
   password: string;
@@ -72,10 +72,7 @@ const Login: React.FC<ILoginProps> = () => {
           </NextLink>
         </p>
 
-        <form
-          className="flex flex-col items-stretch"
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
           <Input
             type="email"
             id="login-email"
@@ -83,6 +80,7 @@ const Login: React.FC<ILoginProps> = () => {
             register={register}
             errors={errors?.email?.message}
             name="email"
+            icon={<IconAt strokeColor="text-gray-500" />}
           />
           <Input
             type="password"
@@ -91,6 +89,7 @@ const Login: React.FC<ILoginProps> = () => {
             register={register}
             errors={errors?.password?.message}
             name="password"
+            icon={<IconEye strokeColor="text-gray-500" />}
           />
           <span className="my-6 flex items-center text-sm">
             <NextLink href="/auth/forgotpassword">
@@ -100,7 +99,12 @@ const Login: React.FC<ILoginProps> = () => {
             </NextLink>
           </span>
 
-          <Button type="submit" direction="left-0" inset="inset-y-0">
+          <Button
+            className="w-full"
+            type="submit"
+            direction="left-0"
+            inset="inset-y-0"
+          >
             Sign in
           </Button>
         </form>

@@ -21,6 +21,8 @@ import { IconWallet } from "./wallet";
 import { IconGoogle } from "./google";
 import { IconArrowLeft } from "./arrow-left";
 import { IconCheckCircle } from "./check-circle";
+import { IconAt } from "./at";
+import { IconEye } from "./eye";
 export {
   IconTicket,
   IconAccount,
@@ -45,4 +47,6 @@ export {
   IconArrowLeft,
   IconGoogle,
   IconCheckCircle,
+  IconAt,
+  IconEye,
 };
