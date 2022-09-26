@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = () => {
           <button className="btn btn-ghost btn-circle text-accent">
             <div className="indicator">
               <IconNotification />
-              <span className="badge badge-xs badge-primary indicator-item"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
             </div>
           </button>
           <button className="dropdown dropdown-end">

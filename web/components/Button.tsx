@@ -5,6 +5,7 @@ interface IButtonProps {
   children: React.ReactNode;
   type?: "button" | "submit" | "reset";
   className?: string;
+  disabled?: boolean;
 }
 /**
  * Button component
@@ -31,11 +32,13 @@ const Button: React.FC<IButtonProps> = ({
   inset,
   type = "button",
   className,
+  disabled,
 }) => {
   return (
     <div className={className}>
       <button
         type={type}
+        disabled={disabled}
         className="relative inline-block px-8 py-3 overflow-hidden border border-base-content group focus:outline-none"
       >
         <span
