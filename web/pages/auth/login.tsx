@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useRouter } from "next/router";
 import Button from "../../components/Button";
+import Input from "../../components/Input";
 
 export interface ILoginProps {
   email: string;
@@ -25,7 +26,7 @@ const Login: React.FC<ILoginProps> = () => {
     formState: { errors },
   } = useForm<ILoginProps>({ resolver: zodResolver(schema) });
 
-  const onSubmit = async (data: ILoginProps) => {
+  const onSubmit = async (dataForm: ILoginProps) => {
     try {
       const response = await fetch(
         process.env.NEXT_PUBLIC_API_URL + "/api/login",
@@ -34,7 +35,7 @@ const Login: React.FC<ILoginProps> = () => {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: formUrlEncoded(data),
+          body: formUrlEncoded(dataForm),
         }
       );
       const { user, accessToken, refreshToken } = await response.json();
@@ -48,7 +49,6 @@ const Login: React.FC<ILoginProps> = () => {
       );
       console.log("🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ user", user);
       if (accessToken) {
-        console.log("test");
         // TODO: Save the user and access token to local storage or a cookie
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("accessToken", accessToken);
@@ -76,31 +76,22 @@ const Login: React.FC<ILoginProps> = () => {
           className="flex flex-col items-stretch"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="mt-2 flex flex-col">
-            <input
-              type="email"
-              id="login-email"
-              className="mt-2 border py-4 px-4 outline-none ring-blue-300 focus:ring"
-              placeholder="Email"
-              {...register("email", { required: true })}
-            />
-            {errors?.email && <p className="pt-1">{errors.email.message}</p>}
-          </div>
-
-          <div className="mt-2 flex flex-col">
-            <input
-              type="password"
-              id="login-password"
-              className="mt-2 border py-4 px-4 outline-none ring-blue-300 focus:ring"
-              placeholder="Password (minimum 6 characters)"
-              {...register("password", { required: true })}
-            />
-
-            {errors?.password && (
-              <p className="pt-1">{errors.password.message}</p>
-            )}
-          </div>
-
+          <Input
+            type="email"
+            id="login-email"
+            placeholder="Email"
+            register={register}
+            errors={errors?.email?.message}
+            name="email"
+          />
+          <Input
+            type="password"
+            id="password"
+            placeholder="Password (minimum 6 characters)"
+            register={register}
+            errors={errors?.password?.message}
+            name="password"
+          />
           <span className="my-6 flex items-center text-sm">
             <NextLink href="/auth/forgotpassword">
               <span className="font-medium text-blue-500 underline cursor-pointer">
