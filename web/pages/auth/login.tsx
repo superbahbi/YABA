@@ -9,24 +9,23 @@ import { useRouter } from "next/router";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { IconAt, IconEye } from "../../assets/icons";
+import { IInputFormProps } from "../../types/LPinterface";
 
 const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6),
 });
 
-export type TLoginForm = z.infer<typeof formSchema>;
-
-const Login: React.FC<TLoginForm> = () => {
+const Login: React.FC<IInputFormProps> = () => {
   const [resError, setResError] = useState<string[]>();
   const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isDirty },
-  } = useForm<TLoginForm>({ resolver: zodResolver(formSchema) });
+  } = useForm<IInputFormProps>({ resolver: zodResolver(formSchema) });
 
-  const onSubmit = async (dataForm: TLoginForm) => {
+  const onSubmit = async (dataForm: IInputFormProps) => {
     try {
       const response = await fetch(
         process.env.NEXT_PUBLIC_API_URL + "/api/login",

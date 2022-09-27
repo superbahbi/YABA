@@ -1,23 +1,5 @@
-import React, { ReactNode } from "react";
-import { UseFormRegister } from "react-hook-form";
-import { TLoginForm } from "../pages/auth/login";
-
-export interface IInputProps {
-  type: string;
-  id: string;
-  placeholder?: string;
-  register: UseFormRegister<TLoginForm>;
-  name: "email" | "password";
-  errors?: string;
-  icon?: ReactNode;
-}
-export interface IInputError {
-  email?: IInputMsgError;
-  password?: IInputMsgError;
-}
-export interface IInputMsgError {
-  message?: string;
-}
+import React from "react";
+import { IInputProps } from "../types/LPinterface";
 
 const Input: React.FC<IInputProps> = ({
   register,

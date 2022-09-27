@@ -1,3 +1,6 @@
+import { ReactNode } from "react";
+import { UseFormRegister } from "react-hook-form";
+
 export interface ILPFooterLinkProps {
   link: string;
   title: string;
@@ -10,6 +13,24 @@ export interface ILPHeroProps {
 export interface ILPToastProps {
   justifySelfEnd?: boolean;
   textContent: string;
+}
+export interface IInputProps {
+  type: string;
+  id: string;
+  placeholder?: string;
+  register: UseFormRegister<IInputFormProps>;
+  name: "email" | "password" | "firstName" | "lastName";
+  errors?: string;
+  icon?: ReactNode;
+}
+export interface IInputFormProps {
+  email: string;
+  password: string;
+  firstName?: string;
+  lastName?: string;
+}
+export interface IFormErrorProps {
+  msg?: string;
 }
 export interface ILPFeatureProps {
   f?: string;
