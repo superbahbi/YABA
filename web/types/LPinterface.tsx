@@ -28,6 +28,7 @@ export interface IInputFormProps {
   password: string;
   firstName?: string;
   lastName?: string;
+  token?: string;
 }
 export interface IFormErrorProps {
   msg?: string;
