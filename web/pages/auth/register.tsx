@@ -9,7 +9,7 @@ import { IconAt, IconEye, IconGoogle } from "../../assets/icons";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Auth from "../../layouts/Auth";
-import { IFormErrorProps, IInputFormProps } from "../../types/LPinterface";
+import { IInputFormProps } from "../../types/LPinterface";
 
 const formSchema = z.object({
   email: z.string().email(),
