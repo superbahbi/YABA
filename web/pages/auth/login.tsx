@@ -10,55 +10,75 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { IconAt, IconEye } from "../../assets/icons";
 import { IInputFormProps } from "../../types/LPinterface";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6),
+  email: z.string().email("Email Address is invalid"),
+  password: z
+    .string()
+    .min(1, "Password is required")
+    .min(8, "Password must be more than 8 characters")
+    .max(32, "Password must be less than 32 characters"),
 });
 
 const Login: React.FC<IInputFormProps> = () => {
-  const [resError, setResError] = useState<string[]>();
-  const router = useRouter();
+  // const [resError, setResError] = useState<string[]>();
+  // const [account, setAccount] = React.useState({ email: "", password: "" });
+  const queryClient = useQueryClient();
+  // const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isDirty },
   } = useForm<IInputFormProps>({ resolver: zodResolver(formSchema) });
 
-  const onSubmit = async (dataForm: IInputFormProps) => {
-    try {
-      const response = await fetch(
+  const loginMutation = useMutation(
+    (newUser) =>
+      axios.post(
         process.env.NEXT_PUBLIC_API_URL + "/api/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: formUrlEncoded(dataForm),
+        formUrlEncoded(newUser)
+      ),
+    {
+      // When mutate is called:
+      onMutate: async (newUser: IInputFormProps) => {
+        console.log("onMutate");
+        // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
+        await queryClient.cancelQueries(["account"]);
+
+        // Snapshot the previous value
+        const previousAccount = queryClient.getQueryData<IInputFormProps>([
+          "account",
+        ]);
+
+        // Optimistically update to the new value
+        if (previousAccount) {
+          queryClient.setQueryData<IInputFormProps>(["account"], {
+            ...previousAccount,
+            ...newUser,
+          });
         }
-      );
-      const { user, accessToken, refreshToken, errors } = await response.json();
-      if (errors) {
-        setResError(errors);
-      }
-      console.log(
-        "🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ refreshToken",
-        refreshToken
-      );
-      console.log(
-        "🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ accessToken",
-        accessToken
-      );
-      console.log("🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ user", user);
-      if (accessToken) {
-        // TODO: Save the user and access token to local storage or a cookie
-        localStorage.setItem("user", JSON.stringify(user));
-        localStorage.setItem("accessToken", accessToken);
-        router.push("/overview");
-      }
-    } catch (errors) {
-      console.log(errors);
+
+        return { previousAccount };
+      },
+      // If the mutation fails, use the context returned from onMutate to roll back
+      onError: (err, variables, context) => {
+        if (context?.previousAccount) {
+          queryClient.setQueryData<IInputFormProps>(
+            ["account"],
+            context.previousAccount
+          );
+        }
+      },
+      // Always refetch after error or success:
+      onSettled: () => {
+        queryClient.invalidateQueries(["account"]);
+      },
     }
+  );
+
+  const onSubmit = async (dataForm: IInputFormProps) => {
+    loginMutation.mutate(dataForm);
   };
 
   return (
@@ -75,14 +95,15 @@ const Login: React.FC<IInputFormProps> = () => {
         </p>
 
         <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-          <div className="h-4 pt-1">
+          {/* <div className="h-4 pt-1">
             {resError &&
               resError.map((error: any, index: number) => (
                 <p key={index} className="text-sm text-red-500">
                   {error.msg}
                 </p>
               ))}
-          </div>
+          </div> */}
+
           <Input
             type="email"
             id="login-email"

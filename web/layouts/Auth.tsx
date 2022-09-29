@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { IconArrowLeft } from "../assets/icons";
 import { themeChange } from "theme-change";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 interface AuthProps {
   children: React.ReactNode;
@@ -66,6 +67,7 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
           </div>
         </div>
       </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
 };
