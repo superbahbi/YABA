@@ -10,8 +10,9 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { IconAt, IconEye } from "../../assets/icons";
 import { IInputFormProps } from "../../types/LPinterface";
-import { useQueryClient, useMutation } from "@tanstack/react-query";
+import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const formSchema = z.object({
   email: z.string().email("Email Address is invalid"),
@@ -21,6 +22,10 @@ const formSchema = z.object({
     .min(8, "Password must be more than 8 characters")
     .max(32, "Password must be less than 32 characters"),
 });
+async function fetchUser(): Promise<IInputFormProps> {
+  const res = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/api/user");
+  return res.data;
+}
 
 const Login: React.FC<IInputFormProps> = () => {
   // const [resError, setResError] = useState<string[]>();
@@ -33,6 +38,16 @@ const Login: React.FC<IInputFormProps> = () => {
     formState: { errors, isSubmitting, isDirty },
   } = useForm<IInputFormProps>({ resolver: zodResolver(formSchema) });
 
+  // API Get Current Logged-in user
+  const query = useQuery(["account"], fetchUser, {
+    enabled: false,
+    select: (data: any) => data.data.user,
+    retry: 1,
+    onSuccess: (data) => {
+      console.log("data", data);
+    },
+  });
+
   const loginMutation = useMutation(
     (newUser) =>
       axios.post(
@@ -43,6 +58,7 @@ const Login: React.FC<IInputFormProps> = () => {
       // When mutate is called:
       onMutate: async (newUser: IInputFormProps) => {
         console.log("onMutate");
+        toast.success("Logging in...");
         // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
         await queryClient.cancelQueries(["account"]);
 
@@ -63,6 +79,7 @@ const Login: React.FC<IInputFormProps> = () => {
       },
       // If the mutation fails, use the context returned from onMutate to roll back
       onError: (err, variables, context) => {
+        console.log("onError");
         if (context?.previousAccount) {
           queryClient.setQueryData<IInputFormProps>(
             ["account"],
@@ -71,8 +88,9 @@ const Login: React.FC<IInputFormProps> = () => {
         }
       },
       // Always refetch after error or success:
-      onSettled: () => {
-        queryClient.invalidateQueries(["account"]);
+      onSuccess: () => {
+        // query.refetch();
+        toast.success("You successfully logged in");
       },
     }
   );
