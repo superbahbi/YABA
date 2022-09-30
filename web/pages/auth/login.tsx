@@ -31,7 +31,8 @@ const Login: React.FC<IInputFormProps> = () => {
   // const [resError, setResError] = useState<string[]>();
   // const [account, setAccount] = React.useState({ email: "", password: "" });
   const queryClient = useQueryClient();
-  // const router = useRouter();
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -41,7 +42,7 @@ const Login: React.FC<IInputFormProps> = () => {
   // API Get Current Logged-in user
   const query = useQuery(["account"], fetchUser, {
     enabled: false,
-    select: (data: any) => data.data.user,
+    select: (data) => data,
     retry: 1,
     onSuccess: (data) => {
       console.log("data", data);
@@ -55,42 +56,14 @@ const Login: React.FC<IInputFormProps> = () => {
         formUrlEncoded(newUser)
       ),
     {
-      // When mutate is called:
-      onMutate: async (newUser: IInputFormProps) => {
-        console.log("onMutate");
-        toast.success("Logging in...");
-        // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
-        await queryClient.cancelQueries(["account"]);
-
-        // Snapshot the previous value
-        const previousAccount = queryClient.getQueryData<IInputFormProps>([
-          "account",
-        ]);
-
-        // Optimistically update to the new value
-        if (previousAccount) {
-          queryClient.setQueryData<IInputFormProps>(["account"], {
-            ...previousAccount,
-            ...newUser,
-          });
-        }
-
-        return { previousAccount };
+      onSuccess: () => {
+        query.refetch();
+        toast.success("You successfully logged in");
+        router.push("/overview");
       },
       // If the mutation fails, use the context returned from onMutate to roll back
-      onError: (err, variables, context) => {
-        console.log("onError");
-        if (context?.previousAccount) {
-          queryClient.setQueryData<IInputFormProps>(
-            ["account"],
-            context.previousAccount
-          );
-        }
-      },
-      // Always refetch after error or success:
-      onSuccess: () => {
-        // query.refetch();
-        toast.success("You successfully logged in");
+      onError: () => {
+        toast.error("Invalid credentials");
       },
     }
   );
@@ -113,15 +86,6 @@ const Login: React.FC<IInputFormProps> = () => {
         </p>
 
         <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-          {/* <div className="h-4 pt-1">
-            {resError &&
-              resError.map((error: any, index: number) => (
-                <p key={index} className="text-sm text-red-500">
-                  {error.msg}
-                </p>
-              ))}
-          </div> */}
-
           <Input
             type="email"
             id="login-email"
@@ -152,7 +116,7 @@ const Login: React.FC<IInputFormProps> = () => {
             type="submit"
             direction="left-0"
             inset="inset-y-0"
-            disabled={!isDirty}
+            disabled={!isDirty || isSubmitting}
           >
             {isSubmitting ? (
               <div role="status">
