@@ -51,7 +51,7 @@ const Register: React.FC<IInputFormProps> = () => {
   return (
     <>
       <Head>
-        <title>yaba. | Register</title>
+        <title>yaba. | login</title>
       </Head>
       <Auth>
         <p className="text-3xl font-bold">Create your free account</p>

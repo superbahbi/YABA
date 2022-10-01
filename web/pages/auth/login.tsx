@@ -13,6 +13,7 @@ import { IInputFormProps } from "../../types/LPinterface";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Head from "next/head";
 
 const formSchema = z.object({
   email: z.string().email("Email Address is invalid"),
@@ -74,6 +75,9 @@ const Login: React.FC<IInputFormProps> = () => {
 
   return (
     <>
+      <Head>
+        <title>yaba. | login</title>
+      </Head>
       <Auth>
         <p className="text-3xl font-bold">Welcome back to yaba</p>
         <p className="mt-3 font-medium">
