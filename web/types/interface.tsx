@@ -84,7 +84,7 @@ export interface IAccountsData {
 }
 export interface IResponseProps {
   status?: string;
-  error?: string | string[];
+  errors?: string | string[];
 }
 export interface IVerifyProps {
   code: string;
