@@ -1,7 +1,7 @@
 import React from "react";
-import { BalanceProps } from "../types/interface";
+import { IBalanceProps } from "../types/interface";
 
-const Balance: React.FC<BalanceProps> = ({ data }) => {
+const Balance: React.FC<IBalanceProps> = ({ data }) => {
   return (
     <>
       {/* <div className="flex flex-row mb-4">

@@ -1,8 +1,8 @@
 import React from "react";
 import Main from "../layouts/Main";
-import { WalletsProps } from "../types/interface";
+import { IWalletsProps } from "../types/interface";
 
-const Wallet: React.FC<WalletsProps> = () => {
+const Wallet: React.FC<IWalletsProps> = () => {
   return (
     <>
       <Main>Wallet</Main>

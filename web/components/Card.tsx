@@ -1,11 +1,7 @@
 import React from "react";
+import { ICardProps } from "../types/interface";
 
-interface CardProps {
-  title: string;
-  children: React.ReactNode;
-}
-
-const Card: React.FC<CardProps> = ({ title, children }) => {
+const Card: React.FC<ICardProps> = ({ title, children }) => {
   return (
     <>
       <div className="flex flex-col w-full">

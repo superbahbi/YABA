@@ -1,13 +1,13 @@
 import { FunctionComponent } from "react";
 
-export interface MainProps {
+export interface IMainProps {
   children: React.ReactNode;
 }
-export interface TransactionListProps {
-  transaction: TransactionData[];
+export interface ITransactionListProps {
+  transaction: ITransactionData[];
   limit: number;
 }
-export interface TransactionData {
+export interface ITransactionData {
   id: number;
   date: string;
   description: string;
@@ -15,13 +15,13 @@ export interface TransactionData {
   amount: number;
   ip_address: string;
 }
-export interface TableProps {
+export interface ITableProps {
   title?: string;
   headers?: string[];
   limit?: number;
   children?: React.ReactNode;
 }
-export interface ProgressProps {
+export interface IProgressProps {
   title: string;
   currentProgress: number;
   totalProgress: number;
@@ -29,16 +29,16 @@ export interface ProgressProps {
   color: string;
 }
 
-export interface LineGraphProps {
+export interface ILineGraphProps {
   income: number[];
   expense: number[];
   labelColor?: string;
 }
-export interface DougnutGraphProps {
+export interface IDougnutGraphProps {
   data: number[];
   labelColor?: string;
 }
-export interface SvgIconProps {
+export interface ISvgIconProps {
   width?: number | string;
   height?: number | string;
   strokeWidth?: number;
@@ -46,10 +46,10 @@ export interface SvgIconProps {
   fillColor?: string;
   rotateCenter?: number;
 }
-export interface SvgIcon extends FunctionComponent<SvgIconProps> {
+export interface ISvgIcon extends FunctionComponent<ISvgIconProps> {
   displayName?: string;
 }
-export interface BalanceProps {
+export interface IBalanceProps {
   data: IBalanceData[];
 }
 export interface IBalanceData {
@@ -82,42 +82,62 @@ export interface IAccountsData {
   subtype: string;
   type: string;
 }
+export interface IResponseProps {
+  status?: string;
+  error?: string | string[];
+}
+export interface IVerifyProps {
+  code: string;
+}
+export interface IButtonProps {
+  direction?: "left-0" | "right-0" | "top-0" | "bottom-0";
+  inset?: "inset-x-0" | "inset-y-0";
+  children: React.ReactNode;
+  type?: "button" | "submit" | "reset";
+  className?: string;
+  disabled?: boolean;
+}
+export interface ICardProps {
+  title: string;
+  children: React.ReactNode;
+}
+
 export interface ILinkTokenData {
   link_token: string;
 }
-export interface OverviewProps {
+export interface IOverviewProps {
   f?: string;
 }
-export interface TransactionProps {
+export interface ITransactionProps {
   f?: string;
 }
-export interface AnalyticsProps {
+export interface IAnalyticsProps {
   f?: string;
 }
-export interface WalletsProps {
+export interface IWalletsProps {
   f?: string;
 }
-export interface InvoiceProps {
+export interface IInvoiceProps {
   f?: string;
 }
-export interface AccountProps {
+export interface IAccountProps {
   f?: string;
 }
-export interface SettingsProps {
+export interface ISettingsProps {
   f?: string;
 }
-export interface PaginationProps {
+export interface IPaginationProps {
   f?: string;
 }
-export interface HeaderProps {
+export interface IHeaderProps {
   f?: string;
 }
-export interface NavbarProps {
+export interface INavbarProps {
   f?: string;
 }
 export interface IBalanceProps {
   f?: string;
 }
-export interface CalendarProps {
+export interface ICalendarProps {
   f?: string;
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import Main from "../layouts/Main";
-import { AnalyticsProps } from "../types/interface";
+import { IAnalyticsProps } from "../types/interface";
 
-const Analytics: React.FC<AnalyticsProps> = () => {
+const Analytics: React.FC<IAnalyticsProps> = () => {
   return (
     <>
       <Main>Analytics</Main>
