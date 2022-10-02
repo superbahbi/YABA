@@ -2,7 +2,7 @@ import React from "react";
 import { ILPFooterProps } from "../../types/LPinterface";
 import LPFooterLink from "./LPFooterLink";
 import Button from "../Button";
-
+// TODO Come up with a more imaginative greeting
 const LPFooter: React.FC<ILPFooterProps> = () => {
   return (
     <section className="flex justify-center pt-8">
