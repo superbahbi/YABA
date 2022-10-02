@@ -2,6 +2,9 @@ import React from "react";
 import { ILPFooterProps } from "../../types/LPinterface";
 import LPFooterLink from "./LPFooterLink";
 import Button from "../Button";
+// TODO add logo yaba logo
+// check assets folder
+// labels: enhancement, help wanted, good first issue
 
 const LPFooter: React.FC<ILPFooterProps> = () => {
   return (
@@ -11,10 +14,6 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
           <div className="lg:grid lg:grid-cols-2">
             <div className="py-16 border-b border-neutral-content lg:border-b-0 lg:border-l lg:order-last lg:py-24 lg:pl-12">
               <div className="flex justify-center lg:hidden">
-                {/* TODO add logo yaba logo
-                    check assets folder
-                    labels: enhancement, help wanted, good first issue
-                */}
                 {/* <img
                   className="w-full h-full sm:w-3/4 sm:h-3/4 max-w-full max-h-full object-cover"
                   src="/images/bfg_interactive_logo.png"
