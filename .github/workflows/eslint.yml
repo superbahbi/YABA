@@ -29,13 +29,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Install ESLint
+        working-directory: ./web
         run: |
           npm install eslint@8.10.0
           npm install @microsoft/eslint-formatter-sarif@2.1.7
 
       - name: Run ESLint
+        working-directory: ./web
         run: npx eslint .
           --config .eslintrc.js
           --ext .js,.jsx,.ts,.tsx
