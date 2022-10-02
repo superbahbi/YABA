@@ -33,19 +33,10 @@ jobs:
         working-directory: ./web
         run: |
           npm install eslint@8.24.0
-          npm install @microsoft/eslint-formatter-sarif@3.0.0
 
       - name: Run ESLint
         working-directory: ./web
         run: npx eslint .
           --config .eslintrc.js
           --ext .js,.jsx,.ts,.tsx
-          --format @microsoft/eslint-formatter-sarif 
-          --output-file eslint-results.sarif
         continue-on-error: false
-
-      - name: Upload analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: eslint-results.sarif
-          wait-for-processing: true
