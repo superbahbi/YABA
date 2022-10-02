@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { IconAt, IconEye } from "../../assets/icons";
-import { IInputFormProps } from "../../types/LPinterface";
+import { IFormErrorProps, IInputFormProps } from "../../types/LPinterface";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -17,7 +17,7 @@ const formSchema = z.object({
 });
 
 const Login: React.FC<IInputFormProps> = () => {
-  const [resError, setResError] = useState<string[]>();
+  const [resError, setResError] = useState<IFormErrorProps[]>();
   const router = useRouter();
   const {
     register,
@@ -77,7 +77,7 @@ const Login: React.FC<IInputFormProps> = () => {
         <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
           <div className="h-4 pt-1">
             {resError &&
-              resError.map((error: any, index: number) => (
+              resError.map((error: IFormErrorProps, index: number) => (
                 <p key={index} className="text-sm text-red-500">
                   {error.msg}
                 </p>

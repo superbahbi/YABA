@@ -9,7 +9,7 @@ import { IconAt, IconEye, IconGoogle } from "../../assets/icons";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Auth from "../../layouts/Auth";
-import { IInputFormProps } from "../../types/LPinterface";
+import { IFormErrorProps, IInputFormProps } from "../../types/LPinterface";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -20,7 +20,7 @@ const formSchema = z.object({
 
 const Register: React.FC<IInputFormProps> = () => {
   const [checked, setChecked] = useState(true);
-  const [resError, setResError] = useState<string[]>();
+  const [resError, setResError] = useState<IFormErrorProps[]>();
   const {
     register,
     handleSubmit,
@@ -77,7 +77,7 @@ const Register: React.FC<IInputFormProps> = () => {
         >
           <div className="h-4 pt-1">
             {resError &&
-              resError.map((error: any, index: number) => (
+              resError.map((error: IFormErrorProps, index: number) => (
                 <p key={index} className="text-sm text-red-500">
                   {error.msg}
                 </p>
