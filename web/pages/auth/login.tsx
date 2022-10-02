@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { IconAt, IconEye } from "../../assets/icons";
-import { IInputFormProps } from "../../types/LPinterface";
+import { IAuthInputFormProps } from "../../types/LPinterface";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -23,12 +23,15 @@ const formSchema = z.object({
     .min(8, "Password must be more than 8 characters")
     .max(32, "Password must be less than 32 characters"),
 });
-async function fetchUser(): Promise<IInputFormProps> {
+async function fetchUser(): Promise<IAuthInputFormProps> {
   const res = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/api/user");
   return res.data;
 }
-
-const Login: React.FC<IInputFormProps> = () => {
+export interface ILoginDataFormProps {
+  email: string;
+  password: string;
+}
+const Login: React.FC<IAuthInputFormProps> = () => {
   // const [resError, setResError] = useState<string[]>();
   // const [account, setAccount] = React.useState({ email: "", password: "" });
   const queryClient = useQueryClient();
@@ -38,7 +41,7 @@ const Login: React.FC<IInputFormProps> = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isDirty },
-  } = useForm<IInputFormProps>({ resolver: zodResolver(formSchema) });
+  } = useForm<IAuthInputFormProps>({ resolver: zodResolver(formSchema) });
 
   // API Get Current Logged-in user
   const query = useQuery(["account"], fetchUser, {
@@ -51,7 +54,7 @@ const Login: React.FC<IInputFormProps> = () => {
   });
 
   const loginMutation = useMutation(
-    (newUser) =>
+    (newUser: IAuthInputFormProps) =>
       axios.post(
         process.env.NEXT_PUBLIC_API_URL + "/api/login",
         formUrlEncoded(newUser)
@@ -69,27 +72,28 @@ const Login: React.FC<IInputFormProps> = () => {
     }
   );
 
-  const onSubmit = async (dataForm: IInputFormProps) => {
-    loginMutation.mutate(dataForm);
-  };
-
   return (
     <>
       <Head>
         <title>yaba. | login</title>
       </Head>
       <Auth>
-        <p className="text-3xl font-bold">Welcome back to yaba</p>
+        <p className="text-3xl font-bold">welcome back to yaba</p>
         <p className="mt-3 font-medium">
-          Don&apos;t have an account?{" "}
+          don&apos;t have an account?{" "}
           <NextLink href="/auth/register">
             <span className="whitespace-nowrap font-semibold text-primary cursor-pointer">
-              Sign up for free.
+              sign up for free.
             </span>
           </NextLink>
         </p>
 
-        <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="flex flex-col"
+          onSubmit={handleSubmit((dataForm: IAuthInputFormProps) => {
+            loginMutation.mutate(dataForm);
+          })}
+        >
           <Input
             type="email"
             id="login-email"
@@ -110,7 +114,7 @@ const Login: React.FC<IInputFormProps> = () => {
           <span className="my-6 flex items-center text-sm">
             <NextLink href="/auth/forgotpassword">
               <span className="font-medium text-blue-500 underline cursor-pointer">
-                Forgot password?
+                forgot password?
               </span>
             </NextLink>
           </span>
@@ -143,7 +147,7 @@ const Login: React.FC<IInputFormProps> = () => {
                 <span className="sr-only">Loading...</span>
               </div>
             ) : (
-              "Sign in"
+              "sign in"
             )}
           </Button>
         </form>

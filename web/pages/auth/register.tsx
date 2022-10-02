@@ -9,7 +9,7 @@ import { IconAt, IconEye, IconGoogle } from "../../assets/icons";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Auth from "../../layouts/Auth";
-import { IInputFormProps } from "../../types/LPinterface";
+import { IAuthInputFormProps } from "../../types/LPinterface";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -18,15 +18,15 @@ const formSchema = z.object({
   lastName: z.string().min(2),
 });
 
-const Register: React.FC<IInputFormProps> = () => {
+const Register: React.FC<IAuthInputFormProps> = () => {
   const [checked, setChecked] = useState(true);
   const [resError, setResError] = useState<string[]>();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isDirty },
-  } = useForm<IInputFormProps>({ resolver: zodResolver(formSchema) });
-  const onSubmit = async (data: IInputFormProps) => {
+  } = useForm<IAuthInputFormProps>({ resolver: zodResolver(formSchema) });
+  const onSubmit = async (data: IAuthInputFormProps) => {
     try {
       const response = await fetch(
         process.env.NEXT_PUBLIC_API_URL + "/api/register",

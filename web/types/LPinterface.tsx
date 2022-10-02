@@ -18,12 +18,12 @@ export interface IInputProps {
   type: string;
   id: string;
   placeholder?: string;
-  register: UseFormRegister<IInputFormProps>;
+  register: UseFormRegister<IAuthInputFormProps>;
   name: "email" | "password" | "firstName" | "lastName";
   errors?: string;
   icon?: ReactNode;
 }
-export interface IInputFormProps {
+export interface IAuthInputFormProps {
   email: string;
   password: string;
   firstName?: string;
