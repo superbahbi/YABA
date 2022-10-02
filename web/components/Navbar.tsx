@@ -10,9 +10,9 @@ import {
   IconSetting,
   IconTransaction,
 } from "../assets/icons";
-import { NavbarProps } from "../types/interface";
+import { INavbarProps } from "../types/interface";
 
-const Navbar: React.FC<NavbarProps> = () => {
+const Navbar: React.FC<INavbarProps> = () => {
   const linkNames = [
     "overview",
     "transaction",

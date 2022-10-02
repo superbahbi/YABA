@@ -19,8 +19,9 @@ import Trends from "../components/Trends";
 import Main from "../layouts/Main";
 import balanceData from "../mock_data/balance.json";
 import investmentData from "../mock_data/investment.json";
-import { OverviewProps } from "../types/interface";
-const Overview: React.FC<OverviewProps> = () => {
+import { IOverviewProps } from "../types/interface";
+
+const Overview: React.FC<IOverviewProps> = () => {
   const income = Array.from(Array(12)).map(() =>
     faker.datatype.number({ min: 2000, max: 2500 })
   );

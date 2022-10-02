@@ -1,9 +1,9 @@
 import React from "react";
 import Button from "../components/Button";
 import Main from "../layouts/Main";
-import { SettingsProps } from "../types/interface";
+import { ISettingsProps } from "../types/interface";
 
-const Settings: React.FC<SettingsProps> = () => {
+const Settings: React.FC<ISettingsProps> = () => {
   return (
     <>
       <Main>

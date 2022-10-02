@@ -1,5 +1,5 @@
 import React from "react";
-import { LineGraphProps } from "../../types/interface";
+import { ILineGraphProps } from "../../types/interface";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -24,7 +24,7 @@ ChartJS.register(
   Filler
 );
 
-const LineGraph: React.FC<LineGraphProps> = ({
+const LineGraph: React.FC<ILineGraphProps> = ({
   income,
   expense,
   labelColor = "#fff",

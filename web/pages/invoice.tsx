@@ -1,8 +1,8 @@
 import React from "react";
 import Main from "../layouts/Main";
-import { InvoiceProps } from "../types/interface";
+import { IInvoiceProps } from "../types/interface";
 
-const Invoice: React.FC<InvoiceProps> = () => {
+const Invoice: React.FC<IInvoiceProps> = () => {
   return (
     <>
       <Main>Invoices</Main>

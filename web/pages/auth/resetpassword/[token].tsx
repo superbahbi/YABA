@@ -9,11 +9,7 @@ import { IInputFormProps } from "../../../types/LPinterface";
 import Input from "../../../components/Input";
 import { IconEye } from "../../../assets/icons";
 import Button from "../../../components/Button";
-
-export interface IResponseProps {
-  status?: string;
-  errors?: string | string[];
-}
+import { IResponseProps } from "../../../types/interface";
 
 const schema = z.object({
   password: z.string().min(6),
