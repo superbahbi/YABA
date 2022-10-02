@@ -1,7 +1,7 @@
 import React from "react";
-import { SvgIcon } from "../../types/interface";
+import { ISvgIcon } from "../../types/interface";
 
-export const IconGoogle: SvgIcon = ({
+export const IconGoogle: ISvgIcon = ({
   strokeColor = "text-black-500",
   strokeWidth = 1,
   width = 64,

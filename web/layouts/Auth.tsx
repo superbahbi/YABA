@@ -2,11 +2,9 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { IconArrowLeft } from "../assets/icons";
 import { themeChange } from "theme-change";
+import { IAuthProps } from "../types/LPinterface";
 
-interface AuthProps {
-  children: React.ReactNode;
-}
-const Auth: React.FC<AuthProps> = ({ children }) => {
+const Auth: React.FC<IAuthProps> = ({ children }) => {
   const router = useRouter();
   useEffect(() => {
     themeChange(false);

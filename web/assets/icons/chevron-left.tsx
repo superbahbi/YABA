@@ -1,7 +1,7 @@
 import React from "react";
-import { SvgIcon } from "../../types/interface";
+import { ISvgIcon } from "../../types/interface";
 
-export const IconChevronLeft: SvgIcon = ({
+export const IconChevronLeft: ISvgIcon = ({
   strokeColor = "text-black-500",
   strokeWidth = 1.5,
   width = 24,
