@@ -22,8 +22,8 @@ import { IButtonProps } from "../types/interface";
  */
 const Button: React.FC<IButtonProps> = ({
   children,
-  direction,
-  inset,
+  direction = "left-0",
+  inset = "inset-y-0",
   type = "button",
   className,
   disabled,

@@ -61,13 +61,11 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.4.0",
-    "@microsoft/eslint-formatter-sarif": "^3.0.0",
     "@next/eslint-plugin-next": "^12.3.1",
     "@svgr/webpack": "^6.3.1",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
     "autoprefixer": "^10.4.8",
-    "eslint": "^8.24.0",
     "eslint-config-next": "^12.2.5",
     "eslint-config-react-app": "^7.0.1",
     "postcss": "^8.4.16",
