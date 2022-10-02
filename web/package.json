@@ -37,7 +37,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "npx eslint ."
+    "lint": "npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx"
   },
   "eslintConfig": {
     "extends": [
