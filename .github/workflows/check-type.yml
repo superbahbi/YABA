@@ -14,9 +14,10 @@ jobs:
   typecheck:
     name: Run typecheck scanning
     runs-on: ubuntu-latest
-  steps:
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        
       - name: Install typescript
         working-directory: ./web
         run: |
