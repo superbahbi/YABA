@@ -4,9 +4,9 @@ import Card from "../components/Card";
 import Table from "../components/Table";
 import Main from "../layouts/Main";
 import data from "../mock_data/transaction.json";
-import { TransactionData, TransactionProps } from "../types/interface";
-const Transaction: React.FC<TransactionProps> = () => {
-  const [transaction] = useState<TransactionData[]>(data);
+import { ITransactionData, ITransactionProps } from "../types/interface";
+const Transaction: React.FC<ITransactionProps> = () => {
+  const [transaction] = useState<ITransactionData[]>(data);
   const headers = ["ID", "Date", "Description", "Category", "Amount"];
   const limit = 20;
   return (
@@ -35,7 +35,7 @@ const Transaction: React.FC<TransactionProps> = () => {
                           <td key={header}>
                             {
                               item[
-                                header.toLowerCase() as keyof TransactionData
+                                header.toLowerCase() as keyof ITransactionData
                               ]
                             }
                           </td>

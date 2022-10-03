@@ -1,7 +1,8 @@
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
 import { IconChevronLeft, IconChevronRight } from "../assets/icons";
-import { CalendarProps } from "../types/interface";
+import { ICalendarProps } from "../types/interface";
+
 export function getMonth(month = dayjs().month()) {
   month = Math.floor(month);
   const year = dayjs().year();
@@ -15,7 +16,8 @@ export function getMonth(month = dayjs().month()) {
   });
   return daysMatrix;
 }
-const Calendar: React.FC<CalendarProps> = () => {
+
+const Calendar: React.FC<ICalendarProps> = () => {
   const [currentMonthIdx, setCurrentMonthIdx] = useState(dayjs().month());
   const [currentMonth, setCurrentMonth] = useState<dayjs.Dayjs[][]>();
   const [daySelected, setDaySelected] = useState<dayjs.Dayjs>();

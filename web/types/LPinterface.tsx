@@ -23,6 +23,9 @@ export interface IInputProps {
   errors?: string;
   icon?: ReactNode;
 }
+export interface IAuthProps {
+  children: React.ReactNode;
+}
 export interface IAuthInputFormProps {
   email: string;
   password: string;

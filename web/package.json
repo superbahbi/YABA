@@ -39,8 +39,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "npx eslint .",
     "watch": "tsc --watch"
+    "lint": "npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx"
   },
   "eslintConfig": {
     "extends": [
@@ -69,7 +69,6 @@
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
     "autoprefixer": "^10.4.8",
-    "eslint": "^8.24.0",
     "eslint-config-next": "^12.2.5",
     "eslint-config-react-app": "^7.0.1",
     "postcss": "^8.4.16",

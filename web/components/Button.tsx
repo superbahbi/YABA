@@ -1,12 +1,6 @@
 import React from "react";
-interface IButtonProps {
-  direction?: "left-0" | "right-0" | "top-0" | "bottom-0";
-  inset?: "inset-x-0" | "inset-y-0";
-  children: React.ReactNode;
-  type?: "button" | "submit" | "reset";
-  className?: string;
-  disabled?: boolean;
-}
+import { IButtonProps } from "../types/interface";
+
 /**
  * Button component
  * @param {string} direction - direction of the button
@@ -28,8 +22,8 @@ interface IButtonProps {
  */
 const Button: React.FC<IButtonProps> = ({
   children,
-  direction,
-  inset,
+  direction = "left-0",
+  inset = "inset-y-0",
   type = "button",
   className,
   disabled,

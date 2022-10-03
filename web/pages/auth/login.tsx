@@ -9,11 +9,12 @@ import { useRouter } from "next/router";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { IconAt, IconEye } from "../../assets/icons";
-import { IAuthInputFormProps } from "../../types/LPinterface";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Head from "next/head";
+import { IFormErrorProps, IAuthInputFormProps } from "../../types/LPinterface";
+
 
 const formSchema = z.object({
   email: z.string().email("Email Address is invalid"),
@@ -23,6 +24,7 @@ const formSchema = z.object({
     .min(8, "Password must be more than 8 characters")
     .max(32, "Password must be less than 32 characters"),
 });
+
 async function fetchUser(): Promise<IAuthInputFormProps> {
   const res = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/api/user");
   return res.data;

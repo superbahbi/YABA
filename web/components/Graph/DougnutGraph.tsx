@@ -1,11 +1,11 @@
 import React from "react";
-import { DougnutGraphProps } from "../../types/interface";
+import { IDougnutGraphProps } from "../../types/interface";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DougnutGraph: React.FC<DougnutGraphProps> = ({ data }) => {
+const DougnutGraph: React.FC<IDougnutGraphProps> = ({ data }) => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,

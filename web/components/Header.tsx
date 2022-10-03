@@ -3,9 +3,9 @@ import Image from "next/image";
 import React from "react";
 import { IconMail, IconNotification } from "../assets/icons";
 import Logo from "../assets/images/logo.png";
-import { HeaderProps } from "../types/interface";
+import { IHeaderProps } from "../types/interface";
 
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC<IHeaderProps> = () => {
   // const linkNames = [
   //   "overview",
   //   "transaction",

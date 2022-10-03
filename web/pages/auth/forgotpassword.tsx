@@ -9,11 +9,8 @@ import Input from "../../components/Input";
 import { IconAt } from "../../assets/icons";
 import { IAuthInputFormProps } from "../../types/LPinterface";
 import Button from "../../components/Button";
+import { IResponseProps } from "../../types/interface";
 
-export interface IResponseProps {
-  status?: string;
-  error?: string | string[];
-}
 const schema = z.object({
   email: z.string().email(),
 });

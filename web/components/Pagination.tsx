@@ -1,7 +1,7 @@
 import React from "react";
-import { PaginationProps } from "../types/interface";
+import { IPaginationProps } from "../types/interface";
 
-const Pagination: React.FC<PaginationProps> = () => {
+const Pagination: React.FC<IPaginationProps> = () => {
   return (
     <>
       <div className="flex flex-row justify-center">

@@ -1,7 +1,7 @@
 import React from "react";
-import { SvgIcon } from "../../types/interface";
+import { ISvgIcon } from "../../types/interface";
 
-export const IconCheckCircle: SvgIcon = ({
+export const IconCheckCircle: ISvgIcon = ({
   strokeColor = "text-black-500",
   strokeWidth = 1.5,
   width = "w-5",

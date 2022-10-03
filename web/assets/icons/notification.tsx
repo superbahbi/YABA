@@ -1,7 +1,7 @@
 import React from "react";
-import { SvgIcon } from "../../types/interface";
+import { ISvgIcon } from "../../types/interface";
 
-export const IconNotification: SvgIcon = ({
+export const IconNotification: ISvgIcon = ({
   strokeColor = "text-black-500",
   strokeWidth = 1.5,
   width = 24,

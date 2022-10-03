@@ -1,0 +1,29 @@
+
+name: Typecheck
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
+  schedule:
+    - cron: '44 23 * * 2'
+
+jobs:
+  typecheck:
+    name: Run typecheck scanning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Install typescript
+        working-directory: ./web
+        run: |
+          npm install typescript
+
+      - name: Run Typecheck
+        working-directory: ./web
+        run: npm run watch
+        continue-on-error: false
