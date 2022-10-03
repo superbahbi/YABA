@@ -41,7 +41,7 @@
     "start": "next start",
     "watch": "tsc --watch",
     "lint": "npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx",
-    "prepare": "cd .. && husky install web/.husky"
+    "prepare": "cd ../ && husky install ./web/.husky"
   },
   "eslintConfig": {
     "extends": [
