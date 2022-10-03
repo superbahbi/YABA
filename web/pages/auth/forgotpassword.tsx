@@ -39,8 +39,8 @@ const Forgotpassword: React.FC<IAuthInputFormProps> = () => {
         }
       );
       const { status } = await response.json();
-      setResponse({ status });
-      console.log(status);
+      // setResponse({ status });
+      // console.log(status);
     } catch (errors) {
       // setError(errors.message);
       console.log(errors);
