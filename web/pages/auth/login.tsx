@@ -13,8 +13,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Head from "next/head";
-import { IFormErrorProps, IAuthInputFormProps } from "../../types/LPinterface";
-
+import { IAuthInputFormProps } from "../../types/LPinterface";
 
 const formSchema = z.object({
   email: z.string().email("Email Address is invalid"),

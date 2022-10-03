@@ -39,7 +39,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
     "lint": "npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx"
   },
   "eslintConfig": {
