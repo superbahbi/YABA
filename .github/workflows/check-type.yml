@@ -25,5 +25,5 @@ jobs:
 
       - name: Run Typecheck
         working-directory: ./web
-        run: npm run watch
+        run: npx tsc
         continue-on-error: false
