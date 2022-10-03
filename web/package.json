@@ -40,7 +40,8 @@
     "build": "next build",
     "start": "next start",
     "watch": "tsc --watch",
-    "lint": "npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx"
+    "lint": "npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx",
+    "prepare": "cd .. && husky install web/.husky"
   },
   "eslintConfig": {
     "extends": [
@@ -71,6 +72,7 @@
     "autoprefixer": "^10.4.8",
     "eslint-config-next": "^12.2.5",
     "eslint-config-react-app": "^7.0.1",
+    "husky": "^8.0.1",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8",
     "typescript": "^4.8.4"
