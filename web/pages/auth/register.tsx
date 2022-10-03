@@ -11,7 +11,6 @@ import Input from "../../components/Input";
 import Auth from "../../layouts/Auth";
 import { IFormErrorProps, IAuthInputFormProps } from "../../types/LPinterface";
 
-
 const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6),
