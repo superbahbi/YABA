@@ -28,7 +28,7 @@ const ResetPassword: React.FC<IAuthInputFormProps> = () => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = async (formData: AuthInputFormProps) => {
+  const onSubmit = async (formData: IAuthInputFormProps) => {
     console.log("formData", formData);
     const { password } = formData;
     try {
