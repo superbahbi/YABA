@@ -2,6 +2,8 @@ import React from "react";
 import { ILPFooterProps } from "../../types/LPinterface";
 import LPFooterLink from "./LPFooterLink";
 import Button from "../Button";
+import Image from "next/image";
+import yabaLogo from "/assets/images/logo.png"
 // TODO add logo yaba logo
 // check assets folder
 // labels: enhancement, help wanted, good first issue
@@ -19,6 +21,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                   src="/images/bfg_interactive_logo.png"
                   alt="Company logo"
                 ></img> */}
+<Image src={yabaLogo} width={40} height={40} alt="Company logo"/>
               </div>
 
               <div className="mt-12 space-y-4 lg:mt-0">
@@ -73,9 +76,10 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
               <div className="hidden lg:flex">
                 {/* <img
                   className="w-full h-full max-w-full max-h-full object-cover"
-                  src="/images/bfg_interactive_logo.png"
+                  src="../../assets/images/logo.png"
                   alt="Company logo"
-                ></img> */}
+                /> */}
+                <Image src={yabaLogo} width={40} height={40} alt="Company logo"/>
               </div>
 
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:mt-12">
