@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NextLink from "next/link";
 import Auth from "../../layouts/Auth";
 import { useForm } from "react-hook-form";
@@ -10,7 +10,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { IconAt, IconEye } from "../../assets/icons";
 import { IAuthInputFormProps } from "../../types/LPinterface";
-import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Head from "next/head";
@@ -34,7 +34,6 @@ export interface ILoginDataFormProps {
 const Login: React.FC<IAuthInputFormProps> = () => {
   // const [resError, setResError] = useState<string[]>();
   // const [account, setAccount] = React.useState({ email: "", password: "" });
-  const queryClient = useQueryClient();
   const router = useRouter();
 
   const {
