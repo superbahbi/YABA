@@ -33,7 +33,7 @@ const Button: React.FC<IButtonProps> = ({
       <button
         type={type}
         disabled={disabled}
-        className="relative inline-block px-8 py-3 overflow-hidden border border-base-content group focus:outline-none"
+        className="w-full relative inline-block px-8 py-3 overflow-hidden border border-base-content group focus:outline-none"
       >
         <span
           className={`absolute ${inset} ${direction} ${

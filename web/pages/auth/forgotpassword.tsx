@@ -7,7 +7,7 @@ import * as z from "zod";
 import { useRouter } from "next/router";
 import Input from "../../components/Input";
 import { IconAt } from "../../assets/icons";
-import { IInputFormProps } from "../../types/LPinterface";
+import { IAuthInputFormProps } from "../../types/LPinterface";
 import Button from "../../components/Button";
 import { IResponseProps } from "../../types/interface";
 
@@ -15,18 +15,18 @@ const schema = z.object({
   email: z.string().email(),
 });
 
-const Forgotpassword: React.FC<IInputFormProps> = () => {
+const Forgotpassword: React.FC<IAuthInputFormProps> = () => {
   const [response, setResponse] = React.useState<IResponseProps>({});
   const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isDirty },
-  } = useForm<IInputFormProps>({
+  } = useForm<IAuthInputFormProps>({
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = async (dataForm: IInputFormProps) => {
+  const onSubmit = async (dataForm: IAuthInputFormProps) => {
     try {
       const response = await fetch(
         process.env.NEXT_PUBLIC_API_URL + "/api/forgot-password",

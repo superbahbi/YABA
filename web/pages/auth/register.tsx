@@ -9,7 +9,8 @@ import { IconAt, IconEye, IconGoogle } from "../../assets/icons";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Auth from "../../layouts/Auth";
-import { IFormErrorProps, IInputFormProps } from "../../types/LPinterface";
+import { IFormErrorProps, IAuthInputFormProps } from "../../types/LPinterface";
+
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -18,15 +19,15 @@ const formSchema = z.object({
   lastName: z.string().min(2),
 });
 
-const Register: React.FC<IInputFormProps> = () => {
+const Register: React.FC<IAuthInputFormProps> = () => {
   const [checked, setChecked] = useState(true);
   const [resError, setResError] = useState<IFormErrorProps[]>();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isDirty },
-  } = useForm<IInputFormProps>({ resolver: zodResolver(formSchema) });
-  const onSubmit = async (data: IInputFormProps) => {
+  } = useForm<IAuthInputFormProps>({ resolver: zodResolver(formSchema) });
+  const onSubmit = async (data: IAuthInputFormProps) => {
     try {
       const response = await fetch(
         process.env.NEXT_PUBLIC_API_URL + "/api/register",
@@ -51,7 +52,7 @@ const Register: React.FC<IInputFormProps> = () => {
   return (
     <>
       <Head>
-        <title>yaba. | Register</title>
+        <title>yaba. | login</title>
       </Head>
       <Auth>
         <p className="text-3xl font-bold">Create your free account</p>

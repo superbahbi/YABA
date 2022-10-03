@@ -13,9 +13,7 @@ const Input: React.FC<IInputProps> = ({
       <div className="mt-2 flex flex-col">
         <div className="relative">
           <div className="border mt-2 py-1 px-4 outline-none ring-blue-300 focus:ring">
-            <span className="text-xs font-medium text-gray-500 capitalize">
-              {name}
-            </span>
+            <span className="text-xs font-medium text-gray-500">{name}</span>
             <input
               className="w-full text-sm border-none p-0 focus:ring-0 text-gray-500 focus:border-none"
               {...register(name, { required: true })}

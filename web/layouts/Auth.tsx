@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { IconArrowLeft } from "../assets/icons";
 import { themeChange } from "theme-change";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { IAuthProps } from "../types/LPinterface";
+
 
 const Auth: React.FC<IAuthProps> = ({ children }) => {
   const router = useRouter();
@@ -64,6 +66,7 @@ const Auth: React.FC<IAuthProps> = ({ children }) => {
           </div>
         </div>
       </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
 };

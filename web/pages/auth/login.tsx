@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NextLink from "next/link";
 import Auth from "../../layouts/Auth";
 import { useForm } from "react-hook-form";
@@ -9,80 +9,91 @@ import { useRouter } from "next/router";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { IconAt, IconEye } from "../../assets/icons";
-import { IFormErrorProps, IInputFormProps } from "../../types/LPinterface";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { toast } from "react-toastify";
+import Head from "next/head";
+import { IAuthInputFormProps } from "../../types/LPinterface";
 
 const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6),
+  email: z.string().email("Email Address is invalid"),
+  password: z
+    .string()
+    .min(1, "Password is required")
+    .min(8, "Password must be more than 8 characters")
+    .max(32, "Password must be less than 32 characters"),
 });
 
-const Login: React.FC<IInputFormProps> = () => {
-  const [resError, setResError] = useState<IFormErrorProps[]>();
+async function fetchUser(): Promise<IAuthInputFormProps> {
+  const res = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/api/user");
+  return res.data;
+}
+export interface ILoginDataFormProps {
+  email: string;
+  password: string;
+}
+const Login: React.FC<IAuthInputFormProps> = () => {
+  // const [resError, setResError] = useState<string[]>();
+  // const [account, setAccount] = React.useState({ email: "", password: "" });
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isDirty },
-  } = useForm<IInputFormProps>({ resolver: zodResolver(formSchema) });
+  } = useForm<IAuthInputFormProps>({ resolver: zodResolver(formSchema) });
 
-  const onSubmit = async (dataForm: IInputFormProps) => {
-    try {
-      const response = await fetch(
+  // API Get Current Logged-in user
+  const query = useQuery(["account"], fetchUser, {
+    enabled: false,
+    select: (data) => data,
+    retry: 1,
+    onSuccess: (data) => {
+      console.log("data", data);
+    },
+  });
+
+  const loginMutation = useMutation(
+    (newUser: IAuthInputFormProps) =>
+      axios.post(
         process.env.NEXT_PUBLIC_API_URL + "/api/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: formUrlEncoded(dataForm),
-        }
-      );
-      const { user, accessToken, refreshToken, errors } = await response.json();
-      if (errors) {
-        setResError(errors);
-      }
-      console.log(
-        "🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ refreshToken",
-        refreshToken
-      );
-      console.log(
-        "🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ accessToken",
-        accessToken
-      );
-      console.log("🚀 ~ file: login.tsx ~ line 44 ~ onSubmit ~ user", user);
-      if (accessToken) {
-        // TODO: Save the user and access token to local storage or a cookie
-        localStorage.setItem("user", JSON.stringify(user));
-        localStorage.setItem("accessToken", accessToken);
+        formUrlEncoded(newUser)
+      ),
+    {
+      onSuccess: () => {
+        query.refetch();
+        toast.success("You successfully logged in");
         router.push("/overview");
-      }
-    } catch (errors) {
-      console.log(errors);
+      },
+      // If the mutation fails, use the context returned from onMutate to roll back
+      onError: () => {
+        toast.error("Invalid credentials");
+      },
     }
-  };
+  );
 
   return (
     <>
+      <Head>
+        <title>yaba. | login</title>
+      </Head>
       <Auth>
-        <p className="text-3xl font-bold">Welcome back to yaba</p>
+        <p className="text-3xl font-bold">welcome back to yaba</p>
         <p className="mt-3 font-medium">
-          Don&apos;t have an account?{" "}
+          don&apos;t have an account?{" "}
           <NextLink href="/auth/register">
             <span className="whitespace-nowrap font-semibold text-primary cursor-pointer">
-              Sign up for free.
+              sign up for free.
             </span>
           </NextLink>
         </p>
 
-        <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-          <div className="h-4 pt-1">
-            {resError &&
-              resError.map((error: IFormErrorProps, index: number) => (
-                <p key={index} className="text-sm text-red-500">
-                  {error.msg}
-                </p>
-              ))}
-          </div>
+        <form
+          className="flex flex-col"
+          onSubmit={handleSubmit((dataForm: IAuthInputFormProps) => {
+            loginMutation.mutate(dataForm);
+          })}
+        >
           <Input
             type="email"
             id="login-email"
@@ -103,7 +114,7 @@ const Login: React.FC<IInputFormProps> = () => {
           <span className="my-6 flex items-center text-sm">
             <NextLink href="/auth/forgotpassword">
               <span className="font-medium text-blue-500 underline cursor-pointer">
-                Forgot password?
+                forgot password?
               </span>
             </NextLink>
           </span>
@@ -113,7 +124,7 @@ const Login: React.FC<IInputFormProps> = () => {
             type="submit"
             direction="left-0"
             inset="inset-y-0"
-            disabled={!isDirty}
+            disabled={!isDirty || isSubmitting}
           >
             {isSubmitting ? (
               <div role="status">
@@ -136,7 +147,7 @@ const Login: React.FC<IInputFormProps> = () => {
                 <span className="sr-only">Loading...</span>
               </div>
             ) : (
-              "Sign in"
+              "sign in"
             )}
           </Button>
         </form>

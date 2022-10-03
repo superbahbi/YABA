@@ -5,7 +5,7 @@ import formUrlEncoded from "form-urlencoded";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useRouter } from "next/router";
-import { IInputFormProps } from "../../../types/LPinterface";
+import { IAuthInputFormProps } from "../../../types/LPinterface";
 import Input from "../../../components/Input";
 import { IconEye } from "../../../assets/icons";
 import Button from "../../../components/Button";
@@ -15,7 +15,7 @@ const schema = z.object({
   password: z.string().min(6),
 });
 
-const ResetPassword: React.FC<IInputFormProps> = () => {
+const ResetPassword: React.FC<IAuthInputFormProps> = () => {
   const [response, setResponse] = React.useState<IResponseProps>({});
   const [, setErrors] = React.useState<IResponseProps>({});
   const router = useRouter();
@@ -24,11 +24,11 @@ const ResetPassword: React.FC<IInputFormProps> = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isDirty },
-  } = useForm<IInputFormProps>({
+  } = useForm<IAuthInputFormProps>({
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = async (formData: IInputFormProps) => {
+  const onSubmit = async (formData: IAuthInputFormProps) => {
     console.log("formData", formData);
     const { password } = formData;
     try {
