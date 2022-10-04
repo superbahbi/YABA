@@ -13,11 +13,13 @@ import { IFormErrorProps, IAuthInputFormProps } from "../../types/LPinterface";
 
 const formSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(6),
+  password: z.string().min(8).max(32),
   firstName: z.string().min(2),
   lastName: z.string().min(2),
 });
-
+// TODO register password validation
+// ex. min 8 characters, max 32 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character
+// labels: enhancement, help wanted, good first issue
 const Register: React.FC<IAuthInputFormProps> = () => {
   const [checked, setChecked] = useState(true);
   const [resError, setResError] = useState<IFormErrorProps[]>();
@@ -51,26 +53,26 @@ const Register: React.FC<IAuthInputFormProps> = () => {
   return (
     <>
       <Head>
-        <title>yaba. | login</title>
+        <title>yaba. | register</title>
       </Head>
       <Auth>
-        <p className="text-3xl font-bold">Create your free account</p>
+        <p className="text-3xl font-bold">create your free account</p>
         <p className="mt-3 font-medium">
-          Already using yaba?{" "}
+          already using yaba?{" "}
           <NextLink href="/auth/login">
             <span className="whitespace-nowrap font-semibold text-primary cursor-pointer">
-              Login here
+              login here
             </span>
           </NextLink>
         </p>
         <div className="flex flex-col items-stretch mt-6">
           <button className="flex items-center justify-center rounded-md border mt-4 px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-black hover:text-white focus:ring-2">
             <IconGoogle />
-            Get started with Google
+            get started with Google
           </button>
         </div>
 
-        <div className="divider text-xs"> Or use email instead</div>
+        <div className="divider text-xs"> or use email instead</div>
         <form
           className="flex flex-col items-stretch"
           onSubmit={handleSubmit(onSubmit)}
@@ -125,10 +127,10 @@ const Register: React.FC<IAuthInputFormProps> = () => {
               onChange={() => setChecked(!checked)}
             />
             <span className="text-sm">
-              I agree to the{" "}
+              i agree to the{" "}
               <NextLink href="/terms">
                 <span className="font-medium text-blue-500 underline cursor-pointer">
-                  Terms and Conditions
+                  terms and conditions
                 </span>
               </NextLink>
             </span>
@@ -159,10 +161,10 @@ const Register: React.FC<IAuthInputFormProps> = () => {
                     fill="currentFill"
                   />
                 </svg>
-                <span className="sr-only">Loading...</span>
+                <span className="sr-only">loading...</span>
               </div>
             ) : (
-              "Register"
+              "register"
             )}
           </Button>
         </form>

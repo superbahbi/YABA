@@ -69,17 +69,17 @@ const Forgotpassword: React.FC<IAuthInputFormProps> = () => {
             </div>
           </div>
           <h2 className="flex items-center justify-center mb-4 text-3xl font-bold">
-            Email sent
+            email sent
           </h2>
           <p className="flex items-center justify-center mb-4 text-sm text-center">
-            Check your email and open the link we sent to continue.
+            check your email and open the link we sent to continue.
           </p>
           <div className="flex flex-col items-stretch">
             <button
               className="mt-10 bg-blue-600 px-6 py-3 font-bold text-white outline-none ring-blue-300 focus:ring"
               onClick={() => router.push("/auth/login")}
             >
-              Continue
+              continue
             </button>
           </div>
         </div>
@@ -89,9 +89,9 @@ const Forgotpassword: React.FC<IAuthInputFormProps> = () => {
   return (
     <>
       <Auth>
-        <p className="text-3xl font-bold">Forgot Password</p>
+        <p className="text-3xl font-bold">forgot Password</p>
         <p className="mt-3 font-medium">
-          Don&apos;t worry, happens to the best of us
+          don&apos;t worry, happens to the best of us
         </p>
         <form
           className="flex flex-col items-stretch"
@@ -131,10 +131,10 @@ const Forgotpassword: React.FC<IAuthInputFormProps> = () => {
                     fill="currentFill"
                   />
                 </svg>
-                <span className="sr-only">Loading...</span>
+                <span className="sr-only">loading...</span>
               </div>
             ) : (
-              "Email me a recovery link"
+              "email me a recovery link"
             )}
           </Button>
         </form>

@@ -33,8 +33,6 @@ export interface ILoginDataFormProps {
   password: string;
 }
 const Login: React.FC<IAuthInputFormProps> = () => {
-  // const [resError, setResError] = useState<string[]>();
-  // const [account, setAccount] = React.useState({ email: "", password: "" });
   const router = useRouter();
 
   const {

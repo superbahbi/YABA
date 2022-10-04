@@ -14,7 +14,9 @@ import { IResponseProps } from "../../../types/interface";
 const schema = z.object({
   password: z.string().min(6),
 });
-
+// TODO reset password validation
+// ex. min 8 characters, max 32 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character
+// labels: enhancement, help wanted, good first issue
 const ResetPassword: React.FC<IAuthInputFormProps> = () => {
   const [response, setResponse] = React.useState<IResponseProps>({});
   const [, setErrors] = React.useState<IResponseProps>({});
@@ -29,7 +31,6 @@ const ResetPassword: React.FC<IAuthInputFormProps> = () => {
   });
 
   const onSubmit = async (formData: IAuthInputFormProps) => {
-    console.log("formData", formData);
     const { password } = formData;
     try {
       const response = await fetch(
@@ -72,10 +73,10 @@ const ResetPassword: React.FC<IAuthInputFormProps> = () => {
             </div>
           </div>
           <h2 className="flex items-center justify-center mb-4 text-3xl font-bold">
-            Password reset
+            password reset
           </h2>
           <p className="flex items-center justify-center mb-4 text-sm text-center">
-            Your password has been reset. You can now login with your new
+            your password has been reset. You can now login with your new
             password.
           </p>
           <div className="flex flex-col items-stretch">
@@ -83,7 +84,7 @@ const ResetPassword: React.FC<IAuthInputFormProps> = () => {
               className="mt-10 bg-blue-600 px-6 py-3 font-bold text-white outline-none ring-blue-300 focus:ring"
               onClick={() => router.push("/auth/login")}
             >
-              Login
+              login
             </button>
           </div>
         </div>
@@ -93,13 +94,12 @@ const ResetPassword: React.FC<IAuthInputFormProps> = () => {
   return (
     <>
       <Auth>
-        <p className="text-3xl font-bold">Reset password</p>
+        <p className="text-3xl font-bold">reset password</p>
         <p className="mt-3 font-medium">
-          In order to protect your account, make your password:
+          in order to protect your account, make your password:
         </p>
         <ul className="p-4 text-xs list-disc">
-          <li>Is longer than 6 characters.</li>
-          <li>Todo: add more</li>
+          <li>is longer than 8 characters.</li>
         </ul>
         <form
           className="flex flex-col items-stretch"
@@ -142,7 +142,7 @@ const ResetPassword: React.FC<IAuthInputFormProps> = () => {
                 <span className="sr-only">Loading...</span>
               </div>
             ) : (
-              "Change password"
+              "change password"
             )}
           </Button>
         </form>
