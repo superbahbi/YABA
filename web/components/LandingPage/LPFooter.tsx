@@ -3,7 +3,6 @@ import { ILPFooterProps } from "../../types/LPinterface";
 import LPFooterLink from "./LPFooterLink";
 import Image from "next/image";
 import Button from "../Button";
-import Image from "next/image";
 import yabaLogo from "/assets/images/logo.png"
 
 const LPFooter: React.FC<ILPFooterProps> = () => {
