@@ -1,10 +1,15 @@
 import React from "react";
 import { ILPFooterProps } from "../../types/LPinterface";
 import LPFooterLink from "./LPFooterLink";
+
+import Image from "next/image";
+import logo from "../../assets/images/logo.png";
+
 import Button from "../Button";
 // TODO add logo yaba logo
 // check assets folder
 // labels: enhancement, help wanted, good first issue
+
 
 const LPFooter: React.FC<ILPFooterProps> = () => {
   return (
@@ -14,11 +19,15 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
           <div className="lg:grid lg:grid-cols-2">
             <div className="py-16 border-b border-neutral-content lg:border-b-0 lg:border-l lg:order-last lg:py-24 lg:pl-12">
               <div className="flex justify-center lg:hidden">
-                {/* <img
+
+                <Image
+
                   className="w-full h-full sm:w-3/4 sm:h-3/4 max-w-full max-h-full object-cover"
-                  src="/images/bfg_interactive_logo.png"
+                  src={logo}
                   alt="Company logo"
-                ></img> */}
+
+                ></Image>
+
               </div>
 
               <div className="mt-12 space-y-4 lg:mt-0">
@@ -71,11 +80,14 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
 
             <div className="pt-16 pb-8 lg:pt-24 lg:pr-12">
               <div className="hidden lg:flex">
-                {/* <img
-                  className="w-full h-full max-w-full max-h-full object-cover"
-                  src="/images/bfg_interactive_logo.png"
-                  alt="Company logo"
-                ></img> */}
+
+                <Image
+
+
+                  width="60px"
+                  height="60px"
+                ></Image>
+
               </div>
 
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:mt-12">
@@ -93,26 +105,20 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                 </div>
 
                 <div className="text-center lg:text-left">
-                  <p className="text-lg font-medium ">Our Services</p>
+                  <p className="text-lg font-medium ">Offers</p>
 
                   <nav className="mt-4">
                     <ul className="space-y-1.5 text-sm">
                       <LPFooterLink
-                        link="/calgary-web-design-company/web-development"
-                        title="Web Development"
+                        link="/auth/register"
+                        title="Credit cards"
                       />
+                      <LPFooterLink link="/auth/register" title="Investments" />
                       <LPFooterLink
-                        link="/calgary-web-design-company/web-development"
-                        title="Web Design"
+                        link="/auth/register"
+                        title="Credit score check"
                       />
-                      <LPFooterLink
-                        link="/calgary-web-design-company/web-development"
-                        title="Search Engine Optimization (SEO)"
-                      />
-                      <LPFooterLink
-                        link="/calgary-web-design-company/web-development"
-                        title="Social Media Marketing & Management"
-                      />
+                      <LPFooterLink link="/auth/register" title="Loans" />
                     </ul>
                   </nav>
                 </div>
@@ -122,14 +128,8 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
 
                   <nav className="mt-4">
                     <ul className="space-y-1.5 text-sm">
-                      <LPFooterLink
-                        link="/calgary-web-design-company/web-development#FAQ"
-                        title="FAQ"
-                      />
-                      <LPFooterLink
-                        link="/calgary-web-design-company/calgary-web-blogs"
-                        title="Blog"
-                      />
+                      <LPFooterLink link="/auth/register" title="FAQ" />
+                      <LPFooterLink link="/auth/register" title="Blog" />
                     </ul>
                   </nav>
                 </div>
