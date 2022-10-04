@@ -1,8 +1,8 @@
 import React from "react";
-import { TableProps } from "../types/interface";
+import { ITableProps } from "../types/interface";
 import Pagination from "./Pagination";
 
-const Table: React.FC<TableProps> = ({ children }) => {
+const Table: React.FC<ITableProps> = ({ children }) => {
   return (
     <div>
       <table className="table w-full">{children}</table>

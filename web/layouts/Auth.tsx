@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { IconArrowLeft } from "../assets/icons";
 import { themeChange } from "theme-change";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { IAuthProps } from "../types/LPinterface";
 
-interface AuthProps {
-  children: React.ReactNode;
-}
-const Auth: React.FC<AuthProps> = ({ children }) => {
+const Auth: React.FC<IAuthProps> = ({ children }) => {
   const router = useRouter();
   useEffect(() => {
     themeChange(false);
@@ -20,18 +19,18 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
             <div className="lg:max-w-lg lg:pr-5">
               <div className="max-w-xl">
                 <div>
-                  <p className="mb-2 inline-block rounded-full px-3 text-xs font-semibold uppercase tracking-wider text-blue-900">
-                    New and improved
+                  <p className="mb-2 inline-block rounded-full px-3 text-xs font-semibold tracking-wider text-blue-900">
+                    new and improved
                   </p>
                 </div>
                 <h2 className="mb-6 max-w-lg text-3xl font-bold leading-snug tracking-tight text-blue-600 sm:text-5xl sm:leading-snug">
-                  Budget platform for your{" "}
+                  budget platform for your{" "}
                   <span className="my-1 inline-block border-b-8 font-light text-blue-600">
                     financial needs
                   </span>
                 </h2>
                 <p className="text-base text-gray-700">
-                  Yaba is a budgeting platform that helps you to track your
+                  yaba is a budgeting platform that helps you to track your
                   income and expenses, set goals and save money. It is a simple
                   to use platform that helps you to manage your finances.
                 </p>
@@ -66,6 +65,7 @@ const Auth: React.FC<AuthProps> = ({ children }) => {
           </div>
         </div>
       </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
 };

@@ -1,20 +1,20 @@
 import NextLink from "next/link";
 import Image from "next/image";
 import React from "react";
-import { IconMenu, IconMail, IconNotification } from "../assets/icons";
+import { IconMail, IconNotification } from "../assets/icons";
 import Logo from "../assets/images/logo.png";
-import { HeaderProps } from "../types/interface";
+import { IHeaderProps } from "../types/interface";
 
-const Header: React.FC<HeaderProps> = () => {
-  const linkNames = [
-    "overview",
-    "transaction",
-    "analytics",
-    "wallet",
-    "invoice",
-    "account",
-    "settings",
-  ];
+const Header: React.FC<IHeaderProps> = () => {
+  // const linkNames = [
+  //   "overview",
+  //   "transaction",
+  //   "analytics",
+  //   "wallet",
+  //   "invoice",
+  //   "account",
+  //   "settings",
+  // ];
   return (
     <>
       <div className="navbar bg-base-100 z-10 sticky top-0 bg-none px-8">
@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = () => {
           <button className="btn btn-ghost btn-circle text-accent">
             <div className="indicator">
               <IconNotification />
-              <span className="badge badge-xs badge-primary indicator-item"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
             </div>
           </button>
           <button className="dropdown dropdown-end">

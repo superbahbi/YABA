@@ -1,9 +1,16 @@
 import React from "react";
 import { ILPFooterProps } from "../../types/LPinterface";
-import NextLink from "next/link";
 import LPFooterLink from "./LPFooterLink";
+
 import Image from "next/image";
 import logo from "../../assets/images/logo.png";
+
+import Button from "../Button";
+// TODO add logo yaba logo
+// check assets folder
+// labels: enhancement, help wanted, good first issue
+
+
 const LPFooter: React.FC<ILPFooterProps> = () => {
   return (
     <section className="flex justify-center pt-8">
@@ -12,11 +19,15 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
           <div className="lg:grid lg:grid-cols-2">
             <div className="py-16 border-b border-neutral-content lg:border-b-0 lg:border-l lg:order-last lg:py-24 lg:pl-12">
               <div className="flex justify-center lg:hidden">
+
                 <Image
+
                   className="w-full h-full sm:w-3/4 sm:h-3/4 max-w-full max-h-full object-cover"
                   src={logo}
                   alt="Company logo"
+
                 ></Image>
+
               </div>
 
               <div className="mt-12 space-y-4 lg:mt-0">
@@ -46,8 +57,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                   <input type="hidden" name="id" value="47a1d2ea8d" />
                   <div className="relative max-w-lg mx-auto lg:mx-0">
                     <label className="sr-only" htmlFor="email-footer">
-                      {" "}
-                      Email{" "}
+                      Email
                     </label>
 
                     <input
@@ -61,7 +71,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                       id="MERGE0"
                     />
                     <div className="absolute text-white pt-4">
-                      {/* <Button type="submit" title="Subscribe" /> */}
+                      <Button type="submit">Subscribe</Button>
                     </div>
                   </div>
                 </form>
@@ -70,13 +80,14 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
 
             <div className="pt-16 pb-8 lg:pt-24 lg:pr-12">
               <div className="hidden lg:flex">
+
                 <Image
-                  className="w-full h-full max-w-full max-h-full object-cover"
-                  src={logo}
-                  alt="Company logo"
+
+
                   width="60px"
                   height="60px"
                 ></Image>
+
               </div>
 
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:mt-12">

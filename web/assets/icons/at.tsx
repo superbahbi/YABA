@@ -1,7 +1,7 @@
 import React from "react";
 import { ISvgIcon } from "../../types/interface";
 
-export const IconNotification: ISvgIcon = ({
+export const IconAt: ISvgIcon = ({
   strokeColor = "text-black-500",
   strokeWidth = 1.5,
   width = 24,
@@ -19,7 +19,7 @@ export const IconNotification: ISvgIcon = ({
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+      d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
     />
   </svg>
 );

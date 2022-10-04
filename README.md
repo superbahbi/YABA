@@ -1,11 +1,15 @@
 
-# yaba
-<!-- PROJECT LOGO -->
+# yaba.
+
 <p align="center">
     <img src="https://user-images.githubusercontent.com/1689092/190883509-0caecdeb-d613-4edd-90cf-0e489a937a43.png" alt="Logo" width="80">
 </p>
 
-<!-- GETTING STARTED -->
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=yaba)
+[![ESLint](https://github.com/superbahbi/YABA/actions/workflows/eslint.yml/badge.svg)](https://github.com/superbahbi/YABA/actions/workflows/eslint.yml)
+[![Typecheck](https://github.com/superbahbi/YABA/actions/workflows/check-type.yml/badge.svg)](https://github.com/superbahbi/YABA/actions/workflows/check-type.yml)
+[![CodeQL](https://github.com/superbahbi/YABA/actions/workflows/codeql.yml/badge.svg)](https://github.com/superbahbi/YABA/actions/workflows/codeql.yml)
+
 ## Getting Started
 
 ### Known Issue
@@ -50,8 +54,6 @@ Don't forget to give the project a star! Thanks again!
 5. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- CONTACT -->
 
 ## Contact
 

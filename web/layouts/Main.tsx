@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import { themeChange } from "theme-change";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import { MainProps } from "../types/interface";
+import { IMainProps } from "../types/interface";
 
-const Main: React.FC<MainProps> = ({ children }) => {
+const Main: React.FC<IMainProps> = ({ children }) => {
   useEffect(() => {
     themeChange(false);
     // 👆 false parameter is required for react project
@@ -21,7 +21,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
           </div>
         </div>
       </div>
-      <ReactQueryDevtools initialIsOpen />
+      <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
 };

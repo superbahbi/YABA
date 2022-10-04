@@ -98,7 +98,7 @@ export const register = async (req: Request, res: Response) => {
 
   // verify user input data
   const errors = validationResult(req);
-  if (!errors.isEmpty()) return res.status(400).json({ data: { error: errors.array() } });
+  if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
   // hashing password
   const hashedPassword = await argon2.hash(password)
@@ -112,10 +112,20 @@ export const register = async (req: Request, res: Response) => {
         password: hashedPassword,
       },
     })
-    return res.status(200).json({ status: "success", data: { user } });
+    const sanitizedUser = {
+      id: user.id,
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+    }
+    return res.status(200).json({ data: { sanitizedUser } });
   }
   catch (error) {
-    return res.status(400).json({ status: "error", data: { error } });
+    if (error instanceof Prisma.PrismaClientKnownRequestError)
+      if (error.code === 'P2002') {
+        return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
+      }
+    return res.status(500).json({ errors: [{ msg: 'Server error' }] });
   }
 };
 /** 
@@ -128,9 +138,10 @@ export const register = async (req: Request, res: Response) => {
 */
 export const forgotPassword = async (req: Request, res: Response) => {
   const { email } = req.body;
+
   // verify user input data
   const errors = validationResult(req);
-  if (!errors.isEmpty()) return res.status(400).json({ data: { errors: errors.array() } });
+  if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
   // Check if user exists in database
   const user = await prisma.user.findUnique({
@@ -141,7 +152,8 @@ export const forgotPassword = async (req: Request, res: Response) => {
 
   // Check if user exist
   if (!user) {
-    return res.status(200).json({ status: "success" });
+    console.log("test")
+    return res.status(400).json({ status: "error" });
   }
 
   // TODO send email with reset link
@@ -152,9 +164,11 @@ export const forgotPassword = async (req: Request, res: Response) => {
       userId: user.id,
     }
   })
-  await sendEmail(user.email,
+
+  const r = await sendEmail(user.email,
     `<a href="http://localhost:3000/auth/resetpassword/${token}">reset password</a>`
   )
+  console.log(r)
   return res.status(200).json({ status: "success" });
 };
 /**
@@ -197,7 +211,7 @@ export const resetPassword = async (req: Request, res: Response) => {
     return res.status(200).json({ status: "success" });
   }
   catch (error) {
-    return res.status(400).json({ status: "error", error: { error } });
+    return res.status(400).json({ errors: [{ msg: 'Database connection problem' }] });
   }
 
 }

@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import Main from "../layouts/Main";
 import formurlencoded from "form-urlencoded";
-import { AccountProps, IAccountsData } from "../types/interface";
+import { IAccountProps, IAccountsData } from "../types/interface";
 import {
   usePlaidLink,
   PlaidLinkOnSuccess,
@@ -12,7 +12,8 @@ import {
 } from "react-plaid-link";
 import { useQuery } from "@tanstack/react-query";
 import Card from "../components/Card";
-const Account: React.FC<AccountProps> = () => {
+
+const Account: React.FC<IAccountProps> = () => {
   const [accounts, setAccounts] = useState<IAccountsData[]>();
 
   const { data, isFetching } = useQuery(["linkToken"], () =>

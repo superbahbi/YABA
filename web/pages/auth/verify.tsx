@@ -4,10 +4,8 @@ import { useForm } from "react-hook-form";
 import formUrlEncoded from "form-urlencoded";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { IVerifyProps } from "../../types/interface";
 
-export interface IVerifyProps {
-  code: string;
-}
 const schema = z.object({
   code: z.string().min(6),
 });

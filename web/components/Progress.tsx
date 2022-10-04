@@ -1,7 +1,7 @@
 import React from "react";
-import { ProgressProps } from "../types/interface";
+import { IProgressProps } from "../types/interface";
 
-const Progress: React.FC<ProgressProps> = ({
+const Progress: React.FC<IProgressProps> = ({
   title,
   currentProgress,
   totalProgress,
