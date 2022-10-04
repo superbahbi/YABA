@@ -3,7 +3,7 @@ import { ILPFooterProps } from "../../types/LPinterface";
 import LPFooterLink from "./LPFooterLink";
 import Image from "next/image";
 import Button from "../Button";
-import yabaLogo from "/assets/images/logo.png"
+import yabaLogo from "/assets/images/logo.png";
 
 const LPFooter: React.FC<ILPFooterProps> = () => {
   return (
@@ -13,7 +13,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
           <div className="lg:grid lg:grid-cols-2">
             <div className="py-16 border-b border-neutral-content lg:border-b-0 lg:border-l lg:order-last lg:py-24 lg:pl-12">
               <div className="flex justify-center lg:hidden">
-                <Image src={yabaLogo} width={40} height={40} alt="Yaba logo"/>
+                <Image src={yabaLogo} width={40} height={40} alt="Yaba logo" />
               </div>
 
               <div className="mt-12 space-y-4 lg:mt-0">
@@ -66,7 +66,12 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
 
             <div className="pt-16 pb-8 lg:pt-24 lg:pr-12">
               <div className="hidden lg:flex">
-                <Image src={yabaLogo} width={40} height={40} alt="Company logo"/>
+                <Image
+                  src={yabaLogo}
+                  width={40}
+                  height={40}
+                  alt="Company logo"
+                />
               </div>
 
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:mt-12">

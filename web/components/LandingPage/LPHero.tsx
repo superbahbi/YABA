@@ -3,8 +3,6 @@ import Image from "next/image";
 import React from "react";
 import { ILPHeroProps } from "../../types/LPinterface";
 import Button from "../Button";
-import heroImg from "/assets/images/hero-image.svg";
-import yabaTwo from "/assets/images/yaba-login.png";
 
 const LPHero: React.FC<ILPHeroProps> = () => {
   return (
