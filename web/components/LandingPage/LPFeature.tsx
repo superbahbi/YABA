@@ -32,7 +32,7 @@ const LPFeature: React.FC<ILPFeatureProps> = () => {
               />
             </svg>
           </div>
-          <h2 className="mb-10 max-w-lg text-4xl font-bold leading-snug lg:text-5xl lg:leading-snug">
+          <h2 className="mb-10 max-w-lg text-4xl font-semibold leading-snug lg:text-5xl lg:leading-snug">
             A <span className="text-accent-focus">revolutionary</span> way to
             manage your finances.
           </h2>

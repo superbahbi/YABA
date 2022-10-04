@@ -35,7 +35,11 @@ const nextConfig = {
       "placeimg.com",
       "i.postimg.cc",
       "images.unsplash.com",
+
+      "storyset.com",
+
       "img.freepik.com",
+
     ],
   },
 };
