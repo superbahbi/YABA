@@ -17,7 +17,7 @@ const Header: React.FC<IHeaderProps> = () => {
   // ];
   return (
     <>
-      <div className="navbar bg-base-100 z-10 sticky top-0 bg-none px-8">
+      <div className="sticky top-0 z-10 px-8 navbar bg-base-100 bg-none">
         <div className="navbar-start">
           <NextLink href="/">
             <div className="pl-2 cursor-pointer">
@@ -33,7 +33,7 @@ const Header: React.FC<IHeaderProps> = () => {
           <button className="btn btn-ghost btn-circle text-accent">
             <div className="indicator">
               <IconNotification />
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+              <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-accent"></span>
             </div>
           </button>
           <button className="dropdown dropdown-end">
@@ -49,7 +49,7 @@ const Header: React.FC<IHeaderProps> = () => {
             </label>
             <ul
               tabIndex={1}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
                 <NextLink href={"/profile"}>
@@ -76,16 +76,17 @@ const Header: React.FC<IHeaderProps> = () => {
                 type="checkbox"
                 data-toggle-theme="light,night"
                 data-act-class="ACTIVECLASS"
+                className="hidden"
               />
               <svg
-                className="swap-off fill-current w-5 h-5"
+                className="w-5 h-5 fill-current swap-off"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
                 <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
               </svg>
               <svg
-                className="swap-on fill-current w-5 h-5"
+                className="w-5 h-5 fill-current swap-on"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -96,7 +97,7 @@ const Header: React.FC<IHeaderProps> = () => {
         </div>
       </div>
 
-      {/* <div className="navbar bg-base-100 fixed top-0 z-20 ">
+      {/* <div className="fixed top-0 z-20 navbar bg-base-100 ">
         <div className="navbar-start">
           <div className="navbar-brand sm:hidden md:block">
             <NextLink href="/">
@@ -111,7 +112,7 @@ const Header: React.FC<IHeaderProps> = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
               {linkNames.map((name, index) => {
                 return (
@@ -126,7 +127,7 @@ const Header: React.FC<IHeaderProps> = () => {
           </div>
         </div>
         <div className="navbar-center">
-          <div className="normal-case text-xl font-bold">yaba.</div>
+          <div className="text-xl font-bold normal-case">yaba.</div>
         </div>
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle">
