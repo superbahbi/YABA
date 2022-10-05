@@ -36,6 +36,9 @@ export interface IAuthInputFormProps {
 export interface IFormErrorProps {
   msg?: string;
 }
+export interface ILPTeamProps {
+  f?: string;
+}
 export interface ILPFeatureProps {
   f?: string;
 }

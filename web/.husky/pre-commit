@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-cd web 
-npm run lint
-npm run type-check
+cd web && npm run type-check && npm run lint 

@@ -8,6 +8,7 @@ import LPFeature from "../components/LandingPage/LPFeature";
 import LPFaq from "../components/LandingPage/LPFaq";
 import { ILPIndexProps } from "../types/LPinterface";
 import LPStats from "../components/LandingPage/LPStats";
+import LPTeam from "../components/LandingPage/LPTeam";
 import LPSocialProof from "../components/LandingPage/LPSocialProof";
 
 const Home: React.FC<ILPIndexProps> = () => {
@@ -26,6 +27,7 @@ const Home: React.FC<ILPIndexProps> = () => {
           <LPBody />
           {/* <LPEnd /> */}
           <LPStats />
+          <LPTeam />
           <LPFaq />
         </main>
       </div>
