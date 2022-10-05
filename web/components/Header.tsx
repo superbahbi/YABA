@@ -74,6 +74,7 @@ const Header: React.FC<IHeaderProps> = () => {
             <label className="swap swap-rotate">
               <input
                 type="checkbox"
+                hidden="true"
                 data-toggle-theme="light,night"
                 data-act-class="ACTIVECLASS"
               />
