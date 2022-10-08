@@ -52,7 +52,7 @@ const LPNavbar: React.FC<ILPNavbarProps> = () => {
         </button>
 
         <select
-          className="bg-transparent border-transparent focus:border-transparent focus:ring-0"
+          className="bg-transparent border-transparent focus:border-transparent focus:ring-0 bg-none indent-0 p-2"
           data-choose-theme
         >
           <option value="light">🌞</option>
