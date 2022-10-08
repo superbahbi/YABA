@@ -33,44 +33,35 @@ const LPFeature: React.FC<ILPFeatureProps> = () => {
             </svg>
           </div>
           <h2 className="mb-10 max-w-lg text-4xl font-semibold leading-snug lg:text-5xl lg:leading-snug">
-            A <span className="text-accent-focus">revolutionary</span> way to
+            a <span className="text-accent-focus">revolutionary</span> way to
             manage your finances.
           </h2>
           <div className="grid gap-y-12 gap-x-8 lg:grid-cols-2">
             <div>
               <p className="mb-6 border-l-4 border-accent-focus pl-4 text-2xl leading-10 text-accent-focus">
-                All your accounts. All in one place.
+                all your accounts. All in one place.
               </p>
               <p className="text-lg">
-                See it all at a glance when you link your cash accounts, credit
+                see it all at a glance when you link your cash accounts, credit
                 cards, investments, and bills.
               </p>
             </div>
             <div>
               <p className="mb-6 border-l-4 border-accent-focus pl-4 text-2xl leading-10 text-accent-focus">
-                Keep your cashflow crystal clear.
+                keep your cashflow crystal clear.
               </p>
               <p className="text-lg">
-                Effortlessly track your cashflow and gain insights that’ll help
+                effortlessly track your cashflow and gain insights that’ll help
                 you see easy opportunities to save.
               </p>
             </div>
             <div>
               <p className="mb-6 border-l-4 border-accent-focus pl-4 text-2xl leading-10 text-accent-focus">
-                Bill Negotiation.
+                bill negotiation.
               </p>
               <p className="text-lg">
-                Join the other Minters who’ve already racked up a combined $2M+
-                in savings.2
-              </p>
-            </div>
-            <div>
-              <p className="mb-6 border-l-4 border-accent-focus pl-4 text-2xl leading-10 text-accent-focus">
-                Create Easily.
-              </p>
-              <p className="text-lg">
-                Join the other Minters who’ve already racked up a combined $2M+
-                in savings.2
+                join the other Minters who’ve already racked up a combined $2m+
+                in savings.
               </p>
             </div>
           </div>

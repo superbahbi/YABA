@@ -13,13 +13,19 @@ const LPHero: React.FC<ILPHeroProps> = () => {
             <div className="">
               <div className="lg:max-w-3xl lg:pr-5">
                 <h2 className="mb-6 max-w-2xl text-3xl font-semibold leading-snug tracking-tight md:text-7xl">
-                  Welcome to the{" "}
+                  welcome to the{" "}
                   <span className="text-accent-focus">future</span> of{" "}
                   <span className="text-accent-focus">money management.</span>
                 </h2>
                 <p className="text-base ">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque it.
+                  in today’s world, where technology is constantly evolving, it
+                  can be difficult to keep up with the ever-changing trends.
+                  however, with the help of the right budgeting software, it is
+                  possible to stay on top of your finances. there are a number
+                  of different programs available on the market, and it can be
+                  hard to decide which one is right for you. however, by taking
+                  the time to research each option, you can find the perfect
+                  money management program for your needs.
                 </p>
               </div>
               <div className="mt-10 flex flex-col items-center md:flex-row">
@@ -29,16 +35,6 @@ const LPHero: React.FC<ILPHeroProps> = () => {
                       Get Started for Free
                     </Button>
                   </div>
-                </NextLink>
-
-                <NextLink
-                  href="/auth/register"
-                  aria-label=""
-                  className="underline-offset-2 inline-flex items-center font-semibold underline transition-colors duration-200 hover:underline"
-                >
-                  <button className="link md:ml-4 mt-4 md:mt-0 no-underline">
-                    Sign up
-                  </button>
                 </NextLink>
               </div>
               <div className="mt-12 flex flex-col space-y-3 divide-gray-300 text-sm  sm:flex-row sm:space-y-0 sm:divide-x">

@@ -5,20 +5,25 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
   return (
     <>
       {" "}
-      <section className="bg-white dark:bg-gray-900">
+      <section className="bg-base-100">
         <div className="container px-6 py-10 mx-auto">
-          <h1 className="text-3xl font-semibold text-center text-gray-800 lg:text-4xl dark:text-white">
-            our executive team
-          </h1>
-
-          <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-            incidunt ex placeat modi magni quia error alias, adipisci rem
-            similique, at omnis eligendi optio eos harum.
+          <div className="sm:text-center">
+            <h2 className="text-3xl font-semibold leading-7 sm:text-4xl xl:text-5xl">
+              our <br className="sm:hidden" />
+              <span className="text-accent-focus">executive</span> team.
+            </h2>
+            <hr className="mt-4 h-1 w-32 border-none bg-[#0b1840] sm:mx-auto sm:mt-8" />
+          </div>
+          <p className="max-w-2xl mx-auto my-6 text-center">
+            over the past year, our team has been working tirelessly to expand
+            our company into new markets. we have a wealth of experience in the
+            industry and a proven track record of success. we are committed to
+            providing the best possible service to our customers and to
+            exceeding their expectations.
           </p>
 
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
-            <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+            <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-accent dark:border-gray-700 dark:hover:border-transparent">
               <Image
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
                 src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
@@ -83,7 +88,7 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+            <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-accent dark:border-gray-700 dark:hover:border-transparent">
               <Image
                 className="object-cover w-30 h-30  ring-4 ring-gray-300"
                 src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"

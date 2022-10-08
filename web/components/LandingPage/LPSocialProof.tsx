@@ -5,8 +5,8 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
   return (
     <section className="py-6 0 sm:py-16 lg:py-20 ">
       <div className="w-full py-16 md:py-32 shadow-md bg-base-300">
-        <h2 className="mx-2 text-center text-2xl font-bold uppercase tracking-wide md:text-3xl">
-          Trusted by Over 5000 Clients
+        <h2 className="mx-2 text-center text-2xl font-bold tracking-wide md:text-3xl">
+          trusted by over 5000 clients
         </h2>
         <hr className="mx-auto mt-4 h-1 w-32 border-0 bg-accent-focus" />
 
@@ -91,11 +91,9 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
               <div className="flex flex-col p-6 lg:px-7 lg:py-8">
                 <div className="">
                   <blockquote className="">
-
                     <p className="text-3xl font-bold text-white sm:text-5xl">
                       &ldquo;I cannot overstate how much this has helped our
                       startup&ldquo;
-
                     </p>
                   </blockquote>
                 </div>

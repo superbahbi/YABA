@@ -7,7 +7,7 @@ const LPStats: React.FC<ILPStatsProps> = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="sm:text-center">
           <h2 className="text-3xl font-semibold leading-7  sm:text-4xl xl:text-5xl">
-            We are <br className="sm:hidden" />
+            we are <br className="sm:hidden" />
             growing <span className="text-accent-focus">rapidly.</span>
           </h2>
           <hr className="mt-4 h-1 w-32 border-none bg-[#0b1840] sm:mx-auto sm:mt-8" />

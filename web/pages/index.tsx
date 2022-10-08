@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import LPBody from "../components/LandingPage/LPBody";
+// import LPBody from "../components/LandingPage/LPBody";
 import LPFooter from "../components/LandingPage/LPFooter";
 import LPHero from "../components/LandingPage/LPHero";
 import LPNavbar from "../components/LandingPage/LPNavbar";
@@ -24,7 +24,7 @@ const Home: React.FC<ILPIndexProps> = () => {
           <LPHero />
           <LPFeature />
           <LPSocialProof />
-          <LPBody />
+          {/* <LPBody /> */}
           {/* <LPEnd /> */}
           <LPStats />
           <LPTeam />
