@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { ILPFaqProps } from "../../types/LPinterface";
+import Button from "../Button";
 
 const LPFaq: React.FC<ILPFaqProps> = () => {
   return (
@@ -174,9 +175,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
         </ul>
         <div className="mt-20 flex justify-center">
           <Link href="/questions">
-            <span className="mt-10 bg-blue-600 px-6 py-3 font-bold text-white outline-none ring-blue-300 focus:ring">
-              Still have questions?
-            </span>
+            <Button>Still have questions?</Button>
           </Link>
         </div>
       </div>
