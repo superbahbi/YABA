@@ -16,32 +16,25 @@ const LPStats: React.FC<ILPStatsProps> = () => {
         <div className="mt-20 grid grid-cols-1 gap-x-8 gap-y-12  text-center sm:grid-cols-3 sm:text-left lg:gap-0 max-w-screen-xl mx-auto">
           <div className="relative mb-3 text-left lg:px-12">
             <div className="absolute left-3 -top-4 h-16 w-16 rounded-full bg-accent-focus"></div>
-            <p className="relative text-2xl md:text-6xl font-semibold">25M</p>
-            <p className="relative mt-5">
-              lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores doloremque vel
-            </p>
+            <p className="relative text-2xl md:text-6xl font-semibold">25m+</p>
+            <p className="relative mt-5">customer served</p>
           </div>
 
           <div className="relative mb-3 text-left lg:px-12">
             <div className="absolute left-3 -top-4 h-16 w-16 rounded-full bg-accent-focus"></div>
             <div className="absolute bottom-0 left-0 hidden h-16 w-px lg:block"></div>
-            <p className="relative text-2xl md:text-6xl font-semibold">51%</p>
-            <p className="relative mt-5 ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores doloremque vel
-            </p>
+            <p className="relative text-2xl md:text-6xl font-semibold">99%</p>
+            <p className="relative mt-5 ">customer retention rate</p>
           </div>
 
           <div className="relative mb-3 text-left lg:px-12">
             <div className="absolute left-3 -top-4 h-16 w-16 rounded-full bg-accent-focus"></div>
             <div className="absolute bottom-0 left-0 hidden h-16 w-px lg:block"></div>
             <p className="relative m-0 text-2xl md:text-6xl font-semibold">
-              8529+
+              100+
             </p>
             <p className="relative mt-5 ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores doloremque vel
+              supported bank and financial institutions
             </p>
           </div>
         </div>
