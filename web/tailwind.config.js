@@ -24,17 +24,40 @@ module.exports = {
         "2xl": "1rem",
         "4xl": "2rem",
       },
-      colors: {
-        "apple-blue": "#1982FC",
-        "apple-green": "#43CC47",
-      },
-      bgLinearGradientDeg: {
-        75: "75deg",
+      backgroundImage: {
+        "auth-background": "linear-gradient(90deg, neutral 70%, accent 70%)",
       },
     },
   },
   daisyui: {
-    themes: ["night", "light"],
+    themes: [
+      {
+        night: {
+          primary: "#bbdff9",
+          secondary: "#edc528",
+          accent: "#d8f298",
+          neutral: "#212236",
+          "base-100": "#262650",
+          info: "#6CBFEF",
+          success: "#1FE069",
+          warning: "#F6B623",
+          error: "#F0574C",
+        },
+      },
+      {
+        light: {
+          primary: "#edae28",
+          secondary: "#9ea0ef",
+          accent: "#bb67e5",
+          neutral: "#271E38",
+          "base-100": "#EAEBEB",
+          info: "#97ADF7",
+          success: "#169282",
+          warning: "#FABB3D",
+          error: "#EE686E",
+        },
+      },
+    ],
   },
 
   plugins: [require("daisyui"), require("@tailwindcss/forms")],
