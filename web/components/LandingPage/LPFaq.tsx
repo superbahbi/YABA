@@ -20,15 +20,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
               htmlFor="accordion-1"
               className="relative flex flex-col rounded-md border border-gray-100 shadow-md"
             >
-              <input
-                className="peer hidden"
-                type="checkbox"
-                id="accordion-1"
-                checked
-                onChange={() => {
-                  console.log("clicked");
-                }}
-              />
+              <input className="peer hidden" type="checkbox" id="accordion-1" />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="absolute right-0 top-4 ml-auto mr-5 h-4 text-gray-500 transition peer-checked:rotate-180"
@@ -50,7 +42,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm">
                     Lorem ipsum, consectetur adipisicing elit. Adipisci
                     eligendi, recusandae voluptatum distinctio facilis
                     necessitatibus aperiam ut? Dolor mollitia modi aliquam, non
@@ -89,7 +81,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm">
                     Lorem ipsum, <b>dolor sit amet</b> consectetur adipisicing
                     elit. Adipisci eligendi, recusandae voluptatum distinctio
                     facilis necessitatibus aperiam ut? Dolor mollitia modi
@@ -129,7 +121,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm">
                     Lorem ipsum, <b>dolor sit amet</b> consectetur adipisicing
                     elit. Adipisci eligendi, recusandae voluptatum distinctio
                     facilis necessitatibus aperiam ut? Dolor mollitia modi
@@ -168,7 +160,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm">
                     Lorem ipsum, <b>dolor sit amet</b> consectetur adipisicing
                     elit. Adipisci eligendi, recusandae voluptatum distinctio
                     facilis necessitatibus aperiam ut? Dolor mollitia modi
