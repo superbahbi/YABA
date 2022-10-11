@@ -35,7 +35,7 @@ module.exports = {
         night: {
           primary: "#bbdff9",
           secondary: "#edc528",
-          accent: "#d8f298",
+          accent: "#bb67e5",
           neutral: "#212236",
           "base-100": "#262650",
           info: "#6CBFEF",

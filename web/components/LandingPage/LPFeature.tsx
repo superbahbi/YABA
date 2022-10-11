@@ -1,19 +1,12 @@
 import React from "react";
-import Image from "next/image";
-import FeatureImage from "../../assets/images/feature-image.png";
 import { ILPFeatureProps } from "../../types/LPinterface";
-
+import { FeatureImage } from "../../assets/images/feature-image";
 const LPFeature: React.FC<ILPFeatureProps> = () => {
   return (
     <>
       <section className="mx-auto mt-24 flex max-w-lg flex-col px-4 py-10 lg:max-w-screen-xl lg:flex-row">
-        <div className="max-w-md pr-20 lg:pt-28">
-          <Image
-            src={FeatureImage}
-            alt="Feature Image"
-            width={900}
-            height={900}
-          />
+        <div className="relative hidden lg:mx-16 lg:flex lg:w-1/2">
+          <FeatureImage strokeColor="fill-accent" />
         </div>
         <div className="">
           <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-accent-focus text-white shadow-lg shadow-indigo-600/20">
