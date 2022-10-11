@@ -1,9 +1,8 @@
 import NextLink from "next/link";
-import Image from "next/image";
 import React from "react";
 import { ILPHeroProps } from "../../types/LPinterface";
 import Button from "../Button";
-
+import { HeroImage } from "../../assets/images/hero-image";
 const LPHero: React.FC<ILPHeroProps> = () => {
   return (
     <section>
@@ -79,13 +78,7 @@ const LPHero: React.FC<ILPHeroProps> = () => {
               </div>
             </div>
             <div className="relative hidden lg:ml-32 lg:block lg:w-1/2">
-              <Image
-                className="w-full h-full"
-                alt="investing"
-                src={"https://i.postimg.cc/hPYft2kC/Investment-data-amico.png"}
-                width="600px"
-                height="600px"
-              />
+              <HeroImage strokeColor="fill-accent" />
             </div>
           </div>
         </div>

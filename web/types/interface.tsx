@@ -49,6 +49,9 @@ export interface ISvgIconProps {
 export interface ISvgIcon extends FunctionComponent<ISvgIconProps> {
   displayName?: string;
 }
+export interface ISvgImage {
+  strokeColor: string;
+}
 export interface IBalanceProps {
   data: IBalanceData[];
 }
