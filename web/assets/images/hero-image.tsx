@@ -1,8 +1,6 @@
-import * as React from "react";
-import { FunctionComponent } from "react";
 import { ISvgImage } from "../../types/interface";
 
-export const HeroImage: FunctionComponent<ISvgImage> = ({
+export const HeroImage: React.FunctionComponent<ISvgImage> = ({
   strokeColor = "text-black-500",
 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
