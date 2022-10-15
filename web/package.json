@@ -42,7 +42,9 @@
     "watch": "tsc --watch",
     "type-check": "tsc --noEmit",
     "lint": "npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx --max-warnings=0",
-    "prepare": "cd ../ && husky install ./web/.husky"
+    "prepare": "cd ../ && husky install ./web/.husky",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": [
@@ -65,12 +67,23 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.19.3",
     "@faker-js/faker": "^7.4.0",
     "@next/eslint-plugin-next": "^12.3.1",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-webpack5": "^6.5.12",
+    "@storybook/manager-webpack5": "^6.5.12",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
     "@svgr/webpack": "^6.3.1",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
     "autoprefixer": "^10.4.8",
+    "babel-loader": "^8.2.5",
+    "eslint": "^8.25.0",
     "eslint-config-next": "^12.2.5",
     "eslint-config-react-app": "^7.0.1",
     "husky": "^8.0.1",
