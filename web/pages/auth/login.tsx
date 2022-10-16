@@ -6,7 +6,7 @@ import formUrlEncoded from "form-urlencoded";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useRouter } from "next/router";
-import Button from "../../components/Button";
+import { Button } from "../../components/Button";
 import Input from "../../components/Input";
 import { IconAt, IconEye } from "../../assets/icons";
 import { useMutation, useQuery } from "@tanstack/react-query";

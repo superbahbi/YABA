@@ -1,5 +1,13 @@
 import React from "react";
-import { IButtonProps } from "../types/interface";
+
+interface IButtonProps {
+  direction?: "left-0" | "right-0" | "top-0" | "bottom-0";
+  inset?: "inset-x-0" | "inset-y-0";
+  children?: React.ReactNode;
+  type?: "button" | "submit" | "reset";
+  className?: string;
+  disabled?: boolean;
+}
 
 /**
  * Button component
@@ -20,7 +28,7 @@ import { IButtonProps } from "../types/interface";
  * @example
  * <Button direction="left-0" inset="inset-y-0" type="submit">test</Button>
  */
-const Button: React.FC<IButtonProps> = ({
+export const Button: React.FC<IButtonProps> = ({
   children,
   direction = "left-0",
   inset = "inset-y-0",
@@ -29,7 +37,7 @@ const Button: React.FC<IButtonProps> = ({
   disabled,
 }) => {
   return (
-    <div className={className}>
+    <div className={className} data-testid="button-test">
       <button
         type={type}
         disabled={disabled}
@@ -49,4 +57,3 @@ const Button: React.FC<IButtonProps> = ({
     </div>
   );
 };
-export default Button;

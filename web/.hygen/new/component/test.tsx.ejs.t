@@ -3,6 +3,7 @@ to: <%= absPath %>/__tests__/<%= component_name %>.test.tsx
 ---
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom'
 import { <%= component_name %> } from '../';
 
 test('renders component successfully', () => {

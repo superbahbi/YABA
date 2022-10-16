@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { IAuthInputFormProps } from "../../../types/LPinterface";
 import Input from "../../../components/Input";
 import { IconEye } from "../../../assets/icons";
-import Button from "../../../components/Button";
+import { Button } from "../../../components/Button";
 import { IResponseProps } from "../../../types/interface";
 
 const schema = z.object({

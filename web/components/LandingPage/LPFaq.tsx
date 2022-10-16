@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { ILPFaqProps } from "../../types/LPinterface";
-import Button from "../Button";
+import { Button } from "../Button";
 
 const LPFaq: React.FC<ILPFaqProps> = () => {
   return (

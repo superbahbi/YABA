@@ -3,7 +3,7 @@ to: <%= absPath %>/<%= component_name %>.tsx
 ---
 import React from 'react';
 
-type I<%= component_name %>Props = {
+interface I<%= component_name %>Props = {
   test?: string;
 };
 

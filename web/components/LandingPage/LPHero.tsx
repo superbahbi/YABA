@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import React from "react";
 import { ILPHeroProps } from "../../types/LPinterface";
-import Button from "../Button";
+import { Button } from "../Button";
 import { HeroImage } from "../../assets/images/hero-image";
 const LPHero: React.FC<ILPHeroProps> = () => {
   return (

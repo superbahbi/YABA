@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { IconAt, IconEye, IconGoogle } from "../../assets/icons";
-import Button from "../../components/Button";
+import { Button } from "../../components/Button";
 import Input from "../../components/Input";
 import Auth from "../../layouts/Auth";
 import { IFormErrorProps, IAuthInputFormProps } from "../../types/LPinterface";
