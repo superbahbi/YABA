@@ -1,7 +1,11 @@
 name: Build Storybook and Deploy
-on: 
+# paths: ["web/stories/*.stories.mdx", "web/components/**/*.stories.tsx"] # Trigger the action only when files change in the folders defined here
+on:
   push:
-    paths: ["web/stories/*.stories.mdx", "web/components/**/*.stories.tsx"] # Trigger the action only when files change in the folders defined here
+    branches: [ "main" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
