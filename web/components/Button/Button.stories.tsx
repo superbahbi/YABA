@@ -1,13 +1,41 @@
-import React from 'react';
-import { Button } from './';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from "react";
+import { Button } from "./Button";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args) => (
+  <Button {...args}>Button</Button>
+);
 
-export const c1 = Template.bind({});
-c1.storyName = 'default'
+export const Left = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Left.args = {
+  className: "w-52",
+  direction: "left-0",
+  inset: "inset-y-0",
+};
+
+export const Right = Template.bind({});
+Right.args = {
+  className: "w-52",
+  direction: "right-0",
+  inset: "inset-y-0",
+};
+
+export const Top = Template.bind({});
+Top.args = {
+  className: "w-52",
+  direction: "top-0",
+  inset: "inset-x-0",
+};
+
+export const Bottom = Template.bind({});
+Bottom.args = {
+  className: "w-52",
+  direction: "bottom-0",
+  inset: "inset-x-0",
+};

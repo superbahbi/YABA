@@ -15,6 +15,8 @@ interface IButtonProps {
  * @param {string} inset - inset of the button
  * @param {string} children - children of the button
  * @param {string} type - type of the button
+ * @param {string} className - className of the button
+ * @param {boolean} disabled - disabled state of the button
  * @returns {JSX.Element}
  * @constructor
  * @example
