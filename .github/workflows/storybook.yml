@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build Storybook and Deploy
 on: 
   push:
     paths: ["web/stories/*.stories.mdx", "web/components/**/*.stories.tsx"] # Trigger the action only when files change in the folders defined here

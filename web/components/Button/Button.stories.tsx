@@ -12,6 +12,7 @@ const Template: ComponentStory<typeof Button> = (args) => (
 );
 
 export const Left = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Left.args = {
   className: "w-52",
   direction: "left-0",
