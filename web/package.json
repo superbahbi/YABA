@@ -44,7 +44,7 @@
     "lint": "npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx --max-warnings=0",
     "prepare": "cd ../ && husky install ./web/.husky",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs-build -s ./stories/assets",
     "new:component": "hygen new component"
   },
   "eslintConfig": {
