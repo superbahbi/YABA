@@ -5,7 +5,7 @@ import formUrlEncoded from "form-urlencoded";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useRouter } from "next/router";
-import Input from "../../components/Input";
+import { Input } from "../../components/Input";
 import { IconAt } from "../../assets/icons";
 import { IAuthInputFormProps } from "../../types/LPinterface";
 import { Button } from "../../components/Button";

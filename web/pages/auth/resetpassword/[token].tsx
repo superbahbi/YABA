@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useRouter } from "next/router";
 import { IAuthInputFormProps } from "../../../types/LPinterface";
-import Input from "../../../components/Input";
+import { Input } from "../../../components/Input";
 import { IconEye } from "../../../assets/icons";
 import { Button } from "../../../components/Button";
 import { IResponseProps } from "../../../types/interface";
