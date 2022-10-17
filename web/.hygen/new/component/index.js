@@ -14,7 +14,9 @@ module.exports = {
     ];
     return inquirer.prompt(questions).then((answers) => {
       const { component_name, dir } = answers;
-      const path = `${dir ? `${dir}/` : ``}${component_name}`;
+      const nameToUpperCase =
+        component_name.charAt(0).toUpperCase() + component_name.slice(1);
+      const path = `${dir ? `${dir}/` : ``}${nameToUpperCase}`;
       const absPath = `components/${path}`;
       return { ...answers, path, absPath };
     });
