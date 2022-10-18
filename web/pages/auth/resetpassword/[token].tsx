@@ -11,9 +11,37 @@ import { IconEye } from "../../../assets/icons";
 import Button from "../../../components/Button";
 import { IResponseProps } from "../../../types/interface";
 
-const schema = z.object({
-  password: z.string().min(6),
-});
+  const schema = z.object({
+    password: z
+    .string()
+    .superRefine((val,ctx)=>{
+      if(val.length == 0){
+        ctx.addIssue({
+          code:z.ZodIssueCode.custom,
+          message:"Password is required",
+          fatal:true,
+        })
+      } else if(val.length < 8){
+        ctx.addIssue({
+          code:z.ZodIssueCode.custom,
+          message:"Password must be more than 8 characters",
+          fatal:true,
+        })
+      } else if(val.length > 32){
+        ctx.addIssue({
+          code:z.ZodIssueCode.custom,
+          message:"Password must be less than 32 characters",
+          fatal:true,
+        })
+      } else if(!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/.test(val)){
+        ctx.addIssue({
+          code:z.ZodIssueCode.custom,
+          message:"include at least 1 uppercase, 1 lowercase, 1 number, and 1 special character",
+          fatal:true,
+        })
+      } 
+  })
+  })  
 // TODO reset password validation
 // ex. min 8 characters, max 32 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character
 // labels: enhancement, help wanted, good first issue
