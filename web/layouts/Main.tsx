@@ -12,7 +12,7 @@ const Main: React.FC<IMainProps> = ({ children }) => {
   }, []);
   return (
     <>
-      <div className="flex flex-col justify-center w-full bg-base-100 ">
+      <div className="flex flex-col justify-center w-full bg-base-100">
         <div className="md:max-w-screen-xl w-screen md:mx-auto">
           <Header />
           <div className="flex flex-row">
