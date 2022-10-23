@@ -95,13 +95,15 @@ export const exchangePublicToken = async (req: Request, res: Response) => {
     // FOR DEMO PURPOSES ONLY
     // Store access_token in DB instead of session storage
     // req.session.access_token = exchangeResponse.data.access_token;
-
+    // the public_token is ephemeral and expires after 30 minutes. An access_token does not expire, but can be revoked by calling /item/remove.
     try {
-      const response = await plaidClient.accountsBalanceGet({
+      const response = await plaidClient.transactionsGet({
         access_token: accessToken as string,
+        start_date: '2018-01-01',
+        end_date: '2022-10-01'
       });
       const accounts = response.data.accounts;
-      console.log("balance", accounts)
+      console.log("transactions", response.data)
       res.status(200).json({ accounts });
     } catch (error) {
       console.log(error)
