@@ -37,8 +37,11 @@ const Account: React.FC<IAccountProps> = () => {
             }),
           }
         );
-        const { accounts } = await exchangeResponse.json();
-        setAccounts(accounts);
+        const { transactions, total_transactions } =
+          await exchangeResponse.json();
+        console.log("total_transactions", total_transactions);
+        console.log("transactions", transactions);
+        setAccounts(transactions);
       };
       exchangePublicToken();
     },
@@ -73,8 +76,8 @@ const Account: React.FC<IAccountProps> = () => {
 
             {accounts && (
               <Card title="Accounts">
-                {/* <pre>{JSON.stringify(accounts, null, 2)}</pre> */}
-                {accounts.map((account: IAccountsData) => (
+                <pre>{JSON.stringify(accounts, null, 2)}</pre>
+                {/* {accounts.map((account: IAccountsData) => (
                   <div key={account.account_id}>
                     <div className="flex flex-row">
                       <h2 className="text-xl">
@@ -91,7 +94,7 @@ const Account: React.FC<IAccountProps> = () => {
                       </h2>
                     </div>
                   </div>
-                ))}
+                ))} */}
               </Card>
             )}
           </div>

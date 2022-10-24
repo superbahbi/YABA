@@ -8,7 +8,8 @@ import {
   CountryCode,
   DepositoryAccountSubtype, LinkTokenCreateRequest, PlaidApi,
   PlaidEnvironments,
-  Products
+  Products,
+  TransactionsGetRequest
 } from "plaid";
 
 const configuration: Configuration = new Configuration({
@@ -16,8 +17,8 @@ const configuration: Configuration = new Configuration({
   baseOptions: {
     headers: {
       "PLAID-CLIENT-ID": process.env.PLAID_CLIENT_ID,
-      "PLAID-SECRET": process.env.PLAID_SECRET
-      // "Plaid-Version": "2020-09-14",
+      "PLAID-SECRET": process.env.PLAID_SECRET,
+      "Plaid-Version": "2020-09-14",
     },
   },
 });
@@ -40,10 +41,10 @@ export const createLinkToken = async (_: Request, res: Response) => {
     },
     client_name: process.env.PLAID_CLIENT_NAME as string,
     products: [
-      Products.Assets,
+
       Products.Auth,
       Products.Transactions,
-      Products.Income
+
     ],
     country_codes: [CountryCode.Us],
     language: "en",
@@ -100,11 +101,29 @@ export const exchangePublicToken = async (req: Request, res: Response) => {
       const response = await plaidClient.transactionsGet({
         access_token: accessToken as string,
         start_date: '2018-01-01',
-        end_date: '2022-10-01'
+        end_date: '2022-10-22'
       });
-      const accounts = response.data.accounts;
-      console.log("transactions", response.data)
-      res.status(200).json({ accounts });
+      let transactions = response.data.transactions;
+      const total_transactions = response.data.total_transactions;
+      // Manipulate the offset parameter to paginate
+      // transactions and retrieve all available data
+      while (transactions.length < total_transactions) {
+        const paginatedRequest: TransactionsGetRequest = {
+          access_token: accessToken,
+          start_date: '2018-01-01',
+          end_date: '2020-02-01',
+          options: {
+            offset: transactions.length,
+          },
+        };
+        const paginatedResponse = await plaidClient.transactionsGet(paginatedRequest);
+        transactions = transactions.concat(
+          paginatedResponse.data.transactions,
+        );
+      }
+      console.log("total_transactions: ", total_transactions);
+      console.log("transactions: ", transactions);
+      res.status(200).json({ transactions, total_transactions });
     } catch (error) {
       console.log(error)
     }
