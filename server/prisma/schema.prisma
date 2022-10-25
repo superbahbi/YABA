@@ -8,19 +8,88 @@ datasource db {
 }
 
 model User {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  email     String @unique
-  password  String 
-  firstName String
-  lastName  String
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  email        String        @unique
+  password     String
+  firstName    String
+  lastName     String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  transactions Transaction[]
+}
+
+model Transaction {
+  id                     String      @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt              DateTime    @default(now())
+  updatedAt              DateTime    @updatedAt
+  transaction_type       String
+  pending_transaction_id String
+  category_id            String
+  category               String[]
+  location               Location    @relation(fields: [locationId], references: [id])
+  payment_meta           PaymentMeta @relation(fields: [paymentMetaId], references: [id])
+  account_owner String
+  name String
+  original_description String
+  account_id String
+  amount Int
+  iso_currency_code String
+  unofficial_currency_code String
+  date String
+  pending Boolean
+  transaction_id String
+  merchant_name String
+  check_number String
+  payment_channel String
+  authorized_date String
+  authorized_datetime String
+  datetime String
+  transaction_code String
+  personal_finance_category PersonalFinanceCategory @relation(fields: [personalFinanceCategoryId], references: [id])
+  User                      User?                   @relation(fields: [userId], references: [id])
+  userId                    String?                 @db.ObjectId
+  locationId                String                  @db.ObjectId
+  paymentMetaId             String                  @db.ObjectId
+  personalFinanceCategoryId String                  @db.ObjectId
+}
+
+model Location {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  address      String
+  city         String
+  region       String
+  postal_code  String
+  country      String
+  lat          Int
+  lon          Int
+  store_number String
+  Transaction  Transaction[]
+}
+
+model PersonalFinanceCategory {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  primary     String
+  detailed    String
+  Transaction Transaction[]
+}
+
+model ResetPasswordToken {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  token     String   @unique
+  userId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model ResetPasswordToken {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  token     String @unique
-  userId    String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model PaymentMeta {
+  id                String        @id @default(auto()) @map("_id") @db.ObjectId
+  by_order_of       String
+  payee             String
+  payer             String
+  payment_method    String
+  payment_processor String
+  ppd_id            String
+  reason            String
+  reference_number  String
+  Transaction       Transaction[]
 }
