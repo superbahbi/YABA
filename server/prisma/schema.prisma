@@ -15,7 +15,6 @@ model User {
   lastName     String
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
-  transactions Transaction[]
 }
 
 model Transaction {
@@ -26,8 +25,8 @@ model Transaction {
   pending_transaction_id String
   category_id            String
   category               String[]
-  location               Location    @relation(fields: [locationId], references: [id])
-  payment_meta           PaymentMeta @relation(fields: [paymentMetaId], references: [id])
+  location               Location
+  payment_meta           PaymentMeta 
   account_owner String
   name String
   original_description String
@@ -45,16 +44,10 @@ model Transaction {
   authorized_datetime String
   datetime String
   transaction_code String
-  personal_finance_category PersonalFinanceCategory @relation(fields: [personalFinanceCategoryId], references: [id])
-  User                      User?                   @relation(fields: [userId], references: [id])
-  userId                    String?                 @db.ObjectId
-  locationId                String                  @db.ObjectId
-  paymentMetaId             String                  @db.ObjectId
-  personalFinanceCategoryId String                  @db.ObjectId
-}
+  personal_finance_category PersonalFinanceCategory
 
-model Location {
-  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+}
+type Location {
   address      String
   city         String
   region       String
@@ -63,26 +56,12 @@ model Location {
   lat          Int
   lon          Int
   store_number String
-  Transaction  Transaction[]
 }
-
-model PersonalFinanceCategory {
-  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+type PersonalFinanceCategory {
   primary     String
   detailed    String
-  Transaction Transaction[]
 }
-
-model ResetPasswordToken {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  token     String   @unique
-  userId    String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model PaymentMeta {
-  id                String        @id @default(auto()) @map("_id") @db.ObjectId
+type PaymentMeta {
   by_order_of       String
   payee             String
   payer             String
@@ -91,5 +70,11 @@ model PaymentMeta {
   ppd_id            String
   reason            String
   reference_number  String
-  Transaction       Transaction[]
+}
+model ResetPasswordToken {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  token     String   @unique
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
