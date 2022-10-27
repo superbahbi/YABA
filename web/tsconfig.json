@@ -25,8 +25,23 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "exclude": ["node_modules", "storybook-static"],
-  "include": ["next-env.d.ts", "*.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": ["node_modules", "storybook-static", "pages_old"],
+  "include": [
+    "next-env.d.ts",
+    "*.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ]
 }
