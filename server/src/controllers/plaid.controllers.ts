@@ -9,7 +9,9 @@ import {
   DepositoryAccountSubtype, LinkTokenCreateRequest, PlaidApi,
   PlaidEnvironments,
   Products,
-  TransactionsGetRequest
+  Transaction,
+  TransactionsGetRequest,
+  TransactionsGetResponse
 } from "plaid";
 
 const configuration: Configuration = new Configuration({
@@ -103,8 +105,9 @@ export const exchangePublicToken = async (req: Request, res: Response) => {
         start_date: '2018-01-01',
         end_date: '2022-10-22'
       });
-      let transactions = response.data.transactions;
-      const total_transactions = response.data.total_transactions;
+      const transactionResponse: TransactionsGetResponse = response.data;
+      const total_transactions = transactionResponse.total_transactions;
+      let transactions: Transaction[] = transactionResponse.transactions;
       // Manipulate the offset parameter to paginate
       // transactions and retrieve all available data
       while (transactions.length < total_transactions) {
