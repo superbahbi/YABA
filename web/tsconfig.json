@@ -28,7 +28,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"]
+      "~/components/*": ["components/*"]
     },
     "plugins": [
       {
@@ -39,9 +39,9 @@
   "exclude": ["node_modules", "storybook-static", "pages_old"],
   "include": [
     "next-env.d.ts",
+    ".next/types/**/*.ts",
     "*.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
+    "**/*.tsx"
   ]
 }
