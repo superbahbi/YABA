@@ -28,7 +28,9 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "~/components/*": ["components/*"]
+      "@/components/*": ["components/*"],
+      "@/assets/*": ["assets/*"],
+      "@/types/*": ["types/*"]
     },
     "plugins": [
       {
