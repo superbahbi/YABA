@@ -85,7 +85,8 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
               className="absolute top-0 h-full w-full object-cover opacity-10"
               src="https://images.unsplash.com/photo-1551721434-8b94ddff0e6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
               alt="Social Background"
-              layout="fill"
+              width={200}
+              height={200}
             />
             <div className="relative mt-auto w-full">
               <div className="flex flex-col p-6 lg:px-7 lg:py-8">
