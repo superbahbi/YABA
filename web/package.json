@@ -25,7 +25,7 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.35.0",
+    "react-hook-form": "^7.38.0",
     "react-plaid-link": "^3.3.2",
     "react-toastify": "^9.0.8",
     "theme-change": "^2.2.0",
