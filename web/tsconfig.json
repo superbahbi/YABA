@@ -30,7 +30,8 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/assets/*": ["assets/*"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "@/mock_data/*": ["mock_data/*"]
     },
     "plugins": [
       {
