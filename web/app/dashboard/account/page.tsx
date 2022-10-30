@@ -1,3 +1,4 @@
+"use client";
 import React, { useCallback, useState } from "react";
 import formurlencoded from "form-urlencoded";
 import { IAccountProps, IAccountsData } from "@/types/interface";
@@ -9,17 +10,17 @@ import {
   PlaidLinkOptions,
   PlaidLinkOnSuccessMetadata,
 } from "react-plaid-link";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import Card from "@/components/Card";
 
 const Account: React.FC<IAccountProps> = () => {
   const [accounts, setAccounts] = useState<IAccountsData[]>();
 
-  const { data, isFetching } = useQuery(["linkToken"], () =>
-    fetch(process.env.NEXT_PUBLIC_API_URL + "/api/create_link_token").then(
-      (res) => res.json()
-    )
-  );
+  // const { data, isFetching } = useQuery(["linkToken"], () =>
+  //   fetch(process.env.NEXT_PUBLIC_API_URL + "/api/create_link_token").then(
+  //     (res) => res.json()
+  //   )
+  // );
   const onSuccess = useCallback<PlaidLinkOnSuccess>(
     (publicToken: string, metadata: PlaidLinkOnSuccessMetadata) => {
       const exchangePublicToken = async () => {
@@ -54,7 +55,7 @@ const Account: React.FC<IAccountProps> = () => {
   }, []);
 
   const config: PlaidLinkOptions = {
-    token: data?.link_token,
+    token: "data?.link_token",
     onSuccess,
     onEvent,
     onExit,
@@ -68,7 +69,7 @@ const Account: React.FC<IAccountProps> = () => {
         <div className="h-screen m-4 p-4">
           <Card title="Connect">
             <button className="btn" onClick={() => open()} disabled={!ready}>
-              <div>{isFetching ? "Updating..." : "Add a bank account"}</div>
+              {/* <div>{isFetching ? "Updating..." : "Add a bank account"}</div> */}
             </button>
           </Card>
 

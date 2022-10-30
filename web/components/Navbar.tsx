@@ -15,7 +15,7 @@ import { INavbarProps } from "../types/interface";
 const Navbar: React.FC<INavbarProps> = () => {
   const linkNames = [
     "overview",
-    "transaction",
+    "transactions",
     "analytics",
     "wallet",
     "invoice",
@@ -36,7 +36,7 @@ const Navbar: React.FC<INavbarProps> = () => {
       <ul className="menu rounded-box hidden md:block p-2 pt-4 md:px-3 lg:mr-6 lg:px-6 lg:w-58">
         {icons.map((Icon, index) => {
           return (
-            <NextLink href={"/" + linkNames[index]} key={index}>
+            <NextLink href={"/dashboard/" + linkNames[index]} key={index}>
               <li className="flex flex-row active:text-white">
                 <div className="">
                   <Icon />
