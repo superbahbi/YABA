@@ -16,9 +16,8 @@ import LineGraph from "@/components/Graph/LineGraph";
 import Progress from "@/components/Progress";
 import Table from "@/components/Table";
 import Trends from "@/components/Trends";
-import balanceData from "../../../mock_data/balance.json";
-import investmentData from "../../../mock_data/investment.json";
-import { IOverviewProps } from "@/types/interface";
+import balanceData from "@/mock_data/balance.json";
+import investmentData from "@/mock_data/investment.json";
 
 export default function Overview() {
   const income = Array.from(Array(12)).map(() =>
