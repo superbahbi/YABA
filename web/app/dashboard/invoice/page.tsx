@@ -1,12 +1,10 @@
 "use client";
 import React from "react";
-import { IInvoiceProps } from "@/types/interface";
 
-const Invoice: React.FC<IInvoiceProps> = () => {
+export default function Invoice() {
   return (
     <>
       <p>Invoices</p>
     </>
   );
-};
-export default Invoice;
+}

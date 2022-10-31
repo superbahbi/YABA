@@ -15,7 +15,8 @@ const schema = z.object({
   email: z.string().email(),
 });
 
-const Forgotpassword: React.FC<IAuthInputFormProps> = () => {
+export default function ForgotPassword() {
+  // const Forgotpassword: React.FC<IAuthInputFormProps> = () => {
   const [response, setResponse] = React.useState<IResponseProps>({});
   const router = useRouter();
   const {
@@ -137,5 +138,4 @@ const Forgotpassword: React.FC<IAuthInputFormProps> = () => {
       </form>
     </>
   );
-};
-export default Forgotpassword;
+}

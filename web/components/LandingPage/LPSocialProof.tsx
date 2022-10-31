@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { ILPSocialProofProps } from "../../types/LPinterface";
+import { ILPSocialProofProps } from "@/types/LPinterface";
 const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
   return (
     <section className="py-6 0 sm:py-16 lg:py-20 ">

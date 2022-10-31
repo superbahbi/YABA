@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
 import { Button } from "@/components/Button";
-import { ISettingsProps } from "@/types/interface";
 
-const Settings: React.FC<ISettingsProps> = () => {
+export default function Settings() {
   return (
     <>
       <div className="mx-4 min-h-screen max-w-screen-xl sm:mx-8 xl:mx-auto">
@@ -115,5 +114,4 @@ const Settings: React.FC<ISettingsProps> = () => {
       </div>
     </>
   );
-};
-export default Settings;
+}

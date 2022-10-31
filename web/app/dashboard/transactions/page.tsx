@@ -3,8 +3,8 @@ import { useState } from "react";
 import Card from "@/components/Card";
 import Table from "@/components/Table";
 import data from "@/mock_data/transaction.json";
-import { ITransactionData, ITransactionProps } from "@/types/interface";
-const Transaction: React.FC<ITransactionProps> = () => {
+import { ITransactionData } from "@/types/interface";
+export default function Transactions() {
   const [transaction] = useState<ITransactionData[]>(data);
   const headers = ["ID", "Date", "Description", "Category", "Amount"];
   const limit = 20;
@@ -40,5 +40,4 @@ const Transaction: React.FC<ITransactionProps> = () => {
       </div>
     </>
   );
-};
-export default Transaction;
+}

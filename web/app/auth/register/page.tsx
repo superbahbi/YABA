@@ -22,7 +22,7 @@ const formSchema = z.object({
 // TODO register password validation
 // ex. min 8 characters, max 32 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character
 // labels: enhancement, help wanted, good first issue
-const Register: React.FC<IAuthInputFormProps> = () => {
+export default function Register() {
   const [checked, setChecked] = useState(true);
   const [resError, setResError] = useState<IFormErrorProps[]>();
   const {
@@ -168,5 +168,4 @@ const Register: React.FC<IAuthInputFormProps> = () => {
       </form>
     </>
   );
-};
-export default Register;
+}

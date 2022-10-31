@@ -35,7 +35,3 @@ export default function Home() {
     </>
   );
 }
-
-// const Home: React.FC<ILPIndexProps> = () => {
-
-// };

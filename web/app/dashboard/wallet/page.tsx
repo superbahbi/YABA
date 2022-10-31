@@ -1,11 +1,9 @@
 import React from "react";
-import { IWalletsProps } from "@/types/interface";
 
-const Wallet: React.FC<IWalletsProps> = () => {
+export default function Wallet() {
   return (
     <>
       <p>Wallet</p>
     </>
   );
-};
-export default Wallet;
+}

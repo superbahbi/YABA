@@ -1,7 +1,7 @@
 "use client";
 import React, { useCallback, useState } from "react";
 import formurlencoded from "form-urlencoded";
-import { IAccountProps, IAccountsData } from "@/types/interface";
+import { IAccountsData } from "@/types/interface";
 import {
   usePlaidLink,
   PlaidLinkOnSuccess,
@@ -13,7 +13,7 @@ import {
 // import { useQuery } from "@tanstack/react-query";
 import Card from "@/components/Card";
 
-const Account: React.FC<IAccountProps> = () => {
+export default function Account() {
   const [accounts, setAccounts] = useState<IAccountsData[]>();
 
   // const { data, isFetching } = useQuery(["linkToken"], () =>
@@ -100,5 +100,4 @@ const Account: React.FC<IAccountProps> = () => {
       </div>
     </>
   );
-};
-export default Account;
+}

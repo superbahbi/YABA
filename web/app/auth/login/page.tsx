@@ -24,7 +24,7 @@ export interface ILoginDataFormProps {
   email: string;
   password: string;
 }
-const Login: React.FC<IAuthInputFormProps> = () => {
+export default function Login() {
   const {
     register,
     handleSubmit,
@@ -110,5 +110,4 @@ const Login: React.FC<IAuthInputFormProps> = () => {
       </form>
     </>
   );
-};
-export default Login;
+}

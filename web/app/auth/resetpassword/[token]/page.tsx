@@ -44,7 +44,11 @@ const schema = z.object({
 // TODO reset password validation
 // ex. min 8 characters, max 32 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character
 // labels: enhancement, help wanted, good first issue
-const ResetPassword = ({ params }: { params: { token: string } }) => {
+export default function ResetPassword({
+  params,
+}: {
+  params: { token: string };
+}) {
   const [response, setResponse] = React.useState<IResponseProps>({});
   const [, setErrors] = React.useState<IResponseProps>({});
   const router = useRouter();
@@ -172,5 +176,4 @@ const ResetPassword = ({ params }: { params: { token: string } }) => {
       </form>
     </>
   );
-};
-export default ResetPassword;
+}

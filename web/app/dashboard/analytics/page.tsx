@@ -1,12 +1,10 @@
 "use client";
 import React from "react";
-import { IAnalyticsProps } from "@/types/interface";
 
-const Analytics: React.FC<IAnalyticsProps> = () => {
+export default function Analytics() {
   return (
     <>
       <p>Analytics</p>
     </>
   );
-};
-export default Analytics;
+}

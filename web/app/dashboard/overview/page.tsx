@@ -20,7 +20,7 @@ import balanceData from "../../../mock_data/balance.json";
 import investmentData from "../../../mock_data/investment.json";
 import { IOverviewProps } from "@/types/interface";
 
-const Overview: React.FC<IOverviewProps> = () => {
+export default function Overview() {
   const income = Array.from(Array(12)).map(() =>
     faker.datatype.number({ min: 2000, max: 2500 })
   );
@@ -163,5 +163,4 @@ const Overview: React.FC<IOverviewProps> = () => {
       </div>
     </>
   );
-};
-export default Overview;
+}

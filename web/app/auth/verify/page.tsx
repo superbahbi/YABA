@@ -9,7 +9,7 @@ import { IVerifyProps } from "@/types/interface";
 const schema = z.object({
   code: z.string().min(6),
 });
-const Verify: React.FC<IVerifyProps> = () => {
+export default function Verify() {
   const { handleSubmit } = useForm<IVerifyProps>({
     resolver: zodResolver(schema),
   });
@@ -99,5 +99,4 @@ const Verify: React.FC<IVerifyProps> = () => {
       </form>
     </>
   );
-};
-export default Verify;
+}
