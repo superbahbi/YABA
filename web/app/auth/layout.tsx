@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
-import { useRouter } from "next/router";
-import { IconArrowLeft } from "../assets/icons";
-import { themeChange } from "theme-change";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { IAuthProps } from "../types/LPinterface";
-
-const Auth: React.FC<IAuthProps> = ({ children }) => {
+"use client";
+import { useRouter } from "next/navigation";
+import { IconArrowLeft } from "../../assets/icons";
+export default function AuthLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const router = useRouter();
-  useEffect(() => {
-    themeChange(false);
-    // 👆 false parameter is required for react project
-  }, []);
   return (
     <>
       <div className="min-h-screen bg-base-100">
@@ -65,8 +61,6 @@ const Auth: React.FC<IAuthProps> = ({ children }) => {
           </div>
         </div>
       </div>
-      <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
-};
-export default Auth;
+}

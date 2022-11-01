@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect } from "react";
 // import LPBody from "../components/LandingPage/LPBody";
 import LPFooter from "../components/LandingPage/LPFooter";
@@ -6,12 +7,11 @@ import LPNavbar from "../components/LandingPage/LPNavbar";
 import { themeChange } from "theme-change";
 import LPFeature from "../components/LandingPage/LPFeature";
 import LPFaq from "../components/LandingPage/LPFaq";
-import { ILPIndexProps } from "../types/LPinterface";
 import LPStats from "../components/LandingPage/LPStats";
 import LPTeam from "../components/LandingPage/LPTeam";
 import LPSocialProof from "../components/LandingPage/LPSocialProof";
 
-const Home: React.FC<ILPIndexProps> = () => {
+export default function Home() {
   useEffect(() => {
     themeChange(false);
     // 👆 false parameter is required for react project
@@ -34,5 +34,4 @@ const Home: React.FC<ILPIndexProps> = () => {
       <LPFooter />
     </>
   );
-};
-export default Home;
+}
