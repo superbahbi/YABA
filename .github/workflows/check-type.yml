@@ -1,14 +1,13 @@
-
 name: Typecheck
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "main" ]
+    branches: ["main"]
   schedule:
-    - cron: '44 23 * * 2'
+    - cron: "44 23 * * 2"
 
 jobs:
   typecheck:
@@ -17,13 +16,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
+
       - name: Install typescript
-        working-directory: ./web
         run: |
           npm install typescript
 
       - name: Run Typecheck
-        working-directory: ./web
         run: npx tsc
         continue-on-error: false
