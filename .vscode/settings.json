@@ -1,10 +1,13 @@
 {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-    "editor.formatOnPaste": false, // required 
-    "editor.formatOnType": false, // required
-    "editor.formatOnSave": true, // optional 
-    "editor.formatOnSaveMode": "file", // required to format on save
-    "[typescript]": {
-      "editor.defaultFormatter": "vscode.typescript-language-features"
-    } // optional but recommended
-  }
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "editor.formatOnPaste": false, // required
+  "editor.formatOnType": false, // required
+  "editor.formatOnSave": true, // optional
+  "editor.formatOnSaveMode": "file", // required to format on save
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  } // optional but recommended
+  ,
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 // import LPBody from "../components/LandingPage/LPBody";
 import LPFooter from "../components/LandingPage/LPFooter";
 import LPHero from "../components/LandingPage/LPHero";
