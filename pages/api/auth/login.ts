@@ -6,8 +6,13 @@ import argon2 from "argon2"
 
 const prisma = new PrismaClient()
 
+interface loginType {
+    email: string;
+    password: string;
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { email, password } = req.body;
+    const { email, password }: loginType = req.body;
     // verify user input data
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
