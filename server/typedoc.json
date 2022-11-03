@@ -1,8 +1,0 @@
-{
-  "name": "Yaba API",
-  "entryPoints": ["src/server.ts"],
-  "entryPointStrategy": "expand",
-  "out": "docs",
-  "includes": "src",
-  "exclude": ["src/routes/**/*.*.ts, schemas/*.*"]
-}
