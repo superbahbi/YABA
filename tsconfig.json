@@ -39,7 +39,7 @@
       }
     ]
   },
-  "exclude": ["node_modules", "storybook-static", ".next", "server"],
+  "exclude": ["node_modules", "storybook-static", ".next", "server_ref"],
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
