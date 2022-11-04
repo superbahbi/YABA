@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { validationResult } from 'express-validator';
 import { Prisma, PrismaClient } from '@prisma/client'
 import z from "zod"
 import argon2 from "argon2"
