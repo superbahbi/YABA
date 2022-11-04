@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { sign } from "jsonwebtoken";
-import { validationResult } from 'express-validator';
 import { PrismaClient } from '@prisma/client'
+import z from "zod"
 import argon2 from "argon2"
 
 const prisma = new PrismaClient()
@@ -10,15 +10,33 @@ interface loginType {
     email: string;
     password: string;
 }
-
+const schema = z.object({
+    email: z.string().email("Email Address is invalid"),
+    password: z
+        .string()
+        .min(1, "Password is required")
+        .min(8, "Password must be more than 8 characters")
+        .max(32, "Password must be less than 32 characters"),
+});
+/**
+  * @route   POST /api/auth/login
+  * @desc    Login user and return JWT token and user data (id, email, firstName, lastName)
+  * @access  Public
+  * @params  email, password
+  * @return  user, token
+  * @errors  400, 500
+*/
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { email, password }: loginType = req.body;
+    // Validate user input data
+    const validationResult = schema.safeParse(req.body);
+
     // verify user input data
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+    if (!validationResult.success) {
+        return res.status(400).json({ errors: validationResult.error });
     }
 
+    // Get user input data
+    const { email, password }: loginType = req.body;
     // Check if user exists in database
     const user = await prisma.user.findUnique({
         where: {
@@ -26,13 +44,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
     })
 
-
     // Check if user exist
     if (!user) {
         return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
     }
 
-    // TODO Check if password is correct
+    // Check if password is correct
     const valid = await argon2.verify(user.password, password);
     if (!valid) {
         return res.status(400).json({ errors: [{ msg: 'Invalid credentials' }] });
