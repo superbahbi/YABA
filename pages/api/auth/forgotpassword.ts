@@ -8,7 +8,6 @@ const prisma = new PrismaClient()
 
 interface forgotPasswordType {
     email: string;
-    password: string;
 }
 const schema = z.object({
     email: z.string().email(),
