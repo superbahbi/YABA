@@ -31,7 +31,8 @@
       "@/components/*": ["components/*"],
       "@/assets/*": ["assets/*"],
       "@/types/*": ["types/*"],
-      "@/mock_data/*": ["mock_data/*"]
+      "@/mock_data/*": ["mock_data/*"],
+      "@/utils/*": ["utils/*"],
     },
     "plugins": [
       {
