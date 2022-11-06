@@ -1,4 +1,3 @@
-
 # yaba.
 
 <p align="center">
@@ -32,13 +31,17 @@ Problem: Unknown at rule @tailwindcss(unknownAtRules) in VS Code:
    git clone https://github.com/superbahbi/YABA.git
    ```
 
-Install and run the server:
+1. Run npm install
 
-TODO
+   ```sh
+   npm install
+   ```
 
-Installing and running the client:
+2. Run npm start
 
-TODO
+   ```sh
+    npm run dev
+   ```
 
 ## Contributing
 
