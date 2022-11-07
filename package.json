@@ -32,7 +32,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.38.0",
     "react-plaid-link": "^3.3.2",
-    "react-toastify": "^9.0.8",
+    "react-toastify": "^9.1.1",
     "theme-change": "^2.2.0",
     "typedoc": "^0.23.14",
     "uuid": "^9.0.0",
