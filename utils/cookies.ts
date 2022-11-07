@@ -79,11 +79,11 @@ export function buildTokens(user: UserDocument) {
     return { accessToken, refreshToken }
 }
 
-export function setTokens(res: NextApiResponse, access: string, refresh?: string) {
-    res.setHeader('Set-Cookie', serialize(Cookies.AccessToken, access, accessTokenCookieOptions))
-    if (refresh) {
-        res.setHeader('Set-Cookie', serialize(Cookies.RefreshToken, refresh, refreshTokenCookieOptions))
-    }
+export function setTokens(res: NextApiResponse, access: string, refresh: string) {
+    res.setHeader('Set-Cookie', [serialize(Cookies.AccessToken, access, accessTokenCookieOptions), serialize(Cookies.RefreshToken, refresh, refreshTokenCookieOptions)])
+    // if (refresh) {
+    //     res.setHeader('Set-Cookie', serialize(Cookies.RefreshToken, refresh, refreshTokenCookieOptions))
+    // }
 }
 export function refreshTokens(current: RefreshToken, tokenVersion: number) {
     if (tokenVersion !== current.version) throw 'Token revoked'
