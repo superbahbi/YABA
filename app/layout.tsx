@@ -1,5 +1,6 @@
 import "./globals.css";
-import ReactQueryWrapper from "./reactQueryWrapper";
+import "react-toastify/dist/ReactToastify.css";
+import ReactQueryProvider from "@/utils/ReactQueryProvider";
 
 type Props = {
   children: React.ReactNode;
@@ -13,7 +14,7 @@ export default function RootLayout({ children }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <ReactQueryWrapper>{children}</ReactQueryWrapper>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
   );
