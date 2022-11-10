@@ -1,13 +1,17 @@
 import { serialize, CookieSerializeOptions } from 'cookie'
 import { NextApiResponse } from 'next'
-import jwt from 'jsonwebtoken'
+import { SignJWT, jwtVerify, type JWTPayload } from 'jose';
 import { config } from '../config'
+
+// Issue at time in seconds since epoch 
+const iat = Math.floor(Date.now() / 1000);
 
 enum TokenExpiration {
     Access = 5 * 60,
     Refresh = 7 * 24 * 60 * 60,
     RefreshIfLessThan = 4 * 24 * 60 * 60,
 }
+
 enum Cookies {
     AccessToken = 'access',
     RefreshToken = 'refresh',
@@ -21,10 +25,6 @@ interface UserDocument {
 
 interface AccessTokenPayload {
     userId: string
-}
-
-interface AccessToken extends AccessTokenPayload {
-    exp: number
 }
 
 interface RefreshTokenPayload {
@@ -53,28 +53,40 @@ const accessTokenCookieOptions: CookieSerializeOptions = {
     maxAge: TokenExpiration.Access * 1000,
 }
 
-function signAccessToken(payload: AccessTokenPayload) {
-    return jwt.sign(payload, config.accessTokenSecret, { expiresIn: TokenExpiration.Access })
+function signAccessToken(payload: AccessTokenPayload): Promise<string> {
+    return new SignJWT({ payload })
+        .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
+        .setExpirationTime(iat + TokenExpiration.Access)
+        .setIssuedAt(iat)
+        .setNotBefore(iat)
+        .sign(new TextEncoder().encode(config.accessTokenSecret));
 }
 
-function signRefreshToken(payload: RefreshTokenPayload) {
-    return jwt.sign(payload, config.refreshTokenSecret, { expiresIn: TokenExpiration.Refresh })
+function signRefreshToken(payload: RefreshTokenPayload): Promise<string> {
+    return new SignJWT({ payload })
+        .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
+        .setExpirationTime(iat + TokenExpiration.Refresh)
+        .setIssuedAt(iat)
+        .setNotBefore(iat)
+        .sign(new TextEncoder().encode(config.refreshTokenSecret));
 }
 
-export function verifyRefreshToken(token: string) {
-    return jwt.verify(token, config.refreshTokenSecret) as RefreshToken
+export async function verifyAccessToken(token: string): Promise<JWTPayload> {
+    const { payload } = await jwtVerify(token, new TextEncoder().encode(config.accessTokenSecret));
+    return payload
 }
 
-export function verifyAccessToken(token: string) {
-    return jwt.verify(token, config.accessTokenSecret) as AccessToken
+export async function verifyRefreshToken(token: string): Promise<JWTPayload> {
+    const { payload } = await jwtVerify(token, new TextEncoder().encode(config.refreshTokenSecret));
+    return payload
 }
 
-export function buildTokens(user: UserDocument) {
+export async function buildTokens(user: UserDocument) {
     const accessPayload: AccessTokenPayload = { userId: user.id }
     const refreshPayload: RefreshTokenPayload = { userId: user.id, version: user.tokenVersion }
 
-    const accessToken = signAccessToken(accessPayload)
-    const refreshToken = refreshPayload && signRefreshToken(refreshPayload)
+    const accessToken = await signAccessToken(accessPayload)
+    const refreshToken = refreshPayload && await signRefreshToken(refreshPayload)
 
     return { accessToken, refreshToken }
 }
