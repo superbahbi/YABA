@@ -93,9 +93,6 @@ export async function buildTokens(user: UserDocument) {
 
 export function setTokens(res: NextApiResponse, access: string, refresh: string) {
     res.setHeader('Set-Cookie', [serialize(Cookies.AccessToken, access, accessTokenCookieOptions), serialize(Cookies.RefreshToken, refresh, refreshTokenCookieOptions)])
-    // if (refresh) {
-    //     res.setHeader('Set-Cookie', serialize(Cookies.RefreshToken, refresh, refreshTokenCookieOptions))
-    // }
 }
 export function refreshTokens(current: RefreshToken, tokenVersion: number) {
     if (tokenVersion !== current.version) throw 'Token revoked'
@@ -117,6 +114,5 @@ export function refreshTokens(current: RefreshToken, tokenVersion: number) {
     return { accessToken, refreshToken }
 }
 export function clearTokens(res: NextApiResponse) {
-    res.setHeader('Set-Cookie', serialize(Cookies.AccessToken, "", { ...defaultCookieOptions, maxAge: 0 }))
-    res.setHeader('Set-Cookie', serialize(Cookies.RefreshToken, "", { ...defaultCookieOptions, maxAge: 0 }))
+    res.setHeader('Set-Cookie', [serialize(Cookies.AccessToken, "", { ...defaultCookieOptions, maxAge: 0 }), serialize(Cookies.RefreshToken, "", { ...defaultCookieOptions, maxAge: 0 })])
 }
