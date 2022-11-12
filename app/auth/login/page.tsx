@@ -2,14 +2,21 @@
 import React from "react";
 import NextLink from "next/link";
 import { useForm } from "react-hook-form";
-// import formUrlEncoded from "form-urlencoded";
 import { zodResolver } from "@hookform/resolvers/zod";
+import formUrlEncoded from "form-urlencoded";
 import * as z from "zod";
+import { Button } from "@/components/Button";
+import { Input } from "@/components/Input";
+import { IconAt, IconEye } from "@/assets/icons";
+import { IAuthInputFormProps } from "@/types/LPinterface";
+import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
-import { Button } from "../../../components/Button";
-import { Input } from "../../../components/Input";
-import { IconAt, IconEye } from "../../../assets/icons";
-import { IAuthInputFormProps } from "../../../types/LPinterface";
+interface loginType {
+  email: string;
+  password: string;
+}
 
 const formSchema = z.object({
   email: z.string().email("Email Address is invalid"),
@@ -24,6 +31,7 @@ export interface ILoginDataFormProps {
   email: string;
   password: string;
 }
+
 export default function Login() {
   const {
     register,
@@ -31,8 +39,31 @@ export default function Login() {
     formState: { errors, isSubmitting, isDirty },
   } = useForm<IAuthInputFormProps>({ resolver: zodResolver(formSchema) });
 
-  // API Get Current Logged-in user
+  const router = useRouter();
+  const loginMutation = useMutation(
+    (newUser: loginType) =>
+      fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formUrlEncoded(newUser),
+      }).then((res) => res.json()),
+    {
+      onSuccess: () => {
+        toast.success("You successfully logged in");
+        router.push("/overview");
+      },
+      // If the mutation fails, use the context returned from onMutate to roll back
+      onError: () => {
+        toast.error("Invalid credentials");
+      },
+    }
+  );
 
+  const onSubmit = async (dataForm: loginType) => {
+    loginMutation.mutate(dataForm);
+  };
   return (
     <>
       <p className="text-3xl font-bold">welcome back to yaba</p>
@@ -45,12 +76,7 @@ export default function Login() {
         </NextLink>
       </p>
 
-      <form
-        className="flex flex-col"
-        onSubmit={handleSubmit((dataForm: IAuthInputFormProps) => {
-          console.log(dataForm);
-        })}
-      >
+      <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
         <Input
           type="email"
           id="login-email"
