@@ -1,8 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { sign } from "jsonwebtoken";
+
 import { PrismaClient } from '@prisma/client'
 import z from "zod"
 import argon2 from "argon2"
+import { buildTokens, setTokens } from '@/utils/cookies'
 
 const prisma = new PrismaClient()
 
@@ -10,7 +11,7 @@ interface loginType {
     email: string;
     password: string;
 }
-const schema = z.object({
+const formSchema = z.object({
     email: z.string().email("Email Address is invalid"),
     password: z
         .string()
@@ -18,6 +19,7 @@ const schema = z.object({
         .min(8, "Password must be more than 8 characters")
         .max(32, "Password must be less than 32 characters"),
 });
+
 /**
   * @route   POST /api/auth/login
   * @desc    Login user and return JWT token and user data (id, email, firstName, lastName)
@@ -28,8 +30,8 @@ const schema = z.object({
 */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     // Validate user input data
-    const validationResult = schema.safeParse(req.body);
-
+    const validationResult = formSchema.safeParse(req.body);
+    console.log(validationResult);
     // verify user input data
     if (!validationResult.success) {
         return res.status(400).json({ errors: validationResult.error });
@@ -61,22 +63,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         email: user.email,
         firstName: user.firstName,
         lastName: user.lastName,
+        tokenVersion: user.tokenVersion
     }
-    // TODO Check if user is verified
     // Sign Access and Refresh Tokens
-    // TODO change expriation time to an env variable
-    const accessToken = sign(sanitizedUser, process.env.JWT_ACCESS_TOKEN_SECRET_KEY as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
-    const refreshToken = sign(sanitizedUser, process.env.JWT_REFRESH_TOKEN_SECRET_KEY as string, { expiresIn: process.env.JWT_TOKEN_EXPIRATION });
-    // Add Cookies to response
-    // res.cookie('access_token', accessToken, tokenCookieOptions);
-    // res.cookie('refresh_token', refreshToken, tokenCookieOptions);
-    // res.cookie('logged_in', true, {
-    //     ...tokenCookieOptions,
-    //     httpOnly: false,
-    // });
+    const { accessToken, refreshToken } = await buildTokens(sanitizedUser)
+    setTokens(res, accessToken, refreshToken)
+
     // Send response
     return res.status(200).json({
-        user: sanitizedUser,
         accessToken,
         refreshToken
     });
