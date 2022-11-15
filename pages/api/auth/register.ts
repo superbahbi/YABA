@@ -13,7 +13,23 @@ interface registerType {
 }
 const schema = z.object({
     email: z.string().email(),
-    password: z.string().min(8).max(32),
+    password: z
+        .string()
+        .min(8, "Password must contain atleast 8 characters long")
+        .max(32, "Password must be at max 32 characters long")
+        .regex(
+            /^(?=.*[A-Z])/,
+            "Password must contain atleast one uppercase character"
+        )
+        .regex(
+            /^(?=.*[a-z])/,
+            "Password must contain atleast one lowercase character(s)"
+        )
+        .regex(/^(?=.*[0-9])/, "Password must contain atleast one number")
+        .regex(
+            /^(?=.*[!@#$%^&*])/,
+            "Password must contain atleast one special character(s)"
+        ),
     firstName: z.string().min(2),
     lastName: z.string().min(2),
 });
