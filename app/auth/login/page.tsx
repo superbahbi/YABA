@@ -22,9 +22,21 @@ const formSchema = z.object({
   email: z.string().email("Email Address is invalid"),
   password: z
     .string()
-    .min(1, "Password is required")
-    .min(8, "Password must be more than 8 characters")
-    .max(32, "Password must be less than 32 characters"),
+    .min(8, "Password must contain atleast 8 characters long")
+    .max(32, "Password must be at max 32 characters long"),
+  // .regex(
+  //   /^(?=.*[A-Z])/,
+  //   "Password must contain atleast one uppercase character"
+  // )
+  // .regex(
+  //   /^(?=.*[a-z])/,
+  //   "Password must contain atleast one lowercase character(s)"
+  // )
+  // .regex(/^(?=.*[0-9])/, "Password must contain atleast one number")
+  // .regex(
+  //   /^(?=.*[!@#$%^&*])/,
+  //   "Password must contain atleast one special character(s)"
+  // ),
 });
 
 export interface ILoginDataFormProps {

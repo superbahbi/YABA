@@ -1,21 +1,37 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
 import formUrlEncoded from "form-urlencoded";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import * as z from "zod";
-import { IconAt, IconEye, IconGoogle } from "../../../assets/icons";
-import { Button } from "../../../components/Button";
-import { Input } from "../../../components/Input";
-import {
-  IFormErrorProps,
-  IAuthInputFormProps,
-} from "../../../types/LPinterface";
+import { IconAt, IconEye, IconGoogle } from "@/assets/icons";
+import { Button } from "@/components/Button";
+import { Input } from "@/components/Input";
+import { IAuthInputFormProps } from "@/types/LPinterface";
 
 const formSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(8).max(32),
+  password: z
+    .string()
+    .min(8, "Password must contain atleast 8 characters long")
+    .max(32, "Password must be at max 32 characters long")
+    .regex(
+      /^(?=.*[A-Z])/,
+      "Password must contain atleast one uppercase character"
+    )
+    .regex(
+      /^(?=.*[a-z])/,
+      "Password must contain atleast one lowercase character(s)"
+    )
+    .regex(/^(?=.*[0-9])/, "Password must contain atleast one number")
+    .regex(
+      /^(?=.*[!@#$%^&*])/,
+      "Password must contain atleast one special character(s)"
+    ),
   firstName: z.string().min(2),
   lastName: z.string().min(2),
 });
@@ -24,34 +40,33 @@ const formSchema = z.object({
 // labels: enhancement, help wanted, good first issue
 export default function Register() {
   const [checked, setChecked] = useState(true);
-  const [resError, setResError] = useState<IFormErrorProps[]>();
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isDirty },
   } = useForm<IAuthInputFormProps>({ resolver: zodResolver(formSchema) });
-  const onSubmit = async (data: IAuthInputFormProps) => {
-    try {
-      const response = await fetch(
-        process.env.NEXT_PUBLIC_API_URL + "/api/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: formUrlEncoded(data),
-        }
-      );
-      const { user, errors } = await response.json();
-      if (errors) {
-        setResError(errors);
-      }
-      console.log(user);
-    } catch (errors) {
-      console.log(errors);
+  const router = useRouter();
+  const registerMutation = useMutation(
+    (newUser: IAuthInputFormProps) =>
+      fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formUrlEncoded(newUser),
+      }).then((res) => res.json()),
+    {
+      onSuccess: () => {
+        toast.success("You successfully register");
+        router.push("/login");
+      },
+      // If the mutation fails, use the context returned from onMutate to roll back
+      onError: () => {
+        toast.error("Invalid credentials");
+      },
     }
-  };
-
+  );
   return (
     <>
       <p className="text-3xl font-bold">create your free account</p>
@@ -73,16 +88,10 @@ export default function Register() {
       <div className="divider text-xs"> or use email instead</div>
       <form
         className="flex flex-col items-stretch"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit((dataForm) => {
+          registerMutation.mutate(dataForm);
+        })}
       >
-        <div className="h-4 pt-1">
-          {resError &&
-            resError.map((error: IFormErrorProps, index: number) => (
-              <p key={index} className="text-sm text-red-500">
-                {error.msg}
-              </p>
-            ))}
-        </div>
         <Input
           type="email"
           id="register-email"
