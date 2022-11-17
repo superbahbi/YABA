@@ -31,7 +31,8 @@
       "@/components/*": ["components/*"],
       "@/assets/*": ["assets/*"],
       "@/types/*": ["types/*"],
-      "@/mock_data/*": ["mock_data/*"]
+      "@/mock_data/*": ["mock_data/*"],
+      "@/utils/*": ["utils/*"],
     },
     "plugins": [
       {
@@ -39,7 +40,7 @@
       }
     ]
   },
-  "exclude": ["node_modules", "storybook-static", ".next", "server"],
+  "exclude": ["node_modules", "storybook-static", ".next", "server_ref"],
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
