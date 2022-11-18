@@ -5,15 +5,22 @@ const initialState = {
     isLoading: false,
     error: undefined,
 };
+export interface IUserStore {
+    currentUser: string | undefined,
+    isLoading: boolean,
+    error: string | undefined,
+    setCurrentUser: (user: string) => void,
+    getCurrentUser: () => string | undefined,
+    clear: () => void,
+}
 export const userStore = create(
-    persist<any>(
+    persist<IUserStore>(
         (set, get) => ({
             ...initialState,
-            setUser: (user: any) => {
-                set({ currentUser: user.id });
+            setCurrentUser: (user: string) => {
+                set({ currentUser: user });
             },
-            logout: () => { set({ currentUser: undefined }); },
-            getUser: () => get().currentUser,
+            getCurrentUser: () => get().currentUser,
             clear: () => {
                 set(() => (initialState));
                 sessionStorage.clear(); // or localStorage.clear();
