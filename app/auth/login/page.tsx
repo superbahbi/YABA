@@ -12,7 +12,7 @@ import { IAuthInputFormProps } from "@/types/LPinterface";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-
+import { userStore } from "../../../store/userStore";
 interface loginType {
   email: string;
   password: string;
@@ -52,6 +52,8 @@ export default function Login() {
   } = useForm<IAuthInputFormProps>({ resolver: zodResolver(formSchema) });
 
   const router = useRouter();
+  const { setCurrentUser, getCurrentUser } = userStore();
+
   const loginMutation = useMutation(
     (newUser: loginType) =>
       fetch("/api/auth/login", {
@@ -62,7 +64,9 @@ export default function Login() {
         body: formUrlEncoded(newUser),
       }).then((res) => res.json()),
     {
-      onSuccess: () => {
+      onSuccess: (data) => {
+        setCurrentUser(data.id);
+        console.log("getCurrentUser:", getCurrentUser());
         toast.success("You successfully logged in");
         router.push("/overview");
       },
