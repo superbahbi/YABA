@@ -26,6 +26,7 @@
     "form-urlencoded": "^6.1.0",
     "jose": "^4.11.0",
     "next": "13.0.1",
+    "next-auth": "^4.16.4",
     "nodemailer": "^6.8.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
