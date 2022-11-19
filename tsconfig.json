@@ -33,6 +33,8 @@
       "@/types/*": ["types/*"],
       "@/mock_data/*": ["mock_data/*"],
       "@/utils/*": ["utils/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/config": ["config.ts"]
     },
     "plugins": [
       {
