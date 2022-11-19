@@ -4,4 +4,8 @@ export const config = {
     baseDomain: process.env.BASE_DOMAIN!,
     accessTokenSecret: process.env.ACCESS_TOKEN_SECRET!,
     refreshTokenSecret: process.env.REFRESH_TOKEN_SECRET!,
+    port: process.env.PORT!,
+    databaseUrl: process.env.DATABASE_URL!,
+    googleClientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
+    googleClientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET!,
 }
