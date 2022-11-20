@@ -34,6 +34,7 @@
       "@/mock_data/*": ["mock_data/*"],
       "@/utils/*": ["utils/*"],
       "@/hooks/*": ["hooks/*"],
+      "@/store/*": ["store/*"],
       "@/config": ["config.ts"]
     },
     "plugins": [
