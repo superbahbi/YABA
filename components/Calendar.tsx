@@ -1,3 +1,4 @@
+"use client";
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
 import { IconChevronLeft, IconChevronRight } from "../assets/icons";

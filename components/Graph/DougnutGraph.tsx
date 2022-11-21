@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { IDougnutGraphProps } from "../../types/interface";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
