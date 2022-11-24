@@ -1,4 +1,3 @@
-"use client";
 import { faker } from "@faker-js/faker";
 import {
   IconArrowDown,
@@ -18,8 +17,11 @@ import Table from "@/components/Table";
 import Trends from "@/components/Trends";
 import balanceData from "@/mock_data/balance.json";
 import investmentData from "@/mock_data/investment.json";
-
-export default function Overview() {
+// import { userStore } from "@/store/userStore";
+export default async function Overview() {
+  // const { getCurrentUser } = userStore();
+  // const user = getCurrentUser();
+  // console.log("user:", user);
   const income = Array.from(Array(12)).map(() =>
     faker.datatype.number({ min: 2000, max: 2500 })
   );
@@ -34,6 +36,7 @@ export default function Overview() {
         <div className="grid xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 w-full m-4">
           <div className="xl:col-span-4 lg:col-span-4 md:col-span-2 sm:col-span-1 p-4 rounded">
             <Card title="Spending">
+              {/* <pre>{user}</pre> */}
               <div className="md:h-96 h-60">
                 <LineGraph
                   income={income}

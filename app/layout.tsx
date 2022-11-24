@@ -2,14 +2,11 @@
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import ReactQueryProvider from "@/utils/ReactQueryProvider";
-import { SessionProvider } from "next-auth/react";
-import { Session } from "next-auth";
 
 type Props = {
   children: React.ReactNode;
-  session: Session;
 };
-export default function RootLayout({ children, session }: Props) {
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <head>
@@ -18,9 +15,7 @@ export default function RootLayout({ children, session }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <SessionProvider session={session}>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
-        </SessionProvider>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
   );

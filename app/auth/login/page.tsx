@@ -7,12 +7,13 @@ import formUrlEncoded from "form-urlencoded";
 import * as z from "zod";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
-import { IconAt, IconEye } from "@/assets/icons";
+import { IconAt, IconEye, IconGoogle } from "@/assets/icons";
 import { IAuthInputFormProps } from "@/types/LPinterface";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { userStore } from "../../../store/userStore";
+
 interface loginType {
   email: string;
   password: string;
@@ -50,7 +51,6 @@ export default function Login() {
     handleSubmit,
     formState: { errors, isSubmitting, isDirty },
   } = useForm<IAuthInputFormProps>({ resolver: zodResolver(formSchema) });
-
   const router = useRouter();
   const { setCurrentUser, getCurrentUser } = userStore();
 
@@ -91,7 +91,16 @@ export default function Login() {
           </span>
         </NextLink>
       </p>
-
+      <div className="flex flex-col items-stretch mt-6">
+        <button
+          onClick={() => console.log("signin")}
+          className="flex items-center justify-center rounded-md border mt-4 px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-black hover:text-white focus:ring-2"
+        >
+          <IconGoogle />
+          get started with Google
+        </button>
+      </div>
+      <div className="divider text-xs"> or use email instead</div>
       <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
         <Input
           type="email"
