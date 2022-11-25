@@ -23,6 +23,7 @@ import { IconArrowLeft } from "./arrow-left";
 import { IconCheckCircle } from "./check-circle";
 import { IconAt } from "./at";
 import { IconEye } from "./eye";
+import { IconLoading } from "./loading";
 export {
   IconTicket,
   IconAccount,
@@ -49,4 +50,5 @@ export {
   IconCheckCircle,
   IconAt,
   IconEye,
+  IconLoading,
 };
