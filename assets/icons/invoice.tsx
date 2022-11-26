@@ -1,5 +1,5 @@
 import React from "react";
-import { ISvgIcon } from "../../types/interface";
+import { ISvgIcon } from "@/types/interface";
 
 export const IconInvoice: ISvgIcon = ({
   strokeColor = "text-black-500",

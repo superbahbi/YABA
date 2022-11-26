@@ -1,5 +1,5 @@
 import React from "react";
-import { ISvgIcon } from "../../types/interface";
+import { ISvgIcon } from "@/types/interface";
 
 export const IconGraph: ISvgIcon = ({
   strokeColor = "text-black-500",
