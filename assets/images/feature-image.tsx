@@ -1,4 +1,4 @@
-import { ISvgImage } from "../../types/interface";
+import { ISvgImage } from "@/types/interface";
 
 export const FeatureImage: React.FunctionComponent<ISvgImage> = ({
   strokeColor = "text-black-500",
