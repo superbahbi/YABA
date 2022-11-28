@@ -1,7 +1,7 @@
 import { serialize, CookieSerializeOptions } from 'cookie'
 import { NextApiResponse } from 'next'
 import { SignJWT, jwtVerify, type JWTPayload } from 'jose';
-import { config } from '../config'
+import { config } from '@/config'
 
 // Issue at time in seconds since epoch 
 const iat = Math.floor(Date.now() / 1000);

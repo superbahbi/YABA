@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { IconArrowLeft } from "../../assets/icons";
+import { IconArrowLeft } from "@/assets/icons";
 export default function AuthLayout({
   children,
 }: {
