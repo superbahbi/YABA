@@ -2,6 +2,7 @@
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import ReactQueryProvider from "@/utils/ReactQueryProvider";
+import { ThemeProvider } from "next-themes";
 
 type Props = {
   children: React.ReactNode;
@@ -15,7 +16,9 @@ export default function RootLayout({ children }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ThemeProvider>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

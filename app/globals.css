@@ -68,3 +68,8 @@ body {
     font-size: 16px;
     font-weight: 400;
 }
+
+[data-theme='dark'] [data-hide-on-theme='dark'],
+[data-theme='light'] [data-hide-on-theme='light'] {
+    display: none;
+}

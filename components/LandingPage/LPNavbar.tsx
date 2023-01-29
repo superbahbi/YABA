@@ -1,9 +1,21 @@
 import NextLink from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../assets/images/logo.png";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import { ILPNavbarProps } from "../../types/LPinterface";
+
 const LPNavbar: React.FC<ILPNavbarProps> = () => {
+  const [mounted, setMounted] = useState(false);
+  const { setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
   return (
     <div className="sticky top-0 z-10 px-8 navbar bg-base-100 bg-none">
       <div className="navbar-start">
@@ -50,14 +62,18 @@ const LPNavbar: React.FC<ILPNavbarProps> = () => {
             </li>
           </ul>
         </button>
+        <div data-hide-on-theme="dark">
+          <button className="btn btn-ghost" onClick={() => setTheme("dark")}>
+            🌞
+          </button>
+        </div>
 
-        <select
-          className="bg-transparent border-transparent focus:border-transparent focus:ring-0 bg-none indent-0 p-2"
-          data-choose-theme
-        >
-          <option value="light">🌞</option>
-          <option value="night">🌙</option>
-        </select>
+        {/* When the theme is light, hide this div */}
+        <div data-hide-on-theme="light">
+          <button className="btn btn-ghost" onClick={() => setTheme("light")}>
+            🌙
+          </button>
+        </div>
       </div>
     </div>
   );
