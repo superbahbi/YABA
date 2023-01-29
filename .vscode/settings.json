@@ -8,6 +8,6 @@
     "editor.defaultFormatter": "vscode.typescript-language-features"
   } // optional but recommended
   ,
-  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.tsdk": ".\\node_modules\\typescript\\lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
 }
