@@ -3,52 +3,89 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? // @db.Text
+  access_token      String? // @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? // @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
 model User {
-  id           String        @id @default(auto()) @map("_id") @db.ObjectId
-  email        String        @unique
-  password     String
-  firstName    String
-  lastName     String
-  tokenVersion Int           @default(0)
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
 model Transaction {
-  id                     String      @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt              DateTime    @default(now())
-  updatedAt              DateTime    @updatedAt
-  transaction_type       String
-  pending_transaction_id String
-  category_id            String
-  category               String[]
-  location               Location
-  payment_meta           PaymentMeta 
-  account_owner String
-  name String
-  original_description String
-  account_id String
-  amount Int
-  iso_currency_code String
-  unofficial_currency_code String
-  date String
-  pending Boolean
-  transaction_id String
-  merchant_name String
-  check_number String
-  payment_channel String
-  authorized_date String
-  authorized_datetime String
-  datetime String
-  transaction_code String
-  personal_finance_category PersonalFinanceCategory
-
+  id                        String                  @id @default(cuid())
+  createdAt                 DateTime                @default(now())
+  updatedAt                 DateTime                @updatedAt
+  transaction_type          String
+  pending_transaction_id    String
+  category_id               String
+  category                  String[]
+  location                  Location                @relation(fields: [locationId], references: [id])
+  payment_meta              PaymentMeta             @relation(fields: [paymentMetaId], references: [id])
+  account_owner             String
+  name                      String
+  original_description      String
+  account_id                String
+  amount                    Int
+  iso_currency_code         String
+  unofficial_currency_code  String
+  date                      String
+  pending                   Boolean
+  transaction_id            String
+  merchant_name             String
+  check_number              String
+  payment_channel           String
+  authorized_date           String
+  authorized_datetime       String
+  datetime                  String
+  transaction_code          String
+  personal_finance_category PersonalFinanceCategory @relation(fields: [personalFinanceCategoryId], references: [id])
+  locationId                String
+  paymentMetaId             String
+  personalFinanceCategoryId String
 }
-type Location {
+
+model Location {
+  id           String        @id @default(cuid())
   address      String
   city         String
   region       String
@@ -57,12 +94,18 @@ type Location {
   lat          Int
   lon          Int
   store_number String
+  Transaction  Transaction[]
 }
-type PersonalFinanceCategory {
+
+model PersonalFinanceCategory {
+  id          String        @id @default(cuid())
   primary     String
   detailed    String
+  Transaction Transaction[]
 }
-type PaymentMeta {
+
+model PaymentMeta {
+  id                String        @id @default(cuid())
   by_order_of       String
   payee             String
   payer             String
@@ -71,9 +114,11 @@ type PaymentMeta {
   ppd_id            String
   reason            String
   reference_number  String
+  Transaction       Transaction[]
 }
+
 model ResetPasswordToken {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String   @id @default(cuid())
   token     String   @unique
   userId    String
   createdAt DateTime @default(now())
