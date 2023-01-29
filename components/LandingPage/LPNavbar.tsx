@@ -64,14 +64,14 @@ const LPNavbar: React.FC<ILPNavbarProps> = () => {
         </button>
         <div data-hide-on-theme="dark">
           <button className="btn btn-ghost" onClick={() => setTheme("dark")}>
-            🌞
+            🌙
           </button>
         </div>
 
         {/* When the theme is light, hide this div */}
         <div data-hide-on-theme="light">
           <button className="btn btn-ghost" onClick={() => setTheme("light")}>
-            🌙
+            🌞
           </button>
         </div>
       </div>
