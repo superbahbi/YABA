@@ -48,6 +48,7 @@
     "watch": "tsc --watch",
     "type-check": "tsc --noEmit",
     "lint": "npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx --max-warnings=0",
+    "prettier": "npx prettier --write .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs-build -s ./stories/assets",
     "new:component": "hygen new component"
