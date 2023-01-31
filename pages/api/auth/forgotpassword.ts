@@ -57,7 +57,7 @@ export default async function handler(
   });
 
   const r = await sendEmail(
-    user.email,
+    user.email as string,
     `<a href="http://localhost:3000/auth/resetpassword/${token}">reset password</a>`
   );
   console.log(r);

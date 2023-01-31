@@ -1,5 +1,5 @@
-import create from "zustand";
-import { persist } from "zustand/middleware";
+import { create } from "zustand";
+import { devtools, persist } from "zustand/middleware";
 const initialState = {
   currentUser: undefined,
   isLoading: false,
@@ -9,20 +9,25 @@ export interface IUserStore {
   currentUser: string | undefined;
   isLoading: boolean;
   error: string | undefined;
-  setCurrentUser: (user: string) => void;
+  setCurrentUser: (by: string) => void
   getCurrentUser: () => string | undefined;
   clear: () => void;
 }
-export const userStore = create(
-  persist<IUserStore>((set, get) => ({
-    ...initialState,
-    setCurrentUser: (user: string) => {
-      set({ currentUser: user });
-    },
-    getCurrentUser: () => get().currentUser,
-    clear: () => {
-      set(() => initialState);
-      sessionStorage.clear(); // or localStorage.clear();
-    },
-  }))
-);
+
+export const userStore = create<IUserStore>()(
+  devtools(
+    persist(
+      (set, get) => ({
+        ...initialState,
+        setCurrentUser: (by) => set((state) => ({ ...state, currentUser: by })),
+        getCurrentUser: () => get().currentUser,
+        clear: () => {
+          sessionStorage.clear(); // or localStorage.clear();
+        }
+      }),
+      {
+        name: 'user-storage',
+      }
+    )
+  )
+)

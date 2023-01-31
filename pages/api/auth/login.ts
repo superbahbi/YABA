@@ -67,18 +67,18 @@ export default async function handler(
   }
 
   // Check if password is correct
-  const valid = await argon2.verify(user.password, password);
+  const valid = await argon2.verify(user.password as string, password);
+
   if (!valid) {
     return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
   }
 
   // Sanitize user data with password before sending it to client
   const sanitizedUser = {
-    id: user.id,
-    email: user.email,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    tokenVersion: user.tokenVersion,
+    id: user.id as string,
+    firstName: user.firstName as string,
+    lastName: user.lastName as string,
+    tokenVersion: user.tokenVersion as number,
   };
   // Sign Access and Refresh Tokens
   const { accessToken, refreshToken } = await buildTokens(sanitizedUser);

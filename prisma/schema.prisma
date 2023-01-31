@@ -35,9 +35,12 @@ model Session {
 
 model User {
   id            String    @id @default(cuid())
-  name          String?
+  firstName     String?
+  lastName      String?
   email         String?   @unique
   emailVerified DateTime?
+  password      String?
+  tokenVersion  Int       @default(0)
   image         String?
   accounts      Account[]
   sessions      Session[]
