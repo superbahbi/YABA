@@ -4,7 +4,7 @@ import { ICreditScoreProps } from "../types/interface";
 const CreditScore: React.FC<ICreditScoreProps> = ({ score }) => {
   return (
     <>
-      <div className="flex flex-col justify-center items-center p-4">
+      <div className="flex flex-col items-center justify-center p-4">
         <h1 className="text-4xl font-bold">{score}</h1>
         <p className="text-sm">Your credit score is Legitness!</p>
       </div>
@@ -15,13 +15,13 @@ const CreditScore: React.FC<ICreditScoreProps> = ({ score }) => {
           style={{ width: `${((score - 300) / 550) * 100}%` }}
         ></div>
         <div className="flex flex-row justify-between">
-          <div className="w-full h-20 "></div>
-          <div className="w-full h-20 "></div>
-          <div className="w-full h-20 "></div>
-          <div className="w-full h-20 border-r-0 border-red-50"></div>
+          <div className="h-20 w-full "></div>
+          <div className="h-20 w-full "></div>
+          <div className="h-20 w-full "></div>
+          <div className="h-20 w-full border-r-0 border-red-50"></div>
         </div>
       </div>
-      <div className="flex flex-row justify-between text-xs pt-2">
+      <div className="flex flex-row justify-between pt-2 text-xs">
         <div>300</div>
         <div>440</div>
         <div>580</div>

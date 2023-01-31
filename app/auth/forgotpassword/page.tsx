@@ -51,10 +51,10 @@ export default function ForgotPassword() {
     return (
       <div className="flex flex-col">
         <div className="flex items-center justify-center">
-          <div className="flex items-center justify-center w-12 h-12 mb-4 bg-green-100 rounded-full">
+          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-green-500"
+              className="h-6 w-6 text-green-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -68,10 +68,10 @@ export default function ForgotPassword() {
             </svg>
           </div>
         </div>
-        <h2 className="flex items-center justify-center mb-4 text-3xl font-bold">
+        <h2 className="mb-4 flex items-center justify-center text-3xl font-bold">
           email sent
         </h2>
-        <p className="flex items-center justify-center mb-4 text-sm text-center">
+        <p className="mb-4 flex items-center justify-center text-center text-sm">
           check your email and open the link we sent to continue.
         </p>
         <div className="flex flex-col items-stretch">
@@ -115,7 +115,7 @@ export default function ForgotPassword() {
             <div role="status">
               <svg
                 aria-hidden="true"
-                className="mr-2 w-6 h-6 text-gray-200 animate-spin fill-accent"
+                className="mr-2 h-6 w-6 animate-spin fill-accent text-gray-200"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

@@ -6,7 +6,7 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
     <>
       {" "}
       <section className="bg-base-100">
-        <div className="container px-6 py-10 mx-auto">
+        <div className="container mx-auto px-6 py-10">
           <div className="sm:text-center">
             <h2 className="text-3xl font-semibold leading-7 sm:text-4xl xl:text-5xl">
               our <br className="sm:hidden" />
@@ -14,7 +14,7 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
             </h2>
             <hr className="mt-4 h-1 w-32 border-none bg-[#0b1840] sm:mx-auto sm:mt-8" />
           </div>
-          <p className="max-w-2xl mx-auto my-6 text-center">
+          <p className="mx-auto my-6 max-w-2xl text-center">
             over the past year, our team has been working tirelessly to expand
             our company into new markets. we have a wealth of experience in the
             industry and a proven track record of success. we are committed to
@@ -22,9 +22,9 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
             exceeding their expectations.
           </p>
 
-          <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
-            <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-accent dark:border-gray-700 dark:hover:border-transparent">
-              <div className="relative w-32 h-32 mb-4 rounded-full ring-4 ring-gray-300">
+          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-16 xl:grid-cols-4">
+            <div className="group flex transform cursor-pointer flex-col items-center rounded-xl border p-8 transition-colors duration-300 hover:border-transparent hover:bg-accent dark:border-gray-700 dark:hover:border-transparent">
+              <div className="relative mb-4 h-32 w-32 rounded-full ring-4 ring-gray-300">
                 <Image
                   className="rounded-full"
                   src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
@@ -34,22 +34,22 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
                 />
               </div>
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 dark:text-white group-hover:text-white">
+              <h1 className="mt-4 text-2xl font-semibold text-gray-700 group-hover:text-white dark:text-white">
                 elton bautista
               </h1>
 
-              <p className="mt-2 text-gray-500 dark:text-gray-300 group-hover:text-gray-300">
+              <p className="mt-2 text-gray-500 group-hover:text-gray-300 dark:text-gray-300">
                 ceo
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div className="-mx-2 mt-3 flex">
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Reddit"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -60,11 +60,11 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
 
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Facebook"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -75,11 +75,11 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
 
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Github"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -90,8 +90,8 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-accent dark:border-gray-700 dark:hover:border-transparent">
-              <div className="relative w-32 h-32 mb-4 rounded-full ring-4 ring-gray-300">
+            <div className="group flex transform cursor-pointer flex-col items-center rounded-xl border p-8 transition-colors duration-300 hover:border-transparent hover:bg-accent dark:border-gray-700 dark:hover:border-transparent">
+              <div className="relative mb-4 h-32 w-32 rounded-full ring-4 ring-gray-300">
                 <Image
                   className="rounded-full"
                   src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
@@ -101,22 +101,22 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
                 />
               </div>
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 dark:text-white group-hover:text-white">
+              <h1 className="mt-4 text-2xl font-semibold text-gray-700 group-hover:text-white dark:text-white">
                 robert kugler
               </h1>
 
-              <p className="mt-2 text-gray-500 dark:text-gray-300 group-hover:text-gray-300">
+              <p className="mt-2 text-gray-500 group-hover:text-gray-300 dark:text-gray-300">
                 full stack developer
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div className="-mx-2 mt-3 flex">
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Reddit"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -127,11 +127,11 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
 
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Facebook"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -142,11 +142,11 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
 
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Github"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -157,8 +157,8 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-accent dark:border-gray-700 dark:hover:border-transparent">
-              <div className="relative w-32 h-32 mb-4 rounded-full ring-4 ring-gray-300">
+            <div className="group flex transform cursor-pointer flex-col items-center rounded-xl border p-8 transition-colors duration-300 hover:border-transparent hover:bg-accent dark:border-gray-700 dark:hover:border-transparent">
+              <div className="relative mb-4 h-32 w-32 rounded-full ring-4 ring-gray-300">
                 <Image
                   className="rounded-full"
                   src="https://images.unsplash.com/photo-1586717661353-71625f6cea65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1540&q=80"
@@ -168,22 +168,22 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
                 />
               </div>
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 dark:text-white group-hover:text-white">
+              <h1 className="mt-4 text-2xl font-semibold text-gray-700 group-hover:text-white dark:text-white">
                 doge
               </h1>
 
-              <p className="mt-2 text-gray-500 dark:text-gray-300 group-hover:text-gray-300">
+              <p className="mt-2 text-gray-500 group-hover:text-gray-300 dark:text-gray-300">
                 front end developer
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div className="-mx-2 mt-3 flex">
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Reddit"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -194,11 +194,11 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
 
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Facebook"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -209,11 +209,11 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
 
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Github"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -223,8 +223,8 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
                 </a>
               </div>
             </div>
-            <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-accent dark:border-gray-700 dark:hover:border-transparent">
-              <div className="relative w-32 h-32 mb-4 rounded-full ring-4 ring-gray-300">
+            <div className="group flex transform cursor-pointer flex-col items-center rounded-xl border p-8 transition-colors duration-300 hover:border-transparent hover:bg-accent dark:border-gray-700 dark:hover:border-transparent">
+              <div className="relative mb-4 h-32 w-32 rounded-full ring-4 ring-gray-300">
                 <Image
                   className="rounded-full"
                   src="https://images.unsplash.com/photo-1586717661353-71625f6cea65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1540&q=80"
@@ -234,22 +234,22 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
                 />
               </div>
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 dark:text-white group-hover:text-white">
+              <h1 className="mt-4 text-2xl font-semibold text-gray-700 group-hover:text-white dark:text-white">
                 doge
               </h1>
 
-              <p className="mt-2 text-gray-500 dark:text-gray-300 group-hover:text-gray-300">
+              <p className="mt-2 text-gray-500 group-hover:text-gray-300 dark:text-gray-300">
                 dev ops engineer
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div className="-mx-2 mt-3 flex">
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Reddit"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -260,11 +260,11 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
 
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Facebook"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -275,11 +275,11 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
 
                 <a
                   href="#"
-                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                  className="mx-2 text-gray-600 hover:text-gray-500 group-hover:text-white dark:text-gray-300 dark:hover:text-gray-300"
                   aria-label="Github"
                 >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"

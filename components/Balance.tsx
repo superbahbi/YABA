@@ -13,7 +13,7 @@ const Balance: React.FC<IBalanceProps> = ({ data }) => {
           <span className="text-md font-semibold text-accent">${amount}</span>
         </div>
       </div> */}
-      <div className="stats stats-vertical lg:stats-horizontal shadow flex items-center">
+      <div className="stats stats-vertical flex items-center shadow lg:stats-horizontal">
         {data.map((item, index) => (
           <div key={index} className="stat place-items-center">
             <div className="stat-title">{item.title}</div>

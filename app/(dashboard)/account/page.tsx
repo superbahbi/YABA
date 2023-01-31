@@ -66,7 +66,7 @@ export default function Account() {
   return (
     <>
       <div className="flex w-full">
-        <div className="h-screen m-4 p-4">
+        <div className="m-4 h-screen p-4">
           <Card title="Connect">
             <button className="btn" onClick={() => open()} disabled={!ready}>
               {/* <div>{isFetching ? "Updating..." : "Add a bank account"}</div> */}

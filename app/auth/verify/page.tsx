@@ -50,40 +50,40 @@ export default function Verify() {
       >
         <div
           id="code"
-          className="flex flex-row justify-center text-center px-2 mt-5 text-gray-800"
+          className="mt-5 flex flex-row justify-center px-2 text-center text-gray-800"
         >
           <input
-            className="m-2 border h-10 w-10 text-center form-control rounded"
+            className="form-control m-2 h-10 w-10 rounded border text-center"
             type="text"
             id="first"
             maxLength={1}
           />
           <input
-            className="m-2 border h-10 w-10 text-center form-control rounded"
+            className="form-control m-2 h-10 w-10 rounded border text-center"
             type="text"
             id="second"
             maxLength={1}
           />
           <input
-            className="m-2 border h-10 w-10 text-center form-control rounded"
+            className="form-control m-2 h-10 w-10 rounded border text-center"
             type="text"
             id="third"
             maxLength={1}
           />
           <input
-            className="m-2 border h-10 w-10 text-center form-control rounded"
+            className="form-control m-2 h-10 w-10 rounded border text-center"
             type="text"
             id="fourth"
             maxLength={1}
           />
           <input
-            className="m-2 border h-10 w-10 text-center form-control rounded"
+            className="form-control m-2 h-10 w-10 rounded border text-center"
             type="text"
             id="fifth"
             maxLength={1}
           />
           <input
-            className="m-2 border h-10 w-10 text-center form-control rounded"
+            className="form-control m-2 h-10 w-10 rounded border text-center"
             type="text"
             id="sixth"
             maxLength={1}

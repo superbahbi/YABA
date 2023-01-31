@@ -6,10 +6,10 @@ import yabaTwo from "/assets/images/yaba-login.png";
 
 const LPBody: React.FC<ILPBodyProps> = () => {
   return (
-    <section className="grid justify-items-center py-12 md:py-32 px-4 lg:px-20">
-      <div className="grid max-w-screen-xl w-full min-h-screen">
+    <section className="grid justify-items-center py-12 px-4 md:py-32 lg:px-20">
+      <div className="grid min-h-screen w-full max-w-screen-xl">
         <div className="grid lg:grid-cols-2 lg:gap-10 lg:gap-y-32">
-          <h2 className="text-4xl lg:text-6xl font-semibold pb-14 h-fit lg:col-span-2 ">
+          <h2 className="h-fit pb-14 text-4xl font-semibold lg:col-span-2 lg:text-6xl ">
             We do it all.
           </h2>
           <LPBodyItem

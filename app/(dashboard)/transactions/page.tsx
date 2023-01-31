@@ -11,8 +11,8 @@ export default function Transactions() {
   return (
     <>
       <div className="flex w-full">
-        <div className="grid xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 w-full m-4">
-          <div className="xl:col-span-4 lg:col-span-4 md:col-span-2 sm:col-span-1 p-4 rounded">
+        <div className="m-4 grid w-full sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-6 xl:grid-cols-6">
+          <div className="rounded p-4 sm:col-span-1 md:col-span-2 lg:col-span-4 xl:col-span-4">
             <Card title="Transaction">
               <Table>
                 <thead>

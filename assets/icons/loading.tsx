@@ -12,7 +12,7 @@ export const IconLoading: ISvgIcon = ({
     fill="none"
     viewBox="0 0 100 101"
     strokeWidth={strokeWidth}
-    className={`stroke-current ${strokeColor} mr-2 w-6 h-6   animate-spin fill-accent`}
+    className={`stroke-current ${strokeColor} mr-2 h-6 w-6   animate-spin fill-accent`}
     width={width}
     height={height}
   >

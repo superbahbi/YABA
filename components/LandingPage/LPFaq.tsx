@@ -7,7 +7,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
   return (
     <>
       <div className="relative mx-auto w-full py-16 px-5 font-sans sm:px-20 md:max-w-screen-lg lg:py-24">
-        <h1 className="mb-5 text-center font-sans text-3xl md:text-5xl font-semibold">
+        <h1 className="mb-5 text-center font-sans text-3xl font-semibold md:text-5xl">
           frequently asked questions
         </h1>
         <p className="mb-12 text-center text-lg text-gray-500">
@@ -155,7 +155,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
                 />
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-2">
-                <h3 className="text-sm border-indigo-600 lg:text-base ">
+                <h3 className="border-indigo-600 text-sm lg:text-base ">
                   Lorem ipsum dolor sit amet.?
                 </h3>
               </div>

@@ -28,7 +28,7 @@ export const Form: React.FC<IFormProps> = () => {
   console.log(watch("email")); // watch input value by passing the name of it
   return (
     <form
-      className="py-12 grid "
+      className="grid py-12 "
       onSubmit={handleSubmit(onSubmit)}
       data-testid="form-test"
     >
@@ -40,7 +40,7 @@ export const Form: React.FC<IFormProps> = () => {
         <label className="input-group">
           <span className="label-text w-32">first name</span>
           <input
-            className="input input-bordered"
+            className="input-bordered input"
             type="text"
             {...register("firstName", { required: true })}
           />
@@ -50,7 +50,7 @@ export const Form: React.FC<IFormProps> = () => {
         <label className="input-group">
           <span className="label-text w-32">last name</span>
           <input
-            className="input input-bordered"
+            className="input-bordered input"
             type="text"
             {...register("lastName", { required: true })}
           />
@@ -60,7 +60,7 @@ export const Form: React.FC<IFormProps> = () => {
         <label className="input-group">
           <span className="label-text w-32">email</span>
           <input
-            className="input input-bordered"
+            className="input-bordered input"
             type="email"
             {...register("email", { required: true })}
           />
@@ -70,7 +70,7 @@ export const Form: React.FC<IFormProps> = () => {
         <label className="input-group">
           <span className="label-text w-32">password</span>
           <input
-            className="input input-bordered"
+            className="input-bordered input"
             type="password"
             {...register("password", { required: true })}
           />
@@ -80,15 +80,15 @@ export const Form: React.FC<IFormProps> = () => {
         <label className="input-group">
           <span className="label-text w-32">confirm password</span>
           <input
-            className="input input-bordered"
+            className="input-bordered input"
             type="password"
             {...register("passwordConfirm", { required: true })}
           />
         </label>
       </div>
       {/* errors will return when field validation fails  */}
-      <div className="grid my-4">
-        <button className="btn btn-secondary">
+      <div className="my-4 grid">
+        <button className="btn-secondary btn">
           <input type="submit" value="poop" />
         </button>
         {errors.email && <span className="p-4">This field is required</span>}

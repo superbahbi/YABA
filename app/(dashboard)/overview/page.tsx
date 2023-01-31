@@ -33,11 +33,11 @@ export default async function Overview() {
   return (
     <>
       <div className="flex w-full">
-        <div className="grid xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 w-full m-4">
-          <div className="xl:col-span-4 lg:col-span-4 md:col-span-2 sm:col-span-1 p-4 rounded">
+        <div className="m-4 grid w-full sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-6 xl:grid-cols-6">
+          <div className="rounded p-4 sm:col-span-1 md:col-span-2 lg:col-span-4 xl:col-span-4">
             <Card title="Spending">
               {/* <pre>{user}</pre> */}
-              <div className="md:h-96 h-60">
+              <div className="h-60 md:h-96">
                 <LineGraph
                   income={income}
                   expense={expense}
@@ -46,12 +46,12 @@ export default async function Overview() {
               </div>
             </Card>
           </div>
-          <div className="xl:col-span-2 lg:col-span-2 md:col-span-1 sm:col-span-1 p-4 rounded min-w-xs ">
+          <div className="min-w-xs rounded p-4 sm:col-span-1 md:col-span-1 lg:col-span-2 xl:col-span-2 ">
             <Card title="Scheduler">
               <Calendar />
             </Card>
           </div>
-          <div className="row-span-1 md:col-span-2 p-4 rounded">
+          <div className="row-span-1 rounded p-4 md:col-span-2">
             <Card title="Goal Budget">
               <div>
                 <Progress
@@ -76,14 +76,14 @@ export default async function Overview() {
                   color="bg-cyan-200"
                 />
                 <div className="">
-                  <div className="btn btn-outline btn-primary btn-sm mx-4">
+                  <div className="btn-outline btn-primary btn-sm btn mx-4">
                     Create a goal
                   </div>
                 </div>
               </div>
             </Card>
           </div>
-          <div className="md:col-span-4 sm:col-span-1 p-4 rounded">
+          <div className="rounded p-4 sm:col-span-1 md:col-span-4">
             <Card title="Investments">
               <Table>
                 <thead>
@@ -101,7 +101,7 @@ export default async function Overview() {
                         {item.position ? <IconArrowUp /> : <IconArrowDown />}
                       </td>
                       <td>
-                        <span className="font-bold pr-1">{item.symbol}</span>
+                        <span className="pr-1 font-bold">{item.symbol}</span>
                         <span>{item.company}</span>
                       </td>
                       <td>{item.value}</td>
@@ -127,18 +127,18 @@ export default async function Overview() {
               </Table>
             </Card>
           </div>
-          <div className="md:col-span-3 p-4 rounded">
+          <div className="rounded p-4 md:col-span-3">
             <Card title="Accounts">
               <Balance data={balanceData} />
             </Card>
           </div>
 
-          <div className="md:col-span-3 p-4 rounded">
+          <div className="rounded p-4 md:col-span-3">
             <Card title="Credit Score">
               <CreditScore score={760} />
             </Card>
           </div>
-          <div className="md:col-span-2 p-4 rounded">
+          <div className="rounded p-4 md:col-span-2">
             <Card title="Trends">
               <Trends title="Cash" amount={4865} barColor="success" />
               <Trends
@@ -151,7 +151,7 @@ export default async function Overview() {
             </Card>
           </div>
 
-          <div className="md:col-span-2 sm:col-span-1 row-span-3 p-4 rounded">
+          <div className="row-span-3 rounded p-4 sm:col-span-1 md:col-span-2">
             <Card title="Budget Breakdown">
               <div className="h-96">
                 <DougnutGraph data={bugetBreakdownData} labelColor="#A6ADBB" />
@@ -159,8 +159,8 @@ export default async function Overview() {
             </Card>
           </div>
 
-          <div className="md:col-span-1 p-4 rounded">8</div>
-          <div className="md:col-span-1 p-4 rounded">9</div>
+          <div className="rounded p-4 md:col-span-1">8</div>
+          <div className="rounded p-4 md:col-span-1">9</div>
         </div>
       </div>
     </>

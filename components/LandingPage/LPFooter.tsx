@@ -8,23 +8,23 @@ import yabaLogo from "/assets/images/logo.png";
 const LPFooter: React.FC<ILPFooterProps> = () => {
   return (
     <section className="flex justify-center pt-8">
-      <footer className="text-neutral-content bg-neutral w-full">
+      <footer className="w-full bg-neutral text-neutral-content">
         <div className="mx-auto max-w-screen-xl px-4 md:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2">
-            <div className="py-16 border-b border-neutral-content lg:border-b-0 lg:border-l lg:order-last lg:py-24 lg:pl-12">
+            <div className="border-b border-neutral-content py-16 lg:order-last lg:border-b-0 lg:border-l lg:py-24 lg:pl-12">
               <div className="flex justify-center lg:hidden">
                 <Image src={yabaLogo} width={40} height={40} alt="Yaba logo" />
               </div>
 
               <div className="mt-12 space-y-4 lg:mt-0">
-                <span className="bg-accent-focus rounded lg:h-1 lg:w-10 lg:block"></span>
+                <span className="rounded bg-accent-focus lg:block lg:h-1 lg:w-10"></span>
 
                 <div className="text-center lg:text-left">
                   <h2 className="text-2xl font-medium ">
                     Subscribe to our newsletter!
                   </h2>
 
-                  <p className="max-w-md mx-auto mt-4 text-sm leading-relaxed lg:mx-0">
+                  <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed lg:mx-0">
                     Enter your email to stay up to date with any of our
                     promotions, news about, or blog posts!
                   </p>
@@ -41,13 +41,13 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                     value="80aba07a99b3202fcbaa8eb66"
                   />
                   <input type="hidden" name="id" value="47a1d2ea8d" />
-                  <div className="relative max-w-lg mx-auto lg:mx-0">
+                  <div className="relative mx-auto max-w-lg lg:mx-0">
                     <label className="sr-only" htmlFor="email-footer">
                       Email
                     </label>
 
                     <input
-                      className="w-full py-4 pl-3 pr-16 text-sm text-primary bg-white border-none rounded-md"
+                      className="w-full rounded-md border-none bg-white py-4 pl-3 pr-16 text-sm text-primary"
                       required
                       type="email"
                       placeholder="Enter your email"
@@ -56,7 +56,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                       name="MERGE0"
                       id="MERGE0"
                     />
-                    <div className="absolute text-white pt-4">
+                    <div className="absolute pt-4 text-white">
                       <Button type="submit">Subscribe</Button>
                     </div>
                   </div>
@@ -119,7 +119,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                 </div>
               </div>
 
-              <div className="pt-8 mt-16 text-sm  border-t border-neutral-content lg:mt-24">
+              <div className="mt-16 border-t border-neutral-content  pt-8 text-sm lg:mt-24">
                 <p className="text-center lg:text-left">
                   <LPFooterLink
                     underline
@@ -140,9 +140,9 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                   Copyright &copy; 2022 yaba
                 </p>
                 {/* <p></p> */}
-                <div className="flex justify-center mt-6 gap-4 lg:justify-start">
+                <div className="mt-6 flex justify-center gap-4 lg:justify-start">
                   <a
-                    className=" transition hover:/75"
+                    className=" hover:/75 transition"
                     href="https://www.facebook.com/BFG-Interactive-Media-107876375414422"
                     target="_blank"
                     rel="noreferrer"
@@ -150,7 +150,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                     <span className="sr-only"> Facebook </span>
 
                     <svg
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -164,7 +164,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                   </a>
 
                   <a
-                    className=" transition hover:/75"
+                    className=" hover:/75 transition"
                     href="https://www.instagram.com/bfginteractive/"
                     target="_blank"
                     rel="noreferrer"
@@ -172,7 +172,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                     <span className="sr-only"> Instagram </span>
 
                     <svg
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -186,7 +186,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                   </a>
 
                   <a
-                    className=" transition hover:/75"
+                    className=" hover:/75 transition"
                     href="https://twitter.com/home"
                     target="_blank"
                     rel="noreferrer"
@@ -194,7 +194,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                     <span className="sr-only"> Twitter </span>
 
                     <svg
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"

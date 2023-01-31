@@ -86,15 +86,15 @@ export default function Login() {
       <p className="mt-3 font-medium">
         don&apos;t have an account?{" "}
         <NextLink href="/auth/register">
-          <span className="whitespace-nowrap font-semibold text-primary cursor-pointer">
+          <span className="cursor-pointer whitespace-nowrap font-semibold text-primary">
             sign up for free.
           </span>
         </NextLink>
       </p>
-      <div className="flex flex-col items-stretch mt-6">
+      <div className="mt-6 flex flex-col items-stretch">
         <button
           onClick={() => console.log("signin")}
-          className="flex items-center justify-center rounded-md border mt-4 px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-black hover:text-white focus:ring-2"
+          className="mt-4 flex items-center justify-center rounded-md border px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-black hover:text-white focus:ring-2"
         >
           <IconGoogle />
           get started with Google
@@ -121,7 +121,7 @@ export default function Login() {
 
         <span className="my-6 flex items-center text-sm">
           <NextLink href="/auth/forgotpassword">
-            <span className="font-medium text-blue-500 underline cursor-pointer">
+            <span className="cursor-pointer font-medium text-blue-500 underline">
               forgot password?
             </span>
           </NextLink>

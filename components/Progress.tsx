@@ -10,14 +10,14 @@ const Progress: React.FC<IProgressProps> = ({
 }) => {
   return (
     <>
-      <div className="flex bg-base-100 rounded-lg p-4 m-4">
+      <div className="m-4 flex rounded-lg bg-base-100 p-4">
         <div
-          className={`flex justify-center items-center ${color} p-2 rounded-xl mr-4`}
+          className={`flex items-center justify-center ${color} mr-4 rounded-xl p-2`}
         >
           {icon}
         </div>
-        <div className="flex flex-col w-full">
-          <div className="flex flex-row pb-2 justify-between items-end">
+        <div className="flex w-full flex-col">
+          <div className="flex flex-row items-end justify-between pb-2">
             <div className="text-midnight text-sm font-semibold">{title}</div>
             <div className="text-xs">
               {currentProgress}/{totalProgress}

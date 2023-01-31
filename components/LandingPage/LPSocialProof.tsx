@@ -3,8 +3,8 @@ import Image from "next/image";
 import { ILPSocialProofProps } from "@/types/LPinterface";
 const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
   return (
-    <section className="py-6 0 sm:py-16 lg:py-20 ">
-      <div className="w-full py-16 md:py-32 shadow-md bg-base-300">
+    <section className="0 py-6 sm:py-16 lg:py-20 ">
+      <div className="w-full bg-base-300 py-16 shadow-md md:py-32">
         <h2 className="mx-2 text-center text-2xl font-bold tracking-wide md:text-3xl">
           trusted by over 5000 clients
         </h2>
@@ -78,7 +78,7 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-screen-lg  lg:px-8 pt-10 lg:pt-32">
+      <div className="mx-auto max-w-2xl px-4 pt-10 sm:px-6  lg:max-w-screen-lg lg:px-8 lg:pt-32">
         <div className="flex flex-col lg:flex-row">
           <div className="relative mx-auto mb-10 flex h-96 overflow-hidden rounded-xl bg-blue-600 shadow sm:mt-20 lg:h-auto lg:max-w-md">
             <Image

@@ -10,7 +10,7 @@ export default function AuthLayout({
   return (
     <>
       <div className="min-h-screen bg-base-100">
-        <div className="mx-auto pt-20 px-4 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
+        <div className="mx-auto px-4 pt-20 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
           <div className="flex flex-col items-center justify-between lg:flex-row">
             <div className="hidden lg:block lg:max-w-lg lg:pr-5">
               <div className="lg:max-w-xl">
@@ -49,7 +49,7 @@ export default function AuthLayout({
               </svg>
               <div className="-mx-4 flex flex-col px-4 py-6 text-center sm:px-12 sm:text-left lg:bg-base-100 lg:py-10 lg:shadow-2xl lg:shadow-blue-900/20">
                 <button
-                  className="btn btn-ghost btn-circle"
+                  className="btn-ghost btn-circle btn"
                   onClick={() => router.back()}
                 >
                   <IconArrowLeft strokeColor="text-secondary" />

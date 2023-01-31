@@ -12,7 +12,7 @@ export const IconGraph: ISvgIcon = ({
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    className={`stroke-current ${strokeColor} w-5 h-5`}
+    className={`stroke-current ${strokeColor} h-5 w-5`}
     width={width}
     height={height}
   >

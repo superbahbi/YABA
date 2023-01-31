@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build
+coverage
+.github
+.hygen
+.next
+.storybook
+.vscode
+node_modules
+docs
+mock_data

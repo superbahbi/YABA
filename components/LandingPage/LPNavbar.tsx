@@ -17,7 +17,7 @@ const LPNavbar: React.FC<ILPNavbarProps> = () => {
     return null;
   }
   return (
-    <div className="sticky top-0 z-10 px-8 navbar bg-base-100 bg-none">
+    <div className="navbar sticky top-0 z-10 bg-base-100 bg-none px-8">
       <div className="navbar-start">
         <NextLink href="/">
           <div className="pl-2">
@@ -28,12 +28,12 @@ const LPNavbar: React.FC<ILPNavbarProps> = () => {
 
       <div className="navbar-end">
         <NextLink href="/explore">
-          <button className="hidden btn btn-ghost md:block">
+          <button className="btn-ghost btn hidden md:block">
             <span className="lowercase">explore</span>
           </button>
         </NextLink>
-        <button className="dropdown dropdown-end">
-          <label tabIndex={1} className="btn btn-ghost">
+        <button className="dropdown-end dropdown">
+          <label tabIndex={1} className="btn-ghost btn">
             <span className="lowercase">account</span>
             <svg
               className="fill-current"
@@ -47,7 +47,7 @@ const LPNavbar: React.FC<ILPNavbarProps> = () => {
           </label>
           <ul
             tabIndex={1}
-            className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+            className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
           >
             <li>
               <NextLink href={"/auth/login"}>
@@ -63,14 +63,14 @@ const LPNavbar: React.FC<ILPNavbarProps> = () => {
           </ul>
         </button>
         <div data-hide-on-theme="dark">
-          <button className="btn btn-ghost" onClick={() => setTheme("dark")}>
+          <button className="btn-ghost btn" onClick={() => setTheme("dark")}>
             🌙
           </button>
         </div>
 
         {/* When the theme is light, hide this div */}
         <div data-hide-on-theme="light">
-          <button className="btn btn-ghost" onClick={() => setTheme("light")}>
+          <button className="btn-ghost btn" onClick={() => setTheme("light")}>
             🌞
           </button>
         </div>

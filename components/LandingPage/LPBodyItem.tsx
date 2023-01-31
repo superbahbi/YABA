@@ -18,19 +18,19 @@ const LPBodyItem: React.FC<ILPBodyItemProps> = ({
 }) => {
   return (
     <>
-      <div className="grid items-end mt-10 md:mt-0 grid-cols-3">
-        <h2 className="text-6xl lg:text-9xl text-accent">
+      <div className="mt-10 grid grid-cols-3 items-end md:mt-0">
+        <h2 className="text-6xl text-accent lg:text-9xl">
           <span className="h-fit">{num}</span>
         </h2>
         <div className="col-span-2 grid justify-items-center">
           <Image src={imgSrc} alt="test" width="250" height="500" />
         </div>
       </div>
-      <div className="mb-10 md:mb-0 lg:w-[90%] grid items-end lg:h-[50vh] self-end">
-        <h3 className="text-3xl font-medium py-4 lg:py-0 lg:text-5xl">
+      <div className="mb-10 grid items-end self-end md:mb-0 lg:h-[50vh] lg:w-[90%]">
+        <h3 className="py-4 text-3xl font-medium lg:py-0 lg:text-5xl">
           {heading}
         </h3>
-        <p className="text-sm md:text-base pb-6 lg:pb-0 self-center max-w-4/5">
+        <p className="max-w-4/5 self-center pb-6 text-sm md:text-base lg:pb-0">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
           dignissimos ex laborum aliquid ducimus doloremque alias earum
           inventore distinctio magnam! Fuga possimus, adipisci quibusdam

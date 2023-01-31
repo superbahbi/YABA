@@ -17,27 +17,27 @@ const Header: React.FC<IHeaderProps> = () => {
   // ];
   return (
     <>
-      <div className="sticky top-0 z-10 px-8 navbar bg-base-100 bg-none">
+      <div className="navbar sticky top-0 z-10 bg-base-100 bg-none px-8">
         <div className="navbar-start">
           <NextLink href="/">
-            <div className="pl-2 cursor-pointer">
+            <div className="cursor-pointer pl-2">
               <Image src={Logo} alt="logo" width={32} height={32} />
             </div>
           </NextLink>
         </div>
 
         <div className="navbar-end">
-          <button className="btn btn-ghost btn-circle text-accent">
+          <button className="btn-ghost btn-circle btn text-accent">
             <IconMail />
           </button>
-          <button className="btn btn-ghost btn-circle text-accent">
+          <button className="btn-ghost btn-circle btn text-accent">
             <div className="indicator">
               <IconNotification />
-              <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-accent"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
             </div>
           </button>
-          <button className="dropdown dropdown-end">
-            <label tabIndex={1} className="btn btn-ghost btn-circle avatar">
+          <button className="dropdown-end dropdown">
+            <label tabIndex={1} className="btn-ghost btn-circle avatar btn">
               <div className="w-6 rounded-full">
                 <Image
                   src="https://placeimg.com/80/80/people"
@@ -49,7 +49,7 @@ const Header: React.FC<IHeaderProps> = () => {
             </label>
             <ul
               tabIndex={1}
-              className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
             >
               <li>
                 <NextLink href={"/profile"}>
@@ -71,7 +71,7 @@ const Header: React.FC<IHeaderProps> = () => {
             </ul>
           </button>
           <select
-            className="bg-transparent border-transparent focus:border-transparent focus:ring-0 bg-none indent-0 p-2"
+            className="border-transparent bg-transparent bg-none p-2 indent-0 focus:border-transparent focus:ring-0"
             data-choose-theme
           >
             <option value="light">🌞</option>

@@ -43,12 +43,12 @@ export const Button: React.FC<IButtonProps> = ({
       <button
         type={type}
         disabled={disabled}
-        className="w-full relative inline-block px-8 py-3 overflow-hidden border border-base-content group focus:outline-none"
+        className="group relative inline-block w-full overflow-hidden border border-base-content px-8 py-3 focus:outline-none"
       >
         <span
           className={`absolute ${inset} ${direction} ${
             inset === "inset-x-0" ? "h-[2px]" : "w-[2px]"
-          } transition-all bg-accent-focus ${
+          } bg-accent-focus transition-all ${
             inset === "inset-x-0" ? "group-hover:h-full" : "group-hover:w-full"
           } group-active:bg-accent-focus`}
         ></span>

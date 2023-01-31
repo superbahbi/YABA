@@ -82,10 +82,10 @@ export default function ResetPassword({ params }: { params: IParamsProps }) {
     return (
       <div className="flex flex-col">
         <div className="flex items-center justify-center">
-          <div className="flex items-center justify-center w-12 h-12 mb-4 bg-green-100 rounded-full">
+          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-green-500"
+              className="h-6 w-6 text-green-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -99,10 +99,10 @@ export default function ResetPassword({ params }: { params: IParamsProps }) {
             </svg>
           </div>
         </div>
-        <h2 className="flex items-center justify-center mb-4 text-3xl font-bold">
+        <h2 className="mb-4 flex items-center justify-center text-3xl font-bold">
           password reset
         </h2>
-        <p className="flex items-center justify-center mb-4 text-sm text-center">
+        <p className="mb-4 flex items-center justify-center text-center text-sm">
           your password has been reset. You can now login with your new
           password.
         </p>
@@ -123,7 +123,7 @@ export default function ResetPassword({ params }: { params: IParamsProps }) {
       <p className="mt-3 font-medium">
         in order to protect your account, make your password:
       </p>
-      <ul className="p-4 text-xs list-disc">
+      <ul className="list-disc p-4 text-xs">
         <li>is longer than 8 characters.</li>
       </ul>
       <form
@@ -150,7 +150,7 @@ export default function ResetPassword({ params }: { params: IParamsProps }) {
             <div role="status">
               <svg
                 aria-hidden="true"
-                className="mr-2 w-6 h-6 text-gray-200 animate-spin fill-accent"
+                className="mr-2 h-6 w-6 animate-spin fill-accent text-gray-200"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

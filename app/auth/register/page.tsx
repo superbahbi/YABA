@@ -73,13 +73,13 @@ export default function Register() {
       <p className="mt-3 font-medium">
         already using yaba?{" "}
         <NextLink href="/auth/login">
-          <span className="whitespace-nowrap font-semibold text-primary cursor-pointer">
+          <span className="cursor-pointer whitespace-nowrap font-semibold text-primary">
             login here
           </span>
         </NextLink>
       </p>
-      <div className="flex flex-col items-stretch mt-6">
-        <button className="flex items-center justify-center rounded-md border mt-4 px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-black hover:text-white focus:ring-2">
+      <div className="mt-6 flex flex-col items-stretch">
+        <button className="mt-4 flex items-center justify-center rounded-md border px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-black hover:text-white focus:ring-2">
           <IconGoogle />
           get started with Google
         </button>
@@ -136,7 +136,7 @@ export default function Register() {
           <span className="text-sm">
             i agree to the{" "}
             <NextLink href="/terms">
-              <span className="font-medium text-blue-500 underline cursor-pointer">
+              <span className="cursor-pointer font-medium text-blue-500 underline">
                 terms and conditions
               </span>
             </NextLink>
@@ -154,7 +154,7 @@ export default function Register() {
             <div role="status">
               <svg
                 aria-hidden="true"
-                className="mr-2 w-6 h-6 text-gray-200 animate-spin fill-accent"
+                className="mr-2 h-6 w-6 animate-spin fill-accent text-gray-200"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

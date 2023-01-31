@@ -4,10 +4,10 @@ import { ICardProps } from "../types/interface";
 const Card: React.FC<ICardProps> = ({ title, children }) => {
   return (
     <>
-      <div className="flex flex-col w-full">
-        <div className="shadow-lg rounded-lg overflow-hidden bg-base-200">
-          <div className="py-3 px-5 border-b-2 border-base-100">
-            <div className="text-primary text-lg font-semibold">
+      <div className="flex w-full flex-col">
+        <div className="overflow-hidden rounded-lg bg-base-200 shadow-lg">
+          <div className="border-b-2 border-base-100 py-3 px-5">
+            <div className="text-lg font-semibold text-primary">
               <h1>{title}</h1>
             </div>
           </div>

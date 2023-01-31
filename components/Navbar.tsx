@@ -32,8 +32,8 @@ const Navbar: React.FC<INavbarProps> = () => {
     IconSetting,
   ];
   return (
-    <div className="fixed z-1 top-16 overflow-x-hidden">
-      <ul className="menu rounded-box hidden md:block p-2 pt-4 md:px-3 lg:mr-6 lg:px-6 lg:w-58">
+    <div className="z-1 fixed top-16 overflow-x-hidden">
+      <ul className="lg:w-58 menu rounded-box hidden p-2 pt-4 md:block md:px-3 lg:mr-6 lg:px-6">
         {icons.map((Icon, index) => {
           return (
             <NextLink href={"/" + linkNames[index]} key={index}>

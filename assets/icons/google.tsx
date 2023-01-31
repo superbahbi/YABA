@@ -11,7 +11,7 @@ export const IconGoogle: ISvgIcon = ({
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 32 32"
     strokeWidth={strokeWidth}
-    className={`stroke-current ${strokeColor} w-5 h-5 mr-2`}
+    className={`stroke-current ${strokeColor} mr-2 h-5 w-5`}
     width={width}
     height={height}
   >
