@@ -20,7 +20,6 @@
     "argon2": "^0.30.3",
     "axios": "^1.4.0",
     "chart.js": "^4.3.0",
-    "daisyui": "^2.52.0",
     "dayjs": "^1.11.8",
     "express-validator": "^6.15.0",
     "file-loader": "^6.2.0",
