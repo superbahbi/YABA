@@ -1,25 +1,24 @@
-"use client";
 import "./globals.css";
-import "react-toastify/dist/ReactToastify.css";
-import ReactQueryProvider from "@/utils/ReactQueryProvider";
-import { ThemeProvider } from "next-themes";
+import { Inter } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 
-type Props = {
-  children: React.ReactNode;
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata = {
+  title: "yaba.",
+  description: "yet another budget app",
 };
-export default function RootLayout({ children }: Props) {
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
-      <head>
-        <title>yaba.</title>
-        <meta name="description" content="yet another budget app" />
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body>
-        <ThemeProvider>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }

@@ -1,7 +1,9 @@
 import { ISvgImage } from "@/types/interface";
 
 export const HeroImage: React.FunctionComponent<ISvgImage> = ({
-  strokeColor = "text-black-500",
+  strokeColor = "text-gray-800",
+}: {
+  strokeColor?: string;
 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
     <path
